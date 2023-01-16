@@ -1,0 +1,33 @@
+*{
+    border: 1px solid black;
+}
+
+body{
+    background: linear-gradient(180deg, rgba(233, 233, 233, 0.932292) 0%, #6BB0BF 100%);
+    ;
+}
+
+.gestionar{
+    width: 180px;
+    height: 50px;
+    background: #6BB0BF;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    color: white;
+}
+
+table{
+    width: 100%;
+}
+
+tr:nth-child(even){
+    background: #E2E2E2;
+}
+
+tr:nth-child(odd){
+    background: white;
+}
+
+tr td:first-child{
+    text-align: left;
+}
