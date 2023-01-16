@@ -1,19 +1,21 @@
-*{
+/* *{
     border: 1px solid black;
-}
+} */
 
 body{
     background: linear-gradient(180deg, rgba(233, 233, 233, 0.932292) 0%, #6BB0BF 100%);
-    ;
+    height: 80vh;
+    width: 100%;
 }
 
 .gestionar{
+    align-self: down;
     width: 180px;
     height: 50px;
     background: #6BB0BF;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
-    color: white;
+    color: black;
 }
 
 table{
@@ -31,3 +33,19 @@ tr:nth-child(odd){
 tr td:first-child{
     text-align: left;
 }
+
+.general{
+  height: 80vh;
+}
+
+.titulo{
+    font-family: "Archivo Black";
+    font-size: 40px;
+    text-align: center;
+}
+
+.sombra {
+    border: 1px solid #ccc;
+    height: 200px;
+    box-shadow: 7px 7px 15px #592A08; 
+  }
