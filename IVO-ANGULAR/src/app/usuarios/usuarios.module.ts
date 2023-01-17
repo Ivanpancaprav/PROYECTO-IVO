@@ -4,6 +4,7 @@ import { PerfilComponent } from './perfil/perfil.component';
 import { CitasComponent } from './citas/citas.component';
 import { PacientesComponent } from './pacientes/pacientes.component';
 import { HistorialComponent } from './historial/historial.component';
+import { CitapreviaComponent } from './citaprevia/citaprevia.component';
 
 
 
@@ -12,7 +13,8 @@ import { HistorialComponent } from './historial/historial.component';
     PerfilComponent,
     CitasComponent,
     PacientesComponent,
-    HistorialComponent
+    HistorialComponent,
+    CitapreviaComponent
   ],
   imports: [
     CommonModule
