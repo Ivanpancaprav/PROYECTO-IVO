@@ -5,7 +5,7 @@ import { CitasComponent } from './citas/citas.component';
 import { PacientesComponent } from './pacientes/pacientes.component';
 import { HistorialComponent } from './historial/historial.component';
 import { CitapreviaComponent } from './citaprevia/citaprevia.component';
-
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -17,7 +17,8 @@ import { CitapreviaComponent } from './citaprevia/citaprevia.component';
     CitapreviaComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ]
 })
 export class UsuariosModule { }

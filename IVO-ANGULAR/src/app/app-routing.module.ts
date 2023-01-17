@@ -10,11 +10,11 @@ const routes: Routes = [
     component: PerfilComponent
   },
   {
-    path:'usuarios/cita',
+    path:'citas',
     component: CitasComponent
   },
   {
-    path:'usuarios/citaprevia',
+    path:'citaprevia',
     component: CitapreviaComponent
   }
 ];
