@@ -1,42 +1,42 @@
-<body>
-    <div class="container-fluid">
-        <div class="row d-flex flex-column text-center general">
-            <div class="col  titulo">Mis citas</div>
-            <div class="col">
-                <div class="row justify-content-center" style="height: 5vh;">
-                    <div class="col-2" style="background-color: white;">Proximas citas</div>
-                    <div class="col-2" style="background-color: #6BB0BF;">Citas previas</div>
+<div class="container-fluid">
+        <div class="row d-flex flex-column general">
+            <div class="col titulo d-flex align-items-center justify-content-center">Mis citas</div>
+            <div class="col-x">
+                <div class="row justify-content-center" style="margin: 10px;">
+                    <div class="col-2 row"><a type="submit" class="btn btn-primary">Proximas citas</a></div>
+                    <div class="col-2 row"><a type="submit" class="btn btn-outline-primary" routerLink="/citaprevia">Citas previas</a></div>
                 </div>
             </div>
-            <div class="col d-flex">
-                <table class="sombra"> 
+            <div class="col">
+                <table class="table-responsive table-bordered">
+                  <thead class="thead">
                     <tr> 
                       <td>Servicio</td>
                       <td>Fecha</td>
                       <td>Hora</td>
                     </tr>
-                    <tr> 
-                      <td> Oncología  medica-Comun </td>
+                  </thead> 
+                    <tr style="cursor: pointer;"> 
+                      <td> Oncología Medica comun</td>
                       <td> 21/12/2022 </td>
                       <td> 9:40</td>
                     </tr>
-                    <tr> 
+                    <tr style="cursor: pointer;"> 
                       <td> Radiología </td>
                       <td> 21/12/2022</td>
                       <td> 10:30 </td>
                     </tr>
-                    <tr> 
+                    <tr style="cursor: pointer;"> 
                       <td> Oncología medica-Común </td>
                       <td> 21/12/2022 </td>
                       <td> 13:00 </td>
                     </tr>
                 </table>
             </div>
-            <div class="row justify-content-center">
-              <button class="gestionar" type="submit">Solicitar cita ❯</button>
+            <div class="col d-flex justify-content-center align-items-center ">
+              <button class="gestionar" type="submit" routerLink="/usuarios/solicitar">Solicitar cita ❯</button>
               <button class="gestionar" type="submit">Gestionar cita ❯</button>
             </div>
         </div>
     </div>
-    </body>
     
