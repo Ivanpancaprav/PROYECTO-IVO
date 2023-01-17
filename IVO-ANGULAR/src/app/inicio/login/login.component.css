@@ -1,0 +1,79 @@
+
+body {
+    background: url(/assets/img/fondo.jpg);
+    width: 100%;
+    height: 100vh;
+    background-size: 100% 100%;
+    opacity: 0.8;
+}
+
+
+.contenedor{
+    width: 45%;
+    height: 100vh;
+    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(60,199,252,1) 50%, rgba(0,212,255,1) 100%);
+}
+
+.logo {
+    width: 200px;
+    height: 200px;
+    border-radius: 15px;
+    background-size: 100% 100%;
+    filter: brightness(0%);
+}
+
+.login {
+    height: 47px;
+    font-family: "Archivo Black";
+    font-size: 40px;
+    text-align: center;
+    color: #000000;
+}
+
+.dni {
+    color: #000000;
+}
+
+.contra {
+    font-family: 'Inter';
+    font-size: 20px;
+    color: #000000;
+}
+
+a{
+    width: 239px;
+    height: 25px;
+    font-family: 'Inter';
+    font-size: 20px;
+    color: #266352;
+    text-decoration: none;
+
+}
+
+.acceder{
+    width: 150px;
+    height: 50px;
+    background: #266352;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    color: white;
+}
+
+.cuenta{
+    height: 25px;
+    font-family: 'Interger';
+    font-size: 20px;
+}
+
+.verde{
+    background-color: #266352;
+    width: 30px;
+    height: 30px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+
+input:invalid {
+    outline: 2px solid red;
+}
