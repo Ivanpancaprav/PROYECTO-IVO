@@ -1,10 +1,12 @@
 <div class="container-fluid">
-    <div class="row align-items-start">
-        <div class="col">
+    <div class="row">
+        <div class="col-6">
+          <br>
+          Observaciones
             <table class="table">
                 <thead>
                   <tr>
-                    <th scope="col">Observaciones</th>
+                    <th scope="col">Comentarios</th>
                     <th scope="col">Fecha</th>
                   </tr>
                 </thead>
@@ -20,31 +22,114 @@
                   </tr>
                 </tbody>
             </table>
-        </div>
-        <div class="col">
-            <table class="table table-bordered">
-                <thead class="thead">
-                  <tr> 
-                    <td>Servicio</td>
-                    <td>Fecha</td>
-                    <td>Hora</td>
-                  </tr>
-                </thead> 
-                  <tr> 
-                    <td> Oncología Medica comun</td>
-                    <td> 21/12/2022 </td>
-                    <td> 9:40</td>
-                  </tr>
-                  <tr> 
-                    <td> Radiología </td>
-                    <td> 21/12/2022</td>
-                    <td> 10:30 </td>
-                  </tr>
-                  <tr> 
-                    <td> Oncología medica-Común </td>
-                    <td> 21/12/2022 </td>
-                    <td> 13:00 </td>
-                  </tr>
-              </table>
-        </div>
+            <br>
+            Medicación suministrada
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Medicamento</th>
+                  <th>Dosis</th>
+                  <th>Hora</th>
+                  <th>Fecha</th>
+                  <th>Comentarios</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Acetaminofén</td>
+                  <td>500mg</td>
+                  <td>20:15</td>
+                  <td>21/11/22</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Acetaminofén</td>
+                  <td>500mg</td>
+                  <td>20:15</td>
+                  <td>21/11/22</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+            Progreso
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Comentarios</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Pepe Gil, dia 02/11/2022 esta progresando adecuadamente teniendo leves contusiones en el higado derecho.</td>
+                </tr>
+                <tr>
+                  <td>Pepe Gil, dia 02/11/2022 esta progresando adecuadamente teniendo leves contusiones en el higado derecho.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col-6" >
+            <br>
+            Radiografías
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle w-100" id="dropdownMenu2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Lesion de cubito
+              </button>
+              <div class="dropdown-menu">
+                <button class="dropdown text-muted d-flex">
+                      <div class="col-8">Se lesionó durante el partido del Madrid Barcelona después de ser duramente arroyado por un jugador del equipo contrario</div>
+                      <div class="col-4"><img src="https://media.tycsports.com/files/2021/09/21/334868/messi-lesion_1440x810_wmk.jpg" alt="Messi"></div>
+                </button>
+              </div>
+            </div>
+            <br>
+            Analíticas
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle w-100" id="dropdownMenu2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Analítica del 22/10/22
+              </button>
+              <div class="dropdown-menu">
+                <button class="dropdown text-muted d-flex">
+                  <div class="col-12">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th></th>
+                        <th>RESULTADO</th>
+                        <th>UNIDADES</th>
+                        <th>MIN-MAX</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Glucosa</td>
+                        <td>89</td>
+                        <td>mg/dl</td>
+                        <td>74-100</td>
+                      </tr>
+                      <tr>
+                        <td>Acido urico</td>
+                        <td>0.4</td>
+                        <td>mg/dl</td>
+                        <td>1-15</td>
+                      </tr>
+                      <tr>
+                        <td>Calcio</td>
+                        <td>23</td>
+                        <td>mg/dl</td>
+                        <td>14-34</td>
+                      </tr>
+                      <tr>
+                        <td>Hierro</td>
+                        <td>15.5</td>
+                        <td>mg/dl</td>
+                        <td>10-40</td>
+                      </tr>
+                    </tbody>
+                   </table>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
 </div>

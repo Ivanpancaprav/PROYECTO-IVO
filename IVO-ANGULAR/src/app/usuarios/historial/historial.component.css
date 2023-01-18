@@ -1,7 +1,18 @@
 *{
-    border: 1px solid black;
+    /* border: 1px solid black; */
+    font-weight: bold;
+    word-wrap: break-word;
 }
 
+body{
+    font-weight: bold;
+}
 table{
-border-top-color:black ;
+    background-color: #CED4DA;
+}
+
+img{
+    height: 100%;    
+    width: 100%;
+    display: block;
 }
