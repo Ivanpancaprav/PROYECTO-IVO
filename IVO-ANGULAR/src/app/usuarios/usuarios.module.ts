@@ -4,6 +4,9 @@ import { PerfilComponent } from './perfil/perfil.component';
 import { CitasComponent } from './citas/citas.component';
 import { PacientesComponent } from './pacientes/pacientes.component';
 import { HistorialComponent } from './historial/historial.component';
+<<<<<<< HEAD
+import { DataTablesModule } from "angular-datatables";
+=======
 import { CitapreviaComponent } from './citaprevia/citaprevia.component';
 import { RouterModule } from '@angular/router';
 import { SolicitarCitaComponent } from './solicitar-cita/solicitar-cita.component';
