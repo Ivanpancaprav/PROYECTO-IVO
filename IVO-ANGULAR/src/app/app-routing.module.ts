@@ -4,6 +4,7 @@ import { PerfilComponent } from './usuarios/perfil/perfil.component';
 import { CitasComponent } from './usuarios/citas/citas.component';
 import { CitapreviaComponent } from './usuarios/citaprevia/citaprevia.component';
 import { HistorialComponent } from './usuarios/historial/historial.component';
+import { SolicitarCitaComponent } from './usuarios/solicitar-cita/solicitar-cita.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path:'historial',
     component: HistorialComponent
+  },
+  {
+    path:'solicitar-cita',
+    component: SolicitarCitaComponent
   }
 ];
 
