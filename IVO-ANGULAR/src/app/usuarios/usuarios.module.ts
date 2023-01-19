@@ -8,6 +8,7 @@ import { CitapreviaComponent } from './citaprevia/citaprevia.component';
 import { RouterModule } from '@angular/router';
 import { SolicitarCitaComponent } from './solicitar-cita/solicitar-cita.component';
 import { ModificarCitaComponent } from './modificar-cita/modificar-cita.component';
+import { GestionarCitaMedComponent } from './gestionar-cita-med/gestionar-cita-med.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { ModificarCitaComponent } from './modificar-cita/modificar-cita.componen
     HistorialComponent,
     CitapreviaComponent,
     SolicitarCitaComponent,
-    ModificarCitaComponent
+    ModificarCitaComponent,
+    GestionarCitaMedComponent
   ],
   imports: [
     CommonModule,
