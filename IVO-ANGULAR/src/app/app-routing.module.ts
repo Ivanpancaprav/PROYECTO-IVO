@@ -6,6 +6,7 @@ import { PacientesComponent } from './usuarios/pacientes/pacientes.component';
 import { CitapreviaComponent } from './usuarios/citaprevia/citaprevia.component';
 import { SolicitarCitaComponent } from './usuarios/solicitar-cita/solicitar-cita.component';
 import { HistorialComponent } from './usuarios/historial/historial.component';
+import { ModificarCitaComponent } from './usuarios/modificar-cita/modificar-cita.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,11 @@ const routes: Routes = [
   {
     path:'historial',
     component: HistorialComponent
+  }
+  ,
+  {
+    path:'modificar-cita',
+    component: ModificarCitaComponent
   }
 ];
 
