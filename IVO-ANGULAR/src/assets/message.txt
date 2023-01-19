@@ -1,154 +1,157 @@
-class Calendar {
-    constructor(id) {
-        this.cells = [];
-        this.selectedDate = null;
-        this.currentMonth = moment();
-        this.elCalendar = document.getElementById(id);
-        this.showTemplate();
-        this.elGridBody = this.elCalendar.querySelector('.grid__body');
-        this.elMonthName = this.elCalendar.querySelector('.month-name');
-        this.showCells();
-    }
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+<script type="text/javascript" src="script.js"></script>
+<link rel="stylesheet" href="estilo.css">
 
-    showTemplate() {
-        this.elCalendar.innerHTML = this.getTemplate();
-        this.addEventListenerToControls();
-    }
+<!-- ====================
+INFORMACION
+==================== -->
+<div class="container text-center ">
+    <div class="row align-items-start">
+        <div class="col">
+            <div class="container">
+                <div class="card-deck mb-3 text-center">
+                    <div class="card mb-4 box-shadow">
 
-    getTemplate() {
-        let template = `
-            <div class="calendar__header">
-                <button type="button" class="control control--prev">&lt;</button>
-                <span class="month-name">dic 2019</span>
-                <button type="button" class="control control--next">&gt;</button>
-            </div>
-            <div class="calendar__body">
-                <div class="grid">
-                    <div class="grid__header">
-                        <span class="grid__cell grid__cell--gh">Lun</span>
-                        <span class="grid__cell grid__cell--gh">Mar</span>
-                        <span class="grid__cell grid__cell--gh">Mié</span>
-                        <span class="grid__cell grid__cell--gh">Jue</span>
-                        <span class="grid__cell grid__cell--gh">Vie</span>
-                        <span class="grid__cell grid__cell--gh">Sáb</span>
-                        <span class="grid__cell grid__cell--gh">Dom</span>
-                    </div>
-                    <div class="grid__body">
+                        <div class="card-body">
+                            <h1 class="card-title pricing-card-title">Pepito Garcia</small></h1>
+                            <div class="card-body">
+                                
+                                <ul class="list-unstyled mt-3 mb-4">
+                                    <table class="table">
 
+                                        <tbody>
+                                         
+                                            <tr>
+
+                                                <td><img class="add" src="img/social-group.png"></td>
+                                                <td>Radiologia Comun</td>
+
+                                            </tr>
+                                           
+
+                                        </tbody>
+                                    </table><br><br>
+                                    <table class="table">
+                                        <div class="card-header">
+                                            <h5 class="my-0 font-weight-normal">Ultima cita</h5>
+                                          </div>
+                                        <thead>
+                                            <tr>
+                                        
+                                              <th scope="col">Fecha</th>
+                                              <th scope="col">Hora</th>
+                                          
+                                       </tr>
+                                          </thead>
+                                        <tbody>
+                                            <tr>
+
+                                              
+
+                                                <td>10-03-2020</td>
+                                                <td>09:50</td>
+
+                                            </tr>
+                                       
+
+                                        </tbody>
+                                    </table>
+                                </ul> <br><div class="row">
+                                   <div class="card-body">
+                                    <h1 class="card-title pricing-card-title">Modificar CITA</small></h1>
+                                    <div class="card-body">
+                                  
+                                        <ul class="list-unstyled mt-3 mb-4">
+                                     
+                                         <div class="row">
+                                            <div class="col-md-12">
+                        
+                                                <form class="form-horizontal" method="post">
+                                                    <fieldset>
+                                                        <select class="form-select form-select-lg mb-3" aria-label="Ejemplo de .form-select-lg">
+                                                            <option selected>Selecciona una especialidad</option>
+                                                            <option value="1">Medico</option>
+                                                            <option value="2">Radiologo</option>
+                        
+                                                        </select>
+                        
+                                                        <select class="form-select form-select-lg mb-3" aria-label="Ejemplo de .form-select-lg" required>
+                                                            <option selected aria-required="true">Selecciona una hora disponible</option>
+                                                            <option value="1">12:00</option>
+                                                            <option value="2">13:00</option>
+                                                            <option value="1">14:00</option>
+                                                            <option value="2">15:00</option>
+                        
+                                                        </select>
+                                                   
+                                                    </fieldset>
+                                                </form>
+                                                
+                                            </div>
+                                        </div>
+        
+                                    </div>
+                                </div>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
+
             </div>
-        `;
-        return template;
-    }
+        </div>
 
-    addEventListenerToControls() {
-        let elControls = this.elCalendar.querySelectorAll('.control');
-        elControls.forEach(elControl => {
-            elControl.addEventListener('click', e => {
-                let elTarget = e.target;
-                if (elTarget.classList.contains('control--next')) {
-                    this.changeMonth(true);
-                } else {
-                    this.changeMonth(false);
-                }
-                this.showCells();
-            });
-        });
-    }
 
-    changeMonth(next = true) {
-        if (next) {
-            this.currentMonth.add(1, 'months');
-        } else {
-            this.currentMonth.subtract(1, 'months');
-        }
-    }
+        
+        <div class="col">
+            <div class="card-body">
+                <h1 class="card-title pricing-card-title">Selecciona día para una cita nueva</small></h1>
+               
+                <div class="card-body"><BR>
+            <div class="calendar" id="calendar"></div>
+            <!-- <div class="container">
+                <div class="row">
+                    <div class="col-md-7">
 
-    showCells() {
-        this.cells = this.generateDates(this.currentMonth);
-        if (this.cells === null) {
-            console.error('No fue posible generar las fechas del calendario.');
-            return;
-        }
+                        <form class="form-horizontal" method="post">
+                            <fieldset>
+                                <select class="form-select form-select-lg mb-3" aria-label="Ejemplo de .form-select-lg">
+                                    <option selected>Selecciona una especialidad</option>
+                                    <option value="1">Medico</option>
+                                    <option value="2">Radiologo</option>
 
-        this.elGridBody.innerHTML = '';
-        let templateCells = '';
-        let disabledClass = '';
-        for (let i = 0; i < this.cells.length; i++) {
-            disabledClass = '';
-            if (!this.cells[i].isInCurrentMonth) {
-                disabledClass = 'grid__cell--disabled';
-            }
-            // <span class="grid__cell grid__cell--gd grid__cell--selected">1</span>
-            templateCells += `
-                <span class="grid__cell grid__cell--gd ${disabledClass}" data-cell-id="${i}">
-                    ${this.cells[i].date.date()}
-                </span>
-            `;
-        }
-        this.elMonthName.innerHTML = this.currentMonth.format('MMM YYYY');
-        this.elGridBody.innerHTML = templateCells;
-        this.addEventListenerToCells();
-    }
+                                </select>
 
-    generateDates(monthToShow = moment()) {
-        if (!moment.isMoment(monthToShow)) {
-            return null;
-        }
-        let dateStart = moment(monthToShow).startOf('month');
-        let dateEnd = moment(monthToShow).endOf('month');
-        let cells = [];
+                                <select class="form-select form-select-lg mb-3" aria-label="Ejemplo de .form-select-lg">
+                                    <option selected>Selecciona una hora</option>
+                                    <option value="1">12:00</option>
+                                    <option value="2">13:00</option>
+                                    <option value="1">14:00</option>
+                                    <option value="2">15:00</option>
 
-        // Encontrar la primer fecha que se va a mostrar en el calendario
-        while (dateStart.day() !== 1) {
-            dateStart.subtract(1, 'days');
-        }
+                                </select>
+                           
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div> --><br> <button class="gestionar" type="submit" routerLink="/solicitar-cita">Confirma cambios❯</button>
+            <button class="gestionar" type="submit" routerLink="/solicitar-cita">Cancelar❯</button>
+        </div>
 
-        // Encontrar la última fecha que se va a mostrar en el calendario
-        while (dateEnd.day() !== 0) {
-            dateEnd.add(1, 'days');
-        }
+    </div>
+</div>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/es.js"></script>
 
-        // Genera las fechas del grid
-        do {
-            cells.push({
-                date: moment(dateStart),
-                isInCurrentMonth: dateStart.month() === monthToShow.month()
-            });
-            dateStart.add(1, 'days');
-        } while (dateStart.isSameOrBefore(dateEnd));
-
-        return cells;
-    }
-
-    addEventListenerToCells() {
-        let elCells = this.elCalendar.querySelectorAll('.grid__cell--gd');
-        elCells.forEach(elCell => {
-            elCell.addEventListener('click', e => {
-                let elTarget = e.target;
-                if (elTarget.classList.contains('grid__cell--disabled') || elTarget.classList.contains('grid__cell--selected')) {
-                    return;
-                }
-                // Deselecionar la celda anterior
-                let selectedCell = this.elGridBody.querySelector('.grid__cell--selected');
-                if (selectedCell) {
-                    selectedCell.classList.remove('grid__cell--selected');
-                }
-                // Selecionar la nueva celda
-                elTarget.classList.add('grid__cell--selected');
-                this.selectedDate = this.cells[parseInt(elTarget.dataset.cellId)].date;
-                // Lanzar evento change
-                this.elCalendar.dispatchEvent(new Event('change'));
-            });
-        });
-    }
-
-    getElement() {
-        return this.elCalendar;
-    }
-
-    value() {
-        return this.selectedDate;
-    }
-}
+<script type="text/javascript">
+    let calendar = new Calendar('calendar');
+    calendar.getElement().addEventListener('change', e => {
+        console.log(calendar.value().format('LLL'));
+    });
+</script>
