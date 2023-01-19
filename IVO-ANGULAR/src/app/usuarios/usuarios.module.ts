@@ -6,7 +6,14 @@ import { PacientesComponent } from './pacientes/pacientes.component';
 import { HistorialComponent } from './historial/historial.component';
 import { CitapreviaComponent } from './citaprevia/citaprevia.component';
 import { RouterModule } from '@angular/router';
+<<<<<<< HEAD
 import { DataTablesModule } from 'angular-datatables';
+=======
+import { SolicitarCitaComponent } from './solicitar-cita/solicitar-cita.component';
+import { ModificarCitaComponent } from './modificar-cita/modificar-cita.component';
+
+
+>>>>>>> 1f744a4360c18dd54da65145dd5fd9b7f90c4d1d
 @NgModule({
   declarations: [
     PerfilComponent,
@@ -14,12 +21,21 @@ import { DataTablesModule } from 'angular-datatables';
     PacientesComponent,
     HistorialComponent,
     CitapreviaComponent,
+<<<<<<< HEAD
     
   ],
   imports: [
     CommonModule,
     RouterModule,
     DataTablesModule
+=======
+    SolicitarCitaComponent,
+    ModificarCitaComponent
+  ],
+  imports: [
+    CommonModule,
+    RouterModule
+>>>>>>> 1f744a4360c18dd54da65145dd5fd9b7f90c4d1d
   ]
 })
 export class UsuariosModule { }

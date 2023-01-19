@@ -1,0 +1,26 @@
+*{
+    border: 1px solid black;
+    font-weight: bold;
+    word-wrap: break-word;
+}
+
+body{
+    font-weight: bold;
+}
+table{
+    background-color: #CED4DA;
+
+}
+
+img{
+    height: 100%;    
+    min-width: 100%;
+    display: block;
+}
+
+.my-custom-scrollbar {
+overflow: auto;
+}
+.table-wrapper-scroll-y {
+display: block;
+}
