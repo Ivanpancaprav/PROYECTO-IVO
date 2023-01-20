@@ -1,12 +1,9 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PerfilComponent } from './usuarios/perfil/perfil.component';
 import { CitasComponent } from './usuarios/citas/citas.component';
-import { PacientesComponent } from './usuarios/pacientes/pacientes.component';
 import { CitapreviaComponent } from './usuarios/citaprevia/citaprevia.component';
-import { SolicitarCitaComponent } from './usuarios/solicitar-cita/solicitar-cita.component';
-import { HistorialComponent } from './usuarios/historial/historial.component';
-import { ModificarCitaComponent } from './usuarios/modificar-cita/modificar-cita.component';
+import { PacientesComponent } from './usuarios/pacientes/pacientes.component';
 import { GestionarCitaMedComponent } from './usuarios/gestionar-cita-med/gestionar-cita-med.component';
 
 const routes: Routes = [
@@ -17,26 +14,14 @@ const routes: Routes = [
   {
     path:'citas',
     component: CitasComponent
-  },{
-    path:'pacientes',
-    component: PacientesComponent
   },
   {
     path:'citaprevia',
     component: CitapreviaComponent
   },
   {
-    path:'solicitar-cita',
-    component: SolicitarCitaComponent
-  },
-  {
-    path:'historial',
-    component: HistorialComponent
-  }
-  ,
-  {
-    path:'modificar-cita',
-    component: ModificarCitaComponent
+    path:'pacientes',
+    component: PacientesComponent
   },
   {
     path:'gestionar-cita-med',
