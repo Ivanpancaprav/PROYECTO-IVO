@@ -7,6 +7,7 @@ import { CitapreviaComponent } from './usuarios/citaprevia/citaprevia.component'
 import { SolicitarCitaComponent } from './usuarios/solicitar-cita/solicitar-cita.component';
 import { HistorialComponent } from './usuarios/historial/historial.component';
 import { ModificarCitaComponent } from './usuarios/modificar-cita/modificar-cita.component';
+import { GestionarCitaMedComponent } from './usuarios/gestionar-cita-med/gestionar-cita-med.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path:'modificar-cita',
     component: ModificarCitaComponent
+  },
+  {
+    path:'gestionar-cita-med',
+    component: GestionarCitaMedComponent
   }
 ];
 
