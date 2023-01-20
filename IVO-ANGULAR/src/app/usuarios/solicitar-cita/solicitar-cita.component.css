@@ -93,7 +93,10 @@
     width: 180px;
     height: 50px;
     background: #6BB0BF;
-    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.205);
     border-radius: 20px;
     color: black;
+    border-color: #6BB0BF;
+    border-width: 1px;
+    border-style: solid;
 }

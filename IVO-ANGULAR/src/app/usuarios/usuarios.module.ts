@@ -11,6 +11,7 @@ import { DataTablesModule } from 'angular-datatables';
 =======
 import { SolicitarCitaComponent } from './solicitar-cita/solicitar-cita.component';
 import { ModificarCitaComponent } from './modificar-cita/modificar-cita.component';
+import { GestionarCitaMedComponent } from './gestionar-cita-med/gestionar-cita-med.component';
 
 
 >>>>>>> 1f744a4360c18dd54da65145dd5fd9b7f90c4d1d
@@ -30,7 +31,8 @@ import { ModificarCitaComponent } from './modificar-cita/modificar-cita.componen
     DataTablesModule
 =======
     SolicitarCitaComponent,
-    ModificarCitaComponent
+    ModificarCitaComponent,
+    GestionarCitaMedComponent
   ],
   imports: [
     CommonModule,

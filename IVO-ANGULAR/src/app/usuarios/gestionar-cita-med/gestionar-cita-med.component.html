@@ -1,0 +1,154 @@
+<div class="container py-5 h-100">
+            <div class="row d-flex justify-content-start align-items-start h-100">
+<!-- =====================
+    COLUMNA DERECHA
+===================== -->
+              <div class="col-md-12 col-xl-4">
+        
+<br>
+                
+                <div class="card" style="border-radius: 15px;">
+                  <div class="card-body text-center">
+                    <div class="mt-3 mb-4">
+                      <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava2-bg.webp"
+                        class="rounded-circle img-fluid" style="width: 100px;" />
+                    </div>
+                   
+                        <div style="background-color: white; text-align: center;">DATOS PERSONALES</div>
+                        <br>
+                        <table class="table caption-top">
+                            <tbody>
+                              <tr>
+                                <th>Nombre</th>
+                                <td>Mark</td>
+                              </tr>
+                              <tr>
+                                <th>Apellidos</th>
+                                <td>Jacob</td>
+                              </tr>
+                              <tr>
+                                <th>Edad</th>
+                                <td>56</td>
+                              </tr>
+                
+                              <tr>
+                                <th>DNI</th>
+                                <td>29216450D</td>
+                              </tr>
+                
+                              <tr>
+                                <th>Direccion</th>
+                                <td>C/ Av. Aragon</td>
+                              </tr>
+                
+                             
+                            </tbody>
+                          </table>
+                      </div>
+                  </div>
+                
+        
+     <br><br>
+
+     <!-- ========
+        BOTONES
+     ======== -->
+
+        <button type="button" class="btn btn-default btn-lg gestionar" routerLink="/citas">Confirmar ></button>  &nbsp;
+        <button type="button" class="btn btn-default btn-lg gestionar"routerLink="/citas" >Cancelar ></button>
+      </div>
+
+ <!-- =====================
+       COLUMNA IZQUIERDA
+     ================== -->
+
+      <div class="col"><br>
+        
+        <div class="card-body"> 
+   
+              <div class="card-deck mb-3 text-center">
+                  <div class="card mb-4 box-shadow">
+
+                      <div class="card-body">
+                          <h1 class="card-title pricing-card-title"></h1>
+                          <div class="card-body">
+                              
+                              <ul class="list-unstyled">
+                                
+                                  <div class="card-header">
+                                      <h5 class="my-0 font-weight-normal"><small>Gestionar</small></h5>
+                                  </div>
+                                  <table class="table">
+                                      <thead>
+                                          <tr>
+                                      
+                                            <th scope="col">Fecha</th>
+                                            <th scope="col">Hora</th>
+                                        
+                                     </tr>
+                                        </thead>
+                                      <tbody>
+                                          <tr>
+
+                                            
+
+                                              <td>10-03-2020</td>
+                                              <td>09:50</td>
+
+                                          </tr>
+                                     
+
+                                      </tbody>
+                                  </table>
+                              </ul> <div class="row">
+                                 <div class="card-body">
+                                
+                                
+                                       <div class="row">
+                                          <div class="col-md-12">
+                                              <form class="form-horizontal" method="post">
+                                                  <fieldset>
+                                                      <select class="form-select form-select-lg mb-4" aria-label="Ejemplo de .form-select-lg">
+                                                          <option selected>Selecciona una especialidad</option>
+                                                          <option value="1">Medico</option>
+                                                          <option value="2">Radiologo</option>
+                      
+                                                      </select>
+                      
+                                                      <select class="form-select form-select-lg" aria-label="Ejemplo de .form-select-lg" required>
+                                                          <option selected aria-required="true">Selecciona una hora disponible</option>
+                                                          <option value="1">12:00</option>
+                                                          <option value="2">13:00</option>
+                                                          <option value="1">14:00</option>
+                                                          <option value="2">15:00</option>
+                      
+                                                      </select>
+                                                 
+                                                  </fieldset>
+                                              </form>
+                                              
+                                          </div>
+                                      </div>
+     
+                              </div>
+                              </div> <br> <div class="calendar" id="calendar"></div>
+
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+      </div>
+      </div>
+     
+    </div>
+  </div>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/es.js"></script>
+
+<script type="text/javascript">
+    let calendar = new Calendar('calendar');
+    calendar.getElement().addEventListener('change', e => {
+        console.log(calendar.value().format('LLL'));
+    });
+</script>
