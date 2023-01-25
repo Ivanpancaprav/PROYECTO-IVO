@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    {{ $paciente->name ?? 'Show Paciente' }}
+    {{ $medico->name ?? 'Show medico' }}
 @endsection
 
 @section('content')
@@ -11,26 +11,26 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Show Paciente</span>
+                            <span class="card-title">Show medico</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('pacientes.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('medicos.index') }}"> Back</a>
                         </div>
                     </div>
 
                     <div class="card-body">
                         
                         <div class="form-group">
-                            <strong>Dni Paciente:</strong>
-                            {{ $paciente->dni_paciente }}
+                            <strong>Dni medico:</strong>
+                            {{ $medico->dni_medico }}
                         </div>
                         <div class="form-group">
                             <strong>N Seguridad Social:</strong>
-                            {{ $paciente->n_seguridad_social }}
+                            {{ $medico->n_seguridad_social }}
                         </div>
                         <div class="form-group">
                             <strong>N Historial Clinico:</strong>
-                            {{ $paciente->n_historial_clinico }}
+                            {{ $medico->n_historial_clinico }}
                         </div>
 
                     </div>

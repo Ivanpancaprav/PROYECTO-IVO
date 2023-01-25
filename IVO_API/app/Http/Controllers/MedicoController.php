@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\Medico;
 
 class MedicoController extends Controller
 {
@@ -21,8 +23,9 @@ class MedicoController extends Controller
      */
     public function create()
     {
-        $emdico = new Medico();
-        return view('medico.create', compact('medico'));
+        $medico = new Medico();
+        $user = new User();
+        return view('medico.create', compact('medico','user'));
     }
 
     /**
@@ -33,9 +36,10 @@ class MedicoController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Medico::$rules);
-
+        $user = User::create($request->all());
+        request()->validate(User::$rules);
         $medico = medico::create($request->all());
+        request()->validate(medico::$rules);
 
         return redirect()->route('medicos.index')
             ->with('success', 'medico created successfully.');
@@ -49,7 +53,7 @@ class MedicoController extends Controller
      */
     public function show($dni){
     
-        $medico =(object) medico::whereDni_medico($dni)->get()->toArray()[0];
+        $medico =(object) Medico::whereDni_medico($dni)->get()->toArray()[0];
        
         return view('medico.show', compact('medico'));
        
@@ -63,7 +67,7 @@ class MedicoController extends Controller
      */
     public function edit($dni)
     {
-        $medico =(object) medico::whereDni_medico($dni)->get()->toArray()[0];
+        $medico =(object) Medico::whereDni_medico($dni)->get()->toArray()[0];
         return view('medico.edit', compact('medico'));
     }
 
@@ -82,7 +86,7 @@ class MedicoController extends Controller
             'n_historial_clinico' =>'required',
         ]);
 
-        medico::whereDni_medico($request->dni_medico)->update($validacion);
+        Medico::whereDni_medico($request->dni_medico)->update($validacion);
                 return redirect()->route('medicos.index')
             ->with('success', 'User updated successfully');
     
@@ -95,7 +99,7 @@ class MedicoController extends Controller
      */
     public function destroy($dni)
     {
-        $medico = medico::where('dni_medico',$dni)->delete();
+        $medico = Medico::where('dni_medico',$dni)->delete();
 
         return redirect()->route('medicos.index')
             ->with('success', 'medico deleted successfully');
@@ -103,7 +107,7 @@ class MedicoController extends Controller
 
     public function ver_medicos(){
 
-        $medicos = medico::paginate();
+        $medicos = Medico::paginate();
         $usuarios = User::all();
 
         return view('medico.index', compact('medicos','usuarios'))
