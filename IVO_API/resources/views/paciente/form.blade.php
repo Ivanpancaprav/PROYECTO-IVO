@@ -4,6 +4,9 @@
                     <script>
                         $(function (){   
 
+                           let val1= $('#dni').val();
+                            $('#dni_paciente').val(val1);
+
                             $('#dni').on('keyup', function(){
                            let val =  $(this).val();
                             console.log(val);
