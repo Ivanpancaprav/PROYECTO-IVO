@@ -19,7 +19,7 @@
                         <form method="POST" action="{{ route('pacientes.update', $paciente->dni_paciente) }}"  role="form" enctype="multipart/form-data">
                             {{ method_field('PATCH') }}
                             @csrf
-
+                            
                             @include('paciente.form')
 
                         </form>

@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  * Class Radiologo
  * 
  * @property string $dni_radiologo
+ * @property string $especialidad
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * 
@@ -25,6 +26,10 @@ class Radiologo extends Model
 	protected $table = 'radiologos';
 	protected $primaryKey = 'dni_radiologo';
 	public $incrementing = false;
+
+	protected $fillable = [
+		'especialidad'
+	];
 
 	public function user()
 	{
