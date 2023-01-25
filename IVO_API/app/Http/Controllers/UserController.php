@@ -47,7 +47,6 @@ class UserController extends Controller
         
         $user = User::create($request->all());
 
-        
         return redirect()->route('users.index')
             ->with('success', 'User created successfully.');
     }
@@ -100,6 +99,7 @@ class UserController extends Controller
         ]);
 
         User::whereDni($request->dni)->update($validacion);
+        
                 return redirect()->route('users.index')
             ->with('success', 'User updated successfully');
     }

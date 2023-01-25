@@ -14,10 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('medicos', function (Blueprint $table) {
-            $table->string("dni_medico",9)->primary();
-            $table->foreign("dni_medico")->references("dni")->on("users");
+            $table->string("dni_medico",9)->primary();            $table->foreign("dni_medico")->references("dni")->on("users");
             $table->timestamps();
-        
     
             //ATRIBUTOS DEL MEDICO
             $table->string('n_colegiado')->nullable();

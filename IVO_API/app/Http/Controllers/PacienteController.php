@@ -33,7 +33,8 @@ class PacienteController extends Controller
     public function create()
     {
         $paciente = new Paciente();
-        return view('paciente.create', compact('paciente'));
+        $user = new User();
+        return view('paciente.create', compact('paciente','user'));
     }
 
     /**
@@ -44,9 +45,10 @@ class PacienteController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Paciente::$rules);
-
+        $user = User::create($request->all());
+        request()->validate(User::$rules);
         $paciente = Paciente::create($request->all());
+        request()->validate(Paciente::$rules);
 
         return redirect()->route('pacientes.index')
             ->with('success', 'Paciente created successfully.');
@@ -65,7 +67,6 @@ class PacienteController extends Controller
         return view('paciente.show', compact('paciente'));
        
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -74,8 +75,9 @@ class PacienteController extends Controller
      */
     public function edit($dni)
     {
+        $user =(object) User::whereDni($dni)->get()->toArray()[0];
         $paciente =(object) Paciente::whereDni_paciente($dni)->get()->toArray()[0];
-        return view('paciente.edit', compact('paciente'));
+        return view('paciente.edit', compact('paciente','user'));
     }
 
     /**
@@ -110,15 +112,5 @@ class PacienteController extends Controller
 
         return redirect()->route('pacientes.index')
             ->with('success', 'Paciente deleted successfully');
-    }
-
-    public function ver_pacientes(){
-
-        $pacientes = Paciente::paginate();
-        $usuarios = User::all();
-
-        return view('paciente.index', compact('pacientes','usuarios'))
-            ->with('i', (request()->input('page', 1) - 1) * $pacientes->perPage());
-
     }
 }
