@@ -21,3 +21,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::get('/pacientes',[ApiController::class,'mostrarPacientes']);
+
+Route::get('/perfil{dni}',[ApiController::class,'mostrarPerfil']);
