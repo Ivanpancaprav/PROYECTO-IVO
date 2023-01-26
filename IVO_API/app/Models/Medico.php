@@ -27,31 +27,35 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Medico extends Model
 {
-	protected $table = 'medicos';
-	protected $primaryKey = 'dni_medico';
-	public $incrementing = false;
+	static $rules = [
+		'dni_medico' => 'required',
+		'n_colegiado' => 'required',
+    ];
+
+	protected $perPage = 20;
 
 	protected $fillable = [
+		'dni_medico',
 		'n_colegiado'
 	];
 
 	public function user()
 	{
-		return $this->belongsTo(User::class, 'dni_medico');
+        return $this->hasOne('App\Models\User', 'dni', 'dni_medico');
 	}
 
 	public function gestion_historias()
 	{
-		return $this->hasMany(GestionHistoria::class, 'dni_medico');
+		return $this->hasMany('App\Models\GestionHistoria', 'dni_paciente', 'dni_paciente');
 	}
 
 	public function historias_clinicas()
 	{
-		return $this->hasMany(HistoriasClinica::class, 'dni_medico');
+		return $this->hasMany('App\Models\HistoriasClinica', 'dni_paciente', 'dni_paciente');
 	}
 
 	public function medicamentos_recetados()
 	{
-		return $this->hasMany(MedicamentosRecetado::class, 'dni_medico');
+		return $this->hasMany('App\Models\Medicamento', 'dni_paciente', 'dni_paciente');
 	}
 }

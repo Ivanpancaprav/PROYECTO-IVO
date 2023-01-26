@@ -29,8 +29,40 @@
                             {{ $paciente->n_seguridad_social }}
                         </div>
                         <div class="form-group">
-                            <strong>N Historial Clinico:</strong>
+                            <strong>N Historial Clínico:</strong>
                             {{ $paciente->n_historial_clinico }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Nombre:</strong>
+                            {{ $user->nombre }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Apellido1:</strong>
+                            {{ $user->apellido1 }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Apellido2:</strong>
+                            {{ $user->apellido2 }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Direccion:</strong>
+                            {{ $user->direccion }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Email:</strong>
+                            {{ $user->email }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Sexo:</strong>
+                            {{ $user->sexo }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Role:</strong>
+                            {{ $user->role }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Fecha Nacimiento:</strong>
+                            {{ $user->fecha_nacimiento }}
                         </div>
 
                     </div>

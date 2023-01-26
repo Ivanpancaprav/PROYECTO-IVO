@@ -4,6 +4,9 @@
                     <script>
                         $(function (){   
 
+                           let val1= $('#dni').val();
+                            $('#dni_paciente').val(val1);
+
                             $('#dni').on('keyup', function(){
                            let val =  $(this).val();
                             console.log(val);
@@ -84,7 +87,6 @@
         </div>
         <div class="form-group">
             <input hidden="text" value="" name="dni_paciente" id="dni_paciente">                                        
-
             {{-- {{ Form::text('dni_paciente', $paciente->dni_paciente, ['class' => 'form-control' . ($errors->has('dni_paciente') ? ' is-invalid' : ''),'id' =>'dni_paciente','name'=>'dni_paciente', 'placeholder' => 'Dni paciente' , 'disabled']) }} --}}
             {!! $errors->first('n_seguridad_social', '<div class="invalid-feedback">:message</div>') !!}
         </div>
@@ -112,4 +114,4 @@
     @if (session('success'))
     swal("Buen Trabajo!", "{{ session('success') }}", "success");
     @endif
-    </script>
+</script>
