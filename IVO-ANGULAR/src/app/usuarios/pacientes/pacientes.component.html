@@ -1,71 +1,80 @@
-<table datatable class="row-border hover">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>First name</th>
-      <th>Last name</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1</td>
-      <td>Foo</td>
-      <td>Bar</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>Someone</td>
-      <td>Youknow</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>Iamout</td>
-      <td>Ofinspiration</td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td>Yoda</td>
-      <td>Skywalker</td>
-    </tr>
-    <tr>
-      <td>5</td>
-      <td>Patrick</td>
-      <td>Dupont</td>
-    </tr>
-    <tr>
-      <td>6</td>
-      <td>Barack</td>
-      <td>Obama</td>
-    </tr>
-    <tr>
-      <td>7</td>
-      <td>François</td>
-      <td>Holland</td>
-    </tr>
-    <tr>
-      <td>8</td>
-      <td>Michel</td>
-      <td>Popo</td>
-    </tr>
-    <tr>
-      <td>9</td>
-      <td>Chuck</td>
-      <td>Norris</td>
-    </tr>
-    <tr>
-      <td>10</td>
-      <td>Simon</td>
-      <td>Robin</td>
-    </tr>
-    <tr>
-      <td>11</td>
-      <td>Louis</td>
-      <td>Lin</td>
-    </tr>
-    <tr>
-      <td>12</td>
-      <td>Zelda</td>
-      <td>Link</td>
-    </tr>
-  </tbody>
-</table>
+
+
+<html>
+	<head>
+		<link href="//datatables.net/download/build/nightly/jquery.dataTables.css" rel="stylesheet" type="text/css" />
+  
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script src="//datatables.net/download/build/nightly/jquery.dataTables.js"></script>
+        
+        
+        <script>
+            $(document).ready(function() {
+                var myTable = $('#example').DataTable( {
+                    "ajax": "/ajax/objects.txt",
+                    "columns": [
+                        { "data": "name" },
+                        { "data": "position" },
+                        { "data": "office" },
+                        { "data": "extn" },
+                        { "data": "start_date" },
+                        { "data": "salary" }
+                    ]
+                } );
+              
+              $('button').on('click', function () {
+                myTable.ajax.reload(function(json){ console.log(json)});
+              });
+            } );
+             </script>
+		<meta charset=utf-8 />
+		<title>DataTables - JS Bin</title>
+	</head>
+
+
+    <style>
+        body {
+	font: 90%/1.45em "Helvetica Neue", HelveticaNeue, Verdana, Arial, Helvetica, sans-serif;
+	margin: 0;
+	padding: 0;
+	color: #333;
+	background-color: #fff;
+}
+
+
+div.container {
+	min-width: 980px;
+	margin: 0 auto;
+}
+
+
+    </style>
+	<body>
+		<div class="container">
+          <button>Reload</button>
+			<table id="example" class="display" width="100%">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Position</th>
+						<th>Office</th>
+						<th>Age</th>
+						<th>Start date</th>
+						<th>Salary</th>
+					</tr>
+				</thead>
+
+				<tfoot>
+					<tr>
+						<th>Name</th>
+						<th>Position</th>
+						<th>Office</th>
+						<th>Age</th>
+						<th>Start date</th>
+						<th>Salary</th>
+					</tr>
+				</tfoot>
+			</table>
+		</div>
+	</body>
+</html>
