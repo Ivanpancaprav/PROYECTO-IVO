@@ -63,8 +63,9 @@ class PacienteController extends Controller
     public function show($dni){
     
         $paciente =(object) Paciente::whereDni_paciente($dni)->get()->toArray()[0];
+        $user =(object) User::whereDni($dni)->get()->toArray()[0];
        
-        return view('paciente.show', compact('paciente'));
+        return view('paciente.show', compact('paciente','user'));
        
     }
     /**
@@ -90,14 +91,27 @@ class PacienteController extends Controller
     public function update(Request $request)
     {
         $validacion = $request->validate([
+            'dni' => 'required',
+            'nombre' =>'required',
+            'apellido1' =>'required',
+            'apellido2' =>'required',
+            'direccion' =>'required',
+            'email' =>'required',
+            'sexo' =>'required',
+            'password' =>'required',
+            'role' =>'required',
+            'fecha_nacimiento' =>'required',
+        ]);
+        $validacion2 = $request->validate([
             'dni_paciente' => 'required',
             'n_seguridad_social' =>'required',
             'n_historial_clinico' =>'required',
         ]);
 
-        Paciente::whereDni_paciente($request->dni_paciente)->update($validacion);
-                return redirect()->route('pacientes.index')
-            ->with('success', 'User updated successfully');
+        User::whereDni($validacion['dni'])->update($validacion);
+        Paciente::whereDni_paciente($validacion2["dni_paciente"])->update($validacion2);
+        
+        return redirect()->route('pacientes.index')->with('success', 'User updated successfully');
     
     }
 
@@ -108,7 +122,7 @@ class PacienteController extends Controller
      */
     public function destroy($dni)
     {
-        $paciente = Paciente::where('dni_paciente',$dni)->delete();
+        $paciente = User::where('dni',$dni)->delete();
 
         return redirect()->route('pacientes.index')
             ->with('success', 'Paciente deleted successfully');
