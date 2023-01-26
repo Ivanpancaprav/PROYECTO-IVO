@@ -38,8 +38,8 @@ class MedicoController extends Controller
     {
         $user = User::create($request->all());
         request()->validate(User::$rules);
-        $medico = medico::create($request->all());
-        request()->validate(medico::$rules);
+        $medico = Medico::create($request->all());
+        request()->validate(Medico::$rules);
 
         return redirect()->route('medicos.index')
             ->with('success', 'medico created successfully.');
@@ -67,8 +67,9 @@ class MedicoController extends Controller
      */
     public function edit($dni)
     {
+        $user =(object) User::whereDni($dni)->get()->toArray()[0];
         $medico =(object) Medico::whereDni_medico($dni)->get()->toArray()[0];
-        return view('medico.edit', compact('medico'));
+        return view('medico.edit', compact('medico','user'));
     }
 
     /**
@@ -82,8 +83,7 @@ class MedicoController extends Controller
     {
         $validacion = $request->validate([
             'dni_medico' => 'required',
-            'n_seguridad_social' =>'required',
-            'n_historial_clinico' =>'required',
+            'n_colegiado' =>'required',
         ]);
 
         Medico::whereDni_medico($request->dni_medico)->update($validacion);
