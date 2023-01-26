@@ -21,6 +21,8 @@ return new class extends Migration
             $table->text('descripcion');
             $table->string("dni_paciente",9);
             $table->foreign('dni_paciente')->references('dni_paciente')->on('pacientes');
+            $table->string("dni_medico",9);
+            $table->foreign('dni_medico')->references('dni_medico')->on('medicos');
         
 
         });
