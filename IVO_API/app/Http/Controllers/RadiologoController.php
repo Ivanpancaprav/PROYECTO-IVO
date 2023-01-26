@@ -78,8 +78,9 @@ class RadiologoController extends Controller
     public function show($dni){
     
         $radiologo =(object) Radiologo::whereDni_radiologo($dni)->get()->toArray()[0];
-       
+        $user =(object) User::whereDni($dni)->get()->toArray()[0];
         return view('radiologo.show', compact('radiologo'));
+        
        
     }
     /**
@@ -113,8 +114,7 @@ class RadiologoController extends Controller
     {
         $validacion = $request->validate([
             'dni_radiologo' => 'required',
-            'n_seguridad_social' =>'required',
-            'n_historial_clinico' =>'required',
+            'especialidad' =>'especialidad'
         ]);
 
         Radiologo::whereDni_radiologo($request->dni_radiologo)->update($validacion);

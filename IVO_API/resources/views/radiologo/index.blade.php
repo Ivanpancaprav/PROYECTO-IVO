@@ -36,8 +36,8 @@
                                     <tr>
                                         <th>ID</th>
 										<th>Dni radiologo</th>
+                                        <th>Especialidad</th>
 										
-
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -47,7 +47,7 @@
                                             <td>{{ ++$i }}</td>
                                 
 											<td>{{ $radiologo->dni_radiologo }}</td>
-									
+                                            <td>{{ $radiologo->especialidad }}</td>
 
                                             <td>
                                                 <form action="{{ route('radiologo.destroy',$radiologo->dni_radiologo) }}" method="POST">

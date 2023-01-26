@@ -80,9 +80,6 @@
                     <input type="hidden" value="medico" name="role">                                        
                     {!! $errors->first('role', '<div class="invalid-feedback">:message</div>') !!}
                 </div>
-            
-            </div>
-        </div>
         <div class="form-group">
             <input hidden="text" value="" name="dni_medico" id="dni_medico">                                        
             {{-- {{ Form::text('dni_medico', $medico->dni_medico, ['class' => 'form-control' . ($errors->has('dni_medico') ? ' is-invalid' : ''),'id' =>'dni_medico','name'=>'dni_medico', 'placeholder' => 'Dni medico' , 'disabled']) }} --}}
@@ -92,6 +89,9 @@
             {{ Form::label('n_colegiado') }}
             {{ Form::text('n_colegiado', $medico->n_colegiado, ['class' => 'form-control' . ($errors->has('n_colegiado') ? ' is-invalid' : ''), 'placeholder' => 'N Seguridad Social']) }}
             {!! $errors->first('n_colegiado', '<div class="invalid-feedback">:message</div>') !!}
+        </div>
+            
+            </div>
         </div>
 
     </div>
