@@ -53,9 +53,10 @@ class MedicoController extends Controller
      */
     public function show($dni){
     
-        $medico =(object) Medico::whereDni_medico($dni)->get()->toArray()[0];
+        $medico =(object) medico::whereDni_medico($dni)->get()->toArray()[0];
+        $user =(object) User::whereDni($dni)->get()->toArray()[0];
        
-        return view('medico.show', compact('medico'));
+        return view('medico.show', compact('medico','user'));
        
     }
 

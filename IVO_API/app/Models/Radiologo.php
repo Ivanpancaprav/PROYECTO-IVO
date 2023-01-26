@@ -27,6 +27,12 @@ class Radiologo extends Model
 	protected $primaryKey = 'dni_radiologo';
 	public $incrementing = false;
 
+	static $rules = [
+		'especialidad' => 'required',
+	    ];
+
+    protected $perPage = 20;
+
 	protected $fillable = [
 		'especialidad'
 	];
