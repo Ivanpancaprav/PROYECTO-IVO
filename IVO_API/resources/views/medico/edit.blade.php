@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Update medico
+    Update Medico
 @endsection
 
 @section('content')
@@ -13,7 +13,7 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">Update medico</span>
+                        <span class="card-title">Update Medico</span>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('medicos.update', $medico->dni_medico) }}"  role="form" enctype="multipart/form-data">

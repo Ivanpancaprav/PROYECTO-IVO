@@ -82,13 +82,27 @@ class MedicoController extends Controller
     public function update(Request $request)
     {
         $validacion = $request->validate([
+            'dni' => 'required',
+            'nombre' =>'required',
+            'apellido1' =>'required',
+            'apellido2' =>'required',
+            'direccion' =>'required',
+            'email' =>'required',
+            'sexo' =>'required',
+            'password' =>'required',
+            'role' =>'required',
+            'fecha_nacimiento' =>'required',
+        ]);
+
+        $validacion2 = $request->validate([
             'dni_medico' => 'required',
             'n_colegiado' =>'required',
         ]);
 
-        Medico::whereDni_medico($request->dni_medico)->update($validacion);
-                return redirect()->route('medicos.index')
-            ->with('success', 'User updated successfully');
+        User::whereDni($validacion['dni'])->update($validacion);
+        Medico::whereDni_medico($validacion2["dni_medico"])->update($validacion2);
+        
+        return redirect()->route('medicos.index')->with('success', 'User updated successfully');
     
     }
 
@@ -99,7 +113,7 @@ class MedicoController extends Controller
      */
     public function destroy($dni)
     {
-        $medico = Medico::where('dni_medico',$dni)->delete();
+        $medico = User::where('dni',$dni)->delete();
 
         return redirect()->route('medicos.index')
             ->with('success', 'medico deleted successfully');

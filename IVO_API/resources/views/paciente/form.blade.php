@@ -114,4 +114,4 @@
     @if (session('success'))
     swal("Buen Trabajo!", "{{ session('success') }}", "success");
     @endif
-    </script>
+</script>

@@ -25,14 +25,10 @@
                             {{ $medico->dni_medico }}
                         </div>
                         <div class="form-group">
-                            <strong>N Seguridad Social:</strong>
-                            {{ $medico->n_seguridad_social }}
+                            <strong>N Colegiado:</strong>
+                            {{ $medico->n_colegiado }}
                         </div>
-                        <div class="form-group">
-                            <strong>N Historial Clinico:</strong>
-                            {{ $medico->n_historial_clinico }}
-                        </div>
-
+                        
                     </div>
                 </div>
             </div>
