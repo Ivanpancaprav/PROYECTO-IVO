@@ -5,6 +5,7 @@ use App\Http\Controllers\adminController;
 use App\Http\Controllers\PacienteController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MedicoController;
+use App\Http\Controllers\RadiologoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,11 +65,15 @@ Route::resource('users', UserController::class);
 
 //*****RUTAS PACIENTES *****//
 
-Route::resource('pacientes', PacienteController::class);
+ Route::resource('pacientes', PacienteController::class);
 
 //*****RUTAS MEDICOS *****//
 
 Route::resource('medicos', MedicoController::class);
+
+//*****RUTAS RADIOLOGOS *****//
+
+Route::resource('radiologo', RadiologoController::class);
 
 // Route::resource('crea_usuario', UserController::class);
 // Route::post('/guardar_usuario',[UserController::class,'store'])->name('store');
