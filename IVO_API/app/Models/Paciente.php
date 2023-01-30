@@ -36,7 +36,11 @@ class Paciente extends Model
      *
      * @var array
      */
-    protected $fillable = ['dni_paciente','n_seguridad_social','n_historial_clinico'];
+    protected $fillable = [
+        'dni_paciente',
+    'n_seguridad_social',
+    'n_historial_clinico',
+    ];
 
 
     /**

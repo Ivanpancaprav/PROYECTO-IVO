@@ -6,8 +6,6 @@
 
 namespace App\Models;
 
-use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -27,13 +25,17 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Medico extends Model
 {
+	protected $primaryKey = 'dni_medico';
+
 	static $rules = [
+		'dni_medico' => 'required',
 		'n_colegiado' => 'required',
     ];
 
 	protected $perPage = 20;
 
 	protected $fillable = [
+		'dni_medico',
 		'n_colegiado'
 	];
 

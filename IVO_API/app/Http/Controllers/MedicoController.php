@@ -100,8 +100,9 @@ class MedicoController extends Controller
             'n_colegiado' =>'required',
         ]);
 
-        User::whereDni($request["dni_antiguo"])->update($validacion);
-        Medico::whereDni_medico($request["dni_antiguo"])->update($validacion2);
+        $dni_antiguo = $request['dni_antiguo'];
+        User::whereDni($dni_antiguo)->update($validacion);
+        Medico::whereDni_medico($dni_antiguo)->update($validacion2);
         
         return redirect()->route('medicos.index')->with('success', 'Medico updated successfully');
     

@@ -31,11 +31,7 @@ use Illuminate\Database\Eloquent\Model;
 class User extends Model
 {
     protected $primaryKey = 'dni';
-<<<<<<< HEAD
-
-=======
     
->>>>>>> 34b77d603baaf4d8c4061c31f20323cbdc5fd343
     static $rules = [
 		'dni' => 'required',
 		'nombre' => 'required',
