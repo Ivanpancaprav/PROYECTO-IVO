@@ -28,14 +28,12 @@ use Illuminate\Database\Eloquent\Model;
 class Medico extends Model
 {
 	static $rules = [
-		'dni_medico' => 'required',
 		'n_colegiado' => 'required',
     ];
 
 	protected $perPage = 20;
 
 	protected $fillable = [
-		'dni_medico',
 		'n_colegiado'
 	];
 

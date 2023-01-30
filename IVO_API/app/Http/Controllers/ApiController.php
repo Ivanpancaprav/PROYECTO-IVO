@@ -21,8 +21,9 @@ public function mostrarPacientes(){
 public function mostrarPerfil(){
 
     $users = User::all();
-    $medicos = DB::select('SELECT * FROM users ,medicos where medicos.dni_medico = users.dni');
-    return $medicos;
+    $usuarios = DB::select('SELECT * FROM users where users.dni');
+    return $usuarios;
 }
 
 }
+ 

@@ -5,11 +5,12 @@
                         $(function (){   
 
                             $('#dni_medico').val($('#dni').val());
-
+                            $('#dni_antiguo').val($('#dni').val());
                             $('#dni').on('keyup', function(){
                            let val =  $(this).val();
                             console.log(val);
                             $('#dni_medico').val(val);
+                            
                         });
                     });
                        
@@ -80,6 +81,18 @@
                     <input type="hidden" value="medico" name="role">                                        
                     {!! $errors->first('role', '<div class="invalid-feedback">:message</div>') !!}
                 </div>
+
+                <div class="form-group">
+                    <input type="hidden" id="dni_antiguo" name="dni_antiguo">                                        
+                    {!! $errors->first('role', '<div class="invalid-feedback">:message</div>') !!}
+                </div>
+                
+                <div class="form-group">
+            <input hidden="text" value="" name="dni_antiguo" id="dni_antiguo">                                        
+            {{-- {{ Form::text('dni_antiguo', $medico->dni_antiguo, ['class' => 'form-control' . ($errors->has('dni_antiguo') ? ' is-invalid' : ''),'id' =>'dni_antiguo','name'=>'dni_antiguo', 'placeholder' => 'Dni antiguo' , 'disabled']) }} --}}
+            {!! $errors->first('dni_antiguo', '<div class="invalid-feedback">:message</div>') !!}
+        </div>
+
         <div class="form-group">
             <input hidden="text" value="" name="dni_medico" id="dni_medico">                                        
             {{-- {{ Form::text('dni_medico', $medico->dni_medico, ['class' => 'form-control' . ($errors->has('dni_medico') ? ' is-invalid' : ''),'id' =>'dni_medico','name'=>'dni_medico', 'placeholder' => 'Dni medico' , 'disabled']) }} --}}

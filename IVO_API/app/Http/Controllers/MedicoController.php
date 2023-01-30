@@ -97,13 +97,13 @@ class MedicoController extends Controller
 
         $validacion2 = $request->validate([
             'dni_medico' => 'required',
-            'n_colegiado' =>'required | digit',
+            'n_colegiado' =>'required',
         ]);
 
-        User::whereDni($validacion['dni'])->update($validacion);
-        Medico::whereDni_medico($validacion2["dni_medico"])->update($validacion2);
+        User::whereDni($request["dni_antiguo"])->update($validacion);
+        Medico::whereDni_medico($request["dni_antiguo"])->update($validacion2);
         
-        return redirect()->route('medicos.index')->with('success', 'User updated successfully');
+        return redirect()->route('medicos.index')->with('success', 'Medico updated successfully');
     
     }
 
