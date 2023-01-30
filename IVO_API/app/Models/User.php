@@ -30,17 +30,14 @@ use Illuminate\Database\Eloquent\Model;
  */
 class User extends Model
 {
-<<<<<<< HEAD
-=======
     
->>>>>>> 8f8a487c7fc1c3234fa361ac1d604d562c1a7b5a
     
     static $rules = [
 		'dni' => 'required',
 		'nombre' => 'required',
 		'apellido1' => 'required',
-		'direccion' => 'required',
-        'password' =>'required',
+		'direccion' => 'required','email', 'max:255', 'unique:users',
+        'password' =>'required','min:8',
 		'email' => 'required',
 		'sexo' => 'required',
 		'role' => 'required',

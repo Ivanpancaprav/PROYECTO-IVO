@@ -5,7 +5,6 @@
  */
 
 namespace App\Models;
-
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
@@ -23,9 +22,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Radiologo extends Model
 {
-	protected $table = 'radiologos';
 
-	public $incrementing = false;
 
 	static $rules = [
 		'especialidad' => 'required',
