@@ -24,7 +24,7 @@ use Illuminate\Database\Eloquent\Model;
 class Radiologo extends Model
 {
 	protected $table = 'radiologos';
-	protected $primaryKey = 'dni_radiologo';
+
 	public $incrementing = false;
 
 	static $rules = [
@@ -43,6 +43,7 @@ class Radiologo extends Model
 	{
 
 		return $this->hasOne('App\Models\User', 'dni', 'dni_radiologo');
+
 
 	}
 }

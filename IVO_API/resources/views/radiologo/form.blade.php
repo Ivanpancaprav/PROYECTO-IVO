@@ -3,14 +3,15 @@
 
          <script>
              $(function() {
-                 $('#dni_radiologo').val($('#dni').val());
-                 $('#dni_antiguo').val($('#dni').val());
-                 console.log($('#dni_radiologo').val());
 
-                 $('#dni').on('keyup', function() {
-                     let val = $(this).val();
-                     $('#dni_radiologo').val(val);
-                     console.log($('#dni_radiologo').val());
+                     let val1= $('#dni').val();
+                            $('#dni_antiguo').val(val1);
+                            $('#dni_radiologo').val(val1);
+
+                            $('#dni').on('keyup', function(){
+                           let val =  $(this).val();
+                            console.log(val);
+                            $('#dni_radiologo').val(val);
                  });
              });
          </script>

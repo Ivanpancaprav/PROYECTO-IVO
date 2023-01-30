@@ -113,16 +113,18 @@ class RadiologoController extends Controller
             'role' =>'required',
             'fecha_nacimiento' =>'required',
         ]);
+       // dump($validacion);
         $validacion2 = $request->validate([
-            'dni_radiologo' => 'required',
             'especialidad' =>'required',
         ]);
+
+       // dd($validacion2);
        
-       // dd($request['dni_antiguo']);
+      //  dd($request);
         
         User::whereDni($request['dni_antiguo'])->update($validacion);
      
-        Radiologo::whereDni_radiologo($request['dni_antiguo'])->update($validacion2);
+        Radiologo::whereDni_radiologo($request['dni'])->update($validacion2);
         
         return redirect()->route('radiologo.index')->with('success', 'Radiologo updated successfully');
     
