@@ -72,8 +72,8 @@ class MedicoController extends Controller
      */
     public function edit($dni)
     {
-        $user =(object) User::whereDni($dni)->get()->toArray()[0];
         $medico =(object) Medico::whereDni_medico($dni)->get()->toArray()[0];
+        $user =(object) User::whereDni($dni)->get()->toArray()[0];
         return view('medico.edit', compact('medico','user'));
     }
 
@@ -100,14 +100,15 @@ class MedicoController extends Controller
         ]);
 
         $validacion2 = $request->validate([
-            'dni_medico' => 'required',
-            'n_colegiado' =>'required | digit',
+            'n_colegiado' =>'required',
         ]);
 
-        User::whereDni($validacion['dni'])->update($validacion);
-        Medico::whereDni_medico($validacion2["dni_medico"])->update($validacion2);
+        $dni_antiguo = $request['dni_antiguo'];
+
+        User::whereDni($dni_antiguo)->update($validacion);
+        Medico::whereDni_medico($validacion['dni'])->update($validacion2);
         
-        return redirect()->route('medicos.index')->with('success', 'User updated successfully');
+        return redirect()->route('medicos.index')->with('success', 'Medico updated successfully');
     
     }
 
