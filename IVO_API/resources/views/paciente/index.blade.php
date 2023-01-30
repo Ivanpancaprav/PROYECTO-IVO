@@ -48,14 +48,15 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             <td>{{ $paciente->user->nombre }}</td>
-											<td>{{ $paciente->dni_paciente }}</td>
+                                            
+											<td>{{ $paciente->user->dni }}</td>
 											<td>{{ $paciente->n_seguridad_social }}</td>
 											<td>{{ $paciente->n_historial_clinico }}</td>
 
                                             <td>
                                                 <form action="{{ route('pacientes.destroy',$paciente->dni_paciente) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('pacientes.show',$paciente->dni_paciente) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('pacientes.edit',$paciente->dni_paciente) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('pacientes.show',$paciente->user->dni) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('pacientes.edit',$paciente->user->dni) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>

@@ -61,7 +61,7 @@ class PacienteController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($dni){
-    
+
         $paciente =(object) Paciente::whereDni_paciente($dni)->get()->toArray()[0];
         $user =(object) User::whereDni($dni)->get()->toArray()[0];
        
@@ -76,8 +76,9 @@ class PacienteController extends Controller
      */
     public function edit($dni)
     {
-        $user =(object) User::whereDni($dni)->get()->toArray()[0];
         $paciente =(object) Paciente::whereDni_paciente($dni)->get()->toArray()[0];
+        $user =(object) User::whereDni($dni)->get()->toArray()[0];
+
         return view('paciente.edit', compact('paciente','user'));
     }
 
@@ -103,7 +104,6 @@ class PacienteController extends Controller
             'fecha_nacimiento' =>'required',
         ]);
         $validacion2 = $request->validate([
-            'dni_paciente' => 'required',
             'n_seguridad_social' =>'required',
             'n_historial_clinico' =>'required',
         ]);
@@ -111,7 +111,7 @@ class PacienteController extends Controller
         $dni_antiguo = $request['dni_antiguo'];
         
         User::whereDni($dni_antiguo)->update($validacion);
-        Paciente::whereDni_paciente($dni_antiguo)->update($validacion2);
+        Paciente::whereDni_paciente($validacion['dni'])->update($validacion2);
         
         return redirect()->route('pacientes.index')->with('success', 'User updated successfully');
     

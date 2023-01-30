@@ -30,6 +30,10 @@ use Illuminate\Database\Eloquent\Model;
  */
 class User extends Model
 {
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 8f8a487c7fc1c3234fa361ac1d604d562c1a7b5a
     
     static $rules = [
 		'dni' => 'required',
