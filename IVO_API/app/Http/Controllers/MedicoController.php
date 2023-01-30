@@ -87,21 +87,21 @@ class MedicoController extends Controller
     public function update(Request $request)
     {
         $validacion = $request->validate([
-            'dni' => 'required',
+            'dni' => 'required | max:9 |  min:9',
             'nombre' =>'required',
             'apellido1' =>'required',
             'apellido2' =>'required',
             'direccion' =>'required',
-            'email' =>'required',
+            'email' =>'required | email',
             'sexo' =>'required',
-            'password' =>'required',
+            'password' =>'required | min:8',
             'role' =>'required',
             'fecha_nacimiento' =>'required',
         ]);
 
         $validacion2 = $request->validate([
             'dni_medico' => 'required',
-            'n_colegiado' =>'required',
+            'n_colegiado' =>'required | digit',
         ]);
 
         User::whereDni($validacion['dni'])->update($validacion);

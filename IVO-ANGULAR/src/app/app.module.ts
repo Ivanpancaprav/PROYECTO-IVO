@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { DataTablesModule } from "angular-datatables";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 import { UsuariosModule } from './usuarios/usuarios.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DataTablesModule } from "angular-datatables";
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +19,9 @@ import { UsuariosModule } from './usuarios/usuarios.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    DataTablesModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    DataTablesModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

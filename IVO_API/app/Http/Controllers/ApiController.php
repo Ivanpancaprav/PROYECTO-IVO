@@ -18,4 +18,11 @@ public function mostrarPacientes(){
     return $pacientes;
 }
 
+public function mostrarPerfil(){
+
+    $users = User::all();
+    $medicos = DB::select('SELECT * FROM users ,medicos where medicos.dni_medico = users.dni');
+    return $medicos;
+}
+
 }

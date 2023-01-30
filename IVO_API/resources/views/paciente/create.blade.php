@@ -7,11 +7,11 @@
 @section('content')
     <section class="content container-fluid">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12 d-flex justify-content-center">
 
                 @includeif('partials.errors')
 
-                <div class="card card-default">
+                <div class="card card-default col-6">
                     <div class="card-header">
                         <span class="card-title">Create Paciente</span>
                     </div>
