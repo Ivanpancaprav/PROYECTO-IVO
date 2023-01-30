@@ -5,6 +5,7 @@
                         $(function (){   
 
                            let val1= $('#dni').val();
+                            $('#dni_antiguo').val(val1);
                             $('#dni_paciente').val(val1);
 
                             $('#dni').on('keyup', function(){
@@ -86,7 +87,10 @@
             </div>
         </div>
         <div class="form-group">
-            <input hidden="text" value="" name="dni_paciente" id="dni_paciente">                                        
+            <input hidden="text" value="" name="dni_paciente" id="dni_paciente">     
+
+            {{-- DNI ANTIGUO --}}
+            <input hidden="text" value="" name="dni_antiguo" id="dni_antiguo">                                                        
             {{-- {{ Form::text('dni_paciente', $paciente->dni_paciente, ['class' => 'form-control' . ($errors->has('dni_paciente') ? ' is-invalid' : ''),'id' =>'dni_paciente','name'=>'dni_paciente', 'placeholder' => 'Dni paciente' , 'disabled']) }} --}}
             {!! $errors->first('n_seguridad_social', '<div class="invalid-feedback">:message</div>') !!}
         </div>

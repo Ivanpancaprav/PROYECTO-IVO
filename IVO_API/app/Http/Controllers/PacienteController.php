@@ -108,8 +108,10 @@ class PacienteController extends Controller
             'n_historial_clinico' =>'required',
         ]);
 
-        User::whereDni($validacion['dni'])->update($validacion);
-        Paciente::whereDni_paciente($validacion2["dni_paciente"])->update($validacion2);
+        $dni_antiguo = $request['dni_antiguo'];
+        
+        User::whereDni($dni_antiguo)->update($validacion);
+        Paciente::whereDni_paciente($dni_antiguo)->update($validacion2);
         
         return redirect()->route('pacientes.index')->with('success', 'User updated successfully');
     

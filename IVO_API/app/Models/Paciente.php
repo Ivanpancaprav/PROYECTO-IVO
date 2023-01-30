@@ -20,7 +20,8 @@ use Illuminate\Database\Eloquent\Model;
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
 class Paciente extends Model
-{
+{   
+    protected $primaryKey = 'dni_paciente';
     
     static $rules = [
 		'dni_paciente' => 'required',
