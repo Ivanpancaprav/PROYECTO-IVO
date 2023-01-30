@@ -21,10 +21,9 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Paciente extends Model
 {   
-    protected $primaryKey = 'dni_paciente';
+
     
     static $rules = [
-		'dni_paciente' => 'required',
 		'n_seguridad_social' => 'required',
 		'n_historial_clinico' => 'required',
     ];
@@ -36,7 +35,7 @@ class Paciente extends Model
      *
      * @var array
      */
-    protected $fillable = ['dni_paciente','n_seguridad_social','n_historial_clinico'];
+    protected $fillable = ['n_seguridad_social','n_historial_clinico'];
 
 
     /**
