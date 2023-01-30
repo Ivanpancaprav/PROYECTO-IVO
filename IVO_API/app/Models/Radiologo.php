@@ -29,16 +29,20 @@ class Radiologo extends Model
 
 	static $rules = [
 		'especialidad' => 'required',
+		'dni_radiologo' => 'required',
 	    ];
 
     protected $perPage = 20;
 
 	protected $fillable = [
-		'especialidad'
+		'especialidad',
+		'dni_radiologo'
 	];
 
 	public function user()
 	{
-		return $this->belongsTo(User::class, 'dni_radiologo');
+
+		return $this->hasOne('App\Models\User', 'dni', 'dni_radiologo');
+
 	}
 }

@@ -41,6 +41,10 @@ class MedicoController extends Controller
         $medico = Medico::create($request->all());
         request()->validate(Medico::$rules);
 
+
+        dump($user);
+
+        dd($medico);
         return redirect()->route('medicos.index')
             ->with('success', 'medico created successfully.');
     }

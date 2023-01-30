@@ -16,17 +16,11 @@ class RadiologoController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-
-
 /**Mostrar los datos */
-
-
 
     public function index()
     {
         $radiologos = Radiologo::paginate(); //Asocia la base de datos a una variable
-
-       
 
         return view('radiologo.index', compact('radiologos'))  //esta llamando a la variable para mostrar los datos 
             ->with('i', (request()->input('page', 1) - 1) * $radiologos->perPage());
@@ -52,11 +46,7 @@ class RadiologoController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-
-
 /**LA MEJOR FORMA DE INSERTAR DATOS ya que se hace la comprobación de los campos obligatorios para que no hagan inyeccion y luego inserta. */
-
-
 
     public function store(Request $request)
     {
@@ -65,6 +55,8 @@ class RadiologoController extends Controller
         $radiologo = Radiologo::create($request->all());
         request()->validate(Radiologo::$rules);
 
+        
+        // dump($user);
         return redirect()->route('radiologo.index')
             ->with('success', 'radiologo created successfully.');
     }
@@ -79,7 +71,7 @@ class RadiologoController extends Controller
     
         $radiologo =(object) Radiologo::whereDni_radiologo($dni)->get()->toArray()[0];
         $user =(object) User::whereDni($dni)->get()->toArray()[0];
-        return view('radiologo.show', compact('radiologo'));
+        return view('radiologo.show', compact('radiologo', 'user'));
         
        
     }
@@ -104,22 +96,35 @@ class RadiologoController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-
-
 /**En el controlador para almacenar datos ya Actualizados */
-
-
 
     public function update(Request $request)
     {
+       // dd($request);
         $validacion = $request->validate([
-            'dni_radiologo' => 'required',
-            'especialidad' =>'especialidad'
+            'dni' => 'required',
+            'nombre' =>'required',
+            'apellido1' =>'required',
+            'apellido2' =>'required',
+            'direccion' =>'required',
+            'email' =>'required',
+            'sexo' =>'required',
+            'password' =>'required',
+            'role' =>'required',
+            'fecha_nacimiento' =>'required',
         ]);
-
-        Radiologo::whereDni_radiologo($request->dni_radiologo)->update($validacion);
-                return redirect()->route('radiologo.index')
-            ->with('success', 'User updated successfully');
+        $validacion2 = $request->validate([
+            'dni_radiologo' => 'required',
+            'especialidad' =>'required',
+        ]);
+       
+       // dd($request['dni_antiguo']);
+        
+        User::whereDni($request['dni_antiguo'])->update($validacion);
+     
+        Radiologo::whereDni_radiologo($request['dni_antiguo'])->update($validacion2);
+        
+        return redirect()->route('radiologo.index')->with('success', 'Radiologo updated successfully');
     
     }
 
@@ -129,11 +134,7 @@ class RadiologoController extends Controller
      * @throws \Exception
      */
 
-
-
 /**Controlador para borrar */
-
-
 
     public function destroy($dni)
     {
