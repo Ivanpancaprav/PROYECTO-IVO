@@ -30,7 +30,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class User extends Model
 {
-    protected $primaryKey = 'dni';
+    
     
     static $rules = [
 		'dni' => 'required',

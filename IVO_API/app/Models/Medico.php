@@ -25,8 +25,6 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Medico extends Model
 {
-	protected $primaryKey = 'dni_medico';
-
 	static $rules = [
 		'dni_medico' => 'required',
 		'n_colegiado' => 'required',
