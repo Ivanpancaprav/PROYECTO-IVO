@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { UsuariosServiceService } from '../usuarios-service.service';
+import { Paciente } from 'src/app/models/paciente.model';
 import  {HttpClient, HttpHeaders, HttpResponse} from '@angular/common/http'
 
 @Component({
@@ -8,45 +9,24 @@ import  {HttpClient, HttpHeaders, HttpResponse} from '@angular/common/http'
   styleUrls: ['./pacientes.component.css'],
 })
 export class PacientesComponent implements OnInit  {
-  public pacientes: any;
-  public mensajeErr: string;
-  public dataTable: any;
-  dtOptions: DataTables.Settings = {};
-
-  constructor(private usuarios_service:UsuariosServiceService, private Http: HttpClient){
-    this.mensajeErr ='';
-  }
+   pacientes?: Paciente[];
+ 
+  
+  constructor(private usuarios_service:UsuariosServiceService){}
   // FUNCION QUE NOS DEVUELVE EL RESULTADO DEL SERVICIO GET PACIENTES,
   // O SEA, TODOS LOS PACIENTES
-  obtenerPacientes() {
-
-    this.usuarios_service.getPacientes().subscribe(
-
-      result =>{
-        this.pacientes = result;
-
-        //AQUI HACEMOS SINCRONO
-        // const table: any = $('table');
-        // this.dataTable = table.DataTable();
-      },
-      error =>{
-        this.mensajeErr ="";
-        if(error instanceof ErrorEvent){
-          this.mensajeErr = error.error.message;
-
-        }else if(error.status == 404){
-          this.mensajeErr ="Error 404"
-
-        }else{
-          this.mensajeErr ="Error status: "+error.status;
-        }
-      }
-    );
-    }
-
+  
     ngOnInit(): void {
       this.obtenerPacientes();
     }
 
+    obtenerPacientes(): void {
+
+      this.usuarios_service.getPacientes().subscribe({next: (data) =>{this.pacientes = data; console.log(data);
+        
+      },
+      error: (e) => console.error(e)})
+
+    }
 
 }
