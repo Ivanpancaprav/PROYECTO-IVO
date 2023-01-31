@@ -14,7 +14,8 @@ export class UsuariosServiceService {
   public url: string;
 
   constructor(private Http: HttpClient) {
-    this.url ="http://localhost/api/pacientes";
+    // this.url ="http://localhost/api/pacientes";
+    this.url = "http://test-api.jtarrega.es/api/empleados";
    }
 
    getPacientes(){

@@ -18,11 +18,11 @@ public function mostrarPacientes(){
     return $pacientes;
 }
 
-public function mostrarPerfil(){
+public function mostrarPerfil(Request $request){
 
-    $users = User::all();
-    $usuarios = DB::select('SELECT * FROM users where users.dni');
-    return $usuarios;
+    $users =(object) User::whereDni($request->dni)->get()->toArray()[0];
+    return $users;
+
 }
 
 }

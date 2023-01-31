@@ -38,8 +38,19 @@ class User extends Model
 		'dni' => 'required',
 		'nombre' => 'required',
 		'apellido1' => 'required',
+<<<<<<< HEAD
 		'direccion' => 'required',
         'password' =>'required',
+=======
+<<<<<<< HEAD
+		'direccion' => 'required',
+		'foto' => 'required',
+        'password' =>'required',
+=======
+		'direccion' => 'required','email', 'max:255', 'unique:users',
+        'password' =>'required','min:8',
+>>>>>>> 6a5442801c7db84886630e8e61b02d765d66c72e
+>>>>>>> feaa5899e4c229e56d8b6a4a59d6055d8104a655
 		'email' => 'required',
 		'sexo' => 'required',
 		'role' => 'required',
@@ -53,7 +64,7 @@ class User extends Model
      *
      * @var array
      */
-    protected $fillable = ['dni','nombre','apellido1','apellido2','direccion','password','email','sexo','role','fecha_nacimiento'];
+    protected $fillable = ['dni','nombre','apellido1','apellido2','direccion','foto', 'password','email','sexo','role','fecha_nacimiento'];
 
 
     /**

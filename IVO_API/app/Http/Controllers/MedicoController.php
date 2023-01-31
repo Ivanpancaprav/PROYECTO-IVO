@@ -134,4 +134,16 @@ class MedicoController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * $medicos->perPage());
 
     }
+
+    public function isValidNif($nif)
+   {
+      $nifRegEx = '/^[0-9]{8}[A-Z]$/i';
+      $letras = "TRWAGMYFPDXBNJZSQVHLCKE";
+
+      if (preg_match($nifRegEx, $nif)) {
+         return ($letras[(substr($nif, 0, 8) % 23)] == $nif[8]);
+      }
+
+      return false;
+   }
 }

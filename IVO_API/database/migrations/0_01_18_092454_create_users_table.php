@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('apellido1',50);
             $table->string('apellido2',50)->nullable();
             $table->string('direccion',150);
+            $table->string('foto',150);
             $table->string('email',150)->unique();
-
             $table->timestamp('email_verified_at')->nullable();
             $table->enum('sexo',array('femenino','masculino'));
             $table->enum('role',array('paciente','radiologo','medico','administrador'));
