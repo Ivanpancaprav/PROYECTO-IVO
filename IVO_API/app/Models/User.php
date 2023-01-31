@@ -28,6 +28,8 @@ use Illuminate\Database\Eloquent\Model;
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
+
+ 
 class User extends Model
 {
     
@@ -36,8 +38,8 @@ class User extends Model
 		'dni' => 'required',
 		'nombre' => 'required',
 		'apellido1' => 'required',
-		'direccion' => 'required','email', 'max:255', 'unique:users',
-        'password' =>'required','min:8',
+		'direccion' => 'required',
+        'password' =>'required',
 		'email' => 'required',
 		'sexo' => 'required',
 		'role' => 'required',

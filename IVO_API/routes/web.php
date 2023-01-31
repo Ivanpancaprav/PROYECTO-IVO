@@ -6,6 +6,7 @@ use App\Http\Controllers\PacienteController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MedicoController;
 use App\Http\Controllers\RadiologoController;
+use App\Http\Controllers\PedirCitaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -74,6 +75,10 @@ Route::resource('medicos', MedicoController::class);
 //*****RUTAS RADIOLOGOS *****//
 
 Route::resource('radiologo', RadiologoController::class);
+
+//*****RUTAS CREAR CITAS *****//
+
+Route::resource('cita', PedirCitaController::class);
 
 // Route::resource('crea_usuario', UserController::class);
 // Route::post('/guardar_usuario',[UserController::class,'store'])->name('store');
