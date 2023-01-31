@@ -15,10 +15,14 @@ export class UsuariosServiceService {
 
   constructor(private Http: HttpClient) {
     // this.url ="http://localhost/api/pacientes";
-    this.url = "http://test-api.jtarrega.es/api/empleados";
+    this.url ="http://localhost/api/";
    }
 
    getPacientes(){
       return this.Http.get(this.url);
    }
+
+   getPerfil(){
+    return this.Http.get(this.url+'perfil/29216450X');
+ }
 }

@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UsuariosModule } from './usuarios/usuarios.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DataTablesModule } from "angular-datatables";
+
 @NgModule({
   declarations: [
     AppComponent,
