@@ -5,7 +5,6 @@
  */
 
 namespace App\Models;
-
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
@@ -23,22 +22,25 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Radiologo extends Model
 {
-	protected $table = 'radiologos';
-	protected $primaryKey = 'dni_radiologo';
-	public $incrementing = false;
+
 
 	static $rules = [
 		'especialidad' => 'required',
+		'dni_radiologo' => 'required',
 	    ];
 
     protected $perPage = 20;
 
 	protected $fillable = [
-		'especialidad'
+		'especialidad',
+		'dni_radiologo'
 	];
 
 	public function user()
 	{
-		return $this->belongsTo(User::class, 'dni_radiologo');
+
+		return $this->hasOne('App\Models\User', 'dni', 'dni_radiologo');
+
+
 	}
 }

@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('email',150)->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->enum('sexo',array('femenino','masculino'));
-            $table->enum('role',array('paciente','padiologo','medico','administrador'));
+            $table->enum('role',array('paciente','radiologo','medico','administrador'));
             $table->date('fecha_nacimiento');
             $table->string('password');
             $table->rememberToken();

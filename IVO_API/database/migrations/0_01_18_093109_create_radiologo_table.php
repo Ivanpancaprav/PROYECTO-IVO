@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('radiologos', function (Blueprint $table) {
             $table->string("dni_radiologo",9)->primary();
             $table->enum('especialidad',array('tomografia','resonancia','mri','mamografia'));
-            $table->foreign("dni_radiologo")->references("dni")->on("users");
+            $table->foreign("dni_radiologo")->references("dni")->on("users")->onDelete('cascade')->onUpdate('cascade');;
             $table->timestamps();
 
         

@@ -62,7 +62,7 @@
                         </div>
                         <div class="form-group">
                             <strong>Especialidad:</strong>
-                            {{ $user->especialidad }}
+                            {{ $radiologo->especialidad}}
                         </div>
 
                     </div>
