@@ -10,10 +10,21 @@ const baseUrl = 'http://localhost/api/pacientes';
 })
 export class UsuariosServiceService {
 
+<<<<<<< HEAD
+=======
+  constructor(private Http: HttpClient) {
+    // this.url ="http://localhost/api/pacientes";
+    this.url ="http://localhost/api/";
+   }
+>>>>>>> refs/remotes/origin/main
 
   constructor(private Http: HttpClient) { }
 
    getPacientes(): Observable<Paciente[]>{
       return this.Http.get<Paciente[]>(baseUrl);
    }
+
+   getPerfil(){
+    return this.Http.get(this.url+'perfil/29216450X');
+ }
 }
