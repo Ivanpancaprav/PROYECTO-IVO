@@ -37,6 +37,7 @@ class User extends Model
 		'nombre' => 'required',
 		'apellido1' => 'required',
 		'direccion' => 'required',
+		'foto' => 'required',
         'password' =>'required',
 		'email' => 'required',
 		'sexo' => 'required',
@@ -51,7 +52,7 @@ class User extends Model
      *
      * @var array
      */
-    protected $fillable = ['dni','nombre','apellido1','apellido2','direccion','password','email','sexo','role','fecha_nacimiento'];
+    protected $fillable = ['dni','nombre','apellido1','apellido2','direccion','foto', 'password','email','sexo','role','fecha_nacimiento'];
 
 
     /**

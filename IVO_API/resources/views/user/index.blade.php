@@ -35,12 +35,12 @@
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
-                                        
 										<th>Dni</th>
 										<th>Nombre</th>
 										<th>Apellido1</th>
 										<th>Apellido2</th>
 										<th>Direccion</th>
+										<th>Foto</th>
 										<th>Email</th>
 										<th>Sexo</th>
 										<th>Role</th>
@@ -58,6 +58,7 @@
 											<td>{{ $user->apellido1 }}</td>
 											<td>{{ $user->apellido2 }}</td>
 											<td>{{ $user->direccion }}</td>
+											<td>{{ $user->foto }}</td>
 											<td>{{ $user->email }}</td>
 											<td>{{ $user->sexo }}</td>
 											<td>{{ $user->role }}</td>

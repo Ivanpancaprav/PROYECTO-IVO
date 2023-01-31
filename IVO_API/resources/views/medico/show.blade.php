@@ -45,6 +45,10 @@
                             {{ $user->direccion }}
                         </div>
                         <div class="form-group">
+                            <strong>Foto:</strong>
+                            {{ $user->foto }}
+                        </div>
+                        <div class="form-group">
                             <strong>Email:</strong>
                             {{ $user->email }}
                         </div>
