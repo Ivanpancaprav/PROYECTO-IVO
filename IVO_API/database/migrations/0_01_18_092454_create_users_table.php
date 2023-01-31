@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
     
-            $table->string("dni",9)->primary();
+            $table->string("dni",9)->primary()->onDelete('cascade')->onUpdate('cascade');
             $table->string('nombre',50);
             $table->string('apellido1',50);
             $table->string('apellido2',50)->nullable();
@@ -24,7 +24,7 @@ return new class extends Migration
 
             $table->timestamp('email_verified_at')->nullable();
             $table->enum('sexo',array('femenino','masculino'));
-            $table->enum('role',array('paciente','padiologo','medico','administrador'));
+            $table->enum('role',array('paciente','radiologo','medico','administrador'));
             $table->date('fecha_nacimiento');
             $table->string('password');
             $table->rememberToken();
