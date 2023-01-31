@@ -15,3 +15,9 @@ body{
     margin: 0;
     box-sizing: border-box;
 }
+
+table{
+   
+    min-width: 75%;
+    min-height: 50%;
+}

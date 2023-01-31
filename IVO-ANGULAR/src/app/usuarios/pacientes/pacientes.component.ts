@@ -9,24 +9,69 @@ import  {HttpClient, HttpHeaders, HttpResponse} from '@angular/common/http'
   styleUrls: ['./pacientes.component.css'],
 })
 export class PacientesComponent implements OnInit  {
-   pacientes?: Paciente[];
+  //  pacientes?: Paciente[];
+  pacientes: any;
+
+   public mensajeErr: string;
+   dtOptions: DataTables.Settings ={};
+   public mostrarTabla: boolean;
  
   
-  constructor(private usuarios_service:UsuariosServiceService){}
+  constructor(private usuarios_service:UsuariosServiceService){
+    this.mensajeErr ='';
+    this.mostrarTabla = false;
+  }
   // FUNCION QUE NOS DEVUELVE EL RESULTADO DEL SERVICIO GET PACIENTES,
   // O SEA, TODOS LOS PACIENTES
-  
-    ngOnInit(): void {
-      this.obtenerPacientes();
-    }
 
     obtenerPacientes(): void {
 
-      this.usuarios_service.getPacientes().subscribe({next: (data) =>{this.pacientes = data; console.log(data);
-        
-      },
-      error: (e) => console.error(e)})
-
+      this.usuarios_service.getPacientes().subscribe(
+        result =>{
+          this.pacientes = result;
+          console.log(this.pacientes);
+          this.mostrarTabla = true;
+         
+        },
+        error =>{
+          this.mensajeErr="";
+          if(error instanceof ErrorEvent){
+            this.mensajeErr =error.error.message;
+          }else if(error.status == 404){
+            this.mensajeErr = "Error 404"
+          }else{
+            this.mensajeErr = "Error status:"+error.status;
+          }
+          this.mostrarTabla = true;
+        }
+      );
     }
+
+    ngOnInit(): void {
+      this.obtenerPacientes();
+      this.dtOptions = {
+        serverSide: false,
+        pagingType: 'full_numbers',
+        language: {
+          processing: "Procesando...",
+          lengthMenu: "Mostrar _MENU_ registros",
+          zeroRecords: "No se encontraron resultados",
+          emptyTable: "Ningún dato disponible en esta tabla",
+          infoEmpty: "Mostrando los registros del 0 al 0 de un total de 0 registros",
+          infoFiltered: "(Filtrado de un total de _MAX_ registros)",
+          search: "Buscar:",
+          loadingRecords: "Cargando...",
+          paginate:{
+            first: "Primero",
+            last: "Último",
+            next: "Siguiente",
+            previous: "Anterior"
+          },
+          info: "Mostrando _START_ a _END_ de _TOTAL_ registros",
+
+        },
+      };
+    }
+
 
 }
