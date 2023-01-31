@@ -39,6 +39,8 @@ class User extends Model
 		'nombre' => 'required',
 		'apellido1' => 'required',
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 		'direccion' => 'required',
         'password' =>'required',
 =======
@@ -47,9 +49,9 @@ class User extends Model
 		'foto' => 'required',
         'password' =>'required',
 =======
+>>>>>>> refs/remotes/origin/main
 		'direccion' => 'required','email', 'max:255', 'unique:users',
         'password' =>'required','min:8',
->>>>>>> 6a5442801c7db84886630e8e61b02d765d66c72e
 		'email' => 'required',
 		'sexo' => 'required',
 		'role' => 'required',

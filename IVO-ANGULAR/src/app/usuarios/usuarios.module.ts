@@ -9,7 +9,7 @@ import { RouterModule } from '@angular/router';
 import { SolicitarCitaComponent } from './solicitar-cita/solicitar-cita.component';
 import { ModificarCitaComponent } from './modificar-cita/modificar-cita.component';
 import { GestionarCitaMedComponent } from './gestionar-cita-med/gestionar-cita-med.component';
-
+import { DataTablesModule } from 'angular-datatables';
 @NgModule({
   declarations: [
     PerfilComponent,
@@ -24,6 +24,7 @@ import { GestionarCitaMedComponent } from './gestionar-cita-med/gestionar-cita-m
   imports: [
     CommonModule,
     RouterModule,
+    DataTablesModule
     
   ]
 })
