@@ -36,10 +36,17 @@ class User extends Model
 		'dni' => 'required',
 		'nombre' => 'required',
 		'apellido1' => 'required',
+<<<<<<< HEAD
 		'apellido2' => 'required',
 		'direccion' => 'required',
+=======
+        'apellido2' => 'required',
+		'direccion' => 'required',
+        'password' =>'required',
+		'direccion' => 'required',
+        'email' => 'required',
+>>>>>>> b21470aa796476b0abf64eac1f0a49b92cd4a6d1
         'password' =>'required','min:8',
-		'email' => 'required',
 		'sexo' => 'required',
 		'role' => 'required',
 		'fecha_nacimiento' => 'required',

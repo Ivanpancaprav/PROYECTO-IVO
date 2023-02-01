@@ -3,6 +3,7 @@ import { UsuariosServiceService } from '../usuarios-service.service';
 import { Paciente } from 'src/app/models/paciente.model';
 import  {HttpClient, HttpHeaders, HttpResponse} from '@angular/common/http'
 
+
 @Component({
   selector: 'app-pacientes',
   templateUrl: './pacientes.component.html',
@@ -80,3 +81,4 @@ export class PacientesComponent implements OnInit  {
 
 
 }
+

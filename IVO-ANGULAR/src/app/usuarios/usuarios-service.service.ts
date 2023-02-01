@@ -17,8 +17,8 @@ export class UsuariosServiceService {
    }
 
 
-   getPerfil(){
+   getPerfil(dni:string){
 
-    return this.Http.get(baseUrl+'perfil/29216450X');
+    return this.Http.get(baseUrl+'perfil/'+dni);
  }
 }
