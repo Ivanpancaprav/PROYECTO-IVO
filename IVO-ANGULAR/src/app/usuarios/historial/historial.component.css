@@ -1,5 +1,4 @@
 *{
-    border: 1px solid black;
     font-weight: bold;
     word-wrap: break-word;
 }
@@ -9,7 +8,6 @@ body{
 }
 table{
     background-color: #CED4DA;
-
 }
 
 img{
