@@ -7,7 +7,6 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\MedicoController;
 use App\Http\Controllers\RadiologoController;
 use App\Http\Controllers\PedirCitaController;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -88,3 +87,14 @@ Route::resource('cita', PedirCitaController::class);
 // Route::show('/ver_usuario{dni}',[UserController::class,'show'])->name('verUsuario');
 
 //RUTA VISTA CREA USUARIO
+
+
+//RUTAS LOGIN
+
+Route::view('/login', 'login')->name('logear');
+Route::post('/login-usuario', [AuthController::class, 'login'])->name('login');
+
+Route::view('/registrar', 'registrar');
+Route::post('/registro', [AuthController::class, 'registro'])->name('registro');
+
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');

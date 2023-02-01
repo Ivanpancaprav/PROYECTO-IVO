@@ -32,25 +32,12 @@ use Illuminate\Database\Eloquent\Model;
  
 class User extends Model
 {
-    
-    
     static $rules = [
 		'dni' => 'required',
 		'nombre' => 'required',
 		'apellido1' => 'required',
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
+		'apellido2' => 'required',
 		'direccion' => 'required',
-        'password' =>'required',
-=======
-<<<<<<< HEAD
-		'direccion' => 'required',
-		'foto' => 'required',
-        'password' =>'required',
-=======
->>>>>>> refs/remotes/origin/main
-		'direccion' => 'required','email', 'max:255', 'unique:users',
         'password' =>'required','min:8',
 		'email' => 'required',
 		'sexo' => 'required',
