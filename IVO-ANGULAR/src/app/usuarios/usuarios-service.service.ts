@@ -3,28 +3,27 @@ import  {HttpClient, HttpHeaders, HttpResponse} from '@angular/common/http';
 import { Paciente } from '../models/paciente.model';
 import { Observable } from 'rxjs';
 
-const baseUrl = 'http://localhost/api/pacientes';
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':'application/json'
+  })
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuariosServiceService {
+ public url:string;
 
-<<<<<<< HEAD
-=======
-  constructor(private Http: HttpClient) {
-    // this.url ="http://localhost/api/pacientes";
+  constructor(private http: HttpClient) {
     this.url ="http://localhost/api/";
    }
->>>>>>> refs/remotes/origin/main
-
-  constructor(private Http: HttpClient) { }
 
    getPacientes(): Observable<Paciente[]>{
-      return this.Http.get<Paciente[]>(baseUrl);
+      return this.http.get<Paciente[]>(this.url+'pacientes');
    }
 
-   getPerfil(){
-    return this.Http.get(this.url+'perfil/29216450X');
- }
+   getPerfil(dni: string){
+      return this.http.get(this.url+"perfil/"+dni);
+   }
 }

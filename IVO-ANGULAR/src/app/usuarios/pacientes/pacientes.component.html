@@ -2,27 +2,20 @@
 	<thead>
 	  <tr>
 		<th>DNI</th>
-		<th>First name</th>
-		<th>Last name</th>
-		<th>Last name</th>
+		<th>Nombre</th>
+		<th>Apellidos</th>
+		<th>Email</th>
+		<th>Opciones</th>
 		
 	  </tr>
 	</thead>
 	<tbody>
-		<tr>
-			<td>1</td>
-			<td>Foo</td>
-			<td>Bar</td>
-		  </tr>
 	  <tr *ngFor="let paciente of pacientes">
 			<td>{{paciente.dni}}</td>
 			<td>{{paciente.nombre}}</td>
+			<td>{{paciente.apellido1}}</td>
 			<td>{{paciente.email}}</td>
-			<td>{{paciente.email}}</td>
-			<td>
-			<a href="#" class="btn btn-sm btn-info" data-bs-toggle="tooltip" title="Ver perfil {{ paciente.dni }}"><i class="bi bi-eye"></i></a>
-			</td>
-
+			<td><a title="Ver perfil de {{ paciente.dni }}" [routerLink]="['/perfil/', paciente.dni]">Ver</a></td>
 	  </tr>
 
 	</tbody>

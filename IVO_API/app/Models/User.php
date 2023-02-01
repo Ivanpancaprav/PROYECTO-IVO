@@ -38,21 +38,12 @@ class User extends Model
 		'dni' => 'required',
 		'nombre' => 'required',
 		'apellido1' => 'required',
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
+        'apellido2' => 'required',
 		'direccion' => 'required',
         'password' =>'required',
-=======
-<<<<<<< HEAD
 		'direccion' => 'required',
-		'foto' => 'required',
-        'password' =>'required',
-=======
->>>>>>> refs/remotes/origin/main
-		'direccion' => 'required','email', 'max:255', 'unique:users',
+        'email' => 'required',
         'password' =>'required','min:8',
-		'email' => 'required',
 		'sexo' => 'required',
 		'role' => 'required',
 		'fecha_nacimiento' => 'required',

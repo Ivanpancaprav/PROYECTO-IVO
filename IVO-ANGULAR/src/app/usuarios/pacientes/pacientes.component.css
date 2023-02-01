@@ -8,3 +8,7 @@
     width: 0;
     box-sizing: border-box;
 }
+
+button{
+    width: 40px;
+}

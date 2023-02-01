@@ -8,7 +8,7 @@ import { GestionarCitaMedComponent } from './usuarios/gestionar-cita-med/gestion
 
 const routes: Routes = [
   {
-    path:'perfil',
+    path:'perfil/:dni',
     component: PerfilComponent
   },
   {
