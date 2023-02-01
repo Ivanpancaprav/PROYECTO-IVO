@@ -1,54 +1,111 @@
+<div class="container py-5 h-100">
+  <div class="row d-flex justify-content-start align-items-start h-100">
+    <!-- =====================
+COLUMNA DERECHA
+===================== -->
+    <div class="col-md-12 col-xl-4">
+      <br />
 
-<div id="contenedorPacientes" class="container d-flex justify-content-center">
-<div class="row"  id="previaPaciente">
-			<div class="col d-flex flex-column p-3 ">
-				<img  id="imagenPerfilPaciente" class="img-fluid" src="assets/perfil_falso.webp" alt="">
-			
-				<h4 class="m-2 my-3"><strong>Edad</strong> 56</h4>
+      <div class="card" style="border-radius: 15px">
+        <div class="card-body text-center">
+          <div class="mt-3 mb-4">
+            <img
+              src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava2-bg.webp"
+              class="rounded-circle img-fluid"
+              style="width: 100px"
+            />
+          </div>
 
-			</div>
-			
-			<div class="col d-flex justify-content-center">
-				<div class="col pt-2 mt-2">
-					<h4 class="m-2 my-3"><strong>DNI:</strong> 03160709A</h4>
-					<h4 class="m-2 my-3"><strong>Telefono:</strong> 654145323</h4>
-					<h4 class="m-2 my-3"><strong>SIP</strong> 654145323</h4>
-					
-					<button class="mt-4 botonVerPaciente">Cita</button>
-					<button class="botonVerPaciente">Ver perfil</button>
-				
-				</div>
-		
-			</div>
-		
+          <div style="background-color: white; text-align: center">
+            DATOS PERSONALES
+          </div>
+          <br />
+          <table class="table caption-top">
+            <tbody>
+              <tr>
+                <th>Nombre</th>
+                <td>Mark</td>
+              </tr>
+              <tr>
+                <th>Apellidos</th>
+                <td>Jacob</td>
+              </tr>
+              <tr>
+                <th>Edad</th>
+                <td>56</td>
+              </tr>
+
+              <tr>
+                <th>DNI</th>
+                <td>29216450D</td>
+              </tr>
+
+              <tr>
+                <th>Direccion</th>
+                <td>C/ Av. Aragon</td>
+              </tr>
+              <tr>
+                <td><button type="button" class="botonVerPaciente fs-5"routerLink="/gestionar-cita-med" > cita </button>
+                  <td> <button type="button" class="botonVerPaciente fs-5"routerLink="/gestionar-cita-med" > cita </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <br /><br />
+
+      <!-- ========
+BOTONES
+======== -->
+
+    </div>
+
+    <!-- =====================
+COLUMNA IZQUIERDA
+================== -->
+      <!-- COLUMNA TABLA DATATABLES -->
+    <div class="col">
+      <br />
+
+      <div class="card-body">
+        <div class="card-deck mb-3 text-center">
+          <div class="card mb-4 box-shadow p-2">
+            <table
+              *ngIf="mostrarTabla"
+              datatable
+              [dtOptions]="dtOptions"
+              class="hover cell-border row-border display table-striped "
+            >
+              <thead>
+                <tr>
+                  <th>DNI</th>
+                  <th>Nombre</th>
+                  <th>Apellido</th>
+                  <th>Perfil paciente</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let paciente of pacientes">
+                  <td>{{ paciente.dni }}</td>
+                  <td>{{ paciente.nombre }}</td>
+                  <td>{{ paciente.apellido1 }}</td>
+                  <td class="text-center">
+                    <a
+                      href="http://localhost:4200/pacientes"
+                      class="botonPrevia"
+                      >mostrar</a
+                    >
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- FIN COLUMNA DATATABLES -->
+  </div>
 </div>
-<div id="contenedorTabla" *ngIf="mostrarTabla" class="mt-5 w-75 h-50 ">
-	
-	<table  datatable [dtOptions]="dtOptions" class="hover cell-border row-border display table-striped">
-		<thead>
-		  <tr>
-			<th>DNI</th>
-			<th>Nombre</th>
-			<th>Apellido</th>
-			<th>Perfil paciente</th>
-		
-		  </tr>
-		</thead>
-		<tbody>
-		
-		  <tr *ngFor ="let paciente of pacientes">
-			<td>{{paciente.dni}}</td>
-			<td>{{paciente.nombre}}</td>
-			<td>{{paciente.apellido1}}</td>
-		   <!-- Boton ver perfil con parametro -->
-			<td class="text-center"><a href="http://localhost:4200/pacientes" class="botonPrevia">mostrar</a></td>
 
-
-
-
-
-
-		</tbody>
-	  </table>
-	</div>
-</div>

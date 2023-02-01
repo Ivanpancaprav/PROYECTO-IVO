@@ -14,8 +14,8 @@ import { DataTablesModule } from 'angular-datatables';
 @NgModule({
   declarations: [
     PerfilComponent,
-    CitasComponent,
     PacientesComponent,
+    CitasComponent,
     HistorialComponent,
     CitapreviaComponent,
     SolicitarCitaComponent,
