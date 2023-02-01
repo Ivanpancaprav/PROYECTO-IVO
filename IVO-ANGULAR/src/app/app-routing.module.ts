@@ -21,7 +21,7 @@ const routes: Routes = [
     component: CitapreviaComponent
   },
   {
-    path:'pacientes',
+    path:'pacientes/:dni?',
     component: PacientesComponent
   },
   {

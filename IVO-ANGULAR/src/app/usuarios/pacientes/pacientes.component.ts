@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./pacientes.component.css'],
 })
 export class PacientesComponent implements OnInit  {
-  pacientes: any;
+  public pacientes: any;
   public perfil: any;
   public dni: string | null;
   public mensajeErr: string;
@@ -52,6 +52,7 @@ export class PacientesComponent implements OnInit  {
         result =>{
           this.perfil = result;
           this.mostrarTabla = true;
+          console.log(this.perfil);
          
         },
         error =>{

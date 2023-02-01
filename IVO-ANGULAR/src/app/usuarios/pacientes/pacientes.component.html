@@ -16,44 +16,6 @@ COLUMNA DERECHA
             />
           </div>
 
-<<<<<<< HEAD
-			</div>
-			
-			<div class="col d-flex justify-content-center">
-				<div class="col pt-2 mt-2">
-					<h4 class="m-2 my-3"><strong>DNI:</strong> {{pacientes.dni}} </h4>
-					<h4 class="m-2 my-3"><strong>Telefono:</strong> 654145323</h4>
-					<h4 class="m-2 my-3"><strong>SIP</strong> 654145323</h4>
-					
-					<button class="mt-4 botonVerPaciente">Cita</button>
-					<!-- Boton ver perfil con parametro -->
-					<button class="botonVerPaciente" routerLink="/perfil/29216450X">Ver</button>
-				
-				</div>
-		
-			</div>
-		
-</div>
-<div id="contenedorTabla" *ngIf="mostrarTabla" class="mt-5 w-75 h-50 ">
-	
-	<table  datatable [dtOptions]="dtOptions" class="hover cell-border row-border display table-striped">
-		<thead>
-		  <tr>
-			<th>DNI</th>
-			<th>Nombre</th>
-			<th>Apellido</th>
-			<th>Perfil paciente</th>
-		
-		  </tr>
-		</thead>
-		<tbody>
-		
-		  <tr *ngFor ="let paciente of pacientes">
-			<td>{{paciente.dni}}</td>
-			<td>{{paciente.nombre}}</td>
-			<td>{{paciente.apellido1}}</td>
-			<td class="text-center"><a href="http://localhost:4200/pacientes" class="botonPrevia">mostrar</a></td>
-=======
           <div style="background-color: white; text-align: center">
             DATOS PERSONALES
           </div>
@@ -62,7 +24,7 @@ COLUMNA DERECHA
             <tbody>
               <tr>
                 <th>Nombre</th>
-                <td>Mark</td>
+                <td>{{perfil.dni}}</td>
               </tr>
               <tr>
                 <th>Apellidos</th>
@@ -83,8 +45,8 @@ COLUMNA DERECHA
                 <td>C/ Av. Aragon</td>
               </tr>
               <tr>
-                <td><button type="button" class="botonVerPaciente fs-5"routerLink="/gestionar-cita-med" > cita </button>
-                  <td> <button type="button" class="botonVerPaciente fs-5"routerLink="/gestionar-cita-med" > cita </button>
+                <td><button type="button" class="botonVerPaciente fs-5" routerLink="/gestionar-cita-med" > cita </button>
+                  <td> <button type="button" class="botonVerPaciente fs-5" routerLink="/perfil/29216450C" > ver perfil </button>
                 </td>
               </tr>
             </tbody>
@@ -146,5 +108,4 @@ COLUMNA IZQUIERDA
     <!-- FIN COLUMNA DATATABLES -->
   </div>
 </div>
->>>>>>> 794a99902d5c38b7e7e1717044daa6f946223c54
 
