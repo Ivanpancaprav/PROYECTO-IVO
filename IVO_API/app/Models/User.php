@@ -32,8 +32,6 @@ use Illuminate\Database\Eloquent\Model;
  
 class User extends Model
 {
-    
-    
     static $rules = [
 		'dni' => 'required',
 		'nombre' => 'required',
