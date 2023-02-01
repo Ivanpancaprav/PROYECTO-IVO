@@ -1,22 +1,54 @@
-<table datatable class="row-border hover h-100 w-100">
-	<thead>
-	  <tr>
-		<th>DNI</th>
-		<th>Nombre</th>
-		<th>Apellidos</th>
-		<th>Email</th>
-		<th>Opciones</th>
+
+<div id="contenedorPacientes" class="container d-flex justify-content-center">
+<div class="row"  id="previaPaciente">
+			<div class="col d-flex flex-column p-3 ">
+				<img  id="imagenPerfilPaciente" class="img-fluid" src="assets/perfil_falso.webp" alt="">
+			
+				<h4 class="m-2 my-3"><strong>Edad</strong> 56</h4>
+
+			</div>
+			
+			<div class="col d-flex justify-content-center">
+				<div class="col pt-2 mt-2">
+					<h4 class="m-2 my-3"><strong>DNI:</strong> 03160709A</h4>
+					<h4 class="m-2 my-3"><strong>Telefono:</strong> 654145323</h4>
+					<h4 class="m-2 my-3"><strong>SIP</strong> 654145323</h4>
+					
+					<button class="mt-4 botonVerPaciente">Cita</button>
+					<button class="botonVerPaciente">Ver perfil</button>
+				
+				</div>
 		
-	  </tr>
-	</thead>
-	<tbody>
-	  <tr *ngFor="let paciente of pacientes">
+			</div>
+		
+</div>
+<div id="contenedorTabla" *ngIf="mostrarTabla" class="mt-5 w-75 h-50 ">
+	
+	<table  datatable [dtOptions]="dtOptions" class="hover cell-border row-border display table-striped">
+		<thead>
+		  <tr>
+			<th>DNI</th>
+			<th>Nombre</th>
+			<th>Apellido</th>
+			<th>Perfil paciente</th>
+		
+		  </tr>
+		</thead>
+		<tbody>
+		
+		  <tr *ngFor ="let paciente of pacientes">
 			<td>{{paciente.dni}}</td>
 			<td>{{paciente.nombre}}</td>
 			<td>{{paciente.apellido1}}</td>
-			<td>{{paciente.email}}</td>
-			<td><a title="Ver perfil de {{ paciente.dni }}" [routerLink]="['/perfil/', paciente.dni]">Ver</a></td>
-	  </tr>
+		   <!-- Boton ver perfil con parametro -->
+			<td class="text-center"><a href="http://localhost:4200/pacientes" class="botonPrevia">mostrar</a></td>
 
-	</tbody>
-  </table>
+
+
+
+
+
+		</tbody>
+	  </table>
+	</div>
+</div>
