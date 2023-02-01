@@ -48,8 +48,11 @@ export class PacientesComponent implements OnInit  {
     }
 
     ngOnInit(): void {
-      this.obtenerPacientes();
+
       this.dtOptions = {
+        
+        lengthMenu:[10],
+        processing: true,
         serverSide: false,
         pagingType: 'full_numbers',
         language: {
@@ -68,9 +71,11 @@ export class PacientesComponent implements OnInit  {
             previous: "Anterior"
           },
           info: "Mostrando _START_ a _END_ de _TOTAL_ registros",
-
+       
         },
+        
       };
+      this.obtenerPacientes();
     }
 
 

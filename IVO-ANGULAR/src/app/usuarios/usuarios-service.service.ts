@@ -12,14 +12,10 @@ export class UsuariosServiceService {
   
   constructor(private Http: HttpClient) { }
 
-  //  getPacientes(): Observable<Paciente[]>{
-  //     return this.Http.get<Paciente[]>(baseUrl+'pacientes');
-  //  }
+   getPacientes(): Observable<Paciente[]>{
+      return this.Http.get<Paciente[]>(baseUrl+'pacientes');
+   }
 
-  getPacientes() {
-    return this.Http.get("http://test-api.jtarrega.es/api/empleados");
-  
-  }
 
    getPerfil(){
 
