@@ -16,6 +16,8 @@ return new class extends Migration
         Schema::create('medicos', function (Blueprint $table) {
             $table->string("dni_medico",9)->primary();
             $table->foreign("dni_medico")->references("dni")->on("users")->onDelete('cascade')->onUpdate('cascade');
+            $table->enum('especialidad',array('radiologo','medico'));
+            
             $table->timestamps();
     
             //ATRIBUTOS DEL MEDICO

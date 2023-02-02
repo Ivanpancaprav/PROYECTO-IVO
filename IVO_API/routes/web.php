@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\adminController;
+use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\PacienteController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MedicoController;
@@ -91,10 +92,27 @@ Route::resource('cita', PedirCitaController::class);
 
 //RUTAS LOGIN
 
-Route::view('/login', 'login')->name('logear');
+Route::view('/login', 'auth.login')->name('logear');
 Route::post('/login-usuario', [AuthController::class, 'login'])->name('login');
-
 Route::view('/registrar', 'registrar');
 Route::post('/registro', [AuthController::class, 'registro'])->name('registro');
-
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+//GRUPO RUTAS ADMIN
+
+Route::group(['middleware' => 'admin'], function(){
+
+    Route::get('/admin',[AuthController::class,'admin'])->name('admin');
+    Route::post('/logout',[AuthController::class,'logout'])->name('admin');
+
+});
+
+//GRUPO RUTAS USER
+
+Route::group(['middleware','paciente'],function(){
+
+    Route::get('/paciente', [AuthController::class, 'paciente'])->name('paciente');
+    //Route::get('/pacienteOtraFuncionalidad', [AuthController::class, 'pacienteOtraFuncionalidad'])->name('pacienteOtraFuncionalidad');
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+});
