@@ -21,8 +21,13 @@ const routes: Routes = [
     component: CitapreviaComponent
   },
   {
-    path:'pacientes/:dni?',
+    path:'pacientes',
     component: PacientesComponent
+  },
+  {
+    path:'pacientes/:dni?',
+    component: PacientesComponent,
+    loadChildren: () => import('./usuarios/pacientes/pacientes.module').then(m => m.PacientesModule)
   },
   {
     path:'gestionar-cita-med',
