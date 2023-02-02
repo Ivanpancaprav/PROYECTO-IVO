@@ -5,6 +5,7 @@ import { PerfilComponent } from './usuarios/perfil/perfil.component';
 import { CitasComponent } from './usuarios/citas/citas.component';
 import { CitapreviaComponent } from './usuarios/citaprevia/citaprevia.component';
 import { GestionarCitaMedComponent } from './usuarios/gestionar-cita-med/gestionar-cita-med.component';
+import { HistorialComponent } from './usuarios/historial/historial.component';
 
 const routes: Routes = [
   {
@@ -20,12 +21,16 @@ const routes: Routes = [
     component: CitapreviaComponent
   },
   {
-    path:'pacientes',
+    path:'pacientes/:dni?',
     component: PacientesComponent
   },
   {
     path:'gestionar-cita-med',
     component: GestionarCitaMedComponent
+  },
+  {
+    path:'historial',
+    component: HistorialComponent
   }
 ];
 

@@ -1,8 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { UsuariosServiceService } from '../usuarios-service.service';
-import { Paciente } from 'src/app/models/paciente.model';
-import  {HttpClient, HttpHeaders, HttpResponse} from '@angular/common/http'
-
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-pacientes',
@@ -10,15 +8,16 @@ import  {HttpClient, HttpHeaders, HttpResponse} from '@angular/common/http'
   styleUrls: ['./pacientes.component.css'],
 })
 export class PacientesComponent implements OnInit  {
-  //  pacientes?: Paciente[];
-  pacientes: any;
-
-   public mensajeErr: string;
-   dtOptions: DataTables.Settings ={};
-   public mostrarTabla: boolean;
+  public pacientes: any;
+  public perfil: any;
+  public dni: string | null;
+  public mensajeErr: string;
+  dtOptions: DataTables.Settings ={};
+  public mostrarTabla: boolean;
  
   
-  constructor(private usuarios_service:UsuariosServiceService){
+  constructor(private usuarios_service:UsuariosServiceService, private aRoute: ActivatedRoute){
+    this.dni = this.aRoute.snapshot.paramMap.get('dni');
     this.mensajeErr ='';
     this.mostrarTabla = false;
   }
@@ -30,8 +29,30 @@ export class PacientesComponent implements OnInit  {
       this.usuarios_service.getPacientes().subscribe(
         result =>{
           this.pacientes = result;
-          console.log(this.pacientes);
           this.mostrarTabla = true;
+         
+        },
+        error =>{
+          this.mensajeErr="";
+          if(error instanceof ErrorEvent){
+            this.mensajeErr =error.error.message;
+          }else if(error.status == 404){
+            this.mensajeErr = "Error 404"
+          }else{
+            this.mensajeErr = "Error status:"+error.status;
+          }
+          this.mostrarTabla = true;
+        }
+      );
+    }
+
+    obtenerDatos(dni: any): void {
+
+      this.usuarios_service.getPerfil(dni).subscribe(
+        result =>{
+          this.perfil = result;
+          this.mostrarTabla = true;
+          console.log(this.perfil);
          
         },
         error =>{
@@ -76,7 +97,9 @@ export class PacientesComponent implements OnInit  {
         },
         
       };
+
       this.obtenerPacientes();
+      this.obtenerDatos(this.dni);
     }
 
 
