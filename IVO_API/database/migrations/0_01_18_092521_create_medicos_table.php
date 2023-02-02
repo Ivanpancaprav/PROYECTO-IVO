@@ -25,7 +25,6 @@ return new class extends Migration
             //FIN ATRIBUTOS DEL MEDICO
         });
     }
-
     /**
      * Reverse the migrations.
      *

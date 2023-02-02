@@ -18,9 +18,11 @@ class AuthController extends Controller
            'dni' => 'required',
            'password' => 'required'
        ]);
+       
+     
 
        $credentials = $request->except(['_token']);  //no cogemos el token
-
+    //    dd($credentials);
         if (auth()->attempt($credentials)) {  //comprobación de autenticación 
 
            return redirect()->route('admin');  //nos redirije a la ruta 'admin'
@@ -58,7 +60,7 @@ class AuthController extends Controller
    }
 
    public function admin(){
-    return view('admin');
+    return view('auth.admin');
    }
    public function paciente(){
     return view('paciente');
