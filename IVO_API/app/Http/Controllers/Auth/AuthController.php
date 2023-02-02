@@ -15,7 +15,7 @@ class AuthController extends Controller
    public function login(Request $request)
    {
        $request->validate([
-           'email' => 'required',
+           'dni' => 'required',
            'password' => 'required'
        ]);
 
@@ -36,13 +36,13 @@ class AuthController extends Controller
    {
        $request->validate([
            'name' => 'required',
-           'email' => 'required',
+           'dni' => 'required',
            'password' => 'required'
        ]);
 
        $user = User::create([
            'name' => trim($request->input('name')),
-           'email' => strtolower($request->input('email')),
+           'dni' => strtolower($request->input('email')),
            'password' => bcrypt($request->input('password')),
        ]);
 
@@ -56,4 +56,13 @@ class AuthController extends Controller
        Auth::logout();
        return redirect('login');
    }
+
+   public function admin(){
+    return view('admin');
+   }
+   public function paciente(){
+    return view('paciente');
+   }
+
+
 }

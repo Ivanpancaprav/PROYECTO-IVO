@@ -1,12 +1,12 @@
 <form method="post" action="{{ route('registro') }}">
     @csrf
     <div class="form-group">
-        <label>Username</label>
-        <input type="text" name="name" class="form-control p_input">
+        <label>Nombre</label>
+        <input type="text" name="nombre" class="form-control p_input">
     </div>
     <div class="form-group">
-        <label>Email</label>
-        <input type="email" name="email" class="form-control p_input">
+        <label>dni</label>
+        <input type="text" name="dni" class="form-control p_input">
     </div>
     <div class="form-group">
         <label>Password</label>
