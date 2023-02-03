@@ -19,7 +19,7 @@
                     </script>
    
         <div class="box box-info padding-1">
-            <div class="box-body">
+           
                 <div class="form-group">
                     {{ Form::label('dni') }}
                     {{ Form::text('dni', $user->dni, ['class' => 'form-control' . ($errors->has('dni') ? ' is-invalid' : ''), 'id'=>'dni','placeholder' => 'Dni']) }}
@@ -104,8 +104,17 @@
             {{ Form::text('n_colegiado', $medico->n_colegiado, ['class' => 'form-control' . ($errors->has('n_colegiado') ? ' is-invalid' : ''), 'placeholder' => 'N Seguridad Social']) }}
             {!! $errors->first('n_colegiado', '<div class="invalid-feedback">:message</div>') !!}
         </div>
-            
-            </div>
+        <div class="form-group">
+                     {{ Form::label('Especialidad') }}
+                     <br>
+                     {{-- {{ Form::text('especialidad', $medico->especialidad, ['class' => 'form-control' . ($errors->has('especialidad') ? ' is-invalid' : ''), 'placeholder' => 'especialidad']) }} --}}
+                     {!! Form::select('especialidad', array('medico'=>'medico','radiologo'=>'radiologo')) !!}
+                     {{-- {!! Form::checkbox('especialidad', 'radiologo', false, $medico->especialidad) !!} --}}
+
+                     {{-- {{ Form::select('size', array('radiologo' => 'radiologo', 'medico' => 'medico'), 'S') }} --}}
+                     {!! $errors->first('sexo', '<div class="invalid-feedback">:message</div>') !!}
+                 </div>
+         
         </div>
 
     </div>

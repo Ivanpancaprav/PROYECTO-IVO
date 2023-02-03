@@ -6,7 +6,6 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\PacienteController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MedicoController;
-use App\Http\Controllers\RadiologoController;
 use App\Http\Controllers\PedirCitaController;
 /*
 |--------------------------------------------------------------------------
@@ -71,10 +70,6 @@ Route::resource('users', UserController::class);
 //*****RUTAS MEDICOS *****//
 
 Route::resource('medicos', MedicoController::class);
-
-//*****RUTAS RADIOLOGOS *****//
-
-Route::resource('radiologo', RadiologoController::class);
 
 //*****RUTAS CREAR CITAS *****//
 

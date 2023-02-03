@@ -28,13 +28,15 @@ class Medico extends Model
 	static $rules = [
 		'dni_medico' => 'required',
 		'n_colegiado' => 'required',
+		'especialidad' => 'required'
     ];
 
 	protected $perPage = 20;
 
 	protected $fillable = [
 		'dni_medico',
-		'n_colegiado'
+		'n_colegiado',
+		'especialidad'
 	];
 
 	public function user()
