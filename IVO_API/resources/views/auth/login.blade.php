@@ -119,7 +119,9 @@ input:invalid {
                   <br>
                   <div class="row d-flex flex-column align-items-center">
                     <form method="post" action="{{route('login')}}">
+                        
                         @csrf
+
                       <div class="form-group">
                         <label>DNI</label>
                         <div class="row-1 dni">

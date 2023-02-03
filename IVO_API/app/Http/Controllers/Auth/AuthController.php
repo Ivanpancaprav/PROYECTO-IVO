@@ -18,21 +18,20 @@ class AuthController extends Controller
            'dni' => 'required',
            'password' => 'required'
        ]);
-       
-     
-
+    
        $credentials = $request->except(['_token']);  //no cogemos el token
-    //    dd($credentials);
-        if (auth()->attempt($credentials)) {  //comprobación de autenticación 
+    
+       if (auth()->attempt($credentials)) {  //comprobación de autenticación 
 
            return redirect()->route('admin');  //nos redirije a la ruta 'admin'
 
        } else {
+
            session()->flash('message', 'Invalid credentials');
-           return redirect()->back();
+        //    return redirect()->back();
+           return redirect()->route('admin');  //nos
        }
    }
-
 
    public function registro(Request $request)
    {

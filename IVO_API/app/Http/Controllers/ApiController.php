@@ -9,13 +9,12 @@ use Illuminate\Support\Facades\DB;
 
 class ApiController extends Controller
 {
-    
 
 public function mostrarPacientes(){
 
     $users = User::all();
     $pacientes = DB::select('SELECT * FROM users ,pacientes where pacientes.dni_paciente = users.dni');
-    return $pacientes;
+    return $users;
 }
 
 public function mostrarPerfil(Request $request){

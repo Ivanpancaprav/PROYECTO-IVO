@@ -17,12 +17,12 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
+        dd($request);
         if (Auth::check()){
-            if(auth()->user()->role =='admin'){
+            if(auth()->user()->role =='administrador'){
                 return $next($request);
             }
         }
-
         return redirect()->route('login');
     }
 }
