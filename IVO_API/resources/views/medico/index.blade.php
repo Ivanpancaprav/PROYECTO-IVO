@@ -38,6 +38,7 @@
                                         <th>Nombre medico</th>
 										<th>Dni medico</th>
 										<th>N_Colegiado</th>
+                                        <th>Especialidad</th>
 
                                         <th></th>
                                     </tr>
@@ -49,6 +50,7 @@
                                             <td>{{ $medico->user->nombre }}</td>
 											<td>{{ $medico->dni_medico }}</td>
 											<td>{{ $medico->n_colegiado }}</td>
+                                            <td>{{ $medico->especialidad }}</td>
 
                                             <td>
                                                 <form action="{{ route('medicos.destroy',$medico->dni_medico) }}" method="POST">

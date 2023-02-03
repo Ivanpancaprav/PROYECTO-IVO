@@ -97,6 +97,7 @@ class MedicoController extends Controller
 
         $validacion2 = $request->validate([
             'n_colegiado' =>'required',
+            'especialidad' =>'required'
         ]);
 
         $dni_antiguo = $request['dni_antiguo'];
