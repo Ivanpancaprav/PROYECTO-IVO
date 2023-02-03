@@ -6,7 +6,7 @@ import { CitasComponent } from './usuarios/citas/citas.component';
 import { CitapreviaComponent } from './usuarios/citaprevia/citaprevia.component';
 import { GestionarCitaMedComponent } from './usuarios/gestionar-cita-med/gestionar-cita-med.component';
 import { HistorialComponent } from './usuarios/historial/historial.component';
-
+import { SolicitarCitaComponent } from './usuarios/solicitar-cita/solicitar-cita.component';
 const routes: Routes = [
   {
     path:'perfil/:dni',
@@ -36,6 +36,10 @@ const routes: Routes = [
   {
     path:'historial',
     component: HistorialComponent
+  },
+  {
+    path:'solicitarCitas',
+    component: SolicitarCitaComponent
   }
 ];
 
