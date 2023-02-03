@@ -15,16 +15,16 @@ import { UsuariosModule } from './usuarios/usuarios.module';
     AppComponent,
     NavComponent,
     FooterComponent,
-  
   ],
   imports: [
     DataTablesModule,
     BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
