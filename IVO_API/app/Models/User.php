@@ -3,6 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use PhpParser\Node\Expr\Cast;
+use Illuminate\Fundation\Auth\User as Authenticatable;
+use Laravel\Passport\HasApiTokens;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Notifications\Notifiable;
 
 /**
  * Class User
@@ -30,8 +35,10 @@ use Illuminate\Database\Eloquent\Model;
  */
 
  
-class User extends Model
+class User extends Authenticatable
 {
+    protected $primaryKey = 'dni';
+    protected $casts = ['dni'=>'string']; 
     static $rules = [
 		'dni' => 'required',
 		'nombre' => 'required',
