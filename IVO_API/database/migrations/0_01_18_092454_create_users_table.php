@@ -14,7 +14,6 @@ return new class extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-    
             $table->string("dni",9)->primary()->onDelete('cascade')->onUpdate('cascade');
             $table->string('nombre',50);
             $table->string('apellido1',50);

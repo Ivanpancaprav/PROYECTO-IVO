@@ -26,6 +26,7 @@ class Paciente extends Model
     static $rules = [
 		'n_seguridad_social' => 'required',
 		'n_historial_clinico' => 'required',
+        'dni_paciente' => 'required'
     ];
 
     protected $perPage = 20;
@@ -35,7 +36,7 @@ class Paciente extends Model
      *
      * @var array
      */
-    protected $fillable = ['n_seguridad_social','n_historial_clinico'];
+    protected $fillable = ['n_seguridad_social','n_historial_clinico','dni_paciente'];
 
 
     /**

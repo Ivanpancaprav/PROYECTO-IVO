@@ -14,7 +14,7 @@ public function mostrarPacientes(){
 
     $users = User::all();
     $pacientes = DB::select('SELECT * FROM users ,pacientes where pacientes.dni_paciente = users.dni');
-    return $users;
+    return $pacientes;
 }
 
 public function mostrarPerfil(Request $request){
