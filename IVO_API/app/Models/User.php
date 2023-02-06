@@ -2,12 +2,12 @@
 
 namespace App\Models;
 
+use Illuminate\Contracts\Auth\Authenticatable as AuthAuthenticatable;
 use Illuminate\Database\Eloquent\Model;
 use PhpParser\Node\Expr\Cast;
 use Illuminate\Fundation\Auth\User as Authenticatable;
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Notifications\Notifiable;
 
 /**
  * Class User
@@ -34,11 +34,11 @@ use Illuminate\Notifications\Notifiable;
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
 
- 
-class User extends Authenticatable
+class User extends Model implements \Illuminate\Contracts\Auth\Authenticatable
+
 {
-    protected $primaryKey = 'dni';
-    protected $casts = ['dni'=>'string']; 
+    // protected $primaryKey = 'dni';
+    // protected $casts = ['dni'=>'string']; 
     static $rules = [
 		'dni' => 'required',
 		'nombre' => 'required',
@@ -88,5 +88,48 @@ class User extends Authenticatable
         return $this->hasOne('App\Models\Radiologo', 'dni_radiologo', 'dni');
     }
     
+  /**
+     * Get the name of the unique identifier for the user.
+     *
+     * @return string
+     */
+    public function getAuthIdentifierName(){}
 
+    /**
+     * Get the unique identifier for the user.
+     *
+     * @return mixed
+     */
+    public function getAuthIdentifier(){}
+
+    /**
+     * Get the password for the user.
+     *
+     * @return string
+     */
+    public function getAuthPassword(){}
+
+    /**
+     * Get the token value for the "remember me" session.
+     *
+     * @return string
+     */
+    public function getRememberToken(){}
+
+    /**
+     * Set the token value for the "remember me" session.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setRememberToken($value){}
+
+    /**
+     * Get the column name for the "remember me" token.
+     *
+     * @return string
+     */
+    public function getRememberTokenName(){}
 }
+
+

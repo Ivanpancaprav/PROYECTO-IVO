@@ -84,7 +84,6 @@ Route::resource('cita', PedirCitaController::class);
 
 //RUTA VISTA CREA USUARIO
 
-
 //RUTAS LOGIN
 
 Route::view('/login', 'auth.login')->name('logear');

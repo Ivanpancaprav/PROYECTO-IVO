@@ -9,14 +9,13 @@ use Illuminate\Support\Facades\DB;
 
 class ApiController extends Controller
 {
-        
 
     public function mostrarPacientes(){
 
-        $users = User::all();
-        $pacientes = DB::select('SELECT * FROM users ,pacientes where pacientes.dni_paciente = users.dni');
-        return $pacientes;
-    }
+    $users = User::all();
+    $pacientes = DB::select('SELECT * FROM users ,pacientes where pacientes.dni_paciente = users.dni');
+    return $users;
+}
 
     public function mostrarPerfil(Request $request){
 
@@ -24,10 +23,11 @@ class ApiController extends Controller
         return $users;
 
     }
-    public function mostrarMedicos(Request $request){
+    public function mostrarMedicos(){
 
-        $users =(object) User::whereDni($request->dni)->get()->toArray()[0];
-        return $users;
+        $users = User::all();
+        $medicos = DB::select('SELECT * FROM users ,medicos where medicos.dni_medico = users.dni');
+        return $medicos;
 
     }
 

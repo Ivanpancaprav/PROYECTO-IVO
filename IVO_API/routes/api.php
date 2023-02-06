@@ -19,9 +19,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
 Route::get('/pacientes',[ApiController::class,'mostrarPacientes']);
 
 Route::get('/perfil/{dni}',[ApiController::class,'mostrarPerfil']);
 
-Route::get('/solicitar_cita/{dni}', [ApiController::class,'mostrarCita']); 
+Route::get('/medicos', [ApiController::class,'mostrarMedicos']); 
