@@ -110,3 +110,7 @@ Route::group(['middleware','paciente'],function(){
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 });
+
+//SUBIR IMAGENES
+
+Route::post('/subirImagenes','UserController@subirImagenes')->name('subirImagenes');
