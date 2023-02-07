@@ -12,6 +12,7 @@ import { GestionarCitaMedComponent } from './gestionar-cita-med/gestionar-cita-m
 import { DataTablesModule } from 'angular-datatables';
 import { HammerModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// USAR ng add igniteui-angular después ng update porsiaca
 import { IgxCalendarModule } from 'igniteui-angular';
 import { IgxDialogModule} from "igniteui-angular";
 import { BrowserModule } from "@angular/platform-browser";

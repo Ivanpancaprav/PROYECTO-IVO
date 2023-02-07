@@ -14,7 +14,7 @@ class ApiController extends Controller
 
     $users = User::all();
     $pacientes = DB::select('SELECT * FROM users ,pacientes where pacientes.dni_paciente = users.dni');
-    return $users;
+    return $pacientes;
 }
 
     public function mostrarPerfil(Request $request){
@@ -30,6 +30,14 @@ class ApiController extends Controller
         return $medicos;
 
     }
+
+public function mostrarMedicos(){
+
+    $users = User::all();
+    $medicos = DB::select('SELECT * FROM users ,medicos where medicos.dni_medico = users.dni');
+    return $medicos;
+
+}
 
 }
  

@@ -32,6 +32,7 @@ class UserController extends Controller
     public function create()
     {
         $user = new User();
+        
         return view('user.create', compact('user'));
     }
 
@@ -41,11 +42,19 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(Request $request)
     {
         request()->validate(User::$rules);
         
-        $user = User::create($request->all());
+        $new_user = request()->all();
+    
+
+        $pass_encrypt = password_hash($request->password,PASSWORD_DEFAULT);
+        
+        $new_user["password"] = $pass_encrypt;
+        
+        User::create($new_user);
 
         return redirect()->route('users.index')
             ->with('success', 'User created successfully.');
@@ -97,11 +106,17 @@ class UserController extends Controller
             'role' =>'required',
             'fecha_nacimiento' =>'required',
         ]);
-
-        User::whereDni($request->dni)->update($validacion);
         
-                return redirect()->route('users.index')
-            ->with('success', 'User updated successfully');
+        $user =(object) User::whereDni($request->dni_antiguo)->get()->toArray()[0];
+
+        if($user->password != $validacion["password"]){
+               $validacion["password"] = password_hash($request->password,PASSWORD_DEFAULT);
+        }
+        User::whereDni($user->dni)->update($validacion);
+        
+
+
+        return redirect()->route('users.index')->with('success', 'User updated successfully');
     }
 
     /**
@@ -117,5 +132,21 @@ class UserController extends Controller
         
         return redirect()->route('users.index')
             ->with('success', 'User deleted successfully');
+    }
+
+    public function codeaguardar(Request $request){
+        $post = new Post();
+        $post->nombre = $request->nombre;
+        if($request->hasFile("imagen")){
+
+            $imagen = $request->file("imagen");
+            $nombreimagen = Str::slug($request->nombre).".".$imagen->guessExtension();
+            $ruta = public_path("img/post/");
+            copy($imagen->getRealPath(),$ruta.$nombreimagen);
+            $post->imagen = $nombreimagen;            
+            
+        }
+        $post->save();
+        
     }
 }

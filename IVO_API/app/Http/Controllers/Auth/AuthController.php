@@ -18,18 +18,17 @@ class AuthController extends Controller
            'dni' => 'required',
            'password' => 'required'
        ]);
-    
+
        $credentials = $request->except(['_token']);  //no cogemos el token
     
        if (auth()->attempt($credentials)) {  //comprobación de autenticación 
+        return redirect()->route('admin');  //nos redirije a la ruta 'admin'
+        
+    } else {
 
-           return redirect()->route('admin');  //nos redirije a la ruta 'admin'
-
-       } else {
-
+           
            session()->flash('message', 'Invalid credentials');
-        //    return redirect()->back();
-           return redirect()->route('admin');  //nos
+           return redirect()->back();
        }
    }
 

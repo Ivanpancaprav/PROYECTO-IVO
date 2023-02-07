@@ -45,10 +45,33 @@ class PacienteController extends Controller
      */
     public function store(Request $request)
     {
-        $user = User::create($request->all());
-        request()->validate(User::$rules);
-        $paciente = Paciente::create($request->all());
-        request()->validate(Paciente::$rules);
+
+        $pass_encrypt = password_hash($request->password,PASSWORD_DEFAULT);
+
+        $validacion = $request->validate([
+            'dni' => 'required',
+            'nombre' =>'required',
+            'apellido1' =>'required',
+            'apellido2' =>'required',
+            'direccion' =>'required',
+            'email' =>'required',
+            'foto' =>'required',
+            'sexo' =>'required',
+            'password' =>'required',
+            'role' =>'required',
+            'fecha_nacimiento' =>'required',
+        ]);
+
+        $validacion2 = $request->validate([
+            'dni_paciente' => 'required',
+            'n_seguridad_social' =>'required',
+            'n_historial_clinico' => 'required'
+        ]);
+
+        $validacion["password"] = $pass_encrypt;
+        User::create($validacion);
+
+        Paciente::create($validacion2);
 
         return redirect()->route('pacientes.index')
             ->with('success', 'Paciente created successfully.');

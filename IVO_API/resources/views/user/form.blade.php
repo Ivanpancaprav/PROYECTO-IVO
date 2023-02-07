@@ -4,9 +4,7 @@
 			type="text/javascript"></script>
 <script>
     $(function (){
-
         $("#role").on('change',selectorRole);
-
         function selectorRole(){
             $('#borrar').remove(); 
             let selector = document.getElementById("role");
@@ -54,18 +52,17 @@
             {{ Form::label('direccion') }}
             {{ Form::text('direccion', $user->direccion, ['class' => 'form-control' . ($errors->has('direccion') ? ' is-invalid' : ''), 'placeholder' => 'Direccion']) }}
             {!! $errors->first('direccion', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
+        </div><br>
         <div class="form-group">
             {{ Form::label('foto') }}
-            {{ Form::text('foto', $user->foto, ['class' => 'form-control' . ($errors->has('foto') ? ' is-invalid' : ''), 'placeholder' => 'Foto']) }}
+            {!! Form::file('imagen', $user->foto, ['class' => 'form-control' . ($errors->has('direccion') ? ' is-invalid' : ''), 'placeholder' => 'Foto']) !!}
             {!! $errors->first('foto', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
+        </div><br>
         <div class="form-group">
             {{ Form::label('email') }}
             {{ Form::text('email', $user->email, ['class' => 'form-control' . ($errors->has('email') ? ' is-invalid' : ''), 'placeholder' => 'Email']) }}
             {!! $errors->first('email', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <br>
+        </div><br>
         <div class="form-group">
             {{ Form::label('Sexo') }}
             {{-- {{ Form::text('sexo', $user->sexo, ['class' => 'form-control' . ($errors->has('sexo') ? ' is-invalid' : ''), 'placeholder' => 'sexo']) }} --}}
@@ -92,7 +89,6 @@
             {{-- {{ Form::text('role', $user->role, ['class' => 'form-control' . ($errors->has('role') ? ' is-invalid' : ''), 'placeholder' => 'Role']) }} --}}
             <br>
             {{ Form::select('role', array(""=>"",'Paciente' => 'paciente', 'Medico' => 'medico','Radiologo'=>'radiologo','Administrador'=>'administrador'), 'S') }} 
-            
             {!! $errors->first('role', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <br>
