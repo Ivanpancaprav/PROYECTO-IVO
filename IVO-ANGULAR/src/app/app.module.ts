@@ -18,7 +18,7 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
     AppComponent,
     NavComponent,
     FooterComponent,
-    LoginComponent,
+    LoginComponent
   ],
   imports: [
     DataTablesModule,
@@ -26,9 +26,10 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
