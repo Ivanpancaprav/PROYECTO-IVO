@@ -20,7 +20,7 @@
                      $(".box-body").append($formPaciente);
                          
                 break;
-            }
+            }ç
         }
     });
 </script>
@@ -53,11 +53,7 @@
             {{ Form::text('direccion', $user->direccion, ['class' => 'form-control' . ($errors->has('direccion') ? ' is-invalid' : ''), 'placeholder' => 'Direccion']) }}
             {!! $errors->first('direccion', '<div class="invalid-feedback">:message</div>') !!}
         </div><br>
-        <div class="form-group">
-            {{ Form::label('foto') }}
-            {!! Form::file('imagen', $user->foto, ['class' => 'form-control' . ($errors->has('direccion') ? ' is-invalid' : ''), 'placeholder' => 'Foto']) !!}
-            {!! $errors->first('foto', '<div class="invalid-feedback">:message</div>') !!}
-        </div><br>
+            <!-- {!! Form::file('imagen',null) !!}<br><br> -->
         <div class="form-group">
             {{ Form::label('email') }}
             {{ Form::text('email', $user->email, ['class' => 'form-control' . ($errors->has('email') ? ' is-invalid' : ''), 'placeholder' => 'Email']) }}

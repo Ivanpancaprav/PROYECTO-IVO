@@ -113,4 +113,4 @@ Route::group(['middleware','paciente'],function(){
 
 //SUBIR IMAGENES
 
-Route::post('/subirImagenes','UserController@subirImagenes')->name('subirImagenes');
+Route::post('/store-image', [ImagenController::class, 'store'])->name('store-image');
