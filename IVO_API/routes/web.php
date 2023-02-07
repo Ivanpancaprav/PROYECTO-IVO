@@ -106,12 +106,3 @@ Route::group(['middleware' => 'administrador'], function(){
 //     Route::get('/paciente', [AuthController::class, 'paciente'])->name('paciente');
 //     //Route::get('/pacienteOtraFuncionalidad', [AuthController::class, 'pacienteOtraFuncionalidad'])->name('pacienteOtraFuncionalidad');
 //     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-
-<<<<<<< HEAD
-// });
-=======
-});
-
-//SUBIR IMAGENES
-
-Route::post('/subirImagenes','UserController@subirImagenes')->name('subirImagenes');
