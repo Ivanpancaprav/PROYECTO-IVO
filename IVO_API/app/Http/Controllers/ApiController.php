@@ -29,15 +29,15 @@ class ApiController extends Controller
         $medicos = DB::select('SELECT * FROM users ,medicos where medicos.dni_medico = users.dni');
         return $medicos;
 
+
     }
+    public function mostrarCitas(){
 
-public function mostrarMedicos(){
+        $users = User::all();
+        $citas= DB::select('SELECT * FROM citas ');
+        return $citas;
 
-    $users = User::all();
-    $medicos = DB::select('SELECT * FROM users ,medicos where medicos.dni_medico = users.dni');
-    return $medicos;
-
-}
+    }
 
 }
  

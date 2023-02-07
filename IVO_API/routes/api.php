@@ -25,4 +25,4 @@ Route::get('/medicos',[ApiController::class,'mostrarMedicos']);
 
 Route::get('/perfil/{dni}',[ApiController::class,'mostrarPerfil']);
 
-Route::get('/medicos', [ApiController::class,'mostrarMedicos']); 
+Route::get('/citas',[ApiController::class,'mostrarCitas']);

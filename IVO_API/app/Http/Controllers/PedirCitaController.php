@@ -19,8 +19,11 @@ class PedirCitaController extends Controller
 
     public function index()
     {
-        $citas = Cita::paginate(); //Asocia la base de datos a una variable
 
+        $datos=Cita::all();
+
+      
+        $citas = Cita::paginate(); //Asocia la base de datos a una variable
         return view('pedirCita.index', compact('citas'))  //esta llamando a la variable para mostrar los datos 
             ->with('i', (request()->input('page', 1) - 1) * $citas->perPage());
     }
