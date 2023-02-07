@@ -57,8 +57,6 @@ Route::get('/', function () {
 
 //***** FIN RUTAS PACIENTE *****//
 
-
-
 //*****RUTAS USUARIOS *****//
 
 Route::resource('users', UserController::class);
@@ -88,14 +86,14 @@ Route::resource('cita', PedirCitaController::class);
 
 Route::view('/login', 'auth.login')->name('logear');
 Route::post('/login-usuario', [AuthController::class, 'login'])->name('login');
-Route::view('/registrar', 'registrar');
-Route::post('/registro', [AuthController::class, 'registro'])->name('registro');
+// Route::view('/registrar', 'registrar');
+// Route::post('/registro', [AuthController::class, 'registro'])->name('registro');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 //GRUPO RUTAS ADMIN
 
-Route::group(['middleware' => 'admin'], function(){
-
+Route::group(['middleware' => 'administrador'], function(){
+    
     Route::get('/admin',[AuthController::class,'admin'])->name('admin');
     Route::post('/logout',[AuthController::class,'logout'])->name('admin');
 
@@ -103,14 +101,17 @@ Route::group(['middleware' => 'admin'], function(){
 
 //GRUPO RUTAS USER
 
-Route::group(['middleware','paciente'],function(){
+// Route::group(['middleware','paciente'],function(){
 
-    Route::get('/paciente', [AuthController::class, 'paciente'])->name('paciente');
-    //Route::get('/pacienteOtraFuncionalidad', [AuthController::class, 'pacienteOtraFuncionalidad'])->name('pacienteOtraFuncionalidad');
-    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+//     Route::get('/paciente', [AuthController::class, 'paciente'])->name('paciente');
+//     //Route::get('/pacienteOtraFuncionalidad', [AuthController::class, 'pacienteOtraFuncionalidad'])->name('pacienteOtraFuncionalidad');
+//     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
+<<<<<<< HEAD
+// });
+=======
 });
 
 //SUBIR IMAGENES
 
-Route::post('/store-image', [ImagenController::class, 'store'])->name('store-image');
+Route::post('/subirImagenes','UserController@subirImagenes')->name('subirImagenes');
