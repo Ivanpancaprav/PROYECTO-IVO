@@ -25,6 +25,7 @@ Route::get('/pacientes',[ApiController::class,'mostrarPacientes']);
 Route::get('/medicos',[ApiController::class,'mostrarMedicos']);
 
 Route::get('/perfil/{dni}',[ApiController::class,'mostrarPerfil']);
+<<<<<<< HEAD
 
 Route::get('/medicos', [ApiController::class,'mostrarMedicos']); 
 
@@ -40,3 +41,5 @@ Route::group(['middleware' => 'auth:api'], function () {
         Route::get('details', [UserController::class,'details']);
         Route::get('logout', [UserController::class,'logout']);
 });
+=======
+>>>>>>> ced29b3e09ae3d00e79c57ec3594148fb8033e3a

@@ -11,7 +11,6 @@ import { TokenStorageService } from 'src/app/_services/token-storage.service';
 })
 export class PerfilComponent implements OnInit  {
   public perfil: any;
-  currentUser: any;
   public mensajeErr: string;
   public dataTable: any;
   public dni: string | null;
@@ -19,7 +18,6 @@ export class PerfilComponent implements OnInit  {
 
   constructor(private usuarios_service:UsuariosServiceService, private Http: HttpClient, private aRoute: ActivatedRoute, private token: TokenStorageService){
     this.dni = this.aRoute.snapshot.paramMap.get('dni');
-    console.log(this.dni);
     this.mensajeErr ='';
   }
   // FUNCION QUE NOS DEVUELVE EL RESULTADO DEL SERVICIO GET PACIENTES,
@@ -30,10 +28,6 @@ export class PerfilComponent implements OnInit  {
       result =>{
         this.perfil = result;
         console.log(this.perfil);
-
-        //AQUI HACEMOS SINCRONO
-        // const table: any = $('table');
-        // this.dataTable = table.DataTable();
       },
       error =>{
         this.mensajeErr ="";
@@ -51,7 +45,6 @@ export class PerfilComponent implements OnInit  {
     }
 
     ngOnInit(): void {
-      this.currentUser =this.token.getUser();
       this.obtenerPerfil(this.dni);
     }
 

@@ -48,7 +48,7 @@ class User extends Authenticatable
 		'apellido1' => 'required',
         'apellido2' => 'required',
 		'direccion' => 'required',
-        'foto' => 'required',
+        'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         'email' => 'required',
         'password' =>'required','min:8',
 		'sexo' => 'required',

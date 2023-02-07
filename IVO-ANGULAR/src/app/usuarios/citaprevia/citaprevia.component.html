@@ -1,6 +1,6 @@
  <div class="container-fluid">
       <div class="row d-flex flex-column general">
-          <div class="col"></div>
+        <br><br>
           <div class="col-m">
               <div class="row justify-content-center" style="margin: 10px;">
                   <div class="col-2 row"><a type="submit" class="btn btn-outline-primary" routerLink="/citas">Proximas citas</a></div>
@@ -8,41 +8,57 @@
               </div>
           </div>
           
-          <div class="col">
-              <table class="table-responsive table-bordered">
-                <thead class="thead">
-                  <tr> 
-                    <td>Servicio</td>
-                    <td>Medico</td>
-                    <td>Paciente</td>
-                    <td>Fecha</td>
-                    <td>Hora</td>
+            <!-- =====================
+COLUMNA IZQUIERDA
+================== -->
+      <!-- COLUMNA TABLA DATATABLES -->
+      <div class="col">
+        <br />
+  
+        <div class="card-body">
+          <div class="card-deck mb-3 text-center">
+            <div class="card mb-4 box-shadow p-2">
+              <table
+                *ngIf="mostrarTabla"
+                datatable
+                [dtOptions]="dtOptions"
+                class="hover cell-border row-border display table-striped "
+              >
+                <thead id="encabezad">
+                  <tr>
+                    <th>ID</th>
+                    <th>Fecha</th>
+                    <th>Especialidad</th>
+                    <th>Medico</th>
+                    <th>Descripcion</th>
                   </tr>
-                </thead> 
-                  <tr style="cursor: pointer;"> 
-                    <td> Cardiología</td>
-                    <td> Prats Frau, Rosana </td>
-                    <td> Jamal </td>
-                    <td> 14/12/2021 </td>
-                    <td> 9:40</td>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let paciente of pacientes">
+                    <td>{{ paciente.dni }}</td>
+                    <td>{{ paciente.nombre }}</td>
+                    <td>{{ paciente.nombre }}</td>
+                    <td>{{ paciente.apellido1 }}</td>
+                    <td class="text-center">
+                      <a
+                        [routerLink]="['/pacientes', paciente.dni]"
+                        class="botonPrevia"
+                        >mostrar</a
+                      >
+                    </td>
                   </tr>
-                  <tr style="cursor: pointer;"> 
-                    <td> Cardiología</td>
-                    <td> Prats Frau, Rosana </td>
-                    <td> Jamal </td>
-                    <td> 14/12/2021 </td>
-                    <td> 9:40</td>
-                  </tr>
-                  <tr style="cursor: pointer;"> 
-                    <td> Cardiología</td>
-                    <td> Prats Frau, Rosana </td>
-                    <td> Jamal </td>
-                    <td> 14/12/2021 </td>
-                    <td> 9:40</td>
-                  </tr>
+                </tbody>
               </table>
             </div>
-          <div class="col d-flex justify-content-center align-items-center "></div>
+          </div>
+        </div>
+      </div>
+      <div class="col d-flex justify-content-center align-items-center ">
+        <button type="button" class="btn btn-default btn-lg gestionar" routerLink="/solicitarCitas">Solicitar cita ➤</button>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <button type="button" class="btn btn-default btn-lg gestionar"routerLink="/gestionar-cita-med" >Modificar cita ➤  </button>
+       
       </div>
   </div>
+</div>
   

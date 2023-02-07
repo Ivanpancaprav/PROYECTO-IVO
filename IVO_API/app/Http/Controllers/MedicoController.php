@@ -41,6 +41,15 @@ class MedicoController extends Controller
         $medico = Medico::create($request->all());
         request()->validate(Medico::$rules);
 
+        // Subir imagenes
+        $image = $request->file('foto');
+        $name = $image->getClientOriginalName();
+        $path = public_path('images/');
+        $image->move($path, $name);
+        
+        $user->foto=$name;
+        
+
         return redirect()->route('medicos.index')
             ->with('success', 'medico created successfully.');
     }
@@ -87,6 +96,7 @@ class MedicoController extends Controller
             'nombre' =>'required',
             'apellido1' =>'required',
             'apellido2' =>'required',
+            'foto' => 'required',
             'direccion' =>'required',
             'email' =>'required | email',
             'sexo' =>'required',
@@ -104,6 +114,9 @@ class MedicoController extends Controller
 
         User::whereDni($dni_antiguo)->update($validacion);
         Medico::whereDni_medico($validacion['dni'])->update($validacion2);
+        
+        $image = $request->file('foto')->resize(300, 200);
+        $name = time().'.'.$image->extension();
         
         return redirect()->route('medicos.index')->with('success', 'Medico updated successfully');
     

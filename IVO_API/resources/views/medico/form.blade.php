@@ -12,8 +12,9 @@
                            let val =  $(this).val();
                             console.log(val);
                             $('#dni_medico').val(val);
-                            
                         });
+
+                        sudo cp -r /home/alumno/Escritorio/GitProyectoIVO/PROYECTO-IVO/IVO_API/public/images /home/alumno/Escritorio/GitProyectoIVO/PROYECTO-IVO/IVO-ANGULAR/src/assets;
                     });
                        
                     </script>
@@ -46,7 +47,7 @@
                     {!! $errors->first('direccion', '<div class="invalid-feedback">:message</div>') !!}
                 </div>
                 <div class="form-group">
-                    {{ Form::label('foto') }}
+                    {{ Form::label('Foto de perfil') }}<br>
                     {{ Form::file('foto', $user->foto, ['class' => 'form-control' . ($errors->has('foto') ? ' is-invalid' : ''), 'placeholder' => 'Foto']) }}
                     {!! $errors->first('foto', '<div class="invalid-feedback">:message</div>') !!}
                 </div>
@@ -55,17 +56,14 @@
                     {{ Form::text('email', $user->email, ['class' => 'form-control' . ($errors->has('email') ? ' is-invalid' : ''), 'placeholder' => 'Email']) }}
                     {!! $errors->first('email', '<div class="invalid-feedback">:message</div>') !!}
                 </div>
-            
                 <div class="form-group">
                     {{ Form::label('Sexo') }}
                     <br>
                     {{-- {{ Form::text('sexo', $user->sexo, ['class' => 'form-control' . ($errors->has('sexo') ? ' is-invalid' : ''), 'placeholder' => 'sexo']) }} --}}
-                {!! Form::select('sexo', array('Masculino'=>'masculino','Femenino'=>'femenino')) !!}
+                    {!! Form::select('sexo', array('Masculino'=>'masculino','Femenino'=>'femenino')) !!}
                     {{-- {!! Form::checkbox('sexo', 'femenino', false, $user->sexo) !!} --}}
-                    
                     {{-- {{ Form::select('size', array('Femenino' => 'femenino', 'Masculino' => 'masculino'), 'S') }}  --}}
                     {!! $errors->first('sexo', '<div class="invalid-feedback">:message</div>') !!}
-                    
                 </div>
         
                 <div class="form-group">

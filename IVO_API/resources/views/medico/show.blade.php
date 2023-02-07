@@ -19,7 +19,7 @@
                     </div>
 
                     <div class="card-body">
-                        
+                        <img src="{{ url('./images/pepe.jpg') }}" style="height:150px; width:200px">
                         <div class="form-group">
                             <strong>Dni medico:</strong>
                             {{ $medico->dni_medico }}
@@ -43,10 +43,6 @@
                         <div class="form-group">
                             <strong>Direccion:</strong>
                             {{ $user->direccion }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Foto:</strong>
-                            {{ $user->foto }}
                         </div>
                         <div class="form-group">
                             <strong>Email:</strong>

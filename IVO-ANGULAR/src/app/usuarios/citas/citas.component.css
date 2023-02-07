@@ -61,3 +61,11 @@ tr td:first-child{
     border-width: 1px;
     border-style: solid;
 }
+
+#encabezado{
+    background-color: #17383f;
+}
+.btn-primary{
+    background-color: #17383f;
+    border-color: white;
+}
