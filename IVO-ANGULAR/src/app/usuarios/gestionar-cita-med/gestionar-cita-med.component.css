@@ -100,3 +100,19 @@
     border-width: 1px;
     border-style: solid;
 }
+
+.calendar-wrapper {
+    border-radius: 6px;
+    margin: 8px;
+  background: #0f0a0a;
+}
+
+.igx-calendar{
+    border-radius: 4px;
+}
+
+header.igx-calendar__header.ng-tnsc138-0.ng-start-inserted{
+   
+    background-color: #0f0a0a;
+    border-color: bisque;
+}
