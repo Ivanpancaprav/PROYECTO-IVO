@@ -133,4 +133,20 @@ class UserController extends Controller
         return redirect()->route('users.index')
             ->with('success', 'User deleted successfully');
     }
+
+    public function codeaguardar(Request $request){
+        $post = new Post();
+        $post->nombre = $request->nombre;
+        if($request->hasFile("imagen")){
+
+            $imagen = $request->file("imagen");
+            $nombreimagen = Str::slug($request->nombre).".".$imagen->guessExtension();
+            $ruta = public_path("img/post/");
+            copy($imagen->getRealPath(),$ruta.$nombreimagen);
+            $post->imagen = $nombreimagen;            
+            
+        }
+        $post->save();
+        
+    }
 }

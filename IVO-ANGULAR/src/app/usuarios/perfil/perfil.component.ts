@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsuariosServiceService } from '../usuarios-service.service';
 import  {HttpClient} from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
+import { TokenStorageService } from 'src/app/_services/token-storage.service';
 
 @Component({
   selector: 'app-perfil',
@@ -10,12 +11,13 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PerfilComponent implements OnInit  {
   public perfil: any;
+  currentUser: any;
   public mensajeErr: string;
   public dataTable: any;
   public dni: string | null;
   dtOptions: DataTables.Settings = {};
 
-  constructor(private usuarios_service:UsuariosServiceService, private Http: HttpClient, private aRoute: ActivatedRoute){
+  constructor(private usuarios_service:UsuariosServiceService, private Http: HttpClient, private aRoute: ActivatedRoute, private token: TokenStorageService){
     this.dni = this.aRoute.snapshot.paramMap.get('dni');
     console.log(this.dni);
     this.mensajeErr ='';
@@ -49,6 +51,7 @@ export class PerfilComponent implements OnInit  {
     }
 
     ngOnInit(): void {
+      this.currentUser =this.token.getUser();
       this.obtenerPerfil(this.dni);
     }
 

@@ -1,0 +1,49 @@
+<head>
+  <link href='https://fonts.googleapis.com/css?family=Archivo Black' rel='stylesheet'>
+</head>
+
+<body>
+  <div class="container-fluid d-flex flex-column">
+    <div class="contenedor row d-flex flex-column align-self-end align-items-center">
+      <img class="logo" src="./assets/logo-ivo.png">
+      <div class="login">LOGIN</div>
+      <br>
+      <div class="row d-flex flex-column align-items-center">
+        <form *ngIf="!isLoggedIn" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+          <div class="form-group">
+            <label for="DNI">DNI</label>
+            <input type="text" class="form-control" name="DNI" [(ngModel)]="form.DNI" required
+              #DNI="ngModel" />
+            <div class="alert alert-danger" role="alert" *ngIf="DNI.errors && f.submitted">
+              Se requiere el DNI
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" name="password" [(ngModel)]="form.password" required
+              minlength="6" #password="ngModel" />
+            <div class="alert alert-danger" role="alert" *ngIf="password.errors && f.submitted">
+              <div *ngIf="password.errors">Se requiere la contraseña</div>
+              <div *ngIf="password.errors">
+                La contraseña debe tener mas de 6 caracteres
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary btn-block">
+              Login
+            </button>
+          </div>
+          <div class="form-group">
+            <div class="alert alert-danger" role="alert" *ngIf="f.submitted && isLoginFailed">
+              Login fallido: {{ errorMessage }}
+            </div>
+          </div>
+        </form>
+        <div class="alert alert-success" *ngIf="isLoggedIn">
+          Logeado como {{ roles }}.
+        </div>
+      </div>
+    </div><br>
+  </div>
+</body>
