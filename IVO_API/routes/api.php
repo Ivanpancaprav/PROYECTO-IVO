@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\ApiController;
-use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\UserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
 Route::get('/pacientes',[ApiController::class,'mostrarPacientes']);
 
@@ -26,3 +27,16 @@ Route::get('/medicos',[ApiController::class,'mostrarMedicos']);
 Route::get('/perfil/{dni}',[ApiController::class,'mostrarPerfil']);
 
 Route::get('/medicos', [ApiController::class,'mostrarMedicos']); 
+
+Route::get('/user/{dni}', [ApiController::class,'getUser']); 
+
+
+
+
+//RUTAS LOGGIN
+Route::post('login', [UserController::class,'login']);
+Route::post('register', [UserController::class,'register']);
+Route::group(['middleware' => 'auth:api'], function () {
+        Route::get('details', [UserController::class,'details']);
+        Route::get('logout', [UserController::class,'logout']);
+});

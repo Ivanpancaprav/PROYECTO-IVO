@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\adminController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\HistoriasClinicaController;
 use App\Http\Controllers\PacienteController;
-use App\Http\Controllers\UserController;
 use App\Http\Controllers\MedicoController;
 use App\Http\Controllers\PedirCitaController;
 /*
@@ -59,7 +59,7 @@ Route::get('/', function () {
 
 //*****RUTAS USUARIOS *****//
 
-Route::resource('users', UserController::class);
+// Route::resource('users', UserController::class);
 
 //*****RUTAS PACIENTES *****//
 
@@ -72,6 +72,10 @@ Route::resource('medicos', MedicoController::class);
 //*****RUTAS CREAR CITAS *****//
 
 Route::resource('cita', PedirCitaController::class);
+
+//*****RUTAS CREAR HISTORIAS MEDICAS *****//
+
+Route::resource('historias_medicas', HistoriasClinicaController::class);
 
 // Route::resource('crea_usuario', UserController::class);
 // Route::post('/guardar_usuario',[UserController::class,'store'])->name('store');
@@ -86,8 +90,8 @@ Route::resource('cita', PedirCitaController::class);
 
 Route::view('/login', 'auth.login')->name('logear');
 Route::post('/login-usuario', [AuthController::class, 'login'])->name('login');
-// Route::view('/registrar', 'registrar');
-// Route::post('/registro', [AuthController::class, 'registro'])->name('registro');
+Route::view('/registrar', 'auth.registrar');
+Route::post('/registro', [AuthController::class, 'registro'])->name('registro');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 //GRUPO RUTAS ADMIN
@@ -101,18 +105,14 @@ Route::group(['middleware' => 'administrador'], function(){
 
 //GRUPO RUTAS USER
 
-// Route::group(['middleware','paciente'],function(){
+Route::group(['middleware','paciente'],function(){
 
-//     Route::get('/paciente', [AuthController::class, 'paciente'])->name('paciente');
-//     //Route::get('/pacienteOtraFuncionalidad', [AuthController::class, 'pacienteOtraFuncionalidad'])->name('pacienteOtraFuncionalidad');
-//     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('/paciente', [AuthController::class, 'paciente'])->name('paciente');
+    //Route::get('/pacienteOtraFuncionalidad', [AuthController::class, 'pacienteOtraFuncionalidad'])->name('pacienteOtraFuncionalidad');
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-<<<<<<< HEAD
-// });
-=======
 });
 
 //SUBIR IMAGENES
 
-Route::post('/subirImagenes','UserController@subirImagenes')->name('subirImagenes');
->>>>>>> 5aadbe51d95434c42f001da1a45d8e7e787b0d2a
+// Route::post('/subirImagenes','UserController@subirImagenes')->name('subirImagenes');

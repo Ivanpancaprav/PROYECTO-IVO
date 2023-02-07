@@ -8,6 +8,8 @@ import { GestionarCitaMedComponent } from './usuarios/gestionar-cita-med/gestion
 import { HistorialComponent } from './usuarios/historial/historial.component';
 import { SolicitarCitaComponent } from './usuarios/solicitar-cita/solicitar-cita.component';
 import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './profile/profile.component';
+
 const routes: Routes = [
   {
     path:'perfil/:dni',
@@ -45,6 +47,14 @@ const routes: Routes = [
   {
     path:'login',
     component: LoginComponent
+  },
+  {
+    path:'profile',
+    component: ProfileComponent
+  },
+  {
+    path: '',
+    redirectTo: 'pacientes', pathMatch: 'full'
   }
 ];
 

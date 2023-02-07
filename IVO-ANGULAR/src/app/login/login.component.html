@@ -11,10 +11,10 @@
       <div class="row d-flex flex-column align-items-center">
         <form *ngIf="!isLoggedIn" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
           <div class="form-group">
-            <label for="DNI">DNI</label>
-            <input type="text" class="form-control" name="DNI" [(ngModel)]="form.DNI" required
-              #DNI="ngModel" />
-            <div class="alert alert-danger" role="alert" *ngIf="DNI.errors && f.submitted">
+            <label for="dni">DNI</label>
+            <input type="text" class="form-control" name="dni" [(ngModel)]="form.dni" required
+              #dni="ngModel" />
+            <div class="alert alert-danger" role="alert" *ngIf="dni.errors && f.submitted">
               Se requiere el DNI
             </div>
           </div>

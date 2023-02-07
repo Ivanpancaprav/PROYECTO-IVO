@@ -21,9 +21,9 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Paciente extends Model
 {   
+      protected $casts = ['dni_paciente'=>'string']; 
 
-    
-    static $rules = [
+        static $rules = [
 		'n_seguridad_social' => 'required',
 		'n_historial_clinico' => 'required',
         'dni_paciente' => 'required'
@@ -60,7 +60,7 @@ class Paciente extends Model
      */
     public function user()
     {
-        return $this->hasOne('App\Models\User', 'dni', 'dni_paciente');
+        return $this->belongsTo(User::class,'dni_paciente','dni');
     }
     
 

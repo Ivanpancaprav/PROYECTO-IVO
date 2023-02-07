@@ -9,7 +9,7 @@ import { TokenStorageService } from '../_services/token-storage.service';
 })
 export class LoginComponent implements OnInit {
   form: any = {
-    username: null,
+    dni: null,
     password: null
   };
   isLoggedIn = false;
@@ -27,9 +27,9 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const { DNI, password } = this.form;
+    const { dni, password } = this.form;
 
-    this.authService.login(DNI, password).subscribe(
+    this.authService.login(dni, password).subscribe(
       data => {
         this.tokenStorage.saveToken(data.accessToken);
         this.tokenStorage.saveUser(data);
