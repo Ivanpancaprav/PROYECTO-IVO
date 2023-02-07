@@ -5,12 +5,12 @@ import { UsuariosServiceService } from '../usuarios-service.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-pacientes',
+  selector: 'app-citas',
   templateUrl: './citas.component.html',
   styleUrls: ['./citas.component.css'],
 })
 export class CitasComponent implements OnInit  {
-  public pacientes: any;
+  public medicos: any;
   public perfil: any;
   public dni: string | null;
   public mensajeErr: string;
@@ -26,11 +26,11 @@ export class CitasComponent implements OnInit  {
   // FUNCION QUE NOS DEVUELVE EL RESULTADO DEL SERVICIO GET PACIENTES,
   // O SEA, TODOS LOS PACIENTES
 
-    obtenerPacientes(): void {
+    obtenerCitas(): void {
 
       this.usuarios_service.getPacientes().subscribe(
         result =>{
-          this.pacientes = result;
+          this.medicos = result;
           this.mostrarTabla = true;
          
         },
@@ -100,7 +100,7 @@ export class CitasComponent implements OnInit  {
         
       };
 
-      this.obtenerPacientes();
+      this.obtenerCitas();
       this.obtenerDatos(this.dni);
     }
 
