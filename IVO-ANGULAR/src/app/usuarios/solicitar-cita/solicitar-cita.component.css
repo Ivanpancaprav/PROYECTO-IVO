@@ -19,74 +19,6 @@
     align-items: center;
 }
 
-.calendar {
-    padding: 20px 10px;
-    background-color: #263130;
-    border-radius: 3px;
-    width: 60%;
-    min-width: 700px;
-    font-family: sans-serif;
-
-}
-
-.calendarheader {
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    text-transform: uppercase;
-    margin-bottom: 30px;
-}
-
-.calendar .control {
-    color: white;
-    font-weight: bold;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0 5px;
-}
-
-.gridheader, .gridbody {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-}
-
-.gridheader {
-    color: white;
-    margin-bottom: 60px;
-}
-
-.gridbody {
-    grid-auto-rows: 60px;
-    color: var(--color-cell);
-}
-
-.gridcell {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.gridcell--gd {
-    cursor: pointer;
-}
-
-.gridcell--selected {
-    color: var(--color-bg-calendar);
-    background-color: white;
-    border-radius: 20%;
-    border: 1px solid white;
-    box-shadow: 0 0 0 2px var(--color-bg-calendar) inset;
-}
-
-.grid__cell--disabled {
-    color: var(--color-cell-disabled);
-    cursor: not-allowed;
-}
-.add{
-    width: 35px;
-    height: 30px;
-}
 
 .gestionar{
     align-self: down;
@@ -102,13 +34,17 @@
 }
 
 .calendar-wrapper {
-    max-width: 500px;
-    min-width: 200px;
-    border: 1px solid;
     border-radius: 6px;
     margin: 8px;
+  background: #0f0a0a;
 }
 
 .igx-calendar{
     border-radius: 4px;
+}
+
+header.igx-calendar__header.ng-tnsc138-0.ng-start-inserted{
+   
+    background-color: #0f0a0a;
+    border-color: bisque;
 }
