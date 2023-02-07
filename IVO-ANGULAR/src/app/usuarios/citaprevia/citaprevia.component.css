@@ -49,3 +49,24 @@ tr td:first-child{
     height: 200px;
     box-shadow: 7px 7px 15px #592A08; 
   }
+  .gestionar{
+    align-self: down;
+    width: 180px;
+    height: 50px;
+    background: #6BB0BF;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.205);
+    border-radius: 20px;
+    color: black;
+    border-color: #6BB0BF;
+    border-width: 1px;
+    border-style: solid;
+}
+
+#encabezad{
+    background-color: #357c8b;
+}
+
+.btn-primary{
+    background-color: #17383f;
+    border-color: white;
+}

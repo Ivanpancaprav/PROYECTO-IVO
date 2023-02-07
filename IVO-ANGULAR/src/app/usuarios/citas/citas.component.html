@@ -24,7 +24,7 @@ COLUMNA IZQUIERDA
               class="hover cell-border row-border display table-striped "
             >
               <thead>
-                <tr>
+                <tr id="encabezado">
                   <th>ID</th>
                   <th>Fecha</th>
                   <th>Especialidad</th>
@@ -34,14 +34,16 @@ COLUMNA IZQUIERDA
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let paciente of pacientes">
-                  <td>{{ paciente.dni }}</td>
-                  <td>{{ paciente.nombre }}</td>
-                  <td>{{ paciente.nombre }}</td>
-                  <td>{{ paciente.apellido1 }}</td>
+                <tr *ngFor="let cita ">
+                  <td>{{ cita.id_cita }}</td>
+                  <td>{{ cita.fecha_creacion }}</td>
+                  
+                  <td>{{ cita.especialidad }}</td>
+                  <td>{{ cita.dni_medico }}</td>
+                  <td>{{ cita.descripcion }}</td>
                   <td class="text-center">
                     <a
-                      [routerLink]="['/pacientes', paciente.dni]"
+                      [routerLink]="['/citas', cita.dni]"
                       class="botonPrevia"
                       >mostrar</a
                     >

@@ -21,3 +21,8 @@ table{
     min-width: 75%;
     min-height: 50%;
 }
+.igx-calendar__header{
+   
+    background-color: #6BB0BF !important;
+    border-color: bisque;
+}
