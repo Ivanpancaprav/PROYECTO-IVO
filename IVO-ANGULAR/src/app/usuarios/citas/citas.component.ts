@@ -3,6 +3,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { UsuariosServiceService } from '../usuarios-service.service';
 import { ActivatedRoute } from '@angular/router';
+import { Citas } from 'src/app/models/cita.model';
 
 @Component({
   selector: 'app-citas',
@@ -11,16 +12,14 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CitasComponent implements OnInit  {
   public citas: any;
-  public perfil: any;
-  public dni: string | null;
   public mensajeErr: string;
   dtOptions: DataTables.Settings ={};
   public mostrarTabla: boolean;
  
   
   constructor(private usuarios_service:UsuariosServiceService, private aRoute: ActivatedRoute){
-    this.dni = this.aRoute.snapshot.paramMap.get('dni');
     this.mensajeErr ='';
+   
     this.mostrarTabla = false;
   }
   // FUNCION QUE NOS DEVUELVE EL RESULTADO DEL SERVICIO GET PACIENTES,
@@ -28,7 +27,7 @@ export class CitasComponent implements OnInit  {
 
     obtenerCitas(): void {
 
-      this.usuarios_service.getPacientes().subscribe(
+      this.usuarios_service.getCitas().subscribe(
         result =>{
           this.citas = result;
           this.mostrarTabla = true;
@@ -48,28 +47,6 @@ export class CitasComponent implements OnInit  {
       );
     }
 
-    obtenerDatos(dni: any): void {
-
-      this.usuarios_service.getPerfil(dni).subscribe(
-        result =>{
-          this.perfil = result;
-          this.mostrarTabla = true;
-          console.log(this.perfil);
-         
-        },
-        error =>{
-          this.mensajeErr="";
-          if(error instanceof ErrorEvent){
-            this.mensajeErr =error.error.message;
-          }else if(error.status == 404){
-            this.mensajeErr = "Error 404"
-          }else{
-            this.mensajeErr = "Error status:"+error.status;
-          }
-          this.mostrarTabla = true;
-        }
-      );
-    }
 
     ngOnInit(): void {
 
@@ -101,7 +78,7 @@ export class CitasComponent implements OnInit  {
       };
 
       this.obtenerCitas();
-      this.obtenerDatos(this.dni);
+     
     }
 
 

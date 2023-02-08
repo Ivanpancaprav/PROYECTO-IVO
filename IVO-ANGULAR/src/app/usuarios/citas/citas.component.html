@@ -25,28 +25,22 @@ COLUMNA IZQUIERDA
             >
               <thead>
                 <tr id="encabezado">
-                  <th>ID</th>
+              
                   <th>Fecha</th>
                   <th>Especialidad</th>
                   <th>Medico</th>
-                  <th>Descripcion</th>
-                  
+              
+                
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let cita for citas">
-                  <td>{{ cita.id_cita }}</td>
+                <tr *ngFor="let cita of citas">
+                 
                   <td>{{ cita.fecha_creacion }}</td>
                   <td>{{ cita.especialidad }}</td>
                   <td>{{ cita.dni_medico }}</td>
-                  <td>{{ cita.descripcion }}</td>
-                  <td class="text-center">
-                    <a
-                      [routerLink]="['/citas']"
-                      class="botonPrevia"
-                      >mostrar</a
-                    >
-                  </td>
+                  
+                 
                 </tr>
               </tbody>
             </table>
