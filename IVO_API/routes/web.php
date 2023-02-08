@@ -61,21 +61,6 @@ Route::get('/', function () {
 
 // Route::resource('users', UserController::class);
 
-//*****RUTAS PACIENTES *****//
-
- Route::resource('pacientes', PacienteController::class);
-
-//*****RUTAS MEDICOS *****//
-
-Route::resource('medicos', MedicoController::class);
-
-//*****RUTAS CREAR CITAS *****//
-
-Route::resource('cita', PedirCitaController::class);
-
-//*****RUTAS CREAR HISTORIAS MEDICAS *****//
-
-Route::resource('historias_medicas', HistoriasClinicaController::class);
 
 // Route::resource('crea_usuario', UserController::class);
 // Route::post('/guardar_usuario',[UserController::class,'store'])->name('store');
@@ -86,9 +71,12 @@ Route::resource('historias_medicas', HistoriasClinicaController::class);
 
 //RUTA VISTA CREA USUARIO
 
-//RUTAS LOGIN
 
-Route::view('/login', 'auth.login')->name('logear');
+// Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+//RUTAS LOGIN
+Route::view('/', 'auth.login')->name('logear');
 Route::post('/login-usuario', [AuthController::class, 'login'])->name('login');
 Route::view('/registrar', 'auth.registrar');
 Route::post('/registro', [AuthController::class, 'registro'])->name('registro');
@@ -99,26 +87,26 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::group(['middleware' => 'administrador'], function(){
     
     Route::get('/admin',[AuthController::class,'admin'])->name('admin');
-    Route::post('/logout',[AuthController::class,'logout'])->name('admin');
+    Route::resource('pacientes', PacienteController::class);
 
-});
+        //*****RUTAS PACIENTES *****//
 
-//GRUPO RUTAS USER
+    Route::resource('pacientes', PacienteController::class);
 
-Route::group(['middleware','paciente'],function(){
-
-<<<<<<< HEAD
-    Route::get('/paciente', [AuthController::class, 'paciente'])->name('paciente');
-    //Route::get('/pacienteOtraFuncionalidad', [AuthController::class, 'pacienteOtraFuncionalidad'])->name('pacienteOtraFuncionalidad');
-    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-
+    //*****RUTAS MEDICOS *****//
+ 
+    Route::resource('medicos', MedicoController::class);
+ 
+    //*****RUTAS CREAR CITAS *****//
+ 
+    Route::resource('cita', PedirCitaController::class);
+ 
+    //*****RUTAS CREAR HISTORIAS MEDICAS *****//
+ 
+    Route::resource('historias_medicas', HistoriasClinicaController::class);
+ 
 });
 
 //SUBIR IMAGENES
 
 // Route::post('/subirImagenes','UserController@subirImagenes')->name('subirImagenes');
-=======
-//     Route::get('/paciente', [AuthController::class, 'paciente'])->name('paciente');
-//     //Route::get('/pacienteOtraFuncionalidad', [AuthController::class, 'pacienteOtraFuncionalidad'])->name('pacienteOtraFuncionalidad');
-//     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
->>>>>>> ced29b3e09ae3d00e79c57ec3594148fb8033e3a

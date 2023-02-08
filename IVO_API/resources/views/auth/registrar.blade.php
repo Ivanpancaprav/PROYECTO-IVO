@@ -9,6 +9,10 @@
         <input type="text" name="dni" class="form-control p_input">
     </div>
     <div class="form-group">
+        <label>email</label>
+        <input type="text" name="email" class="form-control p_input">
+    </div>
+    <div class="form-group">
         <label>Password</label>
         <input type="password" name="password" class="form-control p_input">
     </div>

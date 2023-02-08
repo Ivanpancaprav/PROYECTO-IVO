@@ -30,7 +30,6 @@ class ApiController extends Controller
 
     }
 
-<<<<<<< HEAD
     // public function getUser(Request $request){
 
     //     $role = DB::select('SELECT role FROM users where users.dni = '.$request->dni);
@@ -63,7 +62,5 @@ class ApiController extends Controller
 
     // // }
 
-=======
->>>>>>> ced29b3e09ae3d00e79c57ec3594148fb8033e3a
 }
  
