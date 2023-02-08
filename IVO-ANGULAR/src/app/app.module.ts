@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
-import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { UsuariosModule } from './usuarios/usuarios.module';
 import { FormsModule } from '@angular/forms';
@@ -27,6 +26,7 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    UsuariosModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

@@ -28,7 +28,7 @@ import { BrowserModule } from "@angular/platform-browser";
     CitapreviaComponent,
     SolicitarCitaComponent,
     ModificarCitaComponent,
-    GestionarCitaMedComponent
+    GestionarCitaMedComponent,
   ],
   imports: [
     CommonModule,

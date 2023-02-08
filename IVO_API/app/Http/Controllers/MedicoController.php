@@ -47,7 +47,9 @@ class MedicoController extends Controller
         $path = public_path('images/');
         $image->move($path, $name);
         
-        $user->foto=$name;
+        $user = User::findOrFail($foto);
+        $user->name = $request->input('name');
+        $user->save();
         
 
         return redirect()->route('medicos.index')
