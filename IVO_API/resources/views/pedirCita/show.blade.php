@@ -14,34 +14,29 @@
                             <span class="card-title">Show cita</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('pedirCita.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('citas.index') }}"> Back</a>
                         </div>
                     </div>
 
                     <div class="card-body">
                         
-                        <div class="form-group">
-                            <scita->id_cita }}
-                        </div>
+                    
                         <div class="form-group">
                             <strong>fecha_creacion:</strong>
-                            {{ $cita->fecha_creacion }}
+                            {{ $citas->fecha_creacion }}
                         </div>
                         <div class="form-group">
                             <strong>especialidad:</strong>
-                            {{ $cita->especialidad }}
+                            {{ $citas->especialidad }}
                         </div>
                         <div class="form-group">
                             <strong>descripción:</strong>
-                            {{ $cita->descripcion }}
+                            {{ $citas->descripcion }}
                         </div>
-                        <div class="form-group">
-                            <strong>dni_pacdni_medico:</strong>
-                            {{ $cita->dni_pacdni_medico }}
-                        </div>
+                     
                         <div class="form-group">
                             <strong>dni_medico:</strong>
-                            {{ $cita->dni_medico }}
+                            {{ $citas->dni_medico }}
                         </div>
                     </div>
                 </div>

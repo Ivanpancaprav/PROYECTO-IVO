@@ -35,7 +35,7 @@ class ApiController extends Controller
     public function mostrarCitas(){
 
 
-        $users = User::all();
+       
         $citas= DB::select('SELECT * FROM citas ');
         return $citas;
 
