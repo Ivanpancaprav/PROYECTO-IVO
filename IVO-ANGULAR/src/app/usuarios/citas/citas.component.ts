@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./citas.component.css'],
 })
 export class CitasComponent implements OnInit  {
-  public medicos: any;
+  public citas: any;
   public perfil: any;
   public dni: string | null;
   public mensajeErr: string;
@@ -30,7 +30,7 @@ export class CitasComponent implements OnInit  {
 
       this.usuarios_service.getPacientes().subscribe(
         result =>{
-          this.medicos = result;
+          this.citas = result;
           this.mostrarTabla = true;
          
         },

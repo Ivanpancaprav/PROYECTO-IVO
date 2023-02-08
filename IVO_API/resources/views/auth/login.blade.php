@@ -1,19 +1,4 @@
-{{-- <form method="post" action="{{ route('login') }}">
-    @csrf
-    <div class="form-group">
-        <label>Username</label>
-        <input type="text" name="dni" class="form-control p_input">
-    </div>
-    <div class="form-group">
-        <label>Password *</label>
-        <input type="password" name="password" class="form-control p_input">
-    </div>
 
-    <div class="text-center">
-        <button type="submit" class="btn btn-primary btn-block enter-btn">Login</button>
-    </div>
-
-</form> --}}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,26 +10,48 @@
 </head>
 <style>
 
+*{
+        padding: 0px;
+        margin: 0px;
+        /* border: 1px solid black; */
+    }
+
 body {
-    background: url(/assets/img/fondo.jpg);
+    background: url({{url("assets/fondo.jpg")}});
+   
+}
+body{
     width: 100%;
     height: 100vh;
     background-size: 100% 100%;
-    opacity: 0.8;
+    
 }
-
 
 .contenedor{
+    padding: 10px;
     width: 45%;
-    height: 100vh;
-    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(60,199,252,1) 50%, rgba(0,212,255,1) 100%);
+    max-height: 100%;
+    /* background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(60,199,252,1) 50%, rgba(0,212,255,1) 100%); */
+    /* background-color: rgb(138, 197, 209); */
+    background-color: rgb(212, 242, 248);
+
+    /* background-color: white; */
+    box-shadow: 10px;
 }
 
-.logo {
-    width: 200px;
-    height: 200px;
+#logo {
+    background: url({{url("assets/logo-ivo.png")}});
+ 
+}
+
+#logo{
+    width: 80%;
+    height: 20%;
     border-radius: 15px;
-    background-size: 100% 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+background-position: center;
+
     filter: brightness(0%);
 }
 
@@ -66,15 +73,6 @@ body {
     color: #000000;
 }
 
-a{
-    width: 239px;
-    height: 25px;
-    font-family: 'Inter';
-    font-size: 20px;
-    color: #266352;
-    text-decoration: none;
-
-}
 
 .acceder{
     width: 150px;
@@ -112,42 +110,47 @@ input:invalid {
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     </head>
       <body>
-          <div class="container-fluid d-flex flex-column">
-              <div class="contenedor row d-flex flex-column align-self-end align-items-center">
-                  <img class="logo" src="/assets/img/logo.png">
-                  <div class="login">LOGIN</div>
+          <div class="container-fluid d-flex flex-column h-100">
+              <div class="contenedor row d-flex flex-column align-self-end align-items-center h-100">
+                  
+                  <div id="logo"></div>
+                  <div class="login mt-5">LOGIN</div>
                   <br>
                   <div class="row d-flex flex-column align-items-center">
-                    <form method="post" action="{{route('login')}}">
-                        
-                        @csrf
+                    <div class="col-7 mt-5">
 
-                      <div class="form-group">
-                        <label>DNI</label>
-                        <div class="row-1 dni">
-                            <input type="text" class="form-control" placeholder="Introduce tu DNI" name="dni" maxlength="9" pattern="[0-9]{8}[A-Za-z]{1}">
+                        <form method="post" action="{{route('login')}}">
+                        
+                            @csrf
+    
+                          <div class="form-group">
+                            <label>Email</label>
+                            <div class="row-1 dni">
+                                <input type="text" class="form-control" placeholder="Introduce tu email" name="email">
+                            </div>
+                          </div><br>
+                          <div class="form-group">
+                            <label>Contraseña</label>
+                            <input type="password" class="form-control" name="password" placeholder="Introduce tu contraseña">
+                          </div><br>
+                          <div class="form-check d-flex justify-content-between">
+                            <div>
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label">Recordar</label>
+                            </div>
+                            <a class="text-end" href="">Olvidaste la contraseña?</a>
                         </div>
-                      </div><br>
-                      <div class="form-group">
-                        <label>Contraseña</label>
-                        <input type="password" class="form-control" name="password" placeholder="Introduce tu contraseña">
-                      </div><br>
-                      <div class="form-check d-flex justify-content-between">
-                        <div>
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label">Recordar</label>
+                        <div class="row-2 d-flex justify-content-end my-3">
+                          <button type="submit" class="acceder">Acceder ➔</button>
                         </div>
-                        <a class="text-end" href="">Olvidaste la contraseña?</a>
+                        </form>
                     </div>
-                    <div class="row-2 d-flex justify-content-end my-3">
-                      <button type="submit" class="acceder">Acceder ➔</button>
-                    </div>
-                    </form>
+                 
               </div>
-              <div class="d-flex flex-row mb-2 justify-content-end">
-                <div class="cuenta">No tienes una cuenta?</div><a href="#">Registrate</a>
+              <div class="d-flex flex-row mb-2 justify-content-center mt-5">
+                <div class="cuenta">No tienes una cuenta?</div><a href="#"> Registrate</a>
               </div>
-              </div><br>  
+              <br>  
           </div>
       </body>
     

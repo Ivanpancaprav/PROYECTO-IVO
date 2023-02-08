@@ -68,5 +68,7 @@ tr td:first-child{
 
 .btn-primary{
     background-color: #17383f;
-    border-color: white;
+    border-color: #17383f;
 }
+.btn-outline-primary{ 
+    border-color: #17383f;}

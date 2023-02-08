@@ -17,22 +17,14 @@ class AdminMiddleware
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
     public function handle(Request $request, Closure $next)
-    {
-        
+    {    
+
         if (Auth::check()){
+           
             if(auth()->user()->role == 'administrador'){
                 return $next($request);
             }
         }
-    
-
-        // if (Auth::check()){
-        //     if(auth()->user()->role == 'administrador'){
-        //         return $next($request);
-        //     }
-        // }
-    
-
 
         return redirect()->route('logear');
     }
