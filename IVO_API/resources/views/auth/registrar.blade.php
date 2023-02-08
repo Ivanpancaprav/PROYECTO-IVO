@@ -13,6 +13,8 @@
         <input type="password" name="password" class="form-control p_input">
     </div>
 
+    <input type="hidden" name="role" value="administrador">
+
     <div class="text-center">
         <button type="submit" class="btn btn-primary btn-block enter-btn">Register</button>
     </div>

@@ -14,7 +14,15 @@ return new class extends Migration
     public function up()
     {
         Schema::create('informes', function (Blueprint $table) {
-            $table->id();
+            $table->id("id_informe");
+            $table->text("observaciones");
+            $table->date("fecha_creacion");
+            $table->enum('tipo_informe',array('radiografia','analitica'));
+            $table->integer('n_historia')->unsigned();
+            $table->string('dni_medico',9);
+            $table->foreign('dni_medico')->references('dni_medico')->on('medicos');
+            $table->foreign('n_historia')->references('n_historia')->on('historias_clinicas');
+
             $table->timestamps();
         });
     }

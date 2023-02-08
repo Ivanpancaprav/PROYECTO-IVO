@@ -1,4 +1,11 @@
-<?php
+
+public function mostrarMedicos(){
+
+$users = User::all();
+$medicos = DB::select('SELECT * FROM users ,medicos where medicos.dni_medico = users.dni');
+return $medicos;
+
+}<?php
 
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;

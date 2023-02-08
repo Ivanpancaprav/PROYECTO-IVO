@@ -2,13 +2,16 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\Authenticatable as AuthAuthenticatable;
-use Illuminate\Database\Eloquent\Model;
-use PhpParser\Node\Expr\Cast;
-use Illuminate\Fundation\Auth\User as Authenticatable;
-use Laravel\Passport\HasApiTokens;
+// use Illuminate\Database\Eloquent\Model;
+// use PhpParser\Node\Expr\Cast;
+
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Notifications\Notifiable;
+//use Laravel\Sanctum\HasApiTokens;
+use Laravel\Passport\HasApiTokens;     
 /**
  * Class User
  *
@@ -34,18 +37,18 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
 
-class User extends Model implements \Illuminate\Contracts\Auth\Authenticatable
-
+class User extends Authenticatable
 {
-    // protected $primaryKey = 'dni';
-    // protected $casts = ['dni'=>'string']; 
+    use HasApiTokens, HasFactory, Notifiable; 
+
+    protected $casts = ['dni'=>'string']; 
     static $rules = [
 		'dni' => 'required',
 		'nombre' => 'required',
 		'apellido1' => 'required',
         'apellido2' => 'required',
 		'direccion' => 'required',
-        'foto' => 'required',
+        'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         'email' => 'required',
         'password' =>'required','min:8',
 		'sexo' => 'required',
@@ -68,7 +71,7 @@ class User extends Model implements \Illuminate\Contracts\Auth\Authenticatable
      */
     public function medico()
     {
-        return $this->hasOne('App\Models\Medico', 'dni_medico', 'dni');
+        return $this->hasOne(Medico::class, 'dni_medico', 'dni');
     }
     
     /**
@@ -76,15 +79,7 @@ class User extends Model implements \Illuminate\Contracts\Auth\Authenticatable
      */
     public function paciente()
     {
-        return $this->hasOne('App\Models\Paciente', 'dni_paciente', 'dni');
-    }
-    
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function radiologo()
-    {
-        return $this->hasOne('App\Models\Radiologo', 'dni_radiologo', 'dni');
+        return $this->hasOne(Paciente::class, 'dni_paciente', 'dni');
     }
     
   /**
