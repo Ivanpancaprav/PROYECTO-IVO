@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Paciente;
 use Illuminate\Http\Request;
 use Illuminate\Http\Medicos;
+use Illuminate\Http\Citas;
 use Illuminate\Support\Facades\DB;
 
 class ApiController extends Controller

@@ -71,7 +71,7 @@ Route::resource('medicos', MedicoController::class);
 
 //*****RUTAS CREAR CITAS *****//
 
-Route::resource('cita', PedirCitaController::class);
+Route::resource('citas', PedirCitaController::class);
 
 //*****RUTAS CREAR HISTORIAS MEDICAS *****//
 
