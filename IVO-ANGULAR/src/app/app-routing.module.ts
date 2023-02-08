@@ -9,7 +9,6 @@ import { HistorialComponent } from './usuarios/historial/historial.component';
 import { SolicitarCitaComponent } from './usuarios/solicitar-cita/solicitar-cita.component';
 import { LoginComponent } from './login/login.component';
 import { PacienteComponent } from './usuarios/pacientes/paciente/paciente.component';
-import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   {
@@ -61,14 +60,6 @@ const routes: Routes = [
         component: PacienteComponent,
       }
     ]
-  },
-  {
-    path:'profile',
-    component: ProfileComponent
-  },
-  {
-    path: '',
-    redirectTo: 'pacientes', pathMatch: 'full'
   }
 ];
 

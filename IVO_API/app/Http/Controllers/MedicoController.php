@@ -35,16 +35,17 @@ class MedicoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        $user = User::create($request->all());
+    { 
         request()->validate(User::$rules);
-        $medico = Medico::create($request->all());
+        $request['foto']="pepe.jpg";
+        $user = User::create($request->all());
         request()->validate(Medico::$rules);
+        $medico = Medico::create($request->all());
 
         // Subir imagenes
         $image = $request->file('foto');
         $name = $image->getClientOriginalName();
-        $path = public_path('images/');
+        $path = storage_path('images/');
         $image->move($path, $name);
         
         $user = User::findOrFail($foto);

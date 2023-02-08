@@ -11,7 +11,6 @@ import { UsuariosModule } from './usuarios/usuarios.module';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
-import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +18,6 @@ import { ProfileComponent } from './profile/profile.component';
     NavComponent,
     FooterComponent,
     LoginComponent,
-    ProfileComponent
   ],
   imports: [
     DataTablesModule,
