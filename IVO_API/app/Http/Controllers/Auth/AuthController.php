@@ -15,18 +15,17 @@ class AuthController extends Controller
    public function login(Request $request)
    {
        $request->validate([
-           'dni' => 'required',
+           'email' => 'required',
            'password' => 'required'
        ]);
 
        $credentials = $request->except(['_token']);  //no cogemos el token
     
-       if (auth()->attempt($credentials)) {  //comprobación de autenticación 
-        return redirect()->route('admin');  //nos redirije a la ruta 'admin'
+       if (Auth::attempt(array('email' =>$credentials['email'],'password' =>$credentials['password']))) {  //comprobación de autenticación 
+        return redirect()->route('auth.admin');  //nos redirije a la ruta 'admin'
         
     } else {
 
-           
            session()->flash('message', 'Invalid credentials');
            return redirect()->back();
        }
@@ -37,16 +36,18 @@ class AuthController extends Controller
        $request->validate([
            'name' => 'required',
            'dni' => 'required',
-           'password' => 'required'
+           'password' => 'required',
+           'role' =>'required'
        ]);
 
        $user = User::create([
            'name' => trim($request->input('name')),
            'dni' => strtolower($request->input('email')),
+           'role' => strtolower($request->input('role')),
            'password' => bcrypt($request->input('password')),
        ]);
 
-       return redirect()->route('admin');   //te redirije al menú admin o podría ser paciente...
+       return redirect()->route('auth.admin');   //te redirije al menú admin o podría ser paciente...
    }
 
    public function logout(Request $request)

@@ -18,7 +18,6 @@ import { IgxDialogModule} from "igniteui-angular";
 import { BrowserModule } from "@angular/platform-browser";
 
 
-
 @NgModule({
   declarations: [
     PerfilComponent,

@@ -25,11 +25,45 @@ class ApiController extends Controller
     }
     public function mostrarMedicos(){
 
-        $users = User::all();
         $medicos = DB::select('SELECT * FROM users ,medicos where medicos.dni_medico = users.dni');
         return $medicos;
 
     }
 
+<<<<<<< HEAD
+    // public function getUser(Request $request){
+
+    //     $role = DB::select('SELECT role FROM users where users.dni = '.$request->dni);
+    //     $user=null;
+
+    //     switch($role[0]->role){
+
+    //         case 'paciente':
+                
+    //             $user = DB::select('SELECT * FROM users ,pacientes where pacientes.dni_paciente = users.dni AND users.dni = '.$request->dni);
+
+    //             break;
+
+    //         case 'medico':
+
+    //             $user = DB::select('SELECT * FROM users ,medicos where medicos.dni_medico = users.dni AND users.dni = '.$request->dni);
+    
+    //             break;
+
+    //     }
+
+    //     return $user;
+    // }
+
+    // // public function loginU(){
+
+    // //     if(Auth::attempt(['dni' => $dni, 'password' => $password])){
+
+    // //     }
+
+    // // }
+
+=======
+>>>>>>> ced29b3e09ae3d00e79c57ec3594148fb8033e3a
 }
  

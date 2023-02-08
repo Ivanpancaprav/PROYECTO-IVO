@@ -18,13 +18,13 @@ return new class extends Migration
             $table->string('nombre',50);
             $table->string('apellido1',50);
             $table->string('apellido2',50)->nullable();
-            $table->string('direccion',150);
+            $table->string('direccion',150)->nullable();
             $table->string('foto',150)->nullable();
             $table->string('email',150)->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->enum('sexo',array('femenino','masculino'));
+            $table->enum('sexo',array('femenino','masculino'))->nullable();
             $table->enum('role',array('user','paciente','radiologo','medico','administrador'))->default('user');
-            $table->date('fecha_nacimiento');
+            $table->date('fecha_nacimiento')->nullable();
             $table->string('password');
             $table->rememberToken();
     
