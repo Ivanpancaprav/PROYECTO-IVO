@@ -9,11 +9,12 @@ import { HistorialComponent } from './usuarios/historial/historial.component';
 import { SolicitarCitaComponent } from './usuarios/solicitar-cita/solicitar-cita.component';
 import { LoginComponent } from './login/login.component';
 import { PacienteComponent } from './usuarios/paciente/paciente.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   {
-    path:'perfil/:dni',
-    component: PerfilComponent
+    path:'perfil',
+    component: ProfileComponent
   },
   {
     path:'citas',

@@ -17,6 +17,7 @@ import { IgxCalendarModule } from 'igniteui-angular';
 import { IgxDialogModule} from "igniteui-angular";
 import { BrowserModule } from "@angular/platform-browser";
 import { PacienteComponent } from './paciente/paciente.component';
+PacienteComponent
 
 @NgModule({
   declarations: [
@@ -28,7 +29,6 @@ import { PacienteComponent } from './paciente/paciente.component';
     SolicitarCitaComponent,
     ModificarCitaComponent,
     GestionarCitaMedComponent,
-    PacienteComponent
   ],
   imports: [
     CommonModule,
@@ -39,7 +39,18 @@ import { PacienteComponent } from './paciente/paciente.component';
     IgxCalendarModule,
     IgxDialogModule,
     BrowserModule,
+    
   ],
+  exports: [
+    PerfilComponent,
+    PacientesComponent,
+    CitasComponent,
+    HistorialComponent,
+    CitapreviaComponent,
+    SolicitarCitaComponent,
+    ModificarCitaComponent,
+    GestionarCitaMedComponent,
+  ]
 
 })
 export class UsuariosModule { }
