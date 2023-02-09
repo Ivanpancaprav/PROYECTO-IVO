@@ -17,7 +17,7 @@
                             </span>
 
                              <div class="float-right">
-                                <a href="{{ route('cita.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                <a href="{{ route('citas.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Create New') }}
                                 </a>
                               </div>
@@ -53,9 +53,9 @@
                                             <td>{{ $cita->descripcion }}</td>
 
                                             <td>
-                                                <form action="{{ route('cita.destroy',$id_cita->id_cita) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('cita.show',$id_cita->id_cita) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('cita.edit',$id_cita->id_cita) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                <form action="{{ route('citas.destroy',$cita->id_cita) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('citas.show',$cita->id_cita) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('citas.edit',$cita->id_cita) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>

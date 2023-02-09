@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Paciente;
 use Illuminate\Http\Request;
+use Illuminate\Http\Medicos;
+use Illuminate\Http\Citas;
 use Illuminate\Support\Facades\DB;
 
 class ApiController extends Controller
@@ -27,6 +29,15 @@ class ApiController extends Controller
 
         $medicos = DB::select('SELECT * FROM users ,medicos where medicos.dni_medico = users.dni');
         return $medicos;
+
+
+    }
+    public function mostrarCitas(){
+
+
+       
+        $citas= DB::select('SELECT * FROM citas ');
+        return $citas;
 
     }
 
