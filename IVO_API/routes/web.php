@@ -83,18 +83,10 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // Route::group(['middleware' => 'administrador'], function(){
     
-//     Route::get('/admin',[AuthController::class,'admin'])->name('admin');
-//     Route::resource('pacientes', PacienteController::class);
+    Route::get('/admin',[AuthController::class,'admin'])->name('admin');
 
         //*****RUTAS PACIENTES *****//
-
-//GRUPO RUTAS USER
-
-Route::group(['middleware','paciente'],function(){
-
-    Route::get('/paciente', [AuthController::class, 'paciente'])->name('paciente');
-    //Route::get('/pacienteOtraFuncionalidad', [AuthController::class, 'pacienteOtraFuncionalidad'])->name('pacienteOtraFuncionalidad');
-    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::resource('pacientes', PacienteController::class);
 
 
     //*****RUTAS MEDICOS *****//
@@ -109,7 +101,7 @@ Route::group(['middleware','paciente'],function(){
  
     Route::resource('historias_medicas', HistoriasClinicaController::class);
  
-});
+
 
 //SUBIR IMAGENES
 
