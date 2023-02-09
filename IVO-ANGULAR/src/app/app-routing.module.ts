@@ -40,7 +40,6 @@ const routes: Routes = [
     path:'login',
     component: LoginComponent
   },
-  //Rutas anidadas
   {
     path:'pacientes',
     component: PacientesComponent,

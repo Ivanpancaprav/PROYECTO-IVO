@@ -42,6 +42,8 @@ class AuthController extends Controller
         $request->validate([
             'nombre' => 'required',
             'dni' => 'required',
+            'apellido1' => 'required',
+            'direccion' => 'required',
             'email' => 'required',
             'password' => 'required',
             'role' => 'required'
@@ -50,6 +52,8 @@ class AuthController extends Controller
         $user = User::create([
             'nombre' => trim($request->input('nombre')),
             'dni' => trim($request->input('dni')),
+            'apellido1' => trim($request->input('apellido1')),
+            'direccion' => trim($request->input('direccion')),
             'email' => strtolower($request->input('email')),
             'password' => bcrypt($request->input('password')),
             'role' => strtolower($request->input('role')),
