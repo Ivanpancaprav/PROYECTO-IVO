@@ -34,8 +34,6 @@ class ApiController extends Controller
     }
     public function mostrarCitas(){
 
-
-       
         $citas= DB::select('SELECT * FROM citas ');
         return $citas;
 

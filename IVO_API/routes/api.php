@@ -27,12 +27,9 @@ Route::get('/medicos',[ApiController::class,'mostrarMedicos']);
 
 Route::get('/perfil/{dni}',[ApiController::class,'mostrarPerfil']);
 
-Route::get('/citas', [ApiController::class,'mostrarCitas']); 
-
 Route::get('/user/{dni}', [ApiController::class,'getUser']); 
 
-
-
+Route::get('/citas', [ApiController::class,'mostrarCitas']);
 
 //RUTAS LOGGIN
 Route::post('login', [UserController::class,'login']);

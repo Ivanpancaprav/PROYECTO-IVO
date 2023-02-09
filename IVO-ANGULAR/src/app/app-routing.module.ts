@@ -1,4 +1,4 @@
-import { Component, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PacientesComponent } from './usuarios/pacientes/pacientes.component';
 import { PerfilComponent } from './usuarios/perfil/perfil.component';
@@ -8,7 +8,7 @@ import { GestionarCitaMedComponent } from './usuarios/gestionar-cita-med/gestion
 import { HistorialComponent } from './usuarios/historial/historial.component';
 import { SolicitarCitaComponent } from './usuarios/solicitar-cita/solicitar-cita.component';
 import { LoginComponent } from './login/login.component';
-import { ProfileComponent } from './profile/profile.component';
+import { PacienteComponent } from './usuarios/paciente/paciente.component';
 
 const routes: Routes = [
   {
@@ -22,15 +22,6 @@ const routes: Routes = [
   {
     path:'citaprevia',
     component: CitapreviaComponent
-  },
-  {
-    path:'pacientes',
-    component: PacientesComponent
-  },
-  {
-    path:'pacientes/:dni?',
-    component: PacientesComponent,
-    loadChildren: () => import('./usuarios/pacientes/pacientes.module').then(m => m.PacientesModule)
   },
   {
     path:'gestionar-cita-med',
@@ -48,13 +39,14 @@ const routes: Routes = [
     path:'login',
     component: LoginComponent
   },
+  //Rutas anidadas
   {
-    path:'profile',
-    component: ProfileComponent
+    path:'pacientes',
+    component: PacientesComponent,
   },
   {
-    path: '',
-    redirectTo: 'pacientes', pathMatch: 'full'
+    path:'pacientes/:dni',
+    component: PacientesComponent,
   }
 ];
 
