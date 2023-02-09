@@ -43,16 +43,9 @@ class MedicoController extends Controller
         $medico = Medico::create($request->all());
 
         // Subir imagenes
-        $image = $request->file('foto');
-        $name = $image->getClientOriginalName();
-        $path = storage_path('images/');
-        $image->move($path, $name);
+        dd($image = "foto".time().'.'.$request->file('foto'));
+        $request->ficheroSubir->storeAs('public/images',$image);
         
-        $user = User::findOrFail($foto);
-        $user->name = $request->input('name');
-        $user->save();
-        
-
         return redirect()->route('medicos.index')
             ->with('success', 'medico created successfully.');
     }
@@ -99,8 +92,8 @@ class MedicoController extends Controller
             'nombre' =>'required',
             'apellido1' =>'required',
             'apellido2' =>'required',
-            'foto' => 'required',
             'direccion' =>'required',
+            'foto' => 'required',
             'email' =>'required | email',
             'sexo' =>'required',
             'password' =>'required | min:8',
