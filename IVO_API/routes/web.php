@@ -61,7 +61,6 @@ Route::get('/', function () {
 
 // Route::resource('users', UserController::class);
 
-
 // Route::resource('crea_usuario', UserController::class);
 // Route::post('/guardar_usuario',[UserController::class,'store'])->name('store');
 
@@ -71,9 +70,7 @@ Route::get('/', function () {
 
 //RUTA VISTA CREA USUARIO
 
-
 // Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 
 //RUTAS LOGIN
 Route::view('/', 'auth.login')->name('logear');
@@ -87,11 +84,10 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::group(['middleware' => 'administrador'], function(){
     
     Route::get('/admin',[AuthController::class,'admin'])->name('admin');
-    Route::resource('pacientes', PacienteController::class);
 
         //*****RUTAS PACIENTES *****//
-
     Route::resource('pacientes', PacienteController::class);
+
 
     //*****RUTAS MEDICOS *****//
  

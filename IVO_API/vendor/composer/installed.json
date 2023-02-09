@@ -2096,17 +2096,17 @@
         },
         {
             "name": "laravel/passport",
-            "version": "v11.6.0",
-            "version_normalized": "11.6.0.0",
+            "version": "v11.6.1",
+            "version_normalized": "11.6.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/passport.git",
-                "reference": "1d8204e40c63bb6cbb981907fdbeb5c69a4fbae9"
+                "reference": "d8cc34766635da552a9ddff80248c5505f19bd04"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/passport/zipball/1d8204e40c63bb6cbb981907fdbeb5c69a4fbae9",
-                "reference": "1d8204e40c63bb6cbb981907fdbeb5c69a4fbae9",
+                "url": "https://api.github.com/repos/laravel/passport/zipball/d8cc34766635da552a9ddff80248c5505f19bd04",
+                "reference": "d8cc34766635da552a9ddff80248c5505f19bd04",
                 "shasum": ""
             },
             "require": {
@@ -2133,7 +2133,7 @@
                 "orchestra/testbench": "^7.0|^8.0",
                 "phpunit/phpunit": "^9.3"
             },
-            "time": "2023-01-31T13:41:55+00:00",
+            "time": "2023-02-03T15:45:23+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {

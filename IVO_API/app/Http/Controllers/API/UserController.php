@@ -49,6 +49,8 @@ class UserController extends Controller
             'dni' =>'required',
             'apellido1'=>'required'
         ]);
+
+        // dd($validator);
         if ($validator->fails()) {
             return response()->json(['error' => $validator->errors()], 401);
         }
