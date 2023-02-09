@@ -18,6 +18,7 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
     NavComponent,
     FooterComponent,
     LoginComponent,
+    
   ],
   imports: [
     DataTablesModule,

@@ -1,33 +1,20 @@
-
-<div class="row d-flex justify-content-center align-items-start" id="filaContenedora" >
-<div class="row d-flex justify-content-around" id="cajaPerfil">
+<div class="row d-flex justify-content-center align-items-start" id="filaContenedora">
+  <div class="row d-flex justify-content-around" id="cajaPerfil">
     <div class="col-4 mt-5 me-5 d-flex flex-column justify-content-around align-items-center">
-      <div class="col-7"  id="imagenPerfil">
-        <img class="img-fluid"
-          src="./assets/images/pepe.jpg"
-          alt=""/>
+      <div class="col-7" id="imagenPerfil">
+        <img class="img-fluid" src="./assets/images/{{perfil.foto}}" style="width: 250px;height: 250px;" />
       </div>
       <!-- ACCORDION -->
       <div class="accordion accordion-flush ">
         <div class="accordion-item ">
           <h2 class="accordion-header" id="flush-headingOne">
-            <button
-              class="accordion-button collapsed  fs-5"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#flush-collapseOne"
-              aria-expanded="false"
-              aria-controls="flush-collapseOne"
-            >
+            <button class="accordion-button collapsed  fs-5" type="button" data-bs-toggle="collapse"
+              data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
               Datos de contacto
             </button>
           </h2>
-          <div
-            id="flush-collapseOne"
-            class="accordion-collapse collapse"
-            aria-labelledby="flush-headingOne"
-            data-bs-parent="#accordionFlushExample"
-          >
+          <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+            data-bs-parent="#accordionFlushExample">
             <div class="accordion-body">
               <table class="table  fs-5">
                 <tbody>
@@ -49,12 +36,14 @@
       </div>
       <!-- FIN ACCORDION -->
     </div>
-  
+
     <!-- DIV DATOS -->
     <div class="col-7 mt-5 ms-5">
-      <h3 class="text-center" id="tituloDatos"><p>Datos</p></h3>
+      <h3 class="text-center" id="tituloDatos">
+        <p>Datos</p>
+      </h3>
       <!-- INICIO TABLA -->
-  
+
       <div class="row mt-4">
         <table class="table fs-5">
           <tbody>

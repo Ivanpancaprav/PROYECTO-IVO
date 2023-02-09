@@ -8,7 +8,7 @@ import { GestionarCitaMedComponent } from './usuarios/gestionar-cita-med/gestion
 import { HistorialComponent } from './usuarios/historial/historial.component';
 import { SolicitarCitaComponent } from './usuarios/solicitar-cita/solicitar-cita.component';
 import { LoginComponent } from './login/login.component';
-import { PacienteComponent } from './usuarios/pacientes/paciente/paciente.component';
+import { PacienteComponent } from './usuarios/paciente/paciente.component';
 
 const routes: Routes = [
   {
@@ -43,23 +43,10 @@ const routes: Routes = [
   {
     path:'pacientes',
     component: PacientesComponent,
-    children: [
-      {
-        path: 'paciente',
-        component: PacienteComponent,
-
-      }
-    ]
   },
   {
     path:'pacientes/:dni',
     component: PacientesComponent,
-    children: [
-      {
-        path: 'paciente/:dni',
-        component: PacienteComponent,
-      }
-    ]
   }
 ];
 

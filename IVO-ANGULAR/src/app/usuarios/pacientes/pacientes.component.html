@@ -4,11 +4,9 @@
 COLUMNA DERECHA
 ===================== -->
     <div class="col-md-12 col-xl-4">
-      <br/>
+      <br />
 
-      <router-outlet></router-outlet>
-
-      <br/><br/>
+      <app-paciente></app-paciente>
 
       <!-- ========
 BOTONES
@@ -19,19 +17,15 @@ BOTONES
     <!-- =====================
 COLUMNA IZQUIERDA
 ================== -->
-      <!-- COLUMNA TABLA DATATABLES -->
+    <!-- COLUMNA TABLA DATATABLES -->
     <div class="col">
       <br />
 
       <div class="card-body">
         <div class="card-deck mb-3 text-center">
           <div class="card mb-4 box-shadow p-2">
-            <table
-              *ngIf="mostrarTabla"
-              datatable
-              [dtOptions]="dtOptions"
-              class="hover cell-border row-border display table-striped "
-            >
+            <table *ngIf="mostrarTabla" datatable [dtOptions]="dtOptions"
+              class="hover cell-border row-border display table-striped ">
               <thead>
                 <tr>
                   <th>DNI</th>
@@ -46,11 +40,7 @@ COLUMNA IZQUIERDA
                   <td>{{ paciente.nombre }}</td>
                   <td>{{ paciente.apellido1 }}</td>
                   <td class="text-center">
-                    <a
-                      [routerLink]="['/pacientes', paciente.dni]"
-                      class="botonPrevia"
-                      >mostrar</a
-                    >
+                    <a [routerLink]="['/pacientes', paciente.dni]" routerLink="" class="botonPrevia">mostrar</a>
                   </td>
                 </tr>
               </tbody>
@@ -62,4 +52,3 @@ COLUMNA IZQUIERDA
     <!-- FIN COLUMNA DATATABLES -->
   </div>
 </div>
-

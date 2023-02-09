@@ -10,66 +10,43 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./citaprevia.component.css'],
 })
 export class CitapreviaComponent implements OnInit  {
-  public pacientes: any;
-  public perfil: any;
-  public dni: string | null;
+  public citas: any;
   public mensajeErr: string;
   dtOptions: DataTables.Settings ={};
   public mostrarTabla: boolean;
  
   
+   
   constructor(private usuarios_service:UsuariosServiceService, private aRoute: ActivatedRoute){
-    this.dni = this.aRoute.snapshot.paramMap.get('dni');
     this.mensajeErr ='';
+   
     this.mostrarTabla = false;
   }
   // FUNCION QUE NOS DEVUELVE EL RESULTADO DEL SERVICIO GET PACIENTES,
   // O SEA, TODOS LOS PACIENTES
 
-    obtenerPacientes(): void {
+  obtenerCitas(): void {
 
-      this.usuarios_service.getPacientes().subscribe(
-        result =>{
-          this.pacientes = result;
-          this.mostrarTabla = true;
-         
-        },
-        error =>{
-          this.mensajeErr="";
-          if(error instanceof ErrorEvent){
-            this.mensajeErr =error.error.message;
-          }else if(error.status == 404){
-            this.mensajeErr = "Error 404"
-          }else{
-            this.mensajeErr = "Error status:"+error.status;
-          }
-          this.mostrarTabla = true;
+    this.usuarios_service.getCitas().subscribe(
+      result =>{
+        this.citas = result;
+        this.mostrarTabla = true;
+       
+      },
+      error =>{
+        this.mensajeErr="";
+        if(error instanceof ErrorEvent){
+          this.mensajeErr =error.error.message;
+        }else if(error.status == 404){
+          this.mensajeErr = "Error 404"
+        }else{
+          this.mensajeErr = "Error status:"+error.status;
         }
-      );
-    }
+        this.mostrarTabla = true;
+      }
+    );
+  }
 
-    obtenerDatos(dni: any): void {
-
-      this.usuarios_service.getPerfil(dni).subscribe(
-        result =>{
-          this.perfil = result;
-          this.mostrarTabla = true;
-          console.log(this.perfil);
-         
-        },
-        error =>{
-          this.mensajeErr="";
-          if(error instanceof ErrorEvent){
-            this.mensajeErr =error.error.message;
-          }else if(error.status == 404){
-            this.mensajeErr = "Error 404"
-          }else{
-            this.mensajeErr = "Error status:"+error.status;
-          }
-          this.mostrarTabla = true;
-        }
-      );
-    }
 
     ngOnInit(): void {
 
@@ -100,8 +77,8 @@ export class CitapreviaComponent implements OnInit  {
         
       };
 
-      this.obtenerPacientes();
-      this.obtenerDatos(this.dni);
+      this.obtenerCitas();
+ 
     }
 
 
