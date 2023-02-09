@@ -18,7 +18,7 @@ export class UsuariosServiceService {
    }
 
 
-   getPerfil(dni:string){
+   getPerfil(dni:string): Observable<Paciente>{
 
     return this.Http.get(baseUrl+'perfil/'+dni);
  }

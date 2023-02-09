@@ -132,12 +132,22 @@ class PacienteController extends Controller
         ]);
 
         $dni_antiguo = $request['dni_antiguo'];
-        
+        //COMPARAMOS SI LA CONTRASEÑA QUE NOS LLEGA ES IGUAL A LA CONTRASEÑA ENCRIPTADA, SI ES IGUAL NO LA CAMBIAMOS SI ES DIFERENTE LA ACTUALIZAMOS
+       $user =(object) User::whereDni($request->dni_antiguo)->get()->toArray()[0];
+
+       if($user->password != $validacion["password"]){
+              $validacion["password"] = password_hash($request->password,PASSWORD_DEFAULT);
+       }
+    
         User::whereDni($dni_antiguo)->update($validacion);
         Paciente::whereDni_paciente($validacion['dni'])->update($validacion2);
         
         return redirect()->route('pacientes.index')->with('success', 'User updated successfully');
     
+
+
+
+
     }
 
     /**

@@ -16,7 +16,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IgxCalendarModule } from 'igniteui-angular';
 import { IgxDialogModule} from "igniteui-angular";
 import { BrowserModule } from "@angular/platform-browser";
-import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 @NgModule({
   declarations: [
@@ -40,6 +39,16 @@ import { NO_ERRORS_SCHEMA } from '@angular/core';
     IgxDialogModule,
     BrowserModule,
     
+  ],
+  exports: [
+    PerfilComponent,
+    PacientesComponent,
+    CitasComponent,
+    HistorialComponent,
+    CitapreviaComponent,
+    SolicitarCitaComponent,
+    ModificarCitaComponent,
+    GestionarCitaMedComponent,
   ]
 
 })

@@ -29,6 +29,7 @@ import { ProfileComponent } from './profile/profile.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    UsuariosModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
