@@ -34,6 +34,7 @@ Route::get('/citas', [ApiController::class,'mostrarCitas']);
 //RUTAS LOGGIN
 Route::post('login', [UserController::class,'login']);
 Route::post('register', [UserController::class,'register']);
+
 Route::group(['middleware' => 'auth:api'], function () {
         Route::get('details', [UserController::class,'details']);
         Route::get('logout', [UserController::class,'logout']);
