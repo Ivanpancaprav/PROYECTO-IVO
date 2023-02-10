@@ -95,80 +95,80 @@
 
 <div class="container-xl px-4 mt-4">
   <div class="row">
-      <div class="col-xl-4">
-          <!-- Profile picture card-->
-          <div class="card mb-4 mb-xl-0">
-              <div class="card-header">Foto de perfil</div>
-              <div class="card-body text-center">
-                  <!-- Profile picture image-->
-                  <img class="img-rounded img-responsive" src="./assets/images/perro.jpeg" alt="">
-                  <!-- Profile picture help block-->
-                  <div class="big font-italic mb-4">{{ currentUser.success.role }}</div>
-                  <!-- Profile picture upload button-->
-                  <button class="btn btn-primary" type="button">Editar imagen</button>
-              </div>
-          </div>
+    <div class="col-xl-4">
+      <!-- Profile picture card-->
+      <div class="card mb-4 mb-xl-0">
+        <div class="card-header">Foto de perfil</div>
+        <div class="card-body text-center">
+          <!-- Profile picture image-->
+          <img class="rounded-circle img-account-profile zoom" src="./assets/images/perro.jpeg">
+          <!-- Profile picture help block-->
+          <br><br><div class="big font-italic mb-4 text-uppercase">{{ currentUser.success.role }}</div>
+          <!-- Profile picture upload button-->
+          <button class="btn btn-primary" type="button">Editar imagen</button>
+        </div>
       </div>
-      <div class="col-xl-8">
-          <!-- Account details card-->
-          <div class="card mb-4">
-              <div class="card-header">Información</div>
-              <div class="card-body">
-                  <form>
-                      <!-- Form Group (username)-->
-                      <div class="mb-3">
-                          <label class="small mb-1" for="inputUsername">Nombre</label>
-                          <input class="form-control" id="inputUsername" type="text" value="{{ currentUser.success.nombre }}" disabled>
-                      </div>
-                      <!-- Form Row-->
-                      <div class="row gx-3 mb-3">
-                          <!-- Form Group (first name)-->
-                          <div class="col-md-6">
-                              <label class="small mb-1" for="inputFirstName">Apellido1</label>
-                              <input class="form-control" id="inputFirstName" type="text" value="{{ currentUser.success.apellido1 }}" disabled>
-                          </div>
-                          <!-- Form Group (last name)-->
-                          <div class="col-md-6">
-                              <label class="small mb-1" for="inputLastName">Apellido2</label>
-                              <input class="form-control" id="inputLastName" type="text" value="{{ currentUser.success.apellido2 }}" disabled>
-                          </div>
-                      </div>
-                      <!-- Form Row        -->
-                      <div class="row gx-3 mb-3">
-                          <!-- Form Group (organization name)-->
-                          <div class="col-md-6">
-                              <label class="small mb-1" for="inputOrgName">DNI</label>
-                              <input class="form-control" id="inputOrgName" type="text" value="{{ currentUser.success.dni }}" disabled>
-                          </div>
-                          <!-- Form Group (location)-->
-                          <div class="col-md-6">
-                              <label class="small mb-1" for="inputLocation">Dirrecion</label>
-                              <input class="form-control" id="inputLocation" type="text" value="{{ currentUser.success.direccion }}" disabled>
-                          </div>
-                      </div>
-                      <!-- Form Group (email address)-->
-                      <div class="mb-3">
-                          <label class="small mb-1" for="inputEmailAddress">Email</label>
-                          <input class="form-control" id="inputEmailAddress" type="email" value="{{ currentUser.success.email }}" disabled>
-                      </div>
-                      <!-- Form Row-->
-                      <div class="row gx-3 mb-3">
-                          <!-- Form Group (phone number)-->
-                          <div class="col-md-6">
-                              <label class="small mb-1" for="inputPhone">Sexo</label>
-                              <input class="form-control" id="inputPhone" type="tel" value="{{ currentUser.success.sexo }}" disabled>
-                          </div>
-                          <!-- Form Group (birthday)-->
-                          <div class="col-md-6">
-                              <label class="small mb-1" for="inputBirthday">Fecha de Nacimiento</label>
-                              <input class="form-control" id="inputBirthday" type="text" name="birthday" value="{{ currentUser.success.fecha_nacimiento}}" disabled>
-                          </div>
-                      </div>
-                      <!-- Save changes button-->
-                      <button class="btn btn-primary" type="button">Modificar</button>
-                  </form>
+    </div>
+    <div class="col-xl-8">
+      <!-- Account details card-->
+      <div class="card mb-9">
+        <div class="card-header">Información</div>
+        <div class="card-body">
+          <form>
+            <!-- Form Group (username)-->
+            <div class="mb-3">
+              <label class="small mb-1">Nombre</label>
+              <input class="form-control shadow text-uppercase" type="text" value="{{ currentUser.success.nombre }}" disabled>
+            </div>
+            <!-- Form Row-->
+            <div class="row gx-3 mb-3">
+              <!-- Form Group (first name)-->
+              <div class="col-md-6">
+                <label class="small mb-1">Apellido1</label>
+                <input class="form-control shadow text-uppercase" type="text" value="{{ currentUser.success.apellido1 }}" disabled>
               </div>
-          </div>
+              <!-- Form Group (last name)-->
+              <div class="col-md-6">
+                <label class="small mb-1">Apellido2</label>
+                <input class="form-control shadow text-uppercase" type="text" value="{{ currentUser.success.apellido2 }}" disabled>
+              </div>
+            </div>
+            <!-- Form Row        -->
+            <div class="row gx-3 mb-3">
+              <!-- Form Group (organization name)-->
+              <div class="col-md-6">
+                <label class="small mb-1">DNI</label>
+                <input class="form-control shadow text-uppercase" type="text" value="{{ currentUser.success.dni }}" disabled>
+              </div>
+              <!-- Form Group (location)-->
+              <div class="col-md-6">
+                <label class="small mb-1">Sexo</label>
+                <input class="form-control shadow text-uppercase" type="text" value="{{ currentUser.success.sexo }}" disabled>
+              </div>
+            </div>
+            <!-- Form Group (email address)-->
+            <div class="mb-3">
+              <label class="small mb-1">Email</label>
+              <input class="form-control shadow text-uppercase" type="email" value="{{ currentUser.success.email }}" disabled>
+            </div>
+            <!-- Form Row-->
+            <div class="row gx-3 mb-3">
+              <!-- Form Group (phone number)-->
+              <div class="col-md-6">
+                <label class="small mb-1">Dirección</label>
+                <input class="form-control shadow text-uppercase" type="tel" value="{{ currentUser.success.sexo }}" disabled>
+              </div>
+              <!-- Form Group (birthday)-->
+              <div class="col-md-6">
+                <label class="small mb-1">Fecha de Nacimiento</label>
+                <input class="form-control shadow text-uppercase" type="text" value="{{ currentUser.success.fecha_nacimiento}}" disabled>
+              </div>
+            </div>
+            <!-- Save changes button-->
+            <button class="btn btn-primary" type="button">Modificar</button>
+          </form>
+        </div>
       </div>
+    </div>
   </div>
 </div>
