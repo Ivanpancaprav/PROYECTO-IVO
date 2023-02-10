@@ -8,8 +8,8 @@ import { GestionarCitaMedComponent } from './usuarios/gestionar-cita-med/gestion
 import { HistorialComponent } from './usuarios/historial/historial.component';
 import { SolicitarCitaComponent } from './usuarios/solicitar-cita/solicitar-cita.component';
 import { LoginComponent } from './login/login.component';
-import { PacienteComponent } from './usuarios/paciente/paciente.component';
 import { ProfileComponent } from './profile/profile.component';
+import { PacientesModule } from './usuarios/pacientes/pacientes.module';
 
 const routes: Routes = [
   {
@@ -43,11 +43,8 @@ const routes: Routes = [
   {
     path:'pacientes',
     component: PacientesComponent,
-  },
-  {
-    path:'pacientes/:dni',
-    component: PacientesComponent,
-  }
+    loadChildren: () => import('./usuarios/pacientes/pacientes.module').then(p => p.PacientesModule)
+    },
 ];
 
 @NgModule({

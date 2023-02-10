@@ -5,12 +5,8 @@ COLUMNA DERECHA
 ===================== -->
     <div class="col-md-12 col-xl-4">
       <br />
-
-      <app-paciente></app-paciente>
-
-      <!-- ========
-BOTONES
-======== -->
+      
+      <router-outlet></router-outlet>
 
     </div>
 
@@ -40,7 +36,7 @@ COLUMNA IZQUIERDA
                   <td>{{ paciente.nombre }}</td>
                   <td>{{ paciente.apellido1 }}</td>
                   <td class="text-center">
-                    <a [routerLink]="['/pacientes', paciente.dni]" class="botonPrevia">mostrar</a>
+                    <a routerLink="paciente" class="botonPrevia">mostrar</a>
                   </td>
                 </tr>
               </tbody>
