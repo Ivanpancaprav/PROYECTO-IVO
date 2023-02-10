@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PerfilComponent } from './perfil/perfil.component';
 import { CitasComponent } from './citas/citas.component';
-import { PacientesComponent } from './pacientes/pacientes.component';
 import { HistorialComponent } from './historial/historial.component';
 import { CitapreviaComponent } from './citaprevia/citaprevia.component';
 import { RouterModule } from '@angular/router';
@@ -16,27 +15,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IgxCalendarModule } from 'igniteui-angular';
 import { IgxDialogModule} from "igniteui-angular";
 import { BrowserModule } from "@angular/platform-browser";
-<<<<<<< HEAD
-=======
-import { PacienteComponent } from './paciente/paciente.component';
 
->>>>>>> cc062da5c585f05092d776bae7f87cfa57403fd4
 
 @NgModule({
   declarations: [
     PerfilComponent,
-    PacientesComponent,
     CitasComponent,
     HistorialComponent,
     CitapreviaComponent,
     SolicitarCitaComponent,
     ModificarCitaComponent,
     GestionarCitaMedComponent,
-<<<<<<< HEAD
-    
-=======
-    PacienteComponent
->>>>>>> cc062da5c585f05092d776bae7f87cfa57403fd4
   ],
   imports: [
     CommonModule,
@@ -51,7 +40,6 @@ import { PacienteComponent } from './paciente/paciente.component';
   ],
   exports: [
     PerfilComponent,
-    PacientesComponent,
     CitasComponent,
     HistorialComponent,
     CitapreviaComponent,

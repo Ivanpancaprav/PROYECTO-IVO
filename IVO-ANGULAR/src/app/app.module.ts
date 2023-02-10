@@ -11,20 +11,14 @@ import { UsuariosModule } from './usuarios/usuarios.module';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
-<<<<<<< HEAD
-=======
-
->>>>>>> cc062da5c585f05092d776bae7f87cfa57403fd4
+import { PacientesComponent } from './pacientes/pacientes.component';
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     FooterComponent,
     LoginComponent,
-<<<<<<< HEAD
-    
-=======
->>>>>>> cc062da5c585f05092d776bae7f87cfa57403fd4
+    PacientesComponent,
   ],
   imports: [
     DataTablesModule,

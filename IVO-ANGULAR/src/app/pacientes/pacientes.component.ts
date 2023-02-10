@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { UsuariosServiceService } from '../usuarios-service.service';
+import { UsuariosServiceService} from '../usuarios/usuarios-service.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -93,11 +93,8 @@ export class PacientesComponent implements OnInit  {
             previous: "Anterior"
           },
           info: "Mostrando _START_ a _END_ de _TOTAL_ registros",
-       
         },
-        
       };
-
       this.obtenerPacientes();
       this.obtenerDatos(this.dni);
     }

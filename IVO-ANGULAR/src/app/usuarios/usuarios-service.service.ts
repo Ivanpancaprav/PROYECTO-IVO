@@ -10,6 +10,7 @@ const baseUrl = 'http://localhost/api/';
   providedIn: 'root'
 })
 export class UsuariosServiceService {
+  [x: string]: any;
 
   constructor(private Http: HttpClient) { }
 
@@ -18,7 +19,7 @@ export class UsuariosServiceService {
   }
 
 
-  getPerfil(dni: string) {
+  getPerfil(dni: string): Observable<Paciente>  {
 
     return this.Http.get(baseUrl + 'perfil/' + dni);
   }
