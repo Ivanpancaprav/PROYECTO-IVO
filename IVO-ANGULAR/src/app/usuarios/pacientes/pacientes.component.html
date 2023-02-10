@@ -1,0 +1,50 @@
+<div class="container py-5 h-100">
+  <div class="row d-flex justify-content-start align-items-start h-100">
+    <!-- =====================
+COLUMNA DERECHA
+===================== -->
+    <div class="col-md-12 col-xl-4">
+      <br />
+      
+      <router-outlet></router-outlet>
+
+    </div>
+
+    <!-- =====================
+COLUMNA IZQUIERDA
+================== -->
+    <!-- COLUMNA TABLA DATATABLES -->
+    <div class="col">
+      <br />
+
+      <div class="card-body">
+        <div class="card-deck mb-3 text-center">
+          <div class="card mb-4 box-shadow p-2">
+            <table *ngIf="mostrarTabla" datatable [dtOptions]="dtOptions"
+              class="hover cell-border row-border display table-striped ">
+              <thead>
+                <tr>
+                  <th>DNI</th>
+                  <th>Nombre</th>
+                  <th>Apellido</th>
+                  <th>Perfil paciente</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let paciente of pacientes">
+                  <td>{{ paciente.dni }}</td>
+                  <td>{{ paciente.nombre }}</td>
+                  <td>{{ paciente.apellido1 }}</td>
+                  <td class="text-center">
+                    <a routerLink="paciente" class="botonPrevia">mostrar</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- FIN COLUMNA DATATABLES -->
+  </div>
+</div>

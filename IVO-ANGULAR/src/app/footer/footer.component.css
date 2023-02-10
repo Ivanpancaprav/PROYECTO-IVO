@@ -5,7 +5,7 @@
 }
 
 #nav{
-    height: 10vh;
+    height: 8vh;
     background: #B6D7DE;
-box-shadow: -2px -10px 30px rgba(0, 0, 0, 0.6);
+    box-shadow: -1px -3px 10px rgba(0, 0, 0, 0.6);
 }
