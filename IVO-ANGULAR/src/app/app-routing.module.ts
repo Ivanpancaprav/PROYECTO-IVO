@@ -9,6 +9,8 @@ import { HistorialComponent } from './usuarios/historial/historial.component';
 import { SolicitarCitaComponent } from './usuarios/solicitar-cita/solicitar-cita.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
+import { HistorialMedicoComponent } from './usuarios/historial-medico/historial-medico.component';
+import { Medicamentos } from './models/medicamentos.model';
 
 const routes: Routes = [
   {
@@ -51,6 +53,14 @@ const routes: Routes = [
   {
     path:'profile',
     component: ProfileComponent
+  },
+  {
+    path:'HistorialMedico',
+    component: HistorialMedicoComponent
+  },
+  {
+    path:'Medicamentos',
+    component: Medicamentos
   },
   {
     path: '',

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import  {HttpClient, HttpHeaders, HttpResponse} from '@angular/common/http';
 import { Paciente } from '../models/paciente.model';
 import { Citas } from '../models/cita.model';
+import { Medicamentos } from '../models/medicamentos.model';
 import { Observable } from 'rxjs';
 
 const baseUrl = 'http://localhost/api/';
@@ -26,7 +27,13 @@ export class UsuariosServiceService {
 
 
 
- getCitas(): Observable<Citas[]>{
+ getCitas(tipo:number): Observable<Citas[]>{
+  if(tipo==0){
   return this.Http.get<Citas[]>(baseUrl+'citas');
+}else { return this.Http.get<Citas[]>(baseUrl+'citasprevias');}}
+
+getMedicamentos(){
+
+  return this.Http.get<Medicamentos[]>(baseUrl+'medicamentos');
 }
 }

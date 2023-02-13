@@ -13,6 +13,8 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { ProfileComponent } from './profile/profile.component';
+import { HistorialMedicoComponent } from './usuarios/historial-medico/historial-medico.component';
+import { Medicamentos } from './models/medicamentos.model';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { ProfileComponent } from './profile/profile.component';
     NavComponent,
     FooterComponent,
     LoginComponent,
-    ProfileComponent
+    ProfileComponent,
+    HistorialMedicoComponent,
+    
   ],
   imports: [
     DataTablesModule,

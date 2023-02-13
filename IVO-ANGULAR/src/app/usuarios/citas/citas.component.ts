@@ -15,6 +15,7 @@ export class CitasComponent implements OnInit  {
   public mensajeErr: string;
   dtOptions: DataTables.Settings ={};
   public mostrarTabla: boolean;
+  public fecha =new Date();
  
   
   constructor(private usuarios_service:UsuariosServiceService, private aRoute: ActivatedRoute){
@@ -25,9 +26,9 @@ export class CitasComponent implements OnInit  {
   // FUNCION QUE NOS DEVUELVE EL RESULTADO DEL SERVICIO GET PACIENTES,
   // O SEA, TODOS LOS PACIENTES
 
-    obtenerCitas(): void {
+    obtenerCitas(tipo:number): void {
 
-      this.usuarios_service.getCitas().subscribe(
+      this.usuarios_service.getCitas(tipo).subscribe(
         result =>{
           this.citas = result;
           this.mostrarTabla = true;
@@ -77,7 +78,7 @@ export class CitasComponent implements OnInit  {
         
       };
 
-      this.obtenerCitas();
+      this.obtenerCitas(0);
      
     }
 

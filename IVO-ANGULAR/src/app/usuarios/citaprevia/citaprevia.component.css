@@ -35,7 +35,7 @@ tr td:first-child{
 }
 
 .general{
-  height: 80vh;
+  height: 90vh;
 }
 
 .titulo{
@@ -72,3 +72,17 @@ tr td:first-child{
 }
 .btn-outline-primary{ 
     border-color: #17383f;}
+ 
+        .card-body{
+            width: 70%;
+            height: 70%;
+            position: relative;
+           
+            left: 16%;
+            font-weight: 10;
+        }
+
+        .card {
+            background-color: #ffffff00;
+            border-color:#ffffff00 ;
+        }

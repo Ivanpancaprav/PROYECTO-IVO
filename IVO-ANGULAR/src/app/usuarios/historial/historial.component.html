@@ -1,155 +1,141 @@
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-6">
-          <br>
-          Observaciones
-            <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">Comentarios</th>
-                    <th scope="col">Fecha</th>
-                  </tr>
-                </thead>
-                <tbody class="table-group-divider"></tbody>
-                <tbody>
-                  <tr>
-                    <td>Pepe Gil, padece de fiebre alta. Le mando una nueva medicación.</td>
-                    <td>22/11/22</td>
-                  </tr>
-                  <tr>
-                    <td>Pepe Gil, padece de fiebre alta. Le mando una nueva medicación.</td>
-                    <td>22/11/22</td>
-                  </tr>
-                </tbody>
-            </table>
-            <br>
-            Medicación suministrada
+  <div class="row">
+    <div class="col-6">
+      <br>
+    
+     
+      <p id="encab"> MEDICACIÓN SUMINISTRADA ▶</p>
+
+      <div class="table-wrapper-scroll-y my-custom-scrollbar"> 
+      <table class="table"   *ngIf="mostrarTabla"
+      datatable
+      [dtOptions]="dtOptions"
+      class="hover cell-border row-border display table-striped ">
+        <thead  id="encabezado">
+          <tr>
+            <th>Medicamento</th>
+            <th>Dosis</th>
+            <th>Fecha</th>
+            <th>Tratamiento</th>
+          </tr>  </thead>
+          <tr *ngFor="let medicamento of medicamentos">
+              
+            <td >{{ medicamento.nombre }}</td>
+            <td >{{ medicamento.dosis }}</td>
+            <td >{{ medicamento.fecha_creacion }}</td>
+            <td >{{ medicamento.comentarios }}</td>
+         
+          </tr>
+      
+        <tbody>
+         
+        </tbody>
+      </table></div>
+    <p id="encab"> PROGRESO ▶</p>
+    <div class="table-wrapper-scroll-y my-custom-scrollbar"> 
+      <table class="table"   *ngIf="mostrarTabla"
+      datatable
+      [dtOptions]="dtOptions"
+      class="hover cell-border row-border display table-striped ">
+        <thead  id="encabezado">
+          <tr>
+            <th>Progreso</th>
+           
+          </tr>  </thead>
+          <tr *ngFor="let medicamento of medicamentos">
+              
+            <td >{{ medicamento.progreso }}</td>
+          
+         
+          </tr>
+      
+        <tbody>
+         
+        </tbody>
+      </table>
+      </div>
+    </div>
+    <div class="col-6">
+      <br>
+      <!-- <p id="encab"> RADIOGRAFIAS ▶</p>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle w-100" id="dropdownMenu2" data-bs-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false" id="encabezado">
+          Lesion de cubito
+        </button>
+        <div class="dropdown-menu">
+          <div class="dropdown text-muted d-flex">
+            <div class="col-8">Se lesionó durante el partido del Madrid Barcelona después de ser duramente arroyado por
+              un jugador del equipo contrario</div>
+            <div class="col-4"><img
+                src="https://media.tycsports.com/files/2021/09/21/334868/messi-lesion_1440x810_wmk.jpg" alt="Messi">
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <p id="encab"> RADIOGRAFIAS ▶</p>
+      <select class="form-select" aria-label="Default select example" id="desplegable">
+      <option style="text-align:center">Mostrar información...</option>
+        <tr *ngFor="let medicamento of medicamentos">
+              
+          <td >{{ medicamento.progreso }}</td>
+        
+       
+        </tr>
+      </select>
+      <br><br><br><br><br><br><br><br>
+      <p id="encab"> ANALITICAS ▶</p>
+      <div class="dropdown-center dropdown">
+        <button class="btn btn-secondary dropdown-toggle w-100" data-bs-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false" id="encabezado">
+          Analítica del 22/10/22
+        </button>
+        <div class="dropdown-menu dropdown-menu-lg-end">
+          <div class="col">
             <table class="table">
               <thead>
                 <tr>
-                  <th>Medicamento</th>
-                  <th>Dosis</th>
-                  <th>Hora</th>
-                  <th>Fecha</th>
-                  <th>Comentarios</th>
+                  <th></th>
+                  <th>RESULTADO</th>
+                  <th>UNIDADES</th>
+                  <th>MIN-MAX</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>Acetaminofén</td>
-                  <td>500mg</td>
-                  <td>20:15</td>
-                  <td>21/11/22</td>
-                  <td>
-                    <div class="dropdown">
-                      <button class="btn btn-secondary dropdown-toggle w-100" id="dropdownMenu2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Tiene que...
-                      </button>
-                      <div class="dropdown-menu">
-                        <div class="dropdown text-muted d-flex">
-                          Tiene que cuidarse
-                        </div>
-                      </div>
-                    </div>
-                  </td>
+                  <td>Glucosa</td>
+                  <td>89</td>
+                  <td>mg/dl</td>
+                  <td>74-100</td>
                 </tr>
                 <tr>
-                  <td>Acetaminofén</td>
-                  <td>500mg</td>
-                  <td>20:15</td>
-                  <td>21/11/22</td>
-                  <td>
-                    <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle w-100" id="dropdownMenu2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Tiene que...
-                    </button>
-                    <div class="dropdown-menu">
-                      <div class="dropdown text-muted d-flex">
-                        Tiene que cuidarse
-                      </div>
-                    </div>
-                  </div></td>
-                </tr>
-              </tbody>
-            </table>
-            Progreso
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>Comentarios</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Pepe Gil, dia 02/11/2022 esta progresando adecuadamente teniendo leves contusiones en el higado derecho.</td>
+                  <td>Acido urico</td>
+                  <td>0.4</td>
+                  <td>mg/dl</td>
+                  <td>1-15</td>
                 </tr>
                 <tr>
-                  <td>Pepe Gil, dia 02/11/2022 esta progresando adecuadamente teniendo leves contusiones en el higado derecho.</td>
+                  <td>Calcio</td>
+                  <td>23</td>
+                  <td>mg/dl</td>
+                  <td>14-34</td>
+                </tr>
+                <tr>
+                  <td>Hierro</td>
+                  <td>15.5</td>
+                  <td>mg/dl</td>
+                  <td>10-40</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <div class="col-6" >
-            <br>
-            Radiografías
-            <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle w-100" id="dropdownMenu2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Lesion de cubito
-              </button>
-              <div class="dropdown-menu">
-                <div class="dropdown text-muted d-flex">
-                      <div class="col-8">Se lesionó durante el partido del Madrid Barcelona después de ser duramente arroyado por un jugador del equipo contrario</div>
-                      <div class="col-4"><img src="https://media.tycsports.com/files/2021/09/21/334868/messi-lesion_1440x810_wmk.jpg" alt="Messi"></div>
-                </div>
-              </div>
-            </div>
-            <br><br><br><br><br><br><br><br>
-            Analíticas
-            <div class="dropdown-center dropdown">
-              <button class="btn btn-secondary dropdown-toggle w-100" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Analítica del 22/10/22
-              </button>
-              <div class="dropdown-menu dropdown-menu-lg-end">
-                  <div class="col">
-                  <table class="table">
-                    <thead>
-                      <tr>
-                        <th></th>
-                        <th>RESULTADO</th>
-                        <th>UNIDADES</th>
-                        <th>MIN-MAX</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>Glucosa</td>
-                        <td>89</td>
-                        <td>mg/dl</td>
-                        <td>74-100</td>
-                      </tr>
-                      <tr>
-                        <td>Acido urico</td>
-                        <td>0.4</td>
-                        <td>mg/dl</td>
-                        <td>1-15</td>
-                      </tr>
-                      <tr>
-                        <td>Calcio</td>
-                        <td>23</td>
-                        <td>mg/dl</td>
-                        <td>14-34</td>
-                      </tr>
-                      <tr>
-                        <td>Hierro</td>
-                        <td>15.5</td>
-                        <td>mg/dl</td>
-                        <td>10-40</td>
-                      </tr>
-                    </tbody>
-                   </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        </div>
+      </div> 
+    <!-- </div><br> <div class="col d-flex justify-content-center align-items-center ">
+      <button type="button" class="btn btn-default btn-lg gestionar" routerLink="/solicitarCitas">Solicitar cita ➤</button>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+      <button type="button" class="btn btn-default btn-lg gestionar"routerLink="/gestionar-cita-med" >Modificar cita ➤  </button>
+      -->
+    </div>
+  </div>
 </div>
