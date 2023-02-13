@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('historias_clinicas', function (Blueprint $table) {
             $table->increments("n_historia");
             $table->text("tratamiento");
+            $table->text("progreso");
             $table->date("fecha_fin");
             $table->date("fecha_inicio");
             $table->string("dni_paciente",9);

@@ -29,6 +29,12 @@ Route::get('/perfil/{dni}',[ApiController::class,'mostrarPerfil']);
 
 Route::get('/citas', [ApiController::class,'mostrarCitas']); 
 
+Route::get('/citasprevias', [ApiController::class,'mostrarCitasPrevias']); 
+
+Route::get('/historiasclinicas', [ApiController::class,'mostrarHistoriasClinicas']); 
+
+Route::get('/medicamentos', [ApiController::class,'mostrarMedicamentos']); 
+
 Route::get('/user/{dni}', [ApiController::class,'getUser']); 
 
 
