@@ -27,6 +27,7 @@ Route::get('/medicos',[ApiController::class,'mostrarMedicos']);
 
 Route::get('/perfil/{dni}',[ApiController::class,'mostrarPerfil']);
 
+<<<<<<< HEAD
 Route::get('/citas', [ApiController::class,'mostrarCitas']); 
 
 Route::get('/citasprevias', [ApiController::class,'mostrarCitasPrevias']); 
@@ -35,14 +36,16 @@ Route::get('/historiasclinicas', [ApiController::class,'mostrarHistoriasClinicas
 
 Route::get('/medicamentos', [ApiController::class,'mostrarMedicamentos']); 
 
+=======
+>>>>>>> 3fdd70bd656cc2971e6ad52fd695448f6772b84e
 Route::get('/user/{dni}', [ApiController::class,'getUser']); 
 
-
-
+Route::get('/citas', [ApiController::class,'mostrarCitas']);
 
 //RUTAS LOGGIN
 Route::post('login', [UserController::class,'login']);
 Route::post('register', [UserController::class,'register']);
+
 Route::group(['middleware' => 'auth:api'], function () {
         Route::get('details', [UserController::class,'details']);
         Route::get('logout', [UserController::class,'logout']);

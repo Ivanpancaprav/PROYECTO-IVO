@@ -9,6 +9,16 @@
         <input type="text" name="dni" class="form-control p_input">
     </div>
     <div class="form-group">
+        <label>Apellido</label>
+        <input type="text" name="apellido1" class="form-control p_input">
+    </div>
+     <div class="form-group">
+        <label>Direccion</label>
+        <input type="text" name="direccion" class="form-control p_input">
+    </div>
+    
+    
+    <div class="form-group">
         <label>email</label>
         <input type="text" name="email" class="form-control p_input">
     </div>
@@ -16,6 +26,13 @@
         <label>Password</label>
         <input type="password" name="password" class="form-control p_input">
     </div>
+
+    <div class="form-group">
+        <label>Password</label>
+        <input type="password" name="password" class="form-control p_input">
+    </div>
+    
+
 
     <input type="hidden" name="role" value="administrador">
 

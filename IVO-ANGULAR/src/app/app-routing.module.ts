@@ -1,6 +1,5 @@
-import { Component, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PacientesComponent } from './usuarios/pacientes/pacientes.component';
 import { PerfilComponent } from './usuarios/perfil/perfil.component';
 import { CitasComponent } from './usuarios/citas/citas.component';
 import { CitapreviaComponent } from './usuarios/citaprevia/citaprevia.component';
@@ -14,8 +13,8 @@ import { Medicamentos } from './models/medicamentos.model';
 
 const routes: Routes = [
   {
-    path:'perfil/:dni',
-    component: PerfilComponent
+    path:'perfil',
+    component: ProfileComponent
   },
   {
     path:'citas',
@@ -24,15 +23,6 @@ const routes: Routes = [
   {
     path:'citaprevia',
     component: CitapreviaComponent
-  },
-  {
-    path:'pacientes',
-    component: PacientesComponent
-  },
-  {
-    path:'pacientes/:dni?',
-    component: PacientesComponent,
-    loadChildren: () => import('./usuarios/pacientes/pacientes.module').then(m => m.PacientesModule)
   },
   {
     path:'gestionar-cita-med',

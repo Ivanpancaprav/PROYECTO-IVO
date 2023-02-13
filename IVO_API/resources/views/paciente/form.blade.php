@@ -46,8 +46,8 @@
                     {!! $errors->first('direccion', '<div class="invalid-feedback">:message</div>') !!}
                 </div>
                 <div class="form-group">
-                    {{ Form::label('foto') }}
-                    {{ Form::text('foto', $user->foto, ['class' => 'form-control' . ($errors->has('foto') ? ' is-invalid' : ''), 'placeholder' => 'Foto']) }}
+                    {{ Form::label('Foto de perfil') }}<br>
+                    {{ Form::file('foto', $user->foto, ['class' => 'form-control' . ($errors->has('foto') ? ' is-invalid' : ''), 'placeholder' => 'Foto']) }}
                     {!! $errors->first('foto', '<div class="invalid-feedback">:message</div>') !!}
                 </div>
                 <div class="form-group">

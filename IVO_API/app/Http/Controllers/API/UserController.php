@@ -23,7 +23,22 @@ class UserController extends Controller
         if (Auth::attempt(['email' => request('email'), 'password' => request('password')])) {
             $user = Auth::user();
             $success['token'] =  $user->createToken('MyApp')->accessToken;
-           
+            $success['nombre'] = $user->nombre;
+            $success['dni'] = $user->dni;
+            $success['apellido1'] =$user->apellido1;
+            $success['apellido2'] =$user->apellido2;
+            $success['email'] =$user->email;
+            $success['sexo'] =$user->sexo;
+            $success['fecha_nacimiento'] =$user->fecha_nacimiento;
+            $success['direccion'] =$user->direccion;
+            $success['role'] =$user->role;
+            switch($user->role){
+                case 'paciente':
+                    $success['n_seguridad_social'] = $user->paciente->n_seguridad_social;
+                    $success['n_historial_clinico'] = $user->paciente->n_historial_clinico;
+                    break;
+
+            }
             return response()->json(['success' => $success], $this->successStatus);
         } else {
             return response()->json(['error' => 'Unauthorised'], 401);
@@ -49,6 +64,8 @@ class UserController extends Controller
             'dni' =>'required',
             'apellido1'=>'required'
         ]);
+
+        // dd($validator);
         if ($validator->fails()) {
             return response()->json(['error' => $validator->errors()], 401);
         }
