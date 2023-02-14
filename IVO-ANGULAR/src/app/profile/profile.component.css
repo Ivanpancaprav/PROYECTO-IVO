@@ -34,6 +34,10 @@ body {
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
+.negrita{
+    color: black;
+}
+
 .zoom {
     transition: transform .2s;
 }

@@ -27,11 +27,12 @@ class UserController extends Controller
             $success['dni'] = $user->dni;
             $success['apellido1'] =$user->apellido1;
             $success['apellido2'] =$user->apellido2;
+            $success['direccion'] =$user->direccion;
+            $success['foto'] =$user->foto;
             $success['email'] =$user->email;
             $success['sexo'] =$user->sexo;
-            $success['fecha_nacimiento'] =$user->fecha_nacimiento;
-            $success['direccion'] =$user->direccion;
             $success['role'] =$user->role;
+            $success['fecha_nacimiento'] =$user->fecha_nacimiento;
             switch($user->role){
                 case 'paciente':
                     $success['n_seguridad_social'] = $user->paciente->n_seguridad_social;
@@ -54,8 +55,6 @@ class UserController extends Controller
      */
     public function register(Request $request)
     {
-        
-     
         $validator = Validator::make($request->all(), [
             'nombre' => 'required',
             'email' => 'required|email',

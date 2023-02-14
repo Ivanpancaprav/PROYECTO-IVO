@@ -67,11 +67,14 @@ class PacienteController extends Controller
             'n_seguridad_social' =>'required',
             'n_historial_clinico' => 'required'
         ]);
-
+        $validacion['foto']=$request->foto->getClientOriginalName();
         $validacion["password"] = $pass_encrypt;
         User::create($validacion);
-
         Paciente::create($validacion2);
+
+        // Subir imagenes
+        $image = date("d_m_Y_h_i_s")."_".$request->foto->getClientOriginalName();
+        $request->file('foto')->storeAs('./images',$image);
 
         return redirect()->route('pacientes.index')
             ->with('success', 'Paciente created successfully.');

@@ -19,7 +19,7 @@
                     </div>
 
                     <div class="card-body">
-                        <img src="" style="height:150px; width:200px">
+                        <img src="./storage/app/images/" {{$user->foto}}" style="height:150px; width:200px">
                         <div class="form-group">
                             <strong>Dni medico:</strong>
                             {{ $medico->dni_medico }}

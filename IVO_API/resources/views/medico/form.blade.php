@@ -14,7 +14,7 @@
                             $('#dni_medico').val(val);
                         });
 
-                        sudo cp -r /home/alumno/Escritorio/GitProyectoIVO/PROYECTO-IVO/IVO_API/public/images /home/alumno/Escritorio/GitProyectoIVO/PROYECTO-IVO/IVO-ANGULAR/src/assets;
+                        // sudo cp -r /home/alumno/Escritorio/GitProyectoIVO/PROYECTO-IVO/IVO_API/public/images /home/alumno/Escritorio/GitProyectoIVO/PROYECTO-IVO/IVO-ANGULAR/src/assets;
                     });
                        
                     </script>
