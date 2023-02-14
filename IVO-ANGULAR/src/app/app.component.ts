@@ -11,6 +11,7 @@ export class AppComponent implements OnInit {
 
   private roles: string[] = [];
   isLoggedIn = false;
+  logueado = false;
   // showAdminBoard = false;
   // showModeratorBoard = false;
   nombre?: string;
@@ -23,6 +24,7 @@ export class AppComponent implements OnInit {
     this.isLoggedIn = !!this.tokenStorageService.getToken();
 
     if (this.isLoggedIn) {
+     this.logueado = true;
       const user = this.tokenStorageService.getUser();
       this.roles = user.roles;
 
@@ -33,6 +35,7 @@ export class AppComponent implements OnInit {
     }
   }
   logout(): void {
+    this.logueado  = false;
     this.tokenStorageService.signOut();
     window.location.reload();
   }

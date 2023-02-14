@@ -14,6 +14,9 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { ProfileComponent } from './profile/profile.component';
 import { HistorialMedicoComponent } from './usuarios/historial-medico/historial-medico.component';
 import { Medicamentos } from './models/medicamentos.model';
+import { PacientesComponent } from './pacientes/pacientes.component';
+import { InicioComponent } from './inicio/inicio.component';
+
 
 @NgModule({
   declarations: [
@@ -23,6 +26,8 @@ import { Medicamentos } from './models/medicamentos.model';
     LoginComponent,
     ProfileComponent,
     HistorialMedicoComponent,
+    PacientesComponent,
+    InicioComponent
     
   ],
   imports: [

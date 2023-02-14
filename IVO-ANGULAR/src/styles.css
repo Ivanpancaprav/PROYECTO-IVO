@@ -4,25 +4,17 @@ html,body{
     height: 100%;
 }
 
+
+*{
+    padding: 0;
+    margin: 0;
+ 
+}
+
 body{
 
     background: linear-gradient(180deg, rgba(233, 233, 233, 0.932292) 0%, #6BB0BF );
     background-repeat: no-repeat;
     background-size: cover;
 }
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
 
-table{
-   
-    min-width: 75%;
-    min-height: 50%;
-}
-.igx-calendar__header{
-   
-    background-color: #6BB0BF !important;
-    border-color: bisque;
-}
