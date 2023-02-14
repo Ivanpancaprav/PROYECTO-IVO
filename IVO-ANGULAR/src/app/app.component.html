@@ -1,12 +1,15 @@
+<div *ngIf="logueado">
+  <div id="nav">
+    <app-nav></app-nav>
+  </div>
 
-    <div id="nav">
-        <app-nav></app-nav>
-    </div>
+  <div class="contenedor">
+    <router-outlet></router-outlet>
+  </div>
 
-    <div class="contenedor">
-        <router-outlet></router-outlet>
-    </div>
+  <app-footer></app-footer>
+</div>
 
-  
-    <app-footer></app-footer>
-
+<div *ngIf="!logueado">
+  <app-login></app-login>
+</div>

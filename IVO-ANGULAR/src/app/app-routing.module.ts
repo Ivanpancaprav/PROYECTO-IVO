@@ -10,11 +10,17 @@ import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HistorialMedicoComponent } from './usuarios/historial-medico/historial-medico.component';
 import { Medicamentos } from './models/medicamentos.model';
+import { PacientesComponent } from './pacientes/pacientes.component';
+import { InicioComponent } from './inicio/inicio.component';
 
 const routes: Routes = [
   {
     path:'perfil',
     component: ProfileComponent
+  },
+  {
+    path:'',
+    component: InicioComponent
   },
   {
     path:'citas',
@@ -53,8 +59,8 @@ const routes: Routes = [
     component: Medicamentos
   },
   {
-    path: '',
-    redirectTo: 'pacientes', pathMatch: 'full'
+    path: 'pacientes',
+    component: PacientesComponent
   }
 ];
 

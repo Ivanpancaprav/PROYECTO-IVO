@@ -34,13 +34,9 @@ class ApiController extends Controller
     }
     public function mostrarCitas(){
 
-<<<<<<< HEAD
 
        
         $citas= DB::select('SELECT * FROM citas, users where fecha_creacion >= NOW() AND citas.dni_medico = users.dni;');
-=======
-        $citas= DB::select('SELECT * FROM citas ');
->>>>>>> 3fdd70bd656cc2971e6ad52fd695448f6772b84e
         return $citas;
 
     }
