@@ -36,15 +36,36 @@ class MedicoController extends Controller
      */
     public function store(Request $request)
     { 
-        request()->validate(User::$rules);
-        $request['foto']="pepe.jpg";
-        $user = User::create($request->all());
+        
+        $validacion = $request->validate([
+            'dni' => 'required',
+            'nombre' => 'required',
+            'apellido1' => 'required',
+            'apellido2' => 'required',
+            'direccion' => 'required',
+            'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'email' => 'required',
+            'password' =>'required','min:8',
+            'sexo' => 'required',
+            'role' => 'required',
+            'fecha_nacimiento' => 'required',
+        ]);
+        $validacion['foto']=date("d_m_Y_h_i_s")."_".$request->foto->getClientOriginalName();
+        $user = User::create($validacion);
         request()->validate(Medico::$rules);
         $medico = Medico::create($request->all());
 
+        $exite=storage::exits();
+
+        if($exite){
+        return redirect()->route('medicos.index')
+        ->with('warning', 'el ');
+        }
+
+
         // Subir imagenes
-        dd($image = "foto".time().'.'.$request->file('foto'));
-        $request->ficheroSubir->storeAs('public/images',$image);
+        $image = date("d_m_Y_h_i_s")."_".$request->foto->getClientOriginalName();
+        $request->file('foto')->storeAs('./images',$image);
         
         return redirect()->route('medicos.index')
             ->with('success', 'medico created successfully.');
@@ -60,7 +81,7 @@ class MedicoController extends Controller
     
         $medico =(object) medico::whereDni_medico($dni)->get()->toArray()[0];
         $user =(object) User::whereDni($dni)->get()->toArray()[0];
-       
+
         return view('medico.show', compact('medico','user'));
        
     }
