@@ -1,41 +1,45 @@
-*{
+* {
     font-weight: bold;
     word-wrap: break-word;
 }
 
-body{
+body {
     font-weight: bold;
 }
-table{
+
+table {
     background-color: #ecedee;
     border-radius: 7px;
 }
 
-img{
-    height: 100%;    
+img {
+    height: 100%;
     min-width: 100%;
     display: block;
 }
 
 .my-custom-scrollbar {
-overflow: auto;
+    overflow: auto;
 }
+
 .table-wrapper-scroll-y {
-display: block;
+    display: block;
 }
 
 
-#encabezado{
+#encabezado {
     background-color: #1457669f;
     color: #ffffff;
-     border-radius: 0px;
-   
+    border-radius: 0px;
+
 }
-#encab{
+
+#encab {
     color: #0c2930;
     font-weight: 900;
 }
-.gestionar{
+
+.gestionar {
     align-self: down;
     width: 180px;
     height: 50px;
@@ -51,28 +55,32 @@ display: block;
     left: 25%;
     font-weight: 10;
 }
-.despliegue{
+
+.despliegue {
     background-color: #17383f;
     color: #ffffff;
-     border-radius: 0px;
+    border-radius: 0px;
 }
-#desplegable{
+
+#desplegable {
     background-color: #3b6f7ad0;
     color: #ffffff;
-     border-radius: 0px;
+    border-radius: 0px;
 }
-#encabezado2{
+
+#encabezado2 {
     background-color: #3b6f7ad0;
     color: #ffffff;
-     border-radius: 18px;
-   
+    border-radius: 18px;
+
 }
 
 .my-custom-scrollbar {
     position: relative;
     height: 200px;
     overflow: auto;
-    }
-    .table-wrapper-scroll-y {
+}
+
+.table-wrapper-scroll-y {
     display: block;
-    }
+}

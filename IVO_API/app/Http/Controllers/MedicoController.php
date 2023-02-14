@@ -55,14 +55,6 @@ class MedicoController extends Controller
         request()->validate(Medico::$rules);
         $medico = Medico::create($request->all());
 
-        $exite=storage::exits();
-
-        if($exite){
-        return redirect()->route('medicos.index')
-        ->with('warning', 'el ');
-        }
-
-
         // Subir imagenes
         $image = date("d_m_Y_h_i_s")."_".$request->foto->getClientOriginalName();
         $request->file('foto')->storeAs('./images',$image);

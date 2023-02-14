@@ -2,57 +2,53 @@
   <div class="row">
     <div class="col-6">
       <br>
-    
-     
+
+
       <p id="encab"> MEDICACIÓN SUMINISTRADA ▶</p>
 
-      <div class="table-wrapper-scroll-y my-custom-scrollbar"> 
-      <table class="table"   *ngIf="mostrarTabla"
-      datatable
-      [dtOptions]="dtOptions"
-      class="hover cell-border row-border display table-striped ">
-        <thead  id="encabezado">
-          <tr>
-            <th>Medicamento</th>
-            <th>Dosis</th>
-            <th>Fecha</th>
-            <th>Tratamiento</th>
-          </tr>  </thead>
+      <div class="table-wrapper-scroll-y my-custom-scrollbar">
+        <table class="table table-bordered table-striped mb-0" *ngIf="mostrarTabla">          <thead id="encabezado">
+            <tr>
+              <th>Medicamento</th>
+              <th>Dosis</th>
+              <th>Fecha</th>
+              <th>Tratamiento</th>
+            </tr>
+          </thead>
           <tr *ngFor="let medicamento of medicamentos">
-              
-            <td >{{ medicamento.nombre }}</td>
-            <td >{{ medicamento.dosis }}</td>
-            <td >{{ medicamento.fecha_creacion }}</td>
-            <td >{{ medicamento.comentarios }}</td>
-         
+
+            <td>{{ medicamento.nombre }}</td>
+            <td>{{ medicamento.dosis }}</td>
+            <td>{{ medicamento.fecha_creacion }}</td>
+            <td>{{ medicamento.comentarios }}</td>
+
           </tr>
-      
-        <tbody>
-         
-        </tbody>
-      </table></div>
-    <p id="encab"> PROGRESO ▶</p>
-    <div class="table-wrapper-scroll-y my-custom-scrollbar"> 
-      <table class="table"   *ngIf="mostrarTabla"
-      datatable
-      [dtOptions]="dtOptions"
-      class="hover cell-border row-border display table-striped ">
-        <thead  id="encabezado">
-          <tr>
-            <th>Progreso</th>
-           
-          </tr>  </thead>
+
+          <tbody>
+
+          </tbody>
+        </table>
+      </div>
+      <p id="encab"> PROGRESO ▶</p>
+      <div class="table-wrapper-scroll-y my-custom-scrollbar">
+        <table class="table table-bordered table-striped mb-0">
+          <thead id="encabezado">
+            <tr>
+              <th>Progreso</th>
+
+            </tr>
+          </thead>
           <tr *ngFor="let medicamento of medicamentos">
-              
-            <td >{{ medicamento.progreso }}</td>
-          
-         
+
+            <td>{{ medicamento.progreso }}</td>
+
+
           </tr>
-      
-        <tbody>
-         
-        </tbody>
-      </table>
+
+          <tbody>
+
+          </tbody>
+        </table>
       </div>
     </div>
     <div class="col-6">
@@ -75,12 +71,12 @@
       </div> -->
       <p id="encab"> RADIOGRAFIAS ▶</p>
       <select class="form-select" aria-label="Default select example" id="desplegable">
-      <option style="text-align:center">Mostrar información...</option>
+        <option style="text-align:center">Mostrar información...</option>
         <tr *ngFor="let medicamento of medicamentos">
-              
-          <td >{{ medicamento.progreso }}</td>
-        
-       
+
+          <td>{{ medicamento.progreso }}</td>
+
+
         </tr>
       </select>
       <br><br><br><br><br><br><br><br>
@@ -130,8 +126,8 @@
             </table>
           </div>
         </div>
-      </div> 
-    <!-- </div><br> <div class="col d-flex justify-content-center align-items-center ">
+      </div>
+      <!-- </div><br> <div class="col d-flex justify-content-center align-items-center ">
       <button type="button" class="btn btn-default btn-lg gestionar" routerLink="/solicitarCitas">Solicitar cita ➤</button>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
       <button type="button" class="btn btn-default btn-lg gestionar"routerLink="/gestionar-cita-med" >Modificar cita ➤  </button>
