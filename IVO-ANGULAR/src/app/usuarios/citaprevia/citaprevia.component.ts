@@ -14,7 +14,7 @@ export class CitapreviaComponent implements OnInit  {
   public mensajeErr: string;
   dtOptions: DataTables.Settings ={};
   public mostrarTabla: boolean;
- 
+  public fecha = new Date();
   
    
   constructor(private usuarios_service:UsuariosServiceService, private aRoute: ActivatedRoute){
@@ -27,11 +27,11 @@ export class CitapreviaComponent implements OnInit  {
 
   obtenerCitas(): void {
 
-    this.usuarios_service.getCitas().subscribe(
+    this.usuarios_service.getCitas(1).subscribe(
       result =>{
         this.citas = result;
         this.mostrarTabla = true;
-       
+      
       },
       error =>{
         this.mensajeErr="";

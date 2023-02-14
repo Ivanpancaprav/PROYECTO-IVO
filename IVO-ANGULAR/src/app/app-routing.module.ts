@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PacientesComponent } from './usuarios/pacientes/pacientes.component';
 import { PerfilComponent } from './usuarios/perfil/perfil.component';
 import { CitasComponent } from './usuarios/citas/citas.component';
 import { CitapreviaComponent } from './usuarios/citaprevia/citaprevia.component';
@@ -9,7 +8,8 @@ import { HistorialComponent } from './usuarios/historial/historial.component';
 import { SolicitarCitaComponent } from './usuarios/solicitar-cita/solicitar-cita.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
-import { PacientesModule } from './usuarios/pacientes/pacientes.module';
+import { HistorialMedicoComponent } from './usuarios/historial-medico/historial-medico.component';
+import { Medicamentos } from './models/medicamentos.model';
 
 const routes: Routes = [
   {
@@ -41,10 +41,21 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path:'pacientes',
-    component: PacientesComponent,
-    loadChildren: () => import('./usuarios/pacientes/pacientes.module').then(p => p.PacientesModule)
-    },
+    path:'profile',
+    component: ProfileComponent
+  },
+  {
+    path:'HistorialMedico',
+    component: HistorialMedicoComponent
+  },
+  {
+    path:'Medicamentos',
+    component: Medicamentos
+  },
+  {
+    path: '',
+    redirectTo: 'pacientes', pathMatch: 'full'
+  }
 ];
 
 @NgModule({

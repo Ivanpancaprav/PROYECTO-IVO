@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Paciente } from '../models/paciente.model';
 import { Citas } from '../models/cita.model';
+import { Medicamentos } from '../models/medicamentos.model';
 import { Observable } from 'rxjs';
 
 const baseUrl = 'http://localhost/api/';
@@ -10,6 +11,7 @@ const baseUrl = 'http://localhost/api/';
   providedIn: 'root'
 })
 export class UsuariosServiceService {
+  [x: string]: any;
 
   constructor(private Http: HttpClient) { }
 
@@ -18,12 +20,21 @@ export class UsuariosServiceService {
   }
 
 
-  getPerfil(dni: string) {
+  getPerfil(dni: string): Observable<Paciente>  {
 
     return this.Http.get(baseUrl + 'perfil/' + dni);
   }
 
-  getCitas(): Observable<Citas[]> {
-    return this.Http.get<Citas[]>(baseUrl + 'citas');
-  }
+
+
+
+ getCitas(tipo:number): Observable<Citas[]>{
+  if(tipo==0){
+  return this.Http.get<Citas[]>(baseUrl+'citas');
+}else { return this.Http.get<Citas[]>(baseUrl+'citasprevias');}}
+
+getMedicamentos(){
+
+  return this.Http.get<Medicamentos[]>(baseUrl+'medicamentos');
+}
 }

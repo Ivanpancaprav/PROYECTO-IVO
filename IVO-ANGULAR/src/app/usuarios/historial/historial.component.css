@@ -7,7 +7,8 @@ body{
     font-weight: bold;
 }
 table{
-    background-color: #CED4DA;
+    background-color: #ecedee;
+    border-radius: 7px;
 }
 
 img{
@@ -22,3 +23,56 @@ overflow: auto;
 .table-wrapper-scroll-y {
 display: block;
 }
+
+
+#encabezado{
+    background-color: #1457669f;
+    color: #ffffff;
+     border-radius: 0px;
+   
+}
+#encab{
+    color: #0c2930;
+    font-weight: 900;
+}
+.gestionar{
+    align-self: down;
+    width: 180px;
+    height: 50px;
+    background: #6BB0BF;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.205);
+    border-radius: 20px;
+    color: black;
+    border-color: #6BB0BF;
+    border-width: 1px;
+    border-style: solid;
+    position: relative;
+    top: 237%;
+    left: 25%;
+    font-weight: 10;
+}
+.despliegue{
+    background-color: #17383f;
+    color: #ffffff;
+     border-radius: 0px;
+}
+#desplegable{
+    background-color: #3b6f7ad0;
+    color: #ffffff;
+     border-radius: 0px;
+}
+#encabezado2{
+    background-color: #3b6f7ad0;
+    color: #ffffff;
+     border-radius: 18px;
+   
+}
+
+.my-custom-scrollbar {
+    position: relative;
+    height: 200px;
+    overflow: auto;
+    }
+    .table-wrapper-scroll-y {
+    display: block;
+    }

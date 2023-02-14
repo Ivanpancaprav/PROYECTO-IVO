@@ -34,8 +34,41 @@ class ApiController extends Controller
     }
     public function mostrarCitas(){
 
+<<<<<<< HEAD
+
+       
+        $citas= DB::select('SELECT * FROM citas, users where fecha_creacion >= NOW() AND citas.dni_medico = users.dni;');
+=======
         $citas= DB::select('SELECT * FROM citas ');
+>>>>>>> 3fdd70bd656cc2971e6ad52fd695448f6772b84e
         return $citas;
+
+    }
+
+    public function mostrarCitasPrevias(){
+
+
+       
+        $citasprevias= DB::select('SELECT * FROM citas, users where fecha_creacion < NOW() AND citas.dni_medico = users.dni;');
+        return $citasprevias;
+
+    }
+
+    public function mostrarHistoriasClinicas(){
+
+
+       
+        $historiasclinicas= DB::select('SELECT * FROM historias_clinicas, users');
+        return $historiasclinicas;
+
+    }
+
+    public function mostrarMedicamentos(){
+
+
+       
+        $medicamentos= DB::select('SELECT * FROM medicamentos');
+        return $medicamentos;
 
     }
 
