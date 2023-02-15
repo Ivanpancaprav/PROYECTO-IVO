@@ -71,7 +71,8 @@ const routes: Routes = [
   },
   {
     path:'Historias_clinicas',
-    component: historias_clinicas
+    component: historias_clinicas},
+  {
     path: 'pacientes',
     component: PacientesComponent, canActivate:[PacienteGuard]
   }

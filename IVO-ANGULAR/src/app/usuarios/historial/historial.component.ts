@@ -52,7 +52,10 @@ export class HistorialComponent implements OnInit  {
 
     this.usuarios_service.getInformes().subscribe(
       result =>{
+      
         this.informes = result;
+        console.log(this.informes);
+
         this.mostrarTabla = true;
       
       },
@@ -74,7 +77,7 @@ export class HistorialComponent implements OnInit  {
 
     this.usuarios_service.getHistorias_clinicas().subscribe(
       result =>{
-        this.informes = result;
+        this.historias_clinicas = result;
         this.mostrarTabla = true;
       },
       error =>{
