@@ -1,46 +1,43 @@
 <div class="container-fluid">
-        <div class="row d-flex flex-column general">
-         <br><br>
-            <div class="col-x">
-                <div class="row justify-content-center" style="margin: 10px;">
-                    <div class="col-2 row"><a type="submit" class="btn btn-primary">Proximas citas</a></div>
-                    <div class="col-2 row"><a type="submit" class="btn btn-outline-primary" routerLink="/citaprevia">Citas previas</a></div>
-                </div>
-            </div>
-        <!-- =====================
+  <div class="row d-flex flex-column general">
+    <br><br>
+    <div class="col-x">
+      <div class="row justify-content-center" style="margin: 10px;">
+        <div class="col-2 row"><a type="submit" class="btn btn-primary">Proximas citas</a></div>
+        <div class="col-2 row"><a type="submit" class="btn btn-outline-primary" routerLink="/citaprevia">Citas
+            previas</a></div>
+      </div>
+    </div>
+    <!-- =====================
 COLUMNA IZQUIERDA
 ================== -->
-      <!-- COLUMNA TABLA DATATABLES -->
+    <!-- COLUMNA TABLA DATATABLES -->
     <div class="col">
       <br />
 
-      <div class="card-body " >
+      <div class="card-body ">
         <div class="card-deck mb-3 text-center">
-          <div class="card mb-4 box-shadow p-2 " >
-            <table
-              *ngIf="mostrarTabla"
-              datatable
-              [dtOptions]="dtOptions"
-              class="hover cell-border row-border display table-striped "
-            >
+          <div class="card mb-4 box-shadow p-2 ">
+            <table *ngIf="mostrarTabla" datatable [dtOptions]="dtOptions"
+              class="hover cell-border row-border display table-striped ">
               <thead>
-                <tr id="encabezado" >
-              
+                <tr id="encabezado">
+
                   <th>Fecha</th>
                   <th>Especialidad</th>
                   <th>Medico</th>
-              
-                
+
+
                 </tr>
               </thead>
               <tbody>
                 <tr *ngFor="let cita of citas">
-              
-                  <td >{{ cita.fecha_creacion }}</td>
-                  <td >{{ cita.especialidad }}</td>
-                  <td >{{ cita.nombre }}</td>
-                
-                 
+
+                  <td>{{ cita.fecha_creacion }}</td>
+                  <td>{{ cita.especialidad }}</td>
+                  <td>{{ cita.nombre }}</td>
+
+
                 </tr>
               </tbody>
             </table>
@@ -48,12 +45,14 @@ COLUMNA IZQUIERDA
         </div>
       </div>
     </div>
-            <div class="col d-flex justify-content-center align-items-center ">
-              <button type="button" class="btn btn-default btn-lg gestionar" routerLink="/solicitarCitas">Solicitar cita ➤</button>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-   
-              <button type="button" class="btn btn-default btn-lg gestionar"routerLink="/gestionar-cita-med" >Modificar cita ➤  </button>
-              <button type="button" class="btn btn-default btn-lg gestionar" routerLink="/HistorialMedico" > HistorialMedico</button>
-            </div>
-        </div>
+    <div class="col d-flex justify-content-center align-items-center ">
+      <button type="button" class="btn btn-default btn-lg gestionar" routerLink="/solicitarCitas">Solicitar cita
+        ➤</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+      <button type="button" class="btn btn-default btn-lg gestionar" routerLink="/gestionar-cita-med">Modificar cita ➤
+      </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <button type="button" class="btn btn-default btn-lg gestionar" routerLink="/HistorialMedico"> Historial Med ➤
+      </button>
     </div>
-    
+  </div>
+</div>

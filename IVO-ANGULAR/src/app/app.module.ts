@@ -15,7 +15,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { HistorialMedicoComponent } from './usuarios/historial-medico/historial-medico.component';
 import { PacientesComponent } from './pacientes/pacientes.component';
 import { InicioComponent } from './inicio/inicio.component';
-
+import { PacienteComponent } from './pacientes/paciente/paciente.component';
 
 @NgModule({
   declarations: [
@@ -26,8 +26,8 @@ import { InicioComponent } from './inicio/inicio.component';
     ProfileComponent,
     HistorialMedicoComponent,
     PacientesComponent,
-    InicioComponent
-    
+    InicioComponent,
+    PacienteComponent
   ],
   imports: [
     DataTablesModule,
