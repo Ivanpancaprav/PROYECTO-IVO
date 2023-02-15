@@ -16,9 +16,7 @@
         <i class="bi-plus-circle-fill" style="font-size: 80px"></i>
         <h4>Nueva Cita</h4>
       </div>
-      <div
-        class="botonInicio d-flex  pb-5 align-items-center justify-content-between flex-column" routerLink="/pacientes"
-      >
+      <div *ngIf="medico" class="botonInicio d-flex  pb-5 align-items-center justify-content-between flex-column" routerLink="/pacientes">
         <i class="bi-people-fill" style="font-size: 80px"></i>
         <h4>Pacientes</h4>
       </div>
