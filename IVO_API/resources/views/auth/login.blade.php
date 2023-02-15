@@ -10,12 +10,6 @@
 </head>
 <style>
 
-*{
-        padding: 0px;
-        margin: 0px;
-        /* border: 1px solid black; */
-    }
-
 body {
     background: url({url("assets/fondo.jpg")});
    
@@ -32,11 +26,7 @@ body{
     padding: 10px;
     width: 45%;
     max-height: 100%;
-    /* background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(60,199,252,1) 50%, rgba(0,212,255,1) 100%); */
-    /* background-color: rgb(138, 197, 209); */
     background-color: rgb(212, 242, 248);
-
-    /* background-color: white; */
     box-shadow: 10px;
 }
 
@@ -51,8 +41,7 @@ body{
     border-radius: 15px;
     background-size: contain;
     background-repeat: no-repeat;
-background-position: center;
-
+    background-position: center;
     filter: brightness(0%);
 }
 
@@ -102,6 +91,7 @@ background-position: center;
 input:invalid {
     outline: 2px solid red;
 }
+
 </style>
 <body>
 
@@ -110,7 +100,6 @@ input:invalid {
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     </head>
-      <body>
           <div class="container-fluid d-flex flex-column h-100">
               <div class="contenedor row d-flex flex-column align-self-end align-items-center h-100">
                   
@@ -129,7 +118,7 @@ input:invalid {
                             <div class="row-1 dni">
                                 <input type="text" class="form-control" placeholder="Introduce tu email" name="email">
                             </div>
-                          </div><br>
+                          </div>
                           <div class="form-group">
                             <label>Contraseña</label>
                             <input type="password" class="form-control" name="password" placeholder="Introduce tu contraseña">
@@ -153,7 +142,5 @@ input:invalid {
               </div>
               <br>  
           </div>
-      </body>
-    
 </body>
 </html>

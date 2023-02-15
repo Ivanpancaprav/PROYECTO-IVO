@@ -3,50 +3,44 @@
 </head>
 
 <body>
-  <div class="container-fluid d-flex flex-column">
-    <div class="contenedor row d-flex flex-column align-self-end align-items-center">
+  <div class="container-fluid d-flex flex-column h-100">
+    <div class="contenedor row d-flex flex-column align-self-end align-items-center h-100">
       <img class="logo" src="./assets/logo-ivo.png">
-      <div class="login">LOGIN</div>
+      <div class="login mt-5">LOGIN</div>
       <br>
       <div class="row d-flex flex-column align-items-center">
-        <form *ngIf="!isLoggedIn" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="text" class="form-control" name="email" [(ngModel)]="form.email" required
-              #dni="ngModel" />
-            <!-- <div class="alert alert-danger" role="alert" *ngIf="email.errors && f.submitted">
-              Se requiere el email
-            </div> -->
-          </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" name="password" [(ngModel)]="form.password" required
-              minlength="6" #password="ngModel" />
-            <div class="alert alert-danger" role="alert" *ngIf="password.errors && f.submitted">
-              <div *ngIf="password.errors">Se requiere la contraseña</div>
-              <div *ngIf="password.errors">
-                La contraseña debe tener mas de 6 caracteres
+        <div class="col-7 mt-5">
+          <form *ngIf="!isLoggedIn" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="text" class="form-control" placeholder="Introduce tu email" name="email"
+                [(ngModel)]="form.email" required #dni="ngModel" />
+            </div>
+            <br>
+            <div class="form-group">
+              <label for="password">Contraseña</label>
+              <input type="password" class="form-control" placeholder="Introduce tu contraseña" name="password"
+                [(ngModel)]="form.password" required minlength="6" #password="ngModel" />
+              <div class="alert alert-danger" role="alert" *ngIf="password.errors && f.submitted">
+                <div *ngIf="password.errors">Se requiere la contraseña</div>
+                <div *ngIf="password.errors">
+                  La contraseña debe tener mas de 6 caracteres
+                </div>
               </div>
             </div>
-          </div>
-          <div class="form-group">
-            <button class="btn btn-primary btn-block">
-              Login
-            </button>
-
-
-
-          </div>
-          <div class="form-group">
-            <div class="alert alert-danger" role="alert" *ngIf="f.submitted && isLoginFailed">
-              Login fallido: {{ errorMessage }}
+            <div class="row-2 d-flex justify-content-end my-3">
+              <button type="submit" class="acceder">Acceder ➔</button>
             </div>
+            <div class="form-group">
+              <div class="alert alert-danger" role="alert" *ngIf="f.submitted && isLoginFailed">
+                Login fallido: {{ errorMessage }}
+              </div>
+            </div>
+          </form>
+          <div class="alert alert-success" *ngIf="isLoggedIn">
+            Logeado como {{ roles }}.
           </div>
-        </form>
-        <div class="alert alert-success" *ngIf="isLoggedIn">
-          Logeado como {{ roles }}.
         </div>
+
       </div>
-    </div><br>
-  </div>
-</body>
+    </div>
