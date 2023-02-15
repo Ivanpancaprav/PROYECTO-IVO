@@ -1,117 +1,119 @@
 <div class="container py-5 h-100">
-            <div class="row d-flex justify-content-start align-items-start h-100">
-<!-- =====================
+  <div class="row d-flex justify-content-start align-items-start h-100">
+    <!-- =====================
     COLUMNA DERECHA
 ===================== -->
-              <div class="col-md-12 col-xl-4">
-        
-<br>
-                
-                <div class="card" style="border-radius: 15px;">
-                  <div class="card-body text-center">
-                   
-                   
-                        <div style="background-color: white; text-align: center;">DATOS PERSONALES</div>
-                        <br>
-                        <table class="table caption-top">
-                            <tbody>
-                              <tr>
-                                <th>Fecha</th>
-                                <td>10-02-2023</td>
-                              </tr>
-                              <tr>
-                                <th>Hora</th>
-                                <td>10:50</td>
-                              </tr>
-                            
-                
-                              <tr>
-                                <th>Especialidad</th>
-                                <td>Radiologo</td>
-                              </tr>
-                
-                              <tr>
-                                <th>Medico</th>
-                                <td>Pepa</td>
-                              </tr>
-                            
-                             
-                            </tbody>
-                          </table></div>
-                        </div><br>
-                        <div class="card" style="border-radius: 15px;">
-                          <div class="card-body text-center">
-                          <ul class="list-unstyled">
-                           
-                            <form class="form-horizontal" method="post"> <div style="background-color: white; text-align: center;">GESTIONAR</div><br>
-                              <fieldset>
-                                  <select class="form-select form-select-lg mb-4" aria-label="Ejemplo de .form-select-lg">
-                                      <option selected>Especialidad</option>
-                                      <option value="1">Analitica</option>
-                                      <option value="2">Radiologia</option>
-  
-                                  </select>
-  
-                                  <select class="form-select form-select-lg" aria-label="Ejemplo de .form-select-lg" required>
-                                      <option selected aria-required="true">Seleccione medico para atenderle</option>
-                                      <option value="1">12:00</option>
-                                      <option value="2">13:00</option>
-                                      <option value="1">14:00</option>
-                                      <option value="2">15:00</option>
-  
-                                  </select><br>
-                                  <select class="form-select form-select-lg" aria-label="Ejemplo de .form-select-lg" required>
-                                    <option selected aria-required="true">Horas disponibles</option>
-                                    <option value="1">12:00</option>
-                                    <option value="2">13:00</option>
-                                    <option value="1">14:00</option>
-                                    <option value="2">15:00</option>
+    <div class="col-md-12 col-xl-4">
 
-                                </select>
-                              </fieldset>
-                          </form>
-                        </ul>
-                      </div></div>
-                
-        
-     <br><br>
+      <br>
+
+      <div class="card" style="border-radius: 15px;">
+        <div class="card-body text-center">
 
 
-      
+          <div style="background-color: white; text-align: center;">DATOS PERSONALES</div>
+          <br>
+          <table class="table caption-top">
+            <tbody>
+              <tr>
+                <th>Fecha</th>
+                <td>10-02-2023</td>
+              </tr>
+              <tr>
+                <th>Hora</th>
+                <td>10:50</td>
+              </tr>
+
+
+              <tr>
+                <th>Especialidad</th>
+                <td>Radiologo</td>
+              </tr>
+
+              <tr>
+                <th>Medico</th>
+                <td>Pepa</td>
+              </tr>
+
+
+            </tbody>
+          </table>
+        </div>
+      </div><br>
+      <div class="card" style="border-radius: 15px;">
+        <div class="card-body text-center">
+          <ul class="list-unstyled">
+
+            <form class="form-horizontal" method="post">
+              <div style="background-color: white; text-align: center;">GESTIONAR</div><br>
+              <fieldset>
+                <select class="form-select form-select-lg mb-4" aria-label="Ejemplo de .form-select-lg">
+                  <option selected>Especialidad</option>
+                  <option value="1">Analitica</option>
+                  <option value="2">Radiologia</option>
+
+                </select>
+
+                <select class="form-select form-select-lg" aria-label="Ejemplo de .form-select-lg" required>
+                  <option selected aria-required="true">Seleccione medico para atenderle</option>
+                  <option value="1">12:00</option>
+                  <option value="2">13:00</option>
+                  <option value="1">14:00</option>
+                  <option value="2">15:00</option>
+
+                </select><br>
+                <select class="form-select form-select-lg" aria-label="Ejemplo de .form-select-lg" required>
+                  <option selected aria-required="true">Horas disponibles</option>
+                  <option value="1">12:00</option>
+                  <option value="2">13:00</option>
+                  <option value="1">14:00</option>
+                  <option value="2">15:00</option>
+
+                </select>
+              </fieldset>
+            </form>
+          </ul>
+        </div>
       </div>
 
- <!-- =====================
+
+      <br><br>
+
+
+
+    </div>
+
+    <!-- =====================
        COLUMNA IZQUIERDA
      ================== -->
 
-      <div class="col"><br>
-        
-        <div class="card-body"> 
-   
-              <div class="card-deck mb-3 text-center">
-                  <div class="card mb-4 box-shadow">
+    <div class="col"><br>
 
-                      <div class="card-body">
-                          
+      <div class="card-body">
 
-                              <article class="calendar-wrapper">
-                                <igx-calendar [weekStart]="1"></igx-calendar>
-                            </article>
+        <div class="card-deck mb-3 text-center">
+          <div class="card mb-4 box-shadow">
 
-                                 <!-- ========
+            <div class="card-body">
+
+
+              <article class="calendar-wrapper">
+                <igx-calendar [weekStart]="1"></igx-calendar>
+              </article>
+
+              <!-- ========
                                       BOTONES
                                   ======== -->
 
-                            <button type="button" class="btn btn-default btn-lg gestionar" routerLink="/citas">Confirmar ➤</button>  &nbsp;
-                            <button type="button" class="btn btn-default btn-lg gestionar"routerLink="/citas" >Cancelar ➤</button>
-                          </div>
-                      </div>
-                  </div>
-              </div>
+              <button type="button" class="btn btn-default btn-lg gestionar" routerLink="/citas">Confirmar ➤</button>
+              &nbsp;
+              <button type="button" class="btn btn-default btn-lg gestionar" routerLink="/citas">Cancelar ➤</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      </div>
-      </div>
-     
     </div>
-  
+  </div>
 
+</div>
