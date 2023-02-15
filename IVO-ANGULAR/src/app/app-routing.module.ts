@@ -10,14 +10,28 @@ import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HistorialMedicoComponent } from './usuarios/historial-medico/historial-medico.component';
 import { Medicamentos } from './models/medicamentos.model';
+import { Informes } from './models/informes.model';
 import { PacientesComponent } from './pacientes/pacientes.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { PacienteGuard } from './guards/paciente.guard';
+import { historias_clinicas } from './models/historias_clinicas.model';
 
 const routes: Routes = [
   {
+    path:'login',
+    component: LoginComponent
+  },
+  {
+    path:'profile',
+    component: ProfileComponent
+  },
+  {
     path:'perfil',
     component: ProfileComponent
+  },
+  {
+    path: 'pacientes',
+    component: PacientesComponent
   },
   {
     path:'',
@@ -36,20 +50,12 @@ const routes: Routes = [
     component: GestionarCitaMedComponent
   },
   {
-    path:'historial',
-    component: HistorialComponent
-  },
-  {
     path:'solicitarCitas',
     component: SolicitarCitaComponent
   },
   {
-    path:'login',
-    component: LoginComponent
-  },
-  {
-    path:'profile',
-    component: ProfileComponent
+    path:'historial',
+    component: HistorialComponent
   },
   {
     path:'HistorialMedico',
@@ -60,9 +66,16 @@ const routes: Routes = [
     component: Medicamentos
   },
   {
+    path:'Informes',
+    component: Informes
+  },
+  {
+    path:'Historias_clinicas',
+    component: historias_clinicas
     path: 'pacientes',
     component: PacientesComponent, canActivate:[PacienteGuard]
   }
+
 ];
 
 @NgModule({

@@ -11,9 +11,10 @@
 <style>
 
 body {
-    background: url({{url("assets/fondo.jpg")}});
+    background: url({url("assets/fondo.jpg")});
    
 }
+
 body{
     width: 100%;
     height: 100vh;

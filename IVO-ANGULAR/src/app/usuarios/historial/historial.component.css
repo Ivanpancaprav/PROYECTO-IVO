@@ -26,16 +26,14 @@ img {
     display: block;
 }
 
-
 #encabezado {
-    background-color: #1457669f;
+    background-color: #065157;
     color: #ffffff;
     border-radius: 0px;
 
 }
-
-#encab {
-    color: #0c2930;
+#encab{
+    color: #000000;
     font-weight: 900;
 }
 
@@ -55,21 +53,18 @@ img {
     left: 25%;
     font-weight: 10;
 }
-
-.despliegue {
-    background-color: #17383f;
+.despliegue{
+    background-color: #074f5f;
     color: #ffffff;
     border-radius: 0px;
 }
-
-#desplegable {
-    background-color: #3b6f7ad0;
+#desplegable{
+    background-color: #074f5f;
     color: #ffffff;
     border-radius: 0px;
 }
-
-#encabezado2 {
-    background-color: #3b6f7ad0;
+#encabezado2{
+    background-color: #074f5f;
     color: #ffffff;
     border-radius: 18px;
 
