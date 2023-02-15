@@ -13,11 +13,24 @@ import { Medicamentos } from './models/medicamentos.model';
 import { Informes } from './models/informes.model';
 import { PacientesComponent } from './pacientes/pacientes.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { historias_clinicas } from './models/historias_clinicas.model';
 
 const routes: Routes = [
   {
+    path:'login',
+    component: LoginComponent
+  },
+  {
+    path:'profile',
+    component: ProfileComponent
+  },
+  {
     path:'perfil',
     component: ProfileComponent
+  },
+  {
+    path: 'pacientes',
+    component: PacientesComponent
   },
   {
     path:'',
@@ -36,20 +49,12 @@ const routes: Routes = [
     component: GestionarCitaMedComponent
   },
   {
-    path:'historial',
-    component: HistorialComponent
-  },
-  {
     path:'solicitarCitas',
     component: SolicitarCitaComponent
   },
   {
-    path:'login',
-    component: LoginComponent
-  },
-  {
-    path:'profile',
-    component: ProfileComponent
+    path:'historial',
+    component: HistorialComponent
   },
   {
     path:'HistorialMedico',
@@ -64,9 +69,10 @@ const routes: Routes = [
     component: Informes
   },
   {
-    path: 'pacientes',
-    component: PacientesComponent
+    path:'Historias_clinicas',
+    component: historias_clinicas
   }
+
 ];
 
 @NgModule({

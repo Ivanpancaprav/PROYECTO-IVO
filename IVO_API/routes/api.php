@@ -41,6 +41,7 @@ Route::get('/citas', [ApiController::class,'mostrarCitas']);
 
 Route::get('/informes', [ApiController::class,'mostrarInformes']);
 
+
 //RUTAS LOGGIN
 Route::post('login', [UserController::class,'login']);
 Route::post('register', [UserController::class,'register']);

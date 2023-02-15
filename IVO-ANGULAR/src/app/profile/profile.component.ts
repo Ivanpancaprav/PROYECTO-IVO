@@ -8,6 +8,7 @@ import { TokenStorageService } from '../_services/token-storage.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+  
   currentUser: any;
 
   constructor(private token: TokenStorageService) { }

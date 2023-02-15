@@ -11,6 +11,12 @@ use Illuminate\Support\Facades\DB;
 
 class ApiController extends Controller
 {
+    public function mostrarPerfil(Request $request){
+
+        $users =(object) User::whereDni($request->dni)->get()->toArray()[0];
+        return $users;
+
+    }
 
     public function mostrarPacientes(){
 
@@ -19,12 +25,6 @@ class ApiController extends Controller
     return $pacientes;
     }
 
-    public function mostrarPerfil(Request $request){
-
-        $users =(object) User::whereDni($request->dni)->get()->toArray()[0];
-        return $users;
-
-    }
     public function mostrarMedicos(){
 
         $medicos = DB::select('SELECT * FROM users ,medicos where medicos.dni_medico = users.dni');
@@ -59,6 +59,7 @@ class ApiController extends Controller
 
     }
 
+
     public function mostrarMedicamentos(){
 
 
@@ -77,37 +78,6 @@ class ApiController extends Controller
 
     }
 
-    // public function getUser(Request $request){
-
-    //     $role = DB::select('SELECT role FROM users where users.dni = '.$request->dni);
-    //     $user=null;
-
-    //     switch($role[0]->role){
-
-    //         case 'paciente':
-                
-    //             $user = DB::select('SELECT * FROM users ,pacientes where pacientes.dni_paciente = users.dni AND users.dni = '.$request->dni);
-
-    //             break;
-
-    //         case 'medico':
-
-    //             $user = DB::select('SELECT * FROM users ,medicos where medicos.dni_medico = users.dni AND users.dni = '.$request->dni);
-    
-    //             break;
-
-    //     }
-
-    //     return $user;
-    // }
-
-    // // public function loginU(){
-
-    // //     if(Auth::attempt(['dni' => $dni, 'password' => $password])){
-
-    // //     }
-
-    // // }
 
 }
  
