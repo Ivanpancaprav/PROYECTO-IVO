@@ -12,6 +12,7 @@ import { HistorialMedicoComponent } from './usuarios/historial-medico/historial-
 import { Medicamentos } from './models/medicamentos.model';
 import { PacientesComponent } from './pacientes/pacientes.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { PacienteGuard } from './guards/paciente.guard';
 
 const routes: Routes = [
   {
@@ -60,7 +61,7 @@ const routes: Routes = [
   },
   {
     path: 'pacientes',
-    component: PacientesComponent
+    component: PacientesComponent, canActivate:[PacienteGuard]
   }
 ];
 

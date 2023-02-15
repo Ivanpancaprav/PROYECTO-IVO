@@ -36,12 +36,13 @@ class MedicoController extends Controller
      */
     public function store(Request $request)
     { 
-        
-        $validacion = $request->validate([
+        $pass_encrypt = password_hash($request->password,PASSWORD_DEFAULT);
+
+  
+            $validacion = $request->validate([
             'dni' => 'required',
             'nombre' => 'required',
             'apellido1' => 'required',
-            'apellido2' => 'required',
             'direccion' => 'required',
             'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'email' => 'required',
@@ -50,10 +51,20 @@ class MedicoController extends Controller
             'role' => 'required',
             'fecha_nacimiento' => 'required',
         ]);
+
+        $validacion2 = $request->validate([
+            'dni_medico' => 'required',
+            'especialidad'=>'required',
+            'n_colegiado' =>'required'
+
+        ]);
+
+
         $validacion['foto']=date("d_m_Y_h_i_s")."_".$request->foto->getClientOriginalName();
-        $user = User::create($validacion);
-        request()->validate(Medico::$rules);
-        $medico = Medico::create($request->all());
+        $validacion["password"] = $pass_encrypt;
+
+        User::create($validacion);
+        Medico::create($validacion2);
 
         // Subir imagenes
         $image = date("d_m_Y_h_i_s")."_".$request->foto->getClientOriginalName();
@@ -70,7 +81,6 @@ class MedicoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($dni){
-    
         $medico =(object) medico::whereDni_medico($dni)->get()->toArray()[0];
         $user =(object) User::whereDni($dni)->get()->toArray()[0];
 

@@ -25,8 +25,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Medico extends Model
 {
-	protected $primaryKey= "dni_medico";
-	
+	// protected $primaryKey= "dni_medico";
+	protected $casts = ['dni_medico'=>'string']; 
 	static $rules = [
 		'dni_medico' => 'required',
 		'n_colegiado' => 'required',
@@ -42,10 +42,10 @@ class Medico extends Model
 	];
 
 	public function user()
-	{
-        return $this->hasOne('App\Models\User', 'dni', 'dni_medico');
-	}
-
+    {
+        return $this->belongsTo(User::class,'dni_medico','dni');
+    }
+    
 	public function gestion_historias()
 	{
 		return $this->hasMany('App\Models\GestionHistoria', 'dni_paciente', 'dni_paciente');
