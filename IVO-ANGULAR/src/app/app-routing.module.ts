@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HistorialMedicoComponent } from './usuarios/historial-medico/historial-medico.component';
 import { Medicamentos } from './models/medicamentos.model';
+import { Informes } from './models/informes.model';
 import { PacientesComponent } from './pacientes/pacientes.component';
 import { InicioComponent } from './inicio/inicio.component';
 
@@ -57,6 +58,10 @@ const routes: Routes = [
   {
     path:'Medicamentos',
     component: Medicamentos
+  },
+  {
+    path:'Informes',
+    component: Informes
   },
   {
     path: 'pacientes',

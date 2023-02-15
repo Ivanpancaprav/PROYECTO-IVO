@@ -26,13 +26,13 @@ display: block;
 
 
 #encabezado{
-    background-color: #1457669f;
+    background-color: #074f5f;
     color: #ffffff;
      border-radius: 0px;
    
 }
 #encab{
-    color: #0c2930;
+    color: #000000;
     font-weight: 900;
 }
 .gestionar{
@@ -52,17 +52,17 @@ display: block;
     font-weight: 10;
 }
 .despliegue{
-    background-color: #17383f;
+    background-color: #074f5f;
     color: #ffffff;
      border-radius: 0px;
 }
 #desplegable{
-    background-color: #3b6f7ad0;
+    background-color: #074f5f;
     color: #ffffff;
      border-radius: 0px;
 }
 #encabezado2{
-    background-color: #3b6f7ad0;
+    background-color: #074f5f;
     color: #ffffff;
      border-radius: 18px;
    

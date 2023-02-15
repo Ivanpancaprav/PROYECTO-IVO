@@ -10,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class HistorialComponent implements OnInit  {
   public medicamentos: any;
+  public informes: any;
   public mensajeErr: string;
   dtOptions: DataTables.Settings ={};
   public mostrarTabla: boolean;
@@ -45,6 +46,29 @@ export class HistorialComponent implements OnInit  {
       }
     );
   }
+
+  obtenerInformes(): void {
+
+    this.usuarios_service.getInformes().subscribe(
+      result =>{
+        this.informes = result;
+        this.mostrarTabla = true;
+      
+      },
+      error =>{
+        this.mensajeErr="";
+        if(error instanceof ErrorEvent){
+          this.mensajeErr =error.error.message;
+        }else if(error.status == 404){
+          this.mensajeErr = "Error 404"
+        }else{
+          this.mensajeErr = "Error status:"+error.status;
+        }
+        this.mostrarTabla = true;
+      }
+    );
+  }
+
 
 
     ngOnInit(): void {

@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Paciente } from '../models/paciente.model';
 import { Citas } from '../models/cita.model';
 import { Medicamentos } from '../models/medicamentos.model';
+import { Informes} from '../models/informes.model';
 import { Observable } from 'rxjs';
 
 const baseUrl = 'http://localhost/api/';
@@ -36,5 +37,10 @@ export class UsuariosServiceService {
 getMedicamentos(){
 
   return this.Http.get<Medicamentos[]>(baseUrl+'medicamentos');
+}
+
+getInformes(){
+
+  return this.Http.get<Informes[]>(baseUrl+'informes');
 }
 }

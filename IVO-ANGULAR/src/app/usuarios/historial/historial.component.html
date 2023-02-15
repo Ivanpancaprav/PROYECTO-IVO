@@ -3,22 +3,21 @@
     <div class="col-6">
       <br>
     
-     
-      <p id="encab"> MEDICACIÓN SUMINISTRADA ▶</p>
+      <br><br>
+      <p id="encab"><h5>𝗠𝗘𝗗𝗜𝗖𝗔𝗖𝗜𝗢𝗡 𝗦𝗨𝗠𝗜𝗡𝗜𝗦𝗧𝗥𝗔𝗗𝗔 ▶</h5> 
 
       <div class="table-wrapper-scroll-y my-custom-scrollbar"> 
       <table class="table"   *ngIf="mostrarTabla"
-      datatable
-      [dtOptions]="dtOptions"
-      class="hover cell-border row-border display table-striped ">
-        <thead  id="encabezado">
+     >
+        <thead  id="encabezado" style="text-align:center" >
           <tr>
-            <th>Medicamento</th>
-            <th>Dosis</th>
-            <th>Fecha</th>
+            <th><H6>Medicamento</H6></th>
+            <th><H6>Dosis</H6></th>
+            <th><H6>Fecha</H6></th>
             <th>Tratamiento</th>
-          </tr>  </thead>
-          <tr *ngFor="let medicamento of medicamentos">
+          </tr>  
+        </thead>
+          <tr *ngFor="let medicamento of medicamentos" style="text-align:center">
               
             <td >{{ medicamento.nombre }}</td>
             <td >{{ medicamento.dosis }}</td>
@@ -31,20 +30,19 @@
          
         </tbody>
       </table></div>
-    <p id="encab"> PROGRESO ▶</p>
+      <br>
+    <p id="encab"><h5> 𝗣𝗥𝗢𝗚𝗥𝗘𝗦𝗢 ▶</h5>
     <div class="table-wrapper-scroll-y my-custom-scrollbar"> 
       <table class="table"   *ngIf="mostrarTabla"
-      datatable
-      [dtOptions]="dtOptions"
-      class="hover cell-border row-border display table-striped ">
-        <thead  id="encabezado">
+     >
+        <thead  id="encabezado" style="text-align:center">
           <tr>
-            <th>Progreso</th>
+            <th><h6>Progreso</h6></th>
            
           </tr>  </thead>
-          <tr *ngFor="let medicamento of medicamentos">
+          <tr *ngFor="let informe of informes">
               
-            <td >{{ medicamento.progreso }}</td>
+            <td >{{ informe.observaciones}}</td>
           
          
           </tr>
@@ -72,65 +70,28 @@
             </div>
           </div>
         </div>
-      </div> -->
-      <p id="encab"> RADIOGRAFIAS ▶</p>
+      </div> --><br><br>
+      <p id="encab"> <h5>𝗥𝗔𝗗𝗜𝗢𝗚𝗥𝗔𝗙𝗜𝗔 ▶</h5>
       <select class="form-select" aria-label="Default select example" id="desplegable">
-      <option style="text-align:center">Mostrar información...</option>
+      <option style="text-align:center">Mostrar radiologías ...</option>
         <tr *ngFor="let medicamento of medicamentos">
               
-          <td >{{ medicamento.progreso }}</td>
+          <td >{{ medicamento.nombre }}</td>
         
        
         </tr>
       </select>
       <br><br><br><br><br><br><br><br>
-      <p id="encab"> ANALITICAS ▶</p>
-      <div class="dropdown-center dropdown">
-        <button class="btn btn-secondary dropdown-toggle w-100" data-bs-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="false" id="encabezado">
-          Analítica del 22/10/22
-        </button>
-        <div class="dropdown-menu dropdown-menu-lg-end">
-          <div class="col">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th></th>
-                  <th>RESULTADO</th>
-                  <th>UNIDADES</th>
-                  <th>MIN-MAX</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Glucosa</td>
-                  <td>89</td>
-                  <td>mg/dl</td>
-                  <td>74-100</td>
-                </tr>
-                <tr>
-                  <td>Acido urico</td>
-                  <td>0.4</td>
-                  <td>mg/dl</td>
-                  <td>1-15</td>
-                </tr>
-                <tr>
-                  <td>Calcio</td>
-                  <td>23</td>
-                  <td>mg/dl</td>
-                  <td>14-34</td>
-                </tr>
-                <tr>
-                  <td>Hierro</td>
-                  <td>15.5</td>
-                  <td>mg/dl</td>
-                  <td>10-40</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div> 
+      <p id="encab"><h5>𝗔𝗡𝗔𝗟𝗜𝗧𝗜𝗖𝗔 ▶</h5>
+      <select class="form-select" aria-label="Default select example" id="desplegable">
+        <option style="text-align:center">Mostrar analíticas ...</option>
+          <tr *ngFor="let medicamento of medicamentos">
+                
+            <td >{{ medicamento.nombre }}</td>
+          
+         
+          </tr>
+        </select> 
     <!-- </div><br> <div class="col d-flex justify-content-center align-items-center ">
       <button type="button" class="btn btn-default btn-lg gestionar" routerLink="/solicitarCitas">Solicitar cita ➤</button>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
