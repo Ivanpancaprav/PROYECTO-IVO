@@ -55,12 +55,12 @@ class MedicoController extends Controller
         request()->validate(Medico::$rules);
         $medico = Medico::create($request->all());
 
-        $exite=storage::exits();
+        // $exite=storage::exits();
 
-        if($exite){
-        return redirect()->route('medicos.index')
-        ->with('warning', 'el ');
-        }
+        // if($exite){
+        // return redirect()->route('medicos.index')
+        // ->with('warning', 'el ');
+        // }
 
 
         // Subir imagenes

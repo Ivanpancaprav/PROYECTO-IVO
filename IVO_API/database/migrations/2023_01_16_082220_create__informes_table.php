@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('informes', function (Blueprint $table) {
-            $table->id("id_informe");
+            $table->increments("id_informe");
             $table->text("observaciones");
             $table->date("fecha_creacion");
             $table->enum('tipo_informe',array('radiografia','analitica'));

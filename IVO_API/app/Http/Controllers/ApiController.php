@@ -68,6 +68,15 @@ class ApiController extends Controller
 
     }
 
+    public function mostrarInformes(){
+
+
+       
+        $informes= DB::select('SELECT * FROM informes');
+        return $informes;
+
+    }
+
     // public function getUser(Request $request){
 
     //     $role = DB::select('SELECT role FROM users where users.dni = '.$request->dni);
