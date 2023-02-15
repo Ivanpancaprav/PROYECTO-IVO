@@ -12,6 +12,7 @@
                            let val =  $(this).val();
                             console.log(val);
                             $('#dni_medico').val(val);
+                            });
                         });
 
                     </script>
@@ -90,7 +91,7 @@
                 </div>
 
         <div class="form-group">
-            <input hidden="text" value="" name="dni_medico" id="dni_medico">                                        
+            <input hidden="text"name="dni_medico" id="dni_medico">                                        
             {{-- {{ Form::text('dni_medico', $medico->dni_medico, ['class' => 'form-control' . ($errors->has('dni_medico') ? ' is-invalid' : ''),'id' =>'dni_medico','name'=>'dni_medico', 'placeholder' => 'Dni medico' , 'disabled']) }} --}}
             {!! $errors->first('dni_medico', '<div class="invalid-feedback">:message</div>') !!}
         </div>
@@ -118,8 +119,6 @@
     </div>
 </div>
 
-
-     
 <script>
     @if (session('success'))
     swal("Buen Trabajo!", "{{ session('success') }}", "success");
