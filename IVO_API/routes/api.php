@@ -33,11 +33,14 @@ Route::get('/citasprevias', [ApiController::class,'mostrarCitasPrevias']);
 
 Route::get('/historiasclinicas', [ApiController::class,'mostrarHistoriasClinicas']); 
 
-Route::get('/medicamentos', [ApiController::class,'mostrarMedicamentos']); 
+Route::get('/medicamento', [ApiController::class,'mostrarMedicamentos']); 
 
 Route::get('/user/{dni}', [ApiController::class,'getUser']); 
 
 Route::get('/citas', [ApiController::class,'mostrarCitas']);
+
+Route::get('/informes', [ApiController::class,'mostrarInformes']);
+
 
 //RUTAS LOGGIN
 Route::post('login', [UserController::class,'login']);

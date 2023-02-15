@@ -18,10 +18,6 @@ use App\Http\Controllers\PedirCitaController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 //RUTA QUE DA DE ALTA UN PACIENTE
 // Route::post('/guardarPaciente', [adminController::class, 'altaPaciente'])->name('guardarPaciente');
 
@@ -43,7 +39,6 @@ Route::get('/', function () {
 //*****RUTAS PACIENTES****
 
 //VER TODOS LOS PACIENTES
- Route::get('/pacientes', [PacienteController::class,'index']);
 
 //NOS LLEVA A LA VISTA CREAR PACIENTE
 // Route::get('/creaPacientes', [PacienteController::class,'create'])->name("create");
@@ -74,6 +69,7 @@ Route::get('/', function () {
 
 //RUTAS LOGIN
 Route::view('/', 'auth.login')->name('logear');
+
 Route::post('/login-usuario', [AuthController::class, 'login'])->name('login');
 Route::view('/registrar', 'auth.registrar');
 Route::post('/registro', [AuthController::class, 'registro'])->name('registro');
