@@ -13,12 +13,17 @@
       <div
         class="botonInicio d-flex pb-5 align-items-center justify-content-between flex-column" routerLink="/solicitarCitas"
       >
-        <i class="bi-plus-circle-fill" style="font-size: 80px"></i>
+        <i class="bi-window-plus" style="font-size: 80px"></i>
         <h4>Nueva Cita</h4>
       </div>
       <div *ngIf="medico" class="botonInicio d-flex  pb-5 align-items-center justify-content-between flex-column" routerLink="/pacientes">
         <i class="bi-people-fill" style="font-size: 80px"></i>
         <h4>Pacientes</h4>
+      </div>
+
+      <div *ngIf="paciente" class="botonInicio d-flex  pb-5 align-items-center justify-content-between flex-column" routerLink="/historialMedico">
+        <i class="bi-journal-medical" style="font-size: 80px"></i>
+        <h4>Historial</h4>
       </div>
       <div
         class="botonInicio d-flex pb-5 align-items-center justify-content-between flex-column" routerLink="/perfil"

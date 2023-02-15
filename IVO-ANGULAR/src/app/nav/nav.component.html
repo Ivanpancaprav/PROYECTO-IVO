@@ -1,5 +1,5 @@
-<nav id="navbar" class="navbar navbar-expand-lg bg-body-tertiary text-dark fs-3">
-  <div class="container-fluid">
+<nav id="navbar" class="navbar navbar-expand-lg bg-body-tertiary text-dark fs-3 ">
+  <div class="container-fluid ">
     <div class="navbar-brand" href="#" id="icono">
     </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,8 +11,8 @@
           <a class="nav-link " routerLink="" aria-current="page">Inicio</a>
         </li>
         <li class="nav-item mx-5">
-          <a class="nav-link" routerLink="/historial">Historial</a>
-          <a class="nav-link" routerLink="/pacientes">Pacientes</a>
+          <a *ngIf="paciente" class="nav-link" routerLink="/historialMedico">Historial Medico</a>
+          <a *ngIf="medico" class="nav-link" routerLink="/pacientes">Pacientes</a>
         </li>
         <li class="nav-item mx-5">
 
@@ -31,11 +31,9 @@
         </li>
       </ul>
 
-    <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
-      <li class="">
+    <div *ngIf="isLoggedIn" class="h-100 w-100">
         <a href class="button-48" (click)="logout()">LogOut</a>
-      </li>
-    </ul>
+    </div>
     </div>
   </div>
 </nav>

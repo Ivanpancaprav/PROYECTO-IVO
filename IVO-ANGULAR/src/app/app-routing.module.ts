@@ -52,11 +52,11 @@ const routes: Routes = [
     component: ProfileComponent
   },
   {
-    path:'HistorialMedico',
+    path:'historialMedico',
     component: HistorialMedicoComponent
   },
   {
-    path:'Medicamentos',
+    path:'hedicamentos',
     component: Medicamentos
   },
   {
