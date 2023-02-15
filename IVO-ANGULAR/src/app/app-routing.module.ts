@@ -59,7 +59,7 @@ const routes: Routes = [
     component: Medicamentos
   },
   {
-    path: 'pacientes',
+    path:'pacientes',
     component: PacientesComponent
   }
 ];

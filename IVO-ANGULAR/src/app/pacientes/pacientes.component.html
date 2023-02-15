@@ -7,7 +7,8 @@
         <br/>
         <div   class="">
           
-          <router-outlet ></router-outlet>
+          <app-paciente></app-paciente>
+
         </div>
   
       </div>
@@ -38,7 +39,7 @@
                     <td>{{ paciente.nombre }}</td>
                     <td>{{ paciente.apellido1 }}</td>
                     <td class="text-center">
-                      <a [routerLink] = "['paciente', paciente.dni]" class="botonPrevia">mostrar</a>
+                      <a [routerLink] = "['/pacientes', paciente.dni]" class="botonPrevia">mostrar</a>
                     </td>
                   </tr>
                 </tbody>
