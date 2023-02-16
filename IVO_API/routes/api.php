@@ -33,7 +33,7 @@ Route::get('/citasprevias', [ApiController::class,'mostrarCitasPrevias']);
 
 Route::get('/historiasclinicas', [ApiController::class,'mostrarHistoriasClinicas']); 
 
-Route::get('/medicamentos/{dni}', [ApiController::class,'mostrarMedicamentos']); 
+Route::get('/medicamento', [ApiController::class,'mostrarMedicamentos']); 
 
 Route::get('/user/{dni}', [ApiController::class,'getUser']); 
 

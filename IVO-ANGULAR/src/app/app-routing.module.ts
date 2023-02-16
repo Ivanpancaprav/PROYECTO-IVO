@@ -53,11 +53,11 @@ const routes: Routes = [
     component: HistorialComponent
   },
   {
-    path:'HistorialMedico',
+    path:'historialMedico',
     component: HistorialMedicoComponent
   },
   {
-    path:'Medicamentos',
+    path:'hedicamentos',
     component: Medicamentos
   },
   {
