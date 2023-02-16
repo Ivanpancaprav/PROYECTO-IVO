@@ -31,7 +31,7 @@ export class UsuariosServiceService {
     } else { return this.Http.get<Citas[]>(baseUrl + 'citasprevias'); }
   }
 
-  getMedicamentos() {
+  getMedicamentos() :Observable<Medicamentos[]>{
     return this.Http.get<Medicamentos[]>(baseUrl + 'medicamentos');
   }
 

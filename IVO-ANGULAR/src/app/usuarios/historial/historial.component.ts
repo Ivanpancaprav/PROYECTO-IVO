@@ -3,6 +3,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { UsuariosServiceService } from '../usuarios-service.service';
 import { ActivatedRoute } from '@angular/router';
 
+
 @Component({
   selector: 'app-pacientes',
   templateUrl: './historial.component.html',
@@ -12,6 +13,7 @@ export class HistorialComponent implements OnInit  {
   public medicamentos: any;
   public informes: any;
   public historias_clinicas: any;
+  public txBoton: string;
   public mensajeErr: string;
   dtOptions: DataTables.Settings ={};
   public mostrarTabla: boolean;
@@ -20,7 +22,7 @@ export class HistorialComponent implements OnInit  {
    
   constructor(private usuarios_service:UsuariosServiceService, private aRoute: ActivatedRoute){
     this.mensajeErr ='';
-   
+    this.txBoton = "Volver"
     this.mostrarTabla = false;
   }
   // FUNCION QUE NOS DEVUELVE EL RESULTADO DEL SERVICIO GET PACIENTES,
@@ -94,6 +96,7 @@ export class HistorialComponent implements OnInit  {
     );
   }
 
+  
 
 
     ngOnInit(): void {
@@ -101,6 +104,7 @@ export class HistorialComponent implements OnInit  {
       this.obtenerMedicamentos();
       this.obtenerInformes();
       this.obtenerHistorias_clinicas();
+      this.txBoton = "BORRAR"
 
       this.dtOptions = {
         
@@ -132,7 +136,6 @@ export class HistorialComponent implements OnInit  {
  
  
     }
-
 
 }
 
