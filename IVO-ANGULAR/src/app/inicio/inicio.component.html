@@ -1,8 +1,20 @@
 <div id="inicio">
+<<<<<<< HEAD
+  <div class="row d-flex justify-content-end "> 
+    <div class="col-2 mt-2 ">{{currentUser.success.email}} <button class="button-48 " (click)="logout()"><i href  class="imt-2 ml-2 bi bi-box-arrow-right" style="font-size: 20px;"></i></button > </div>
+ 
+ 
+  </div>
+  <div
+    class="container-fluid h-100 d-flex align-items-center justify-content-center flex-column"
+  >
+    <div class="row"><h3>Bienvenido, {{ currentUser.success.nombre }}</h3></div>
+=======
   <div class="container-fluid h-100 d-flex align-items-center justify-content-center flex-column">
     <div class="row">
       <h3>Bienvenido, {{ currentUser.success.nombre }}</h3>
     </div>
+>>>>>>> ce78900f83568db2419e5c08bb35fe202ecc272b
     <div class="row d-flex mt-5 align-items-center">
       <div class="botonInicio d-flex pb-5 align-items-center justify-content-between flex-column" routerLink="/citas">
         <i class="bi-calendar event" style="font-size: 80px;"></i>
@@ -32,4 +44,73 @@
     <br><br>
     <a href class="button-48" (click)="logout()">LogOut</a>
   </div>
+<<<<<<< HEAD
 </div>
+
+<style>
+  /* CSS */
+  .button-48 {
+    appearance: none;
+    border-radius: 10px;
+    background-color: #ff3737;
+    border-width: 0;
+    box-sizing: border-box;
+    color: #000000;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Clarkson, Helvetica, sans-serif;
+  
+    letter-spacing: 0;
+    line-height: 1em;
+    margin: 0;
+    opacity: 1;
+    outline: 0;
+    padding: 10px;
+    padding-left: 15px ;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-rendering: geometricprecision;
+    text-transform: uppercase;
+    transition: opacity 300ms cubic-bezier(.694, 0, 0.335, 1), background-color 100ms cubic-bezier(.694, 0, 0.335, 1), color 100ms cubic-bezier(.694, 0, 0.335, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    white-space: nowrap;
+  }
+
+  .button-48:before {
+    border-radius: 10px;
+    animation: opacityFallbackOut .5s step-end forwards;
+    backface-visibility: hidden;
+    background-color: #ebebebe0;
+    clip-path: polygon(-1% 0, 0 0, -25% 100%, -1% 100%);
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transform: translateZ(0);
+    transition: clip-path .5s cubic-bezier(.165, 0.84, 0.44, 1), -webkit-clip-path .5s cubic-bezier(.165, 0.84, 0.44, 1);
+    width: 100%;
+  }
+
+  .button-48:hover:before {
+    border-radius: 10px;
+    animation: opacityFallbackIn 0s step-start forwards;
+    clip-path: polygon(0 0, 101% 0, 101% 101%, 0 101%);
+  }
+
+  .button-48:after {
+    background-color: #ffffffe3;
+  }
+
+  .button-48 span {
+    z-index: 1;
+    position: relative;
+  }
+</style>
+=======
+</div>
+>>>>>>> ce78900f83568db2419e5c08bb35fe202ecc272b

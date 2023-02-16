@@ -1,6 +1,7 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ViewChild } from '@angular/core';
 import { UsuariosServiceService} from '../usuarios/usuarios-service.service';
 import { ActivatedRoute } from '@angular/router';
+import { PacienteComponent } from './paciente/paciente.component';
 
 @Component({
   selector: 'app-pacientes',
@@ -8,27 +9,36 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./pacientes.component.css'],
 })
 export class PacientesComponent implements OnInit  {
+
+  public paciente: any;
+  
   public pacientes: any;
   public perfil: any;
   public dni: string | null;
   public mensajeErr: string;
   dtOptions: DataTables.Settings ={};
   public mostrarTabla: boolean;
- 
+
   
   constructor(private usuarios_service:UsuariosServiceService, private aRoute: ActivatedRoute){
     this.dni = this.aRoute.snapshot.paramMap.get('dni');
-    this.mensajeErr ='';
+    this.mensajeErr ='';46 
     this.mostrarTabla = false;
   }
   // FUNCION QUE NOS DEVUELVE EL RESULTADO DEL SERVICIO GET PACIENTES,
   // O SEA, TODOS LOS PACIENTES
+
+    obtenerPaciente(paciente: any){
+      
+      this.paciente = paciente;  
+    }
 
     obtenerPacientes(): void {
 
       this.usuarios_service.getPacientes().subscribe(
         result =>{
           this.pacientes = result;
+          this.paciente = this.pacientes[0]; 
           this.mostrarTabla = true;
          
         },

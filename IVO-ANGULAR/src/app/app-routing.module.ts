@@ -14,8 +14,13 @@ import { PacientesComponent } from './pacientes/pacientes.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { PacienteGuard } from './guards/paciente.guard';
 import { historias_clinicas } from './models/historias_clinicas.model';
+import { PerfilComponent } from './usuarios/perfil/perfil.component';
 
 const routes: Routes = [
+  {
+    path:'',
+    component: InicioComponent
+  },
   {
     path:'login',
     component: LoginComponent
@@ -29,8 +34,8 @@ const routes: Routes = [
     component: ProfileComponent
   },
   {
-    path:'',
-    component: InicioComponent
+    path:'perfil/:dni',
+    component: PerfilComponent
   },
   {
     path:'citas',
@@ -57,7 +62,7 @@ const routes: Routes = [
     component: HistorialMedicoComponent
   },
   {
-    path:'hedicamentos',
+    path:'medicamentos',
     component: Medicamentos
   },
   {
@@ -70,7 +75,7 @@ const routes: Routes = [
   },
   {
     path: 'pacientes',
-    component: PacientesComponent, canActivate:[PacienteGuard]
+    component: PacientesComponent, canActivate: [PacienteGuard],
   }
 ];
 

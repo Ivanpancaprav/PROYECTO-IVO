@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PacientesRoutingModule } from './pacientes-routing.module';
 import { RouterModule } from '@angular/router';
+import { PacienteComponent } from './paciente/paciente.component';
 
 
 @NgModule({
   declarations: [
+    PacienteComponent
   ],
   imports: [
     CommonModule,
-    PacientesRoutingModule,
     RouterModule
 
   ]
