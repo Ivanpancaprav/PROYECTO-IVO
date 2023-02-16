@@ -14,6 +14,7 @@ import { PacientesComponent } from './pacientes/pacientes.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { PacienteGuard } from './guards/paciente.guard';
 import { historias_clinicas } from './models/historias_clinicas.model';
+import { PerfilComponent } from './usuarios/perfil/perfil.component';
 
 const routes: Routes = [
   {
@@ -33,13 +34,8 @@ const routes: Routes = [
     component: ProfileComponent
   },
   {
-<<<<<<< HEAD
     path:'perfil/:dni',
     component: PerfilComponent
-=======
-    path:'',
-    component: InicioComponent
->>>>>>> ce78900f83568db2419e5c08bb35fe202ecc272b
   },
   {
     path:'citas',
