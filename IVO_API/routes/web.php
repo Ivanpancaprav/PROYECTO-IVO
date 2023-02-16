@@ -99,6 +99,20 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
  
 
 
-//SUBIR IMAGENES
+//IMAGENES
+Route::get('/images/{filename}', function ($filename)
+{
+    $path = storage_path('app/images/' . $filename);
 
-// Route::post('/subirImagenes','UserController@subirImagenes')->name('subirImagenes');
+    if (!File::exists($path)) {
+        abort(404);
+    }
+
+    $file = File::get($path);
+    $type = File::mimeType($path);
+
+    $response = Response::make($file, 200);
+    $response->header("Content-Type", $type);
+
+    return $response;
+});

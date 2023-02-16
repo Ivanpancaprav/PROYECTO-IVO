@@ -50,7 +50,7 @@
                       
                         <div class="card-body text-center">
                             <div class="mt-3 mb-4">
-                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava2-bg.webp"
+                                <img src="{{ url('/images/'.Auth::user()->foto) }}"
                                     class="rounded-circle img-fluid" style="width: 100px" />
                             </div>
 
