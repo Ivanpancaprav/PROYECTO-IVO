@@ -18,6 +18,10 @@ import { historias_clinicas } from './models/historias_clinicas.model';
 
 const routes: Routes = [
   {
+    path:'',
+    component: InicioComponent
+  },
+  {
     path:'login',
     component: LoginComponent
   },
@@ -30,12 +34,8 @@ const routes: Routes = [
     component: ProfileComponent
   },
   {
-    path: 'pacientes',
-    component: PacientesComponent
-  },
-  {
-    path:'',
-    component: InicioComponent
+    path:'perfil/:dni',
+    component: PerfilComponent
   },
   {
     path:'citas',
@@ -62,7 +62,7 @@ const routes: Routes = [
     component: HistorialMedicoComponent
   },
   {
-    path:'hedicamentos',
+    path:'medicamentos',
     component: Medicamentos
   },
   {
@@ -71,10 +71,11 @@ const routes: Routes = [
   },
   {
     path:'Historias_clinicas',
-    component: historias_clinicas},
+    component: historias_clinicas
+  },
   {
     path: 'pacientes',
-    component: PacientesComponent, canActivate:[PacienteGuard]
+    component: PacientesComponent, canActivate: [PacienteGuard],
   }
 
 ];

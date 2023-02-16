@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +9,7 @@
 <style>
 
 body {
-    background: url({url("assets/fondo.jpg")});
+    background: url({{url("assets/fondo.jpg")}});
    
 }
 
@@ -19,9 +17,7 @@ body{
     width: 100%;
     height: 100vh;
     background-size: 100% 100%;
-    
 }
-
 .contenedor{
     padding: 10px;
     width: 45%;
@@ -56,13 +52,11 @@ body{
 .dni {
     color: #000000;
 }
-
 .contra {
     font-family: 'Inter';
     font-size: 20px;
     color: #000000;
 }
-
 
 .acceder{
     width: 150px;
@@ -78,7 +72,6 @@ body{
     font-family: 'Interger';
     font-size: 20px;
 }
-
 .verde{
     background-color: #266352;
     width: 30px;
@@ -141,6 +134,7 @@ input:invalid {
                 <div class="cuenta">No tienes una cuenta?</div><a href="#"> Registrate</a>
               </div>
               <br>  
+          </div>
           </div>
 </body>
 </html>
