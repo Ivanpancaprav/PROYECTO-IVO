@@ -18,9 +18,17 @@ export class NavComponent  implements OnInit  {
     isLoggedIn = false;
     // showAdminBoard = false;
     // showModeratorBoard = false;
-    nombre?: string;
+    protected  nombre?: string;  
+    protected medico: boolean;
+    protected paciente: boolean;
+    protected email: string;
   
-    constructor(private tokenStorageService: TokenStorageService) { }
+
+    constructor(private tokenStorageService: TokenStorageService) {
+      this.medico=false;
+      this.paciente=false;
+      this.email = "";
+     }
   
   
   
@@ -29,12 +37,25 @@ export class NavComponent  implements OnInit  {
   
       if (this.isLoggedIn) {
         const user = this.tokenStorageService.getUser();
-        this.roles = user.roles;
   
-        // this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
-        // this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
-  
+        this.email = user.success.email;
+        
         this.nombre = user.nombre;
+        console.log(user.success.role);
+
+        switch(user.success.role){
+          case 'medico':
+            this.medico = true;
+            break;
+    
+          case 'paciente':
+            this.paciente = true;
+            break;
+        }
+    
+
+
+
       }
     }
     logout(): void {

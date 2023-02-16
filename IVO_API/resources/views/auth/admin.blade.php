@@ -46,43 +46,39 @@
               <h1 class="text-center">Bienvenido</h1>
                 <div class="col-8 d-flex justify-content-center">
                     
-                    <div class="card" style="border-radius: 15px">
+                    <div class="card" style="border-radius: 15px; border:5px solid black;">
                       
                         <div class="card-body text-center">
                             <div class="mt-3 mb-4">
-                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava2-bg.webp"
-                                    class="rounded-circle img-fluid" style="width: 100px" />
+                                <img src="{{ url('/images/'.Auth::user()->foto) }}"
+                                    class="rounded-circle img-fluid" style="width: 150px" />
                             </div>
-
                             <div style="background-color: white; text-align: center">
-                                DATOS DEL ADMINISTRADOR
+                                <strong>DATOS DEL ADMINISTRADOR</strong>
                             </div>
                             <br />
                             <table class="table caption-top">
                                 <tbody>
+                                    <tr>
+                                        <th>DNI</th>
+                                        <td>{{Auth::user()->dni}}</td>
+                                    </tr>
                                     <tr>
                                         <th>Nombre</th>
                                         <td>{{Auth::user()->nombre}}</td>
                                     </tr>
                                     <tr>
                                         <th>Email</th>
-                                        <td>{{Auth::user()->nombre}}</td>
+                                        <td>{{Auth::user()->email}}</td>
                                     </tr>
-                                    <tr>
-                                        <th>Edad</th>
-                                        <td>56</td>
-                                    </tr>
-
-                                    <tr>
-                                        <th>DNI</th>
-                                        <td>29216450D</td>
-                                    </tr>
-
                                     <tr>
                                         <th>Direccion</th>
-                                        <td>C/ Av. Aragon</td>
+                                        <td>{{Auth::user()->direccion}}</td>
                                     </tr>
-                            
+                                    <tr>
+                                        <th>Fecha de Nacimiento</th>
+                                        <td>{{Auth::user()->fecha_nacimiento}}</td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>

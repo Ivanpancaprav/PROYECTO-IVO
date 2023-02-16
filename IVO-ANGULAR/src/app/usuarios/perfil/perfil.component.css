@@ -1,42 +1,47 @@
-
-
-#cajaPerfil{
-width: 90%;
-min-height: 100%;
-background: rgba(187, 187, 187, 0.4);
-box-shadow: inset 0px 4px 5px rgba(0, 0, 0, 0.25);
-border-radius: 25px;
+body {
+    margin-top: 20px;
+    background-color: #f2f6fc;
+    color: #69707a;
 }
 
-.accordion-header{
-    background-color: gray;
+.img-account-profile {
+    height: 15rem;
+    width: 14rem;
 }
 
-img{
-border-radius: 20px;
-
+.card-header {
+    padding: 1rem 1.35rem;
+    margin-bottom: 0;
+    background-color: rgba(33, 40, 50, 0.03);
+    border-bottom: 1px solid rgba(33, 40, 50, 0.125);
 }
 
-#cajaPerfil{
-    padding: 2rem;
-}
-
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-#filaContenedora{
-    min-height: 100%;
-    max-height: 100%;
-}
-
-#tituloDatos{
-    border-bottom: 4px solid black;
+.form-control {
+    display: block;
     width: 100%;
+    padding: 0.875rem 1.125rem;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1;
+    color: #69707a;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #c5ccd6;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.35rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-.table{
-border-collapse: separate;
+.negrita{
+    color: black;
+}
+
+.zoom {
+    transition: transform .2s;
+}
+
+.zoom:hover {
+    transform: scale(1.5);
 }

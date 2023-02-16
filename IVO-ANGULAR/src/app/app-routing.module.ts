@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PerfilComponent } from './usuarios/perfil/perfil.component';
 import { CitasComponent } from './usuarios/citas/citas.component';
 import { CitapreviaComponent } from './usuarios/citaprevia/citaprevia.component';
 import { GestionarCitaMedComponent } from './usuarios/gestionar-cita-med/gestionar-cita-med.component';
@@ -15,8 +14,13 @@ import { PacientesComponent } from './pacientes/pacientes.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { PacienteGuard } from './guards/paciente.guard';
 import { historias_clinicas } from './models/historias_clinicas.model';
+import { PerfilComponent } from './usuarios/perfil/perfil.component';
 
 const routes: Routes = [
+  {
+    path:'',
+    component: InicioComponent
+  },
   {
     path:'login',
     component: LoginComponent
@@ -30,12 +34,8 @@ const routes: Routes = [
     component: ProfileComponent
   },
   {
-    path: 'pacientes',
-    component: PacientesComponent
-  },
-  {
-    path:'',
-    component: InicioComponent
+    path:'perfil/:dni',
+    component: PerfilComponent
   },
   {
     path:'citas',
@@ -58,11 +58,11 @@ const routes: Routes = [
     component: HistorialComponent
   },
   {
-    path:'HistorialMedico',
+    path:'historialMedico',
     component: HistorialMedicoComponent
   },
   {
-    path:'Medicamentos',
+    path:'medicamentos',
     component: Medicamentos
   },
   {
@@ -71,12 +71,12 @@ const routes: Routes = [
   },
   {
     path:'Historias_clinicas',
-    component: historias_clinicas},
+    component: historias_clinicas
+  },
   {
     path: 'pacientes',
-    component: PacientesComponent, canActivate:[PacienteGuard]
+    component: PacientesComponent, canActivate: [PacienteGuard],
   }
-
 ];
 
 @NgModule({
