@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Informe;
 use App\Models\User;
 use App\Models\Paciente;
 use Illuminate\Http\Request;
@@ -34,16 +35,12 @@ class ApiController extends Controller
     }
     public function mostrarCitas(){
 
-
-       
         $citas= DB::select('SELECT * FROM citas, users where fecha_creacion >= NOW() AND citas.dni_medico = users.dni;');
         return $citas;
 
     }
 
     public function mostrarCitasPrevias(){
-
-
        
         $citasprevias= DB::select('SELECT * FROM citas, users where fecha_creacion < NOW() AND citas.dni_medico = users.dni;');
         return $citasprevias;
@@ -51,8 +48,6 @@ class ApiController extends Controller
     }
     public function mostrarMedicamentos(){
 
-
-       
         $medicamentos= DB::select('SELECT * FROM medicamentos');
         return $medicamentos;
 
@@ -61,7 +56,6 @@ class ApiController extends Controller
     public function mostrarHistoriasClinicas(){
 
 
-       
         $historiasclinicas= DB::select('SELECT * FROM historias_clinicas, users');
         return $historiasclinicas;
 
@@ -69,13 +63,18 @@ class ApiController extends Controller
 
     public function mostrarInformes(){
 
-
-       
         $informes= DB::select('SELECT * FROM informes');
         return $informes;
 
     }
 
+    public function getInforme(Request $request){
+
+        $informes= DB::select('SELECT * FROM informes WHERE id_informe ='.$request->id_informe);
+        return $informes;
+
+    }
+    
 
 }
  

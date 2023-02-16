@@ -37,6 +37,8 @@ Route::get('/medicamentos', [ApiController::class,'mostrarMedicamentos']);
 
 Route::get('/user/{dni}', [ApiController::class,'getUser']); 
 
+Route::get('/informe/{id_informe}', [ApiController::class,'getInforme']); 
+
 Route::get('/citas', [ApiController::class,'mostrarCitas']);
 
 Route::get('/informes', [ApiController::class,'mostrarInformes']);
