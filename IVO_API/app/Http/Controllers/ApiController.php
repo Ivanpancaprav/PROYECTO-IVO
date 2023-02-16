@@ -78,6 +78,16 @@ class ApiController extends Controller
 
     }
 
+    public function getImage(Request $request, $filename)
+    {
+        $image = Storage::get('images/' . $filename);
+        $type = Storage::mimeType('images/' . $filename);
+
+        $response = response($image, 200)->header("Content-Type", $type);
+
+        return $response;
+    }
+
 
 }
  
