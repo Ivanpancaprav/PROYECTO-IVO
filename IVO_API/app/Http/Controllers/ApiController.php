@@ -68,6 +68,7 @@ class ApiController extends Controller
 
     }
 
+<<<<<<< HEAD
     public function getInforme(Request $request){
 
         $informes= DB::select('SELECT * FROM informes WHERE id_informe ='.$request->id_informe);
@@ -75,6 +76,18 @@ class ApiController extends Controller
 
     }
     
+=======
+    public function getImage(Request $request, $filename)
+    {
+        $image = Storage::get('images/' . $filename);
+        $type = Storage::mimeType('images/' . $filename);
+
+        $response = response($image, 200)->header("Content-Type", $type);
+
+        return $response;
+    }
+
+>>>>>>> 27db1ce19877f702324e10ab96d316ba6e5c2783
 
 }
  
