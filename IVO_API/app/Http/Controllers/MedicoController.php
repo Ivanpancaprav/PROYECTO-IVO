@@ -59,20 +59,11 @@ class MedicoController extends Controller
 
         ]);
 
-
         $validacion['foto']=date("d_m_Y_h_i_s")."_".$request->foto->getClientOriginalName();
         $validacion["password"] = $pass_encrypt;
 
         User::create($validacion);
         Medico::create($validacion2);
-
-        // $exite=storage::exits();
-
-        // if($exite){
-        // return redirect()->route('medicos.index')
-        // ->with('warning', 'el ');
-        // }
-
 
         // Subir imagenes
         $image = date("d_m_Y_h_i_s")."_".$request->foto->getClientOriginalName();

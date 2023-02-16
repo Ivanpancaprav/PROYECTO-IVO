@@ -2,6 +2,10 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+<<<<<<< HEAD
+=======
+    /* border: 1px solid black; */
+>>>>>>> ce78900f83568db2419e5c08bb35fe202ecc272b
 }
 #icono{
     height: 70px;

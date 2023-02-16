@@ -67,7 +67,7 @@ class PacienteController extends Controller
             'n_seguridad_social' =>'required',
             'n_historial_clinico' => 'required'
         ]);
-        $validacion['foto']=$request->foto->getClientOriginalName();
+        $validacion['foto']=date("d_m_Y_h_i_s")."_".$request->foto->getClientOriginalName();
         $validacion["password"] = $pass_encrypt;
         User::create($validacion);
         Paciente::create($validacion2);
@@ -123,6 +123,7 @@ class PacienteController extends Controller
             'apellido1' =>'required',
             'apellido2' =>'required',
             'direccion' =>'required',
+            'foto' =>'required',
             'email' =>'required',
             'sexo' =>'required',
             'password' =>'required',

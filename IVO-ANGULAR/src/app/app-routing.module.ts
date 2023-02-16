@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PerfilComponent } from './usuarios/perfil/perfil.component';
 import { CitasComponent } from './usuarios/citas/citas.component';
 import { CitapreviaComponent } from './usuarios/citaprevia/citaprevia.component';
 import { GestionarCitaMedComponent } from './usuarios/gestionar-cita-med/gestionar-cita-med.component';
@@ -34,8 +33,13 @@ const routes: Routes = [
     component: ProfileComponent
   },
   {
+<<<<<<< HEAD
     path:'perfil/:dni',
     component: PerfilComponent
+=======
+    path:'',
+    component: InicioComponent
+>>>>>>> ce78900f83568db2419e5c08bb35fe202ecc272b
   },
   {
     path:'citas',
@@ -77,7 +81,6 @@ const routes: Routes = [
     path: 'pacientes',
     component: PacientesComponent, canActivate: [PacienteGuard],
   }
-
 ];
 
 @NgModule({
