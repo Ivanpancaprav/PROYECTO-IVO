@@ -70,3 +70,72 @@ tr td:first-child{
         background-color: #ffffff00;
         border-color:#ffffff00 ;
     }
+
+
+
+    .botonInicio{
+        width: 200px;
+        height: 50px;
+        margin: 10px;
+        color: white;
+        
+        background: #266352;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 25px;
+        border-width: 1px;
+        border-style: solid;
+        }
+        
+        .botonInicio:link,
+        .botonInicio:visited {
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 15px 40px;
+            display: inline-block;
+            border-radius: 100px;
+            transition: all .2s;
+            position: absolute;
+        }
+        
+        .botonInicio:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .botonInicio:active {
+            transform: translateY(-1px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .botonInicio-white {
+            background-color: #fff;
+            color: #777;
+        }
+       
+        
+        .botonInicio-white::after {
+            background-color: #fff;
+        }
+        
+        .botonInicio:hover::after {
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
+        
+        .botonInicio-animated {
+            animation: moveInBottom 5s ease-out;
+            animation-fill-mode: backwards;
+        }
+        
+        @keyframes moveInBottom {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+        
+            100% {
+                opacity: 1;
+                transform: translateY(0px);
+            }
+        }
+    

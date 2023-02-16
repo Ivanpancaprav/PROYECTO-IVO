@@ -6,6 +6,7 @@ import { Medicamentos } from '../models/medicamentos.model';
 import { Informes } from '../models/informes.model';
 import { historias_clinicas } from '../models/historias_clinicas.model';
 import { Observable } from 'rxjs';
+import { Medico } from '../models/medico.model';
 
 const baseUrl = 'http://localhost/api/';
 
@@ -18,7 +19,13 @@ export class UsuariosServiceService {
   constructor(private Http: HttpClient) { }
 
   getPacientes(): Observable<Paciente[]> {
+    
     return this.Http.get<Paciente[]>(baseUrl + 'pacientes');
+  }
+
+  getMedicos(): Observable<Medico[]>{
+
+      return this.Http.get<Medico[]>(baseUrl + 'medicos');
   }
 
   getPerfil(dni: string): Observable<Paciente> {

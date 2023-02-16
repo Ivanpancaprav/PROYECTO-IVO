@@ -1,10 +1,8 @@
 <?php
 
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\ApiController;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -49,5 +47,3 @@ Route::group(['middleware' => 'auth:api'], function () {
         Route::get('details', [UserController::class,'details']);
         Route::get('logout', [UserController::class,'logout']);
 });
-
-
