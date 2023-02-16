@@ -15,10 +15,6 @@ use App\Http\Controllers\ApiController;
 |
 */
 
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
-
 Route::get('/pacientes',[ApiController::class,'mostrarPacientes']);
 
 Route::get('/medicos',[ApiController::class,'mostrarMedicos']);
@@ -31,9 +27,11 @@ Route::get('/citasprevias', [ApiController::class,'mostrarCitasPrevias']);
 
 Route::get('/historiasclinicas', [ApiController::class,'mostrarHistoriasClinicas']); 
 
-Route::get('/medicamento', [ApiController::class,'mostrarMedicamentos']); 
+Route::get('/medicamentos', [ApiController::class,'mostrarMedicamentos']); 
 
 Route::get('/user/{dni}', [ApiController::class,'getUser']); 
+
+Route::get('/informe/{id_informe}', [ApiController::class,'getInforme']); 
 
 Route::get('/citas', [ApiController::class,'mostrarCitas']);
 

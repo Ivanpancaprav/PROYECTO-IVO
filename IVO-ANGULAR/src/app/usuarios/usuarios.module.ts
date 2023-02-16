@@ -15,6 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IgxCalendarModule } from 'igniteui-angular';
 import { IgxDialogModule} from "igniteui-angular";
 import { BrowserModule } from "@angular/platform-browser";
+import { VerHistorialComponent } from './ver-historial/ver-historial.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { BrowserModule } from "@angular/platform-browser";
     SolicitarCitaComponent,
     ModificarCitaComponent,
     GestionarCitaMedComponent,
+    VerHistorialComponent,
   ],
   imports: [
     CommonModule,

@@ -32,13 +32,17 @@ export class UsuariosServiceService {
     return this.Http.get(baseUrl + 'perfil/' + dni);
   }
 
+  getInforme(id: number): Observable<any> {
+    return this.Http.get(baseUrl + 'informe/' + id);
+  }
+
   getCitas(tipo: number): Observable<Citas[]> {
     if (tipo == 0) {
       return this.Http.get<Citas[]>(baseUrl + 'citas');
     } else { return this.Http.get<Citas[]>(baseUrl + 'citasprevias'); }
   }
 
-  getMedicamentos() {
+  getMedicamentos() :Observable<Medicamentos[]>{
     return this.Http.get<Medicamentos[]>(baseUrl + 'medicamentos');
   }
 

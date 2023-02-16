@@ -5,9 +5,7 @@
     <div class="col-6">
       <br><br><br>
 
-      <p id="encab"><h5>𝗠𝗘𝗗𝗜𝗖𝗔𝗖𝗜𝗢𝗡 𝗦𝗨𝗠𝗜𝗡𝗜𝗦𝗧𝗥𝗔𝗗𝗔   &nbsp; &nbsp;<a class="botonPrevia">✚</a> </h5> 
-      
-   <br>
+      <p id="encab"><h5>𝗠𝗘𝗗𝗜𝗖𝗔𝗖𝗜𝗢𝗡 𝗦𝗨𝗠𝗜𝗡𝗜𝗦𝗧𝗥𝗔𝗗𝗔  &nbsp;  <a class="btn btn-sm btn-info" data-bs-toggle="tooltip" >✚</a></h5><br>
 
       <div class="table-wrapper-scroll-y my-custom-scrollbar">
         <table class="table table-bordered table-striped mb-0" *ngIf="mostrarTabla">          
@@ -17,6 +15,7 @@
               <th><H6>Dosis</H6></th>
               <th><H6>Fecha</H6></th>
               <th><H6>Comentarios</H6></th>
+              <td style="width: 170px;"></td>
             </tr>
           </thead>
           <tr *ngFor="let medicamento of medicamentos" style="text-align: center;">
@@ -24,29 +23,48 @@
             <td>{{ medicamento.dosis }}</td>
             <td>{{ medicamento.fecha_creacion }}</td>
             <td>{{ medicamento.comentarios }}</td>
+            <td> 
+              <div class="my-3 text-center">
+                <a class="btn btn-sm btn-warning ms-1" data-bs-toggle="tooltip" >
+                  <i class="bi bi-pencil"></i></a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                <a class="btn btn-sm btn-danger ms-1" data-bs-toggle="tooltip">
+                  <i class="bi bi-trash3"></i></a>
+              </div>
+            </td>
           </tr>
         </table>
       </div>
       <br><br>
-      <p id="encab" ><h5> 𝗣𝗥𝗢𝗚𝗥𝗘𝗦𝗢   &nbsp;&nbsp;<a class="botonPrevia">✚</a> </h5><br>
+      <p id="encab" ><h5> 𝗣𝗥𝗢𝗚𝗥𝗘𝗦𝗢  &nbsp;  <a class="btn btn-sm btn-info" data-bs-toggle="tooltip" >✚</a></h5><br>
       <div class="table-wrapper-scroll-y my-custom-scrollbar">
         <table class="table table-bordered table-striped mb-0">
           <thead id="encabezado" style="text-align: center;">
             <tr>
               <th><h6>Progreso</h6></th>
+              <td style="width: 151px;"></td>
             </tr>
           </thead>
           <tr *ngFor="let historia_clinica of historias_clinicas" style="text-align: center;">
             <td>{{ historia_clinica.progreso }}</td>
+            <td> 
+              <div class="my-3 text-center">
+                <a class="btn btn-sm btn-warning ms-1" data-bs-toggle="tooltip" >
+                  <i class="bi bi-pencil" style="font-size:20px;" ></i></a>
+                        &nbsp;
+                <a class="btn btn-sm btn-danger ms-1" data-bs-toggle="tooltip">
+                  <i class="bi bi-trash3"></i></a>
+              </div>
+            </td>
           </tr> 
         </table>
       </div>
-    </div>
+  </div>
 
 <!-- LADO DERECHO -->
     <div class="col-6">
       <br><br><br>
-        <p id="encab"> <h5>𝗥𝗔𝗗𝗜𝗢𝗚𝗥𝗔𝗙𝗜𝗔  &nbsp;&nbsp;<a class="botonPrevia">✚</a>  </h5><br>
+        <p id="encab"> <h5>𝗥𝗔𝗗𝗜𝗢𝗚𝗥𝗔𝗙𝗜𝗔  &nbsp;  <a class="btn btn-sm btn-info" data-bs-toggle="tooltip" >✚</a></h5><br>
 
         <!-- <select class="form-select" aria-label="Default select example" id="desplegable">
           <option style="text-align:center">Mostrar radiologías ...</option>
@@ -60,18 +78,27 @@
             <thead id="encabezado" style="text-align: center;">
               <tr>
                 <th><H6>Radiografias</H6></th>
+                <td style="width: 170px;"></td>
                
               </tr>
             </thead>
             <tr *ngFor="let informe of informes" style="text-align: center;">
               <td>{{ informe.observaciones }}</td>
+              <td> 
+                <div class="my-3 text-center">
+                  <a class="btn btn-sm btn-ver ms-1" data-bs-toggle="tooltip" ><i class="bi bi-eye" [routerLink]="['/informe',informe.id_informe]" ></i></a>
+                          &nbsp;&nbsp;&nbsp;&nbsp;
+                  <a class="btn btn-sm btn-danger ms-1" data-bs-toggle="tooltip">
+                    <i class="bi bi-trash3"></i></a>
+                </div>
+              </td>
             </tr> 
           </table>
         </div>
         <br><br>
      
 
-        <p id="encab"> <h5>𝗔𝗡𝗔𝗟𝗜𝗧𝗜𝗖𝗔  &nbsp; &nbsp;<a class="botonPrevia">✚</a> </h5><br>
+        <p id="encab"> <h5>𝗔𝗡𝗔𝗟𝗜𝗧𝗜𝗖𝗔  &nbsp;  <a class="btn btn-sm btn-info" data-bs-toggle="tooltip" >✚</a></h5><br>
 
         <!-- <select class="form-select" aria-label="Default select example" id="desplegable">
           <option style="text-align:center">Mostrar radiologías ...</option>
@@ -85,11 +112,19 @@
             <thead id="encabezado" style="text-align: center;">
               <tr>
                 <th><H6>Analiticas</H6></th>
-              
+                <td style="width: 170px;"></td>
               </tr>
             </thead>
             <tr *ngFor="let informe of informes" style="text-align: center;">
               <td>{{ informe.observaciones }}</td>
+              <td> 
+                <div class="my-3 text-center">
+                  <button class="btn btn-sm btn-ver ms-1" data-bs-toggle="tooltip" [routerLink]="['/informe',informe.id_informe]" ><i class="bi bi-eye" ></i></button>
+                      &nbsp;&nbsp;&nbsp;&nbsp;
+                  <a class="btn btn-sm btn-danger ms-1" data-bs-toggle="tooltip">
+                    <i class="bi bi-trash3"></i></a>
+                </div>
+              </td>
             </tr>
           </table>
         </div>
