@@ -49,6 +49,14 @@ class ApiController extends Controller
         return $citasprevias;
 
     }
+    public function mostrarMedicamentos(){
+
+
+       
+        $medicamentos= DB::select('SELECT * FROM medicamentos');
+        return $medicamentos;
+
+    }
 
     public function mostrarHistoriasClinicas(){
 
@@ -56,16 +64,6 @@ class ApiController extends Controller
        
         $historiasclinicas= DB::select('SELECT * FROM historias_clinicas, users');
         return $historiasclinicas;
-
-    }
-
-
-    public function mostrarMedicamentos(){
-
-
-       
-        $medicamentos= DB::select('SELECT * FROM medicamentos');
-        return $medicamentos;
 
     }
 

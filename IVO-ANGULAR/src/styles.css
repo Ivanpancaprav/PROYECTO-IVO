@@ -1,3 +1,9 @@
+:root{
+    --header-background: red  !important;
+    --igx-calendar__header: red
+}
+
+
 
 html,body{
 
@@ -18,4 +24,12 @@ body{
     background-size: cover;
 }
 
-.igx-calendar__header ng-tns-c134-0 ng-star-inserted{}
+/* .igx-calendar__header{
+    background-color: rgba(27, 182, 187, 0.589);
+    important;
+ 
+}
+.--header-background{
+    background-color: rgba(27, 182, 187, 0.589);
+
+} */
