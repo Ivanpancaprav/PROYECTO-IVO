@@ -14,15 +14,17 @@ return new class extends Migration
     public function up()
     {
         Schema::create('citas', function (Blueprint $table) {
+            
             $table->increments("id_cita");
             $table->date("fecha_creacion");
+            $table->date("fecha_fin");
             $table->timestamps();
-            $table->enum('especialidad',array('Radiografia','Analitica'));
+            $table->enum('especialidad',array('radiografia','analitica','oncologia'));
             $table->text('descripcion');
-            $table->string("dni_paciente",9);
-            $table->foreign('dni_paciente')->references('dni_paciente')->on('pacientes');
-            $table->string("dni_medico",9);
-            $table->foreign('dni_medico')->references('dni_medico')->on('medicos');
+            $table->string("dni_paciente",9)->nullable();
+            $table->foreign('dni_paciente')->references('dni_paciente')->on('pacientes')->onDelete('cascade')->onUpdate('cascade');
+            $table->string("dni_medico",9)->nullable();
+            $table->foreign('dni_medico')->references('dni_medico')->on('medicos')->onDelete('cascade')->onUpdate('cascade');
         
 
         });
@@ -35,6 +37,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Citas');
+        Schema::dropIfExists('citas');
     }
 };

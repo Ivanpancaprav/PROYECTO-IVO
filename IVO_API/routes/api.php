@@ -45,3 +45,10 @@ Route::group(['middleware' => 'auth:api'], function () {
         Route::get('details', [UserController::class,'details']);
         Route::get('logout', [UserController::class,'logout']);
 });
+
+//RUTAS CITAS
+
+Route::post('/crea_cita',[ApiController::class,'creaCita']);
+Route::delete('/borraCita/{id_cita}',[ApiController::class,'borraCita']);
+Route::put('/citaUpdate/{id_cita}', [ApiController::class, 'citaUpdate']);
+Route::get('/verCita/{id_cita}',[ApiController::class,'verCita']);

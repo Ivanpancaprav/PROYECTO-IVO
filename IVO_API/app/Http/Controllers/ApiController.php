@@ -5,13 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\Informe;
 use App\Models\User;
 use App\Models\Paciente;
+use App\Models\Cita;
+use App\Models\Medico;
 use Illuminate\Http\Request;
-use Illuminate\Http\Medicos;
-use Illuminate\Http\Citas;
+
 use Illuminate\Support\Facades\DB;
 
 class ApiController extends Controller
 {
+    
     public function mostrarPerfil(Request $request){
 
         $users =(object) User::whereDni($request->dni)->get()->toArray()[0];
@@ -68,26 +70,67 @@ class ApiController extends Controller
 
     }
 
-<<<<<<< HEAD
     public function getInforme(Request $request){
 
         $informes= DB::select('SELECT * FROM informes WHERE id_informe ='.$request->id_informe);
         return $informes;
 
     }
-    
-=======
-    public function getImage(Request $request, $filename)
-    {
-        $image = Storage::get('images/' . $filename);
-        $type = Storage::mimeType('images/' . $filename);
 
-        $response = response($image, 200)->header("Content-Type", $type);
+    public function creaCita(Request $request){
 
-        return $response;
+        $medico = Medico::where('dni_medico', '=', $request->dni_medico)->firstOrFail();
+        $paciente = Paciente::where('dni_paciente', '=', $request->dni_paciente)->firstOrFail();
+
+        $cita = new Cita(['fecha_creacion' => $request->fecha_creacion, 'fecha_fin'=>$request->fecha_fin, 'especialidad'=>$request->especialidad,'descripcion'=>$request->descripcion]);
+       
+        $paciente->citas()->save($cita);
+        $medico->citas()->save($cita);
     }
 
->>>>>>> 27db1ce19877f702324e10ab96d316ba6e5c2783
+    public function borraCita(Request $request){
+            
+     $cita =    Cita::destroy($request->id_cita);
+
+        return response()->json([
+            "message" => "La cita con id =" . $cita . " ha sido borrado con éxito"
+        ], 201);
+          
+    }
+
+    public function verCita(Request $request ){
+
+        $cita = Cita::findOrFail($request->id_cita);
+
+        return $cita;
+    }
+
+    public function citaUpdate(Request $request){
+
+        $cita = Cita::findOrFail($request->id_cita);
+        
+        $cita->fecha_creacion = $request->fecha_creacion;
+        $cita->fecha_fin = $request->fecha_fin;
+        $cita->especialidad =$request->especialidad;
+        $cita->dni_medico = $request->dni_medico;
+        $cita->dni_paciente =$request->dni_paciente;
+        $cita->descripcion =$request->descripcion;
+
+        $cita->save();
+
+    }
+
+    
+    // public function getImage(Request $request, $filename)
+    // {
+    //     $image = Storage::get('images/' . $filename);
+    //     $type = Storage::mimeType('images/' . $filename);
+
+    //     $response = response($image, 200)->header("Content-Type", $type);
+
+    //     return $response;
+    // }
+
 
 }
  

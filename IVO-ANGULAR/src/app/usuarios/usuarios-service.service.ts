@@ -8,7 +8,13 @@ import { historias_clinicas } from '../models/historias_clinicas.model';
 import { Observable } from 'rxjs';
 import { Medico } from '../models/medico.model';
 
-const baseUrl = 'http://localhost/api/';
+const baseUrl = 'http://localhost/IVO_API/public/api/';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-type':'applications/json'
+  })
+}
 
 @Injectable({
   providedIn: 'root'
@@ -53,5 +59,12 @@ export class UsuariosServiceService {
   getHistorias_clinicas() {
     return this.Http.get<historias_clinicas[]>(baseUrl + 'historiasclinicas');
   }
+
+
+  crearCita(cita: Citas): Observable<any>{
+    return this.Http.post(baseUrl +'crea_cita',cita,httpOptions);
+  }
+
+
 
 }

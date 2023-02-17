@@ -61,16 +61,20 @@ class PacienteController extends Controller
             'role' =>'required',
             'fecha_nacimiento' =>'required',
         ]);
-
+   
         $validacion2 = $request->validate([
             'dni_paciente' => 'required',
             'n_seguridad_social' =>'required',
             'n_historial_clinico' => 'required'
         ]);
+
+   
         $validacion['foto']=date("d_m_Y_h_i_s")."_".$request->foto->getClientOriginalName();
-        $validacion["password"] = $pass_encrypt;
-        User::create($validacion);
-        Paciente::create($validacion2);
+
+         $validacion["password"] = $pass_encrypt;
+
+       User::create($validacion);
+       Paciente::create($validacion2);
 
         // Subir imagenes
         $image = date("d_m_Y_h_i_s")."_".$request->foto->getClientOriginalName();
@@ -88,9 +92,8 @@ class PacienteController extends Controller
      */
     public function show($dni){
 
-        $paciente =(object) Paciente::whereDni_paciente($dni)->get()->toArray()[0];
-        $user =(object) User::whereDni($dni)->get()->toArray()[0];
-       
+        $paciente =Paciente::where('dni_paciente', '=', $dni)->firstOrFail();
+        $user =User::where('dni', '=', $dni)->firstOrFail();
         return view('paciente.show', compact('paciente','user'));
        
     }
@@ -102,8 +105,8 @@ class PacienteController extends Controller
      */
     public function edit($dni)
     {
-        $paciente =(object) Paciente::whereDni_paciente($dni)->get()->toArray()[0];
-        $user =(object) User::whereDni($dni)->get()->toArray()[0];
+        $paciente =Paciente::where('dni_paciente', '=', $dni)->firstOrFail();
+        $user =User::where('dni', '=', $dni)->firstOrFail();
 
         return view('paciente.edit', compact('paciente','user'));
     }

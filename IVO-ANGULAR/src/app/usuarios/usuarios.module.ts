@@ -9,11 +9,15 @@ import { SolicitarCitaComponent } from './solicitar-cita/solicitar-cita.componen
 import { ModificarCitaComponent } from './modificar-cita/modificar-cita.component';
 import { GestionarCitaMedComponent } from './gestionar-cita-med/gestionar-cita-med.component';
 import { DataTablesModule } from 'angular-datatables';
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { HammerModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // USAR ng add igniteui-angular después ng update porsiaca
-import { IgxCalendarModule } from 'igniteui-angular';
-import { IgxDialogModule} from "igniteui-angular";
+import { 
+	IgxCalendarModule,
+	IgxDialogModule
+ } from "igniteui-angular";
 import { BrowserModule } from "@angular/platform-browser";
 import { VerHistorialComponent } from './ver-historial/ver-historial.component';
 
@@ -38,6 +42,7 @@ import { VerHistorialComponent } from './ver-historial/ver-historial.component';
     IgxCalendarModule,
     IgxDialogModule,
     BrowserModule,
+    ReactiveFormsModule
     
   ],
   exports: [

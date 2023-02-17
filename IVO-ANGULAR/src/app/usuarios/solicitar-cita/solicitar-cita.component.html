@@ -20,25 +20,25 @@ COLUMNA DERECHA
 <br>
         <div class="card" style="border-radius: 15px;">
           <div class="card-body text-center">
-           
+
                   <ul class="list-unstyled">
                     <div style="background-color: white; text-align: center;">INTRODUCE DATOS PARA SOLICITAR CITA</div><br>
-                   
-                    <form class="form-horizontal" method="post">
-                      <fieldset>
-                          <select id="especialidad"  #teams (change)="onSelected(teams.value)" class="form-select form-select-lg mb-4" aria-label="Ejemplo de .form-select-lg">
-                              <option default>Especialidad</option>
-                              <option value="analitica">Analitica</option>
-                              <option value="radiologia">Radiologia</option>
 
+                    <form [formGroup]="formularioCita" (ngSubmit)="onSubmit()" class="form-horizontal">
+                      <fieldset>
+                        <label for="especialidad" class="form-label">Especialidad  </label>
+                          <select id="especialidad" name="especialidad" formControlName="especialidad"  #teams (change)="onSelected(teams.value)" class="form-select form-select-lg mb-4" aria-label="Ejemplo de .form-select-lg">
+                              <option value="analitica">Analitica</option>
+                              <option value="oncologia">Oncologia</option>
+                              <option value="radiologia">Radiologia</option>
                           </select>
 
-                          <select class="form-select form-select-lg" aria-label="Ejemplo de .form-select-lg" required>
+                          <label for="dni_medico" class="form-label">Medico</label>
+                          <select id="medico" name="medico" formControlName="dni_medico" class="form-select form-select-lg" aria-label="Ejemplo de .form-select-lg" required>
                               <option selected aria-required="true">Seleccione medico para atenderle</option>
                               <option *ngFor="let medico of medicos" value="{{medico.dni}}" >{{medico.nombre}}</option>
-                        
-
                           </select><br>
+                          
                           <select class="form-select form-select-lg" aria-label="Ejemplo de .form-select-lg" required>
                             <option selected aria-required="true">Horas disponibles</option>
                             <option value="12">12:00</option>
@@ -83,12 +83,8 @@ COLUMNA IZQUIERDA
                   
 
                       <article class="calendar-wrapper">
-                        <igx-calendar [weekStart]="1"></igx-calendar>
+                        <igx-calendar #calendar (selected)="onSelection($event)"></igx-calendar>
                     </article>
-
-                         <!-- ========
-                              BOTONES
-                          ======== -->
 
                     <button type="button" class="btn btn-default btn-lg gestionar" routerLink="/citas">Confirmar ➤</button>  &nbsp;
                     <button type="button" class="btn btn-default btn-lg gestionar"routerLink="/citas" >Cancelar ➤</button>
