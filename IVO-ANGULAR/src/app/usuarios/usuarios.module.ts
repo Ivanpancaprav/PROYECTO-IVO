@@ -6,18 +6,19 @@ import { HistorialComponent } from './historial/historial.component';
 import { CitapreviaComponent } from './citaprevia/citaprevia.component';
 import { RouterModule } from '@angular/router';
 import { SolicitarCitaComponent } from './solicitar-cita/solicitar-cita.component';
-import { ModificarCitaComponent } from './modificar-cita/modificar-cita.component';
-import { GestionarCitaMedComponent } from './gestionar-cita-med/gestionar-cita-med.component';
 import { DataTablesModule } from 'angular-datatables';
 import { ReactiveFormsModule } from '@angular/forms';
-
 import { HammerModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // USAR ng add igniteui-angular después ng update porsiaca
 import { 
-	IgxCalendarModule,
-	IgxDialogModule
- } from "igniteui-angular";
+  IgxCalendarModule,
+	IgxDialogModule,
+  IgxButtonModule,
+  IgxRippleModule,
+} from "igniteui-angular";
+
+import { GestionarCitaMedComponent } from './gestionar-cita-med/gestionar-cita-med.component';
 import { BrowserModule } from "@angular/platform-browser";
 import { VerHistorialComponent } from './ver-historial/ver-historial.component';
 
@@ -29,7 +30,6 @@ import { VerHistorialComponent } from './ver-historial/ver-historial.component';
     HistorialComponent,
     CitapreviaComponent,
     SolicitarCitaComponent,
-    ModificarCitaComponent,
     GestionarCitaMedComponent,
     VerHistorialComponent,
   ],
@@ -42,7 +42,9 @@ import { VerHistorialComponent } from './ver-historial/ver-historial.component';
     IgxCalendarModule,
     IgxDialogModule,
     BrowserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    IgxButtonModule,
+    IgxRippleModule
     
   ],
   exports: [
@@ -51,7 +53,6 @@ import { VerHistorialComponent } from './ver-historial/ver-historial.component';
     HistorialComponent,
     CitapreviaComponent,
     SolicitarCitaComponent,
-    ModificarCitaComponent,
     GestionarCitaMedComponent,
   ]
 

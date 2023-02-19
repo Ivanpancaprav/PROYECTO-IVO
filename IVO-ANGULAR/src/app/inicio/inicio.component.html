@@ -13,8 +13,8 @@
         <i class="bi-calendar event" style="font-size: 80px;"></i>
         <h4>Mis Citas</h4>
       </div>
-      <div class="botonInicio d-flex pb-5 align-items-center justify-content-between flex-column"
-        routerLink="/solicitarCitas">
+      <div *ngIf="paciente" class="botonInicio d-flex pb-5 align-items-center justify-content-between flex-column"
+         [routerLink]="['/solicitarCitas',currentUser.success.dni]">
         <i class="bi-window-plus" style="font-size: 80px"></i>
         <h4>Nueva Cita</h4>
       </div>

@@ -44,7 +44,7 @@ class Medico extends Model
 
 	public function user()
     {
-        return $this->belongsTo(User::class,'dni_medico','dni');
+        return $this->belongsTo(User::class,'dni_medico');
     }
     
 	public function gestion_historias()

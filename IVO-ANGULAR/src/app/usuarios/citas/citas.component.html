@@ -23,21 +23,34 @@ COLUMNA IZQUIERDA
               <thead>
                 <tr id="encabezado">
 
-                  <th>Fecha</th>
+                  <th>Fecha Solicitud</th>
+                  <th>Fecha Cita</th>
+                  <th>Hora</th>
                   <th>Especialidad</th>
                   <th>Medico</th>
-
-
+                  <th class="col-1"></th>
+      
                 </tr>
               </thead>
               <tbody>
                 <tr *ngFor="let cita of citas">
-
                   <td>{{ cita.fecha_creacion }}</td>
+                  <td>{{cita.fecha_fin | date: 'dd/MM/YY'}}</td>
+                  <td>{{cita.fecha_fin | date:'shortTime'}}</td>
                   <td>{{ cita.especialidad }}</td>
                   <td>{{ cita.nombre }}</td>
+                  <td class="d-flex justify-content-around" ><button class="botonPrevia"  [routerLink]="['/mod_cita',cita.id_cita]">modificar</button>
+                
+                  <button id="botonConfirmar" class="btn btn-outline-danger" id="botonBorrar" (click)="dialog.open()"><i class="bi bi-x-circle fs-5 "></i></button>
 
-
+                  <igx-dialog #dialog title="Borrar"
+                      leftButtonLabel="Cancelar"
+                      (leftButtonSelect)="dialog.close()"
+                      rightButtonLabel="Confirmar"
+                      (rightButtonSelect)="onDialogOKSelected(cita.id_cita,$event)"
+                      message="Esta seguro que desea borrar la cita?">
+                  </igx-dialog>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -46,13 +59,12 @@ COLUMNA IZQUIERDA
       </div>
     </div>
     <div class="col d-flex justify-content-center align-items-center ">
-      <button type="button" class="botonInicio" routerLink="/solicitarCitas">Nueva cita
-        ➤</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-      <button type="button" class="botonInicio" routerLink="/gestionar-cita-med">Modificar cita ➤
-      </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <button type="button" class="botonInicio" routerLink="/HistorialMedico"> Historial Med ➤
-      </button>
+       <button *ngIf="medico" type="button" class="botonInicio" routerLink="/pacientes">Nueva cita
+        </button>
+        
+        <button *ngIf="paciente" type="button" class="botonInicio" [routerLink]="['/solicitarCitas',user.success.dni]">Nueva cita
+          </button>
+    
     </div>
   </div>
 </div>

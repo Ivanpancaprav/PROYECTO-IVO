@@ -51,8 +51,12 @@ const routes: Routes = [
     component: GestionarCitaMedComponent
   },
   {
-    path:'solicitarCitas',
+    path:'solicitarCitas/:dni_paciente',
     component: SolicitarCitaComponent
+  },
+  {
+    path:'mod_cita/:id_cita',
+    component: GestionarCitaMedComponent
   },
   {
     path:'historial',

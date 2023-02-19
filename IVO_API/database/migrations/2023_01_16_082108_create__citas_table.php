@@ -17,7 +17,7 @@ return new class extends Migration
             
             $table->increments("id_cita");
             $table->date("fecha_creacion");
-            $table->date("fecha_fin");
+            $table->dateTime("fecha_fin");
             $table->timestamps();
             $table->enum('especialidad',array('radiografia','analitica','oncologia'));
             $table->text('descripcion');

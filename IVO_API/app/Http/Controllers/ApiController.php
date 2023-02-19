@@ -33,21 +33,21 @@ class ApiController extends Controller
         $medicos = DB::select('SELECT * FROM users ,medicos where medicos.dni_medico = users.dni');
         return $medicos;
 
-
     }
     public function mostrarCitas(){
 
-        $citas= DB::select('SELECT * FROM citas, users where fecha_creacion >= NOW() AND citas.dni_medico = users.dni;');
+        $citas= DB::select('SELECT * FROM citas, users where fecha_fin >= NOW() AND citas.dni_medico = users.dni;');
         return $citas;
 
     }
 
     public function mostrarCitasPrevias(){
        
-        $citasprevias= DB::select('SELECT * FROM citas, users where fecha_creacion < NOW() AND citas.dni_medico = users.dni;');
+        $citasprevias= DB::select('SELECT * FROM citas, users where fecha_fin < NOW() AND citas.dni_medico = users.dni;');
         return $citasprevias;
 
     }
+
     public function mostrarMedicamentos(){
 
         $medicamentos= DB::select('SELECT * FROM medicamentos');
@@ -56,7 +56,6 @@ class ApiController extends Controller
     }
 
     public function mostrarHistoriasClinicas(){
-
 
         $historiasclinicas= DB::select('SELECT * FROM historias_clinicas, users');
         return $historiasclinicas;
@@ -82,7 +81,7 @@ class ApiController extends Controller
         $medico = Medico::where('dni_medico', '=', $request->dni_medico)->firstOrFail();
         $paciente = Paciente::where('dni_paciente', '=', $request->dni_paciente)->firstOrFail();
 
-        $cita = new Cita(['fecha_creacion' => $request->fecha_creacion, 'fecha_fin'=>$request->fecha_fin, 'especialidad'=>$request->especialidad,'descripcion'=>$request->descripcion]);
+        $cita = new Cita(['hora' =>$request->hora,'fecha_creacion' => $request->fecha_creacion, 'fecha_fin'=>$request->fecha_fin, 'especialidad'=>$request->especialidad,'descripcion'=>$request->descripcion]);
        
         $paciente->citas()->save($cita);
         $medico->citas()->save($cita);
@@ -90,22 +89,32 @@ class ApiController extends Controller
 
     public function borraCita(Request $request){
             
-     $cita =    Cita::destroy($request->id_cita);
+     $cita = Cita::destroy($request->id_cita);
 
         return response()->json([
-            "message" => "La cita con id =" . $cita . " ha sido borrado con éxito"
+            "message" => "La cita con id =". $cita ." ha sido borrado con éxito"
         ], 201);
-          
+
     }
 
     public function verCita(Request $request ){
 
-        $cita = Cita::findOrFail($request->id_cita);
+        // $cita = Cita::find($request->id_cita);
 
+        $cita= DB::select('SELECT * FROM citas where id_cita ='.$request->id_cita);
+
+   
+        // $cita = Cita::find($request->id_cita);
+        $medico = Medico::findOrFail( $cita[0]->dni_medico)->user()->get()[0]->nombre;
+        // $user = $medico->user()->get();
+        // $user[0]->nombre
+        $cita['nombre_medico'] = $medico;
         return $cita;
     }
 
     public function citaUpdate(Request $request){
+
+            
 
         $cita = Cita::findOrFail($request->id_cita);
         

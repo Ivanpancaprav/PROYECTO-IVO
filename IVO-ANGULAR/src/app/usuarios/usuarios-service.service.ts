@@ -42,11 +42,7 @@ export class UsuariosServiceService {
     return this.Http.get(baseUrl + 'informe/' + id);
   }
 
-  getCitas(tipo: number): Observable<Citas[]> {
-    if (tipo == 0) {
-      return this.Http.get<Citas[]>(baseUrl + 'citas');
-    } else { return this.Http.get<Citas[]>(baseUrl + 'citasprevias'); }
-  }
+
 
   getMedicamentos() :Observable<Medicamentos[]>{
     return this.Http.get<Medicamentos[]>(baseUrl + 'medicamentos');
@@ -65,6 +61,22 @@ export class UsuariosServiceService {
     return this.Http.post(baseUrl +'crea_cita',cita,httpOptions);
   }
 
+  getCitas(tipo: number): Observable<Citas[]> {
+    if (tipo == 0) {
+      return this.Http.get<Citas[]>(baseUrl + 'citas');
+    } else { return this.Http.get<Citas[]>(baseUrl + 'citasprevias'); }
+  }
 
+  getCita(id_cita: number): Observable<any>{
+      return this.Http.get<any>(baseUrl+'verCita/'+id_cita);
+  }
+
+  citaUpdate(id_cita: number, cita: Citas): Observable<any>{
+      return this.Http.put(baseUrl +'citaUpdate/'+id_cita,cita,httpOptions);
+  }
+
+  citaDelete(id_cita: number){
+    return this.Http.delete(baseUrl+'borraCita/'+id_cita);
+  }
 
 }
