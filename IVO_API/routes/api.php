@@ -31,6 +31,10 @@ Route::get('/historiasclinicas', [ApiController::class,'mostrarHistoriasClinicas
 
 Route::get('/medicamentos', [ApiController::class,'mostrarMedicamentos']); 
 
+Route::get('/medicamentos/{id_medicamentos}', [ApiController::class,'getMedicamentos']);
+
+Route::get('/medicamentosborrar/{id_medicamentos}', [ApiController::class,'borrarMedicamentos']);
+
 Route::get('/user/{dni}', [ApiController::class,'getUser']); 
 
 Route::get('/informe/{id_informe}', [ApiController::class,'getInforme']); 

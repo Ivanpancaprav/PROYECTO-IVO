@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Informe;
 use App\Models\User;
 use App\Models\Paciente;
+use App\Models\Medicamento;
 use Illuminate\Http\Request;
 use Illuminate\Http\Medicos;
 use Illuminate\Http\Citas;
@@ -68,26 +69,51 @@ class ApiController extends Controller
 
     }
 
-<<<<<<< HEAD
     public function getInforme(Request $request){
 
         $informes= DB::select('SELECT * FROM informes WHERE id_informe ='.$request->id_informe);
         return $informes;
 
     }
+
+    public function getMedicamento(Request $request){
+
+        $medicamentos= DB::select('SELECT * FROM medicamentos WHERE id_medicamento ='.$request->id_medicamento);
+        return $medicamentos;
+
+    }
     
-=======
-    public function getImage(Request $request, $filename)
-    {
-        $image = Storage::get('images/' . $filename);
-        $type = Storage::mimeType('images/' . $filename);
 
-        $response = response($image, 200)->header("Content-Type", $type);
+    public function borrarMedicamento(Request $request){
 
-        return $response;
+
+        $medicamentos= DB::delete('SELECT * FROM medicamentos WHERE id_medicamento ='.$request->id_medicamento);
+        return $medicamentos;
+    //   Medicamento::find();
+    //   $medicamentos -> delete($id_medicamento);
+
     }
 
->>>>>>> 27db1ce19877f702324e10ab96d316ba6e5c2783
+    public function borrarInforme(Request $request){
+
+
+    
+        $informes= DB::select('SELECT * FROM informes WHERE id_informe ='.$request->id_informe);
+        return $informes;
+
+    }
+    public function borrarHistoriasClinicas(Request $request){
+
+
+        $historiasclinicas= DB::select('SELECT * FROM historias_clinicas, users');
+        return $historiasclinicas;
+
+
+    }
+
+    
+
+
 
 }
  
