@@ -12,6 +12,7 @@
     margin-bottom: 0;
     background-color: rgba(33, 40, 50, 0.03);
     border-bottom: 1px solid rgba(33, 40, 50, 0.125);
+    color: white;
 }
 
 .form-control {
@@ -43,3 +44,8 @@
 .zoom:hover {
     transform: scale(1.5);
 }
+
+.preview {
+    max-width: 300px;
+    max-height: 300px;
+  }
