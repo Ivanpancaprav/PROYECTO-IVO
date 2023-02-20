@@ -18,34 +18,37 @@ COLUMNA IZQUIERDA
         <div class="card-body">
           <div class="card-deck mb-3 text-center">
             <div class="card mb-4 box-shadow p-2">
-              <table
-                *ngIf="mostrarTabla"
-                datatable
-                [dtOptions]="dtOptions"
-                class="hover cell-border row-border display table-striped "
-              >
-                <thead id="encabezad">
-                  <tr id="encabezado">
+              <table *ngIf="mostrarTabla" datatable [dtOptions]="dtOptions"
+              class="hover cell-border row-border display table-striped ">
+              <thead>
+                <tr id="encabezado">
 
-                    <th>Fecha Solicitud</th>
-                    <th>Fecha Cita</th>
-                    <th>Hora</th>
-                    <th>Especialidad</th>
-                    <th>Medico</th>
-  
-  
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let cita of citas">
-                    <td>{{ cita.fecha_creacion }}</td>
-                    <td>{{cita.fecha_fin | date: 'dd/MM/YY'}}</td>
-                    <td>{{cita.fecha_fin | date:'shortTime'}}</td>
-                    <td>{{ cita.especialidad }}</td>
-                    <td>{{ cita.nombre }}</td>
-                  </tr>
-                </tbody>
-            </table></div>
+                  <th>Fecha Solicitud</th>
+                  <th>Fecha Cita</th>
+                  <th>Hora</th>
+                  <th >Especialidad</th>
+                  <th *ngIf="medico">Paciente</th>
+                  <th *ngIf="paciente">Medico</th>
+                  <th>Descripción</th>
+               
+      
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let cita of citas">
+                  <td>{{ cita.fecha_creacion | date:'dd/MM/YY' }}</td>
+                  <td>{{cita.fecha_fin | date: 'dd/MM/YY'}}</td>
+                  <td>{{cita.fecha_fin | date:'shortTime'}}</td>
+                  <td>{{ cita.especialidad }}</td>
+                  <td *ngIf="paciente">{{ cita.medico.user.nombre }}</td>
+                  <td *ngIf="medico">{{ cita.paciente.user.nombre }}</td>
+                  <td>{{ cita.descripcion }}</td>
+            
+                  
+                </tr>
+              </tbody>
+            </table>
+          </div>
           </div>
         </div>
       </div>

@@ -8,7 +8,7 @@ import { historias_clinicas } from '../models/historias_clinicas.model';
 import { Observable } from 'rxjs';
 import { Medico } from '../models/medico.model';
 
-const baseUrl = 'http://localhost/IVO_API/public/api/';
+const baseUrl = 'http://localhost/api/';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -42,8 +42,6 @@ export class UsuariosServiceService {
     return this.Http.get(baseUrl + 'informe/' + id);
   }
 
-
-
   getMedicamentos() :Observable<Medicamentos[]>{
     return this.Http.get<Medicamentos[]>(baseUrl + 'medicamentos');
   }
@@ -56,15 +54,14 @@ export class UsuariosServiceService {
     return this.Http.get<historias_clinicas[]>(baseUrl + 'historiasclinicas');
   }
 
-
   crearCita(cita: Citas): Observable<any>{
     return this.Http.post(baseUrl +'crea_cita',cita,httpOptions);
   }
 
-  getCitas(tipo: number): Observable<Citas[]> {
+  getCitas(tipo: number,dni: string,role: string): Observable<Citas[]> {
     if (tipo == 0) {
-      return this.Http.get<Citas[]>(baseUrl + 'citas');
-    } else { return this.Http.get<Citas[]>(baseUrl + 'citasprevias'); }
+      return this.Http.get<Citas[]>(baseUrl + 'citas/'+dni+'/'+role);
+    } else { return this.Http.get<Citas[]>(baseUrl + 'citasprev/'+dni+'/'+role); }
   }
 
   getCita(id_cita: number): Observable<any>{

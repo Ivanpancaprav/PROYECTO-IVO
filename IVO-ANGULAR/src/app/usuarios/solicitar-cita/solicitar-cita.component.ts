@@ -1,11 +1,11 @@
 import { Component, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { IgxCalendarComponent } from 'igniteui-angular';
 import { UsuariosServiceService } from '../usuarios-service.service';
 import { Citas } from 'src/app/models/cita.model';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TokenStorageService } from 'src/app/_services/token-storage.service';
-
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-solicitar-cita',
@@ -24,7 +24,6 @@ export class SolicitarCitaComponent {
 
   });
 
-
   @ViewChild('calendar', { static: true })
   public calendar!: IgxCalendarComponent;
 
@@ -36,7 +35,7 @@ export class SolicitarCitaComponent {
   protected dni_paciente: string | null;
 
   protected fecha: Date;
-  constructor(private usuarios_service:UsuariosServiceService, private aRoute: ActivatedRoute, private token: TokenStorageService){
+  constructor(private toast: ToastrService, private usuarios_service:UsuariosServiceService, private aRoute: ActivatedRoute,private route: Router,private token: TokenStorageService){
     this.selectedTeam ="";
     this.medicoSelec ="";
     this.dni_paciente = this.aRoute.snapshot.paramMap.get('dni_paciente');
@@ -101,9 +100,12 @@ export class SolicitarCitaComponent {
       this.cita.dni_medico = this.medicoSelec;
       this.cita.dni_paciente =this.dni_paciente!;
 
+      console.log(this.cita);
       this.usuarios_service.crearCita(this.cita).subscribe(
         result => {
-          console.log("cita creada con exito");
+          this.toast.success('Cita guardada con éxito','Cita');
+          this.route.navigate(['/citas']);
+    
         },
         error =>{
           this.mensajeErr = '';

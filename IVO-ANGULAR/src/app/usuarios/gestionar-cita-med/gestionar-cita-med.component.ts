@@ -1,10 +1,11 @@
 import { Component, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Citas } from 'src/app/models/cita.model';
 import { UsuariosServiceService } from '../usuarios-service.service';
 import { IgxCalendarComponent } from 'igniteui-angular';
 import { TokenStorageService } from 'src/app/_services/token-storage.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-gestionar-cita-med',
@@ -38,7 +39,7 @@ export class GestionarCitaMedComponent {
   protected nueva_cita: Citas;
   public medicos: any;
 
-  constructor(private usuarios_service: UsuariosServiceService,private aRoute: ActivatedRoute,private token: TokenStorageService ) {
+  constructor(private usuarios_service: UsuariosServiceService,private aRoute: ActivatedRoute,private token: TokenStorageService, private toast: ToastrService,private router: Router ) {
     
     this.id_cita = this.aRoute.snapshot.paramMap.get('id_cita');
     this.nombre_medico = '';
@@ -135,7 +136,9 @@ export class GestionarCitaMedComponent {
       console.log(this.cita);
       this.usuarios_service.citaUpdate(this.cita.id_cita,this.cita).subscribe(
         result => {
-          console.log("cita moificada con exito");
+          this.toast.success('Cita modificada con éxito','Cita');
+          this.router.navigate(['/citas']);
+
         },
         error =>{
           this.mensajeErr = '';

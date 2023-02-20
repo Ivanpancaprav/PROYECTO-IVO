@@ -29,6 +29,7 @@
     "igniteui-angular": "^15.0.9",
     "jquery": "^3.6.3",
     "minireset.css": "~0.0.4",
+    "ngx-toastr": "^16.0.2",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "util": "^0.12.5",
