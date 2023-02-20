@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
+use App\Models\Cita;
 /**
  * Class Paciente
  *
@@ -21,7 +21,11 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Paciente extends Model
 {   
-      protected $casts = ['dni_paciente'=>'string']; 
+    protected $primaryKey = 'dni_paciente';
+    public $incrementing = false;
+    protected $keyType = 'string';
+
+    protected $cast = ['dni_paciente'=>'string']; 
 
         static $rules = [
 		'n_seguridad_social' => 'required',
@@ -44,7 +48,7 @@ class Paciente extends Model
      */
     public function citas()
     {
-        return $this->hasMany('App\Models\Cita', 'dni_paciente', 'dni_paciente');
+        return $this->hasMany('App\Models\Cita','dni_paciente');
     }
     
     /**

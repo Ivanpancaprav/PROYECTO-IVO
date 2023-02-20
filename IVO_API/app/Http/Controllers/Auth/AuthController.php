@@ -14,13 +14,12 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
+
         $request->validate([
             'email' => 'required',
             'password' => 'required'
         ]);
-
         $credentials = $request->except(['_token']);  //no cogemos el token
-
 
         if (Auth::attempt(array(
             'email' =>$credentials['email'],
@@ -66,7 +65,7 @@ class AuthController extends Controller
     public function logout(Request $request)
     {
 
-        http://localhost/
+
         $request->session()->flush();
         Auth::logout();
         return redirect('/');
@@ -74,6 +73,7 @@ class AuthController extends Controller
 
     public function admin()
     {
+        
         return view('auth.admin');
     }
 }

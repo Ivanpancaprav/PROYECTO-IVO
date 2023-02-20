@@ -38,7 +38,7 @@ class MedicoController extends Controller
     { 
         $pass_encrypt = password_hash($request->password,PASSWORD_DEFAULT);
 
-  
+              
             $validacion = $request->validate([
             'dni' => 'required',
             'nombre' => 'required',
@@ -80,9 +80,9 @@ class MedicoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($dni){
-        $medico =(object) medico::whereDni_medico($dni)->get()->toArray()[0];
-        $user =(object) User::whereDni($dni)->get()->toArray()[0];
 
+        $medico =Medico::where('dni_medico', '=', $dni)->firstOrFail();
+        $user =User::where('dni', '=', $dni)->firstOrFail();
         return view('medico.show', compact('medico','user'));
        
     }
@@ -95,8 +95,8 @@ class MedicoController extends Controller
      */
     public function edit($dni)
     {
-        $medico =(object) Medico::whereDni_medico($dni)->get()->toArray()[0];
-        $user =(object) User::whereDni($dni)->get()->toArray()[0];
+        $medico =Medico::where('dni_medico', '=', $dni)->firstOrFail();
+        $user =User::where('dni', '=', $dni)->firstOrFail();
         return view('medico.edit', compact('medico','user'));
     }
 

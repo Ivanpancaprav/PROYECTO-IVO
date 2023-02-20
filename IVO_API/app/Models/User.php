@@ -41,8 +41,9 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable; 
 
-    protected $casts = ['dni'=>'string']; 
     protected $primaryKey = 'dni';
+    protected $keyType = 'string';
+
     static $rules = [
 		'dni' => 'required',
 		'nombre' => 'required',
@@ -70,9 +71,8 @@ class User extends Authenticatable
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function medico()
-    {
-        return $this->hasOne(Medico::class, 'dni_medico', 'dni');
+    public function medico(){
+        return $this->hasOne('App\Models\Medico','dni_medico','dni');
     }
     
     /**
