@@ -5,12 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Informe;
 use App\Models\User;
 use App\Models\Paciente;
-<<<<<<< HEAD
-use App\Models\Medicamento;
-=======
 use App\Models\Cita;
 use App\Models\Medico;
->>>>>>> b270c0f2823762118ee306cfd07950818b48a026
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\DB;
@@ -79,41 +75,6 @@ class ApiController extends Controller
         return $informes;
 
     }
-<<<<<<< HEAD
-
-    public function getMedicamento(Request $request){
-
-        $medicamentos= DB::select('SELECT * FROM medicamentos WHERE id_medicamento ='.$request->id_medicamento);
-        return $medicamentos;
-
-    }
-    
-
-    public function borrarMedicamento(Request $request){
-
-
-        $medicamentos= DB::delete('SELECT * FROM medicamentos WHERE id_medicamento ='.$request->id_medicamento);
-        return $medicamentos;
-    //   Medicamento::find();
-    //   $medicamentos -> delete($id_medicamento);
-
-    }
-
-    public function borrarInforme(Request $request){
-
-
-    
-        $informes= DB::select('SELECT * FROM informes WHERE id_informe ='.$request->id_informe);
-        return $informes;
-
-    }
-    public function borrarHistoriasClinicas(Request $request){
-
-
-        $historiasclinicas= DB::select('SELECT * FROM historias_clinicas, users');
-        return $historiasclinicas;
-
-=======
 
     public function creaCita(Request $request){
 
@@ -165,14 +126,10 @@ class ApiController extends Controller
         $cita->descripcion =$request->descripcion;
 
         $cita->save();
->>>>>>> b270c0f2823762118ee306cfd07950818b48a026
 
     }
 
     
-<<<<<<< HEAD
-
-=======
     // public function getImage(Request $request, $filename)
     // {
     //     $image = Storage::get('images/' . $filename);
@@ -182,7 +139,6 @@ class ApiController extends Controller
 
     //     return $response;
     // }
->>>>>>> b270c0f2823762118ee306cfd07950818b48a026
 
 
 }
