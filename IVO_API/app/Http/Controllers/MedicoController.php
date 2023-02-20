@@ -113,9 +113,7 @@ class MedicoController extends Controller
             'dni' => 'required | max:9 |  min:9',
             'nombre' =>'required',
             'apellido1' =>'required',
-            'apellido2' =>'required',
             'direccion' =>'required',
-            'foto' => 'required',
             'email' =>'required | email',
             'sexo' =>'required',
             'password' =>'required | min:8',
@@ -129,12 +127,14 @@ class MedicoController extends Controller
         ]);
 
         $dni_antiguo = $request['dni_antiguo'];
+        $validacion['foto']=date("d_m_Y_h_i_s")."_".$request->foto->getClientOriginalName();
 
         User::whereDni($dni_antiguo)->update($validacion);
         Medico::whereDni_medico($validacion['dni'])->update($validacion2);
         
-        $image = $request->file('foto')->resize(300, 200);
-        $name = time().'.'.$image->extension();
+        // Subir imagenes
+        $image = date("d_m_Y_h_i_s")."_".$request->foto->getClientOriginalName();
+        $request->file('foto')->storeAs('./images',$image);
         
         return redirect()->route('medicos.index')->with('success', 'Medico updated successfully');
     

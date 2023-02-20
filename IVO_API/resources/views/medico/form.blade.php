@@ -44,11 +44,16 @@
                     {{ Form::text('direccion', $user->direccion, ['class' => 'form-control' . ($errors->has('direccion') ? ' is-invalid' : ''), 'placeholder' => 'Direccion']) }}
                     {!! $errors->first('direccion', '<div class="invalid-feedback">:message</div>') !!}
                 </div>
+                @if($user->foto)
+                {{ Form::label('Foto de perfil') }}<br>
+                <input type="file" class="form-control-file {{ $errors->has('archivo') ? 'is-invalid' : '' }}" id="foto" name="foto">
+                @else
                 <div class="form-group">
                     {{ Form::label('Foto de perfil') }}<br>
                     {{ Form::file('foto', $user->foto, ['class' => 'form-control' . ($errors->has('foto') ? ' is-invalid' : ''), 'placeholder' => 'Foto']) }}
                     {!! $errors->first('foto', '<div class="invalid-feedback">:message</div>') !!}
                 </div>
+                @endif
                 <div class="form-group">
                     {{ Form::label('email') }}
                     {{ Form::text('email', $user->email, ['class' => 'form-control' . ($errors->has('email') ? ' is-invalid' : ''), 'placeholder' => 'Email']) }}
