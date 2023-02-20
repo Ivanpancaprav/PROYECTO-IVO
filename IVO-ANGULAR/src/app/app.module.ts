@@ -17,6 +17,7 @@ import { PacientesComponent } from './pacientes/pacientes.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { PacienteComponent } from './pacientes/paciente/paciente.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,8 @@ import { PacienteComponent } from './pacientes/paciente/paciente.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    UsuariosModule
+    UsuariosModule,
+
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

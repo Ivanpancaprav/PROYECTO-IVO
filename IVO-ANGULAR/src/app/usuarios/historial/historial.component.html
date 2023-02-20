@@ -3,14 +3,14 @@
     
 <!-- LADO IZQUIERDO -->
     <div class="col-6">
-      <br><br><br>
+      
 
-      <p id="encab"><h5>𝗠𝗘𝗗𝗜𝗖𝗔𝗖𝗜𝗢𝗡 𝗦𝗨𝗠𝗜𝗡𝗜𝗦𝗧𝗥𝗔𝗗𝗔  &nbsp;  <a class="btn btn-sm btn-info" data-bs-toggle="tooltip" >✚</a></h5><br>
+      <p id="encab"><h5>𝗠𝗘𝗗𝗜𝗖𝗔𝗖𝗜𝗢𝗡 𝗦𝗨𝗠𝗜𝗡𝗜𝗦𝗧𝗥𝗔𝗗𝗔  &nbsp;  <a class="btn btn-sm btn-info" data-bs-toggle="tooltip" style="color: white;" >✚</a></h5><br>
 
       <div class="table-wrapper-scroll-y my-custom-scrollbar">
         <table class="table table-bordered table-striped mb-0" *ngIf="mostrarTabla">          
           <thead id="encabezado" style="text-align: center;">
-            <tr>
+            <tr >
               <th><H6>Medicamento</H6></th>
               <th><H6>Dosis</H6></th>
               <th><H6>Fecha</H6></th>
@@ -35,12 +35,12 @@
           </tr>
         </table>
       </div>
-      <br><br>
-      <p id="encab" ><h5> 𝗣𝗥𝗢𝗚𝗥𝗘𝗦𝗢  &nbsp;  <a class="btn btn-sm btn-info" data-bs-toggle="tooltip" >✚</a></h5><br>
+      <br>
+      <p id="encab" ><h5> 𝗣𝗥𝗢𝗚𝗥𝗘𝗦𝗢  &nbsp;  <a class="btn btn-sm btn-info" data-bs-toggle="tooltip" style="color: white;">✚</a></h5><br>
       <div class="table-wrapper-scroll-y my-custom-scrollbar">
         <table class="table table-bordered table-striped mb-0">
           <thead id="encabezado" style="text-align: center;">
-            <tr>
+            <tr >
               <th><h6>Progreso</h6></th>
               <td style="width: 151px;"></td>
             </tr>
@@ -63,8 +63,8 @@
 
 <!-- LADO DERECHO -->
     <div class="col-6">
-      <br><br><br>
-        <p id="encab"> <h5>𝗥𝗔𝗗𝗜𝗢𝗚𝗥𝗔𝗙𝗜𝗔  &nbsp;  <a class="btn btn-sm btn-info" data-bs-toggle="tooltip" >✚</a></h5><br>
+    
+        <p id="encab"> <h5>𝗥𝗔𝗗𝗜𝗢𝗚𝗥𝗔𝗙𝗜𝗔  &nbsp;  <a class="btn btn-sm btn-info" data-bs-toggle="tooltip" style="color: white;" >✚</a></h5><br>
 
         <!-- <select class="form-select" aria-label="Default select example" id="desplegable">
           <option style="text-align:center">Mostrar radiologías ...</option>
@@ -95,10 +95,10 @@
             </tr> 
           </table>
         </div>
-        <br><br>
+        <br>
      
 
-        <p id="encab"> <h5>𝗔𝗡𝗔𝗟𝗜𝗧𝗜𝗖𝗔  &nbsp;  <a class="btn btn-sm btn-info" data-bs-toggle="tooltip" >✚</a></h5><br>
+        <p id="encab"> <h5>𝗔𝗡𝗔𝗟𝗜𝗧𝗜𝗖𝗔  &nbsp;  <a class="btn btn-sm btn-info" data-bs-toggle="tooltip" style="color: white;" [routerLink]="['/informe']">✚</a></h5><br>
 
         <!-- <select class="form-select" aria-label="Default select example" id="desplegable">
           <option style="text-align:center">Mostrar radiologías ...</option>
@@ -110,7 +110,7 @@
         <div class="table-wrapper-scroll-y my-custom-scrollbar">
           <table class="table table-bordered table-striped mb-0">
             <thead id="encabezado" style="text-align: center;">
-              <tr>
+              <tr >
                 <th><H6>Analiticas</H6></th>
                 <td style="width: 170px;"></td>
               </tr>
@@ -119,7 +119,7 @@
               <td>{{ informe.observaciones }}</td>
               <td> 
                 <div class="my-3 text-center">
-                  <button class="btn btn-sm btn-ver ms-1" data-bs-toggle="tooltip" [routerLink]="['/informe',informe.id_informe]" ><i class="bi bi-eye" ></i></button>
+                  <button class="btn btn-sm btn-ver ms-1" data-bs-toggle="tooltip" routerLink="/crear-historial" ><i class="bi bi-eye" ></i></button>
                       &nbsp;&nbsp;&nbsp;&nbsp;
                   <a class="btn btn-sm btn-danger ms-1" data-bs-toggle="tooltip">
                     <i class="bi bi-trash3"></i></a>

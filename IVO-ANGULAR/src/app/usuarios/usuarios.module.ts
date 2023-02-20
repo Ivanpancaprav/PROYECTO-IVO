@@ -16,6 +16,8 @@ import { IgxCalendarModule } from 'igniteui-angular';
 import { IgxDialogModule} from "igniteui-angular";
 import { BrowserModule } from "@angular/platform-browser";
 import { VerHistorialComponent } from './ver-historial/ver-historial.component';
+import { CrearHistorialComponent } from './historial/crear-historial/crear-historial.component';
+import { ModificarHistorialComponent } from './historial/modificar-historial/modificar-historial.component';
 
 
 @NgModule({
@@ -28,6 +30,8 @@ import { VerHistorialComponent } from './ver-historial/ver-historial.component';
     ModificarCitaComponent,
     GestionarCitaMedComponent,
     VerHistorialComponent,
+    CrearHistorialComponent,
+    ModificarHistorialComponent,
   ],
   imports: [
     CommonModule,

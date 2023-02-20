@@ -47,4 +47,8 @@ export class UsuariosServiceService {
     return this.Http.get<historias_clinicas[]>(baseUrl + 'historiasclinicas');
   }
 
+  borrarHistorias_clinicas() {
+    return this.Http.delete<historias_clinicas[]>(baseUrl + 'historiasclinicas');
+  }
+
 }

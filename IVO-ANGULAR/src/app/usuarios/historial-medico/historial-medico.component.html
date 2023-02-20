@@ -1,135 +1,126 @@
-<div class="container-fluid">
+<div class="container-fluid"><BR>
   <div class="row">
     <div class="col-4 p-5 text-center">
-      <br><br><br><br><br>
-        <div id="encabezado">
-          <h6>𝗗𝗔𝗧𝗢𝗦 𝗣𝗘𝗥𝗦𝗢𝗡𝗔𝗟𝗘𝗦</h6>
-        </div>
+      <br>      <br>      <br>      <br>      <br>
+        <div id="encabezado2"><BR>
+          <h6>𝗗𝗔𝗧𝗢𝗦 𝗣𝗘𝗥𝗦𝗢𝗡𝗔𝗟𝗘𝗦</h6><BR>
+        </div><br><BR>
         <table class="table">
           <tbody>
             <tr>
-              <th>Nombre</th>
-              <td></td>
+              <th><h6>Nombre</h6></th>
+              <td> <input class="form-control shadow text-uppercase negrita" type="text"
+                value="{{ currentUser.success.nombre }}" disabled>
+               </td>
             </tr>
             <tr>
-              <th>Apellidos</th>
-              <td></td>
+              <th><h6>Apellidos</h6></th>
+              <td>   <input class="form-control shadow text-uppercase negrita" type="text"
+                value="{{ currentUser.success.apellido1 }}" disabled></td>
             </tr>
             <tr>
-              <th>Edad</th>
-              <td></td>
+              <th><h6>Fecha nacimiento</h6></th>
+              <td>   <input class="form-control shadow text-uppercase negrita" type="text"
+                value="{{ currentUser.success.fecha_nacimiento}}" disabled></td>
             </tr>
             <tr>
-              <th>DNI</th>
-              <td></td>
+              <th><h6>DNI</h6></th>
+              <td>  <input class="form-control shadow text-uppercase negrita" type="text"
+                value="{{ currentUser.success.dni }}" disabled></td>
             </tr>
             <tr>
-              <th>Sexo</th>
-              <td></td>
+              <th><h6>Sexo</h6></th>
+              <td>  <input class="form-control shadow text-uppercase negrita" type="text"
+                value="{{ currentUser.success.sexo }}" disabled></td>
             </tr>
           </tbody>
         </table>
     </div>
     <div class="col-8">
-      <br><br><br><br>
-      <div class="table-wrapper-scroll-y my-custom-scrollbar">
-        <div id="encabezado">
-          <h6 style="text-align: center;">𝗛𝗜𝗦𝗧𝗢𝗥𝗜𝗔𝗦 𝗔𝗖𝗧𝗨𝗔𝗟𝗘𝗦</h6><br>
+  
+      
+      
+          <h6 style="text-align: center;">𝗛𝗜𝗦𝗧𝗢𝗥𝗜𝗔𝗦 𝗔𝗖𝗧𝗨𝗔𝗟𝗘𝗦</h6><br>  <div id="encabezado"><div class="table-wrapper-scroll-y my-custom-scrollbar">
           <table class="table table-bordered table-striped mb-0">
-            <thead style="text-align: center;">
-              <tr>
-                <th><H6>Medicamento</H6></th>
-                <th><H6>Dosis</H6></th>
-                <th><H6>Fecha</H6></th>
-                <th><H6>Comentarios</H6></th>
+            <thead style="text-align: center; ">
+              <tr >
+            
+               
+               
+                <th scope="col"><H6>Especialidad</H6></th>
+                <th scope="col"><H6>Nombre</H6></th>
+                <th scope="col"><H6>Fecha</H6></th>
+                <th scope="col"><H6>Fecha Fin</H6></th>
                 <td style="width: 170px;"></td>
               </tr>
-            </thead>
-            <tr style="text-align: center;">
+            </thead> <tbody>
+              <tr *ngFor="let historia_clinica of historias_clinicas" style="text-align: center;">
+              <!-- <tr style="text-align: center;">
+              <td scope="row">a</td>
               <td>a</td>
               <td>a</td>
-              <td>a</td>
-              <td>a</td>
+               <td>a</td> -->
+               <td>{{ historia_clinica.tratamiento }}</td>
+               <td>{{ historia_clinica.dni_medico }}</td>
+               <td>{{ historia_clinica.fecha_inicio }}</td>
+               <td>{{ historia_clinica.fecha_fin }}</td>
+         
               <td> 
                 <div class="my-3 text-center">
-                  <a class="btn btn-sm btn-warning ms-1" data-bs-toggle="tooltip" >
-                    <i class="bi bi-pencil"type="button" class="btn btn-default btn-lg gestionar" routerLink="/historial"></i>V</a>
+                  <a class="btn btn-sm btn-warning ms-1" data-bs-toggle="tooltip" routerLink="/historial" >
+                  Visualizar</a>
                           &nbsp;&nbsp;&nbsp;&nbsp;
-                  <a class="btn btn-sm btn-danger ms-1" data-bs-toggle="tooltip">
-                    <i class="bi bi-trash3"></i></a>
+                        
+                            <a class="btn btn-sm btn-danger ms-1" data-bs-toggle="tooltip">
+                              <i class="bi bi-trash3"></i>{{ txBoton }}</a>
+                          
                 </div>
               </td>
-            </tr>
+            </tr></tbody>
           </table>
         </div>
       </div>
     
-      <br><br>
+   <br>
+   <br>
+      
     
-      <div class="table-wrapper-scroll-y my-custom-scrollbar">
-    
-        <div id="encabezado">
-          <h6>𝗛𝗜𝗦𝗧𝗢𝗥𝗜𝗔𝗦</h6>
+        
+          <h6 style="text-align: center;  ">𝗛𝗜𝗦𝗧𝗢𝗥𝗜𝗔𝗦</h6><br><div id="encabezado"><div class="table-wrapper-scroll-y my-custom-scrollbar">
           <table class="table table-bordered table-striped mb-0">
-            <thead>
+            <thead style="text-align: center; ">
               <tr>
-                <th scope="col">Historia</th>
-                <th scope="col">Tratamiento</th>
-                <th scope="col">Fecha Inicio</th>
-                <th scope="col">Fecha Fin</th>
-                <th scope="col"></th>
+                
+                <th scope="col"><H6>Especialidad</H6></th>
+                <th scope="col"><H6>Nombre</H6></th>
+                <th scope="col"><H6>Fecha</H6></th>
+                <th scope="col"><H6>Fecha Fin</H6></th>
+                <td style="width: 170px;"></td>
     
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>Otto</td>
-                <td><button>Mostrar</button></td>
+              <tr *ngFor="let historia_clinica of historias_clinicas" style="text-align: center;">
+                <td>{{ historia_clinica.tratamiento }}</td>
+                <td>{{ historia_clinica.dni_medico }}</td>
+                <td>{{ historia_clinica.fecha_inicio }}</td>
+                <td>{{ historia_clinica.fecha_fin }}</td>
+              
+                <td> 
+                  <div class="my-3 text-center">
+                    <a class="btn btn-sm btn-warning ms-1" data-bs-toggle="tooltip" routerLink="/historial" >
+                    Visualizar</a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                  
+
+                    <a class="btn btn-sm btn-danger ms-1" data-bs-toggle="tooltip">
+                      <i class="bi bi-trash3"></i>{{ txBoton }}</a>
+                      
+                  </div>
+                </td>
     
               </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>Otto</td>
-                <td><button>Mostrar</button></td>
-    
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>Otto</td>
-                <td><button>Mostrar</button></td>
-    
-              </tr>
-              <tr>
-                <th scope="row">4</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>Otto</td>
-                <td><button>Mostrar</button></td>
-    
-              </tr>
-              <tr>
-                <th scope="row">5</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>Otto</td>
-                <td><button>Mostrar</button></td>
-    
-              </tr>
-              <tr>
-                <th scope="row">6</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>Otto</td>
-                <td><button>Mostrar</button></td>
-    
-              </tr>
+            
             </tbody>
           </table>
         </div>
