@@ -26,14 +26,18 @@ use Illuminate\Database\Eloquent\Model;
  */
 class HistoriasClinica extends Model
 {
-    
+    protected $table= 'historias_clinicas';
+    protected $primaryKey ='n_historia';
+    protected $dates =[
+        'fecha_fin',
+        'fecha_inicio'
+    ];
+
     static $rules = [
-		'n_historia' => 'required',
 		'tratamiento' => 'required',
-		'fecha_fin' => 'required',
+        'progreso' =>'required',
 		'fecha_inicio' => 'required',
-		'dni_paciente' => 'required',
-		'dni_medico' => 'required',
+        'fecha_fin' =>'required'
     ];
 
     protected $perPage = 20;
@@ -43,7 +47,7 @@ class HistoriasClinica extends Model
      *
      * @var array
      */
-    protected $fillable = ['n_historia','tratamiento','fecha_fin','fecha_inicio','dni_paciente','dni_medico'];
+    protected $fillable = ['progreso','tratamiento','fecha_fin','fecha_inicio'];
 
 
     /**

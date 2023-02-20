@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('historias_clinicas', function (Blueprint $table) {
             $table->increments("n_historia");
-            $table->text("tratamiento");
+            $table->enum('tratamiento',array('emergencia','consulta','hospitalizacion','medicina','oncologia','cirugia','traumatologia'));
             $table->text("progreso");
-            $table->date("fecha_fin");
+            $table->date("fecha_fin")->nullable();
             $table->date("fecha_inicio");
-            $table->string("dni_paciente",9);
-            $table->string("dni_medico",9);
+            $table->string("dni_paciente",9)->nullable();
+            $table->string("dni_medico",9)->nullable();
             $table->foreign('dni_paciente')->references('dni_paciente')->on('pacientes');
             $table->foreign('dni_medico')->references('dni_medico')->on('medicos');
 

@@ -39,7 +39,8 @@ class Medico extends Model
 	protected $fillable = [
 		'dni_medico',
 		'n_colegiado',
-		'especialidad'
+		'especialidad',
+		
 	];
 
 	public function user()
@@ -52,9 +53,9 @@ class Medico extends Model
 		return $this->hasMany('App\Models\GestionHistoria', 'dni_paciente', 'dni_paciente');
 	}
 
-	public function historias_clinicas()
+	public function historiasClinicas()
 	{
-		return $this->hasMany('App\Models\HistoriasClinica', 'dni_paciente', 'dni_paciente');
+		return $this->hasMany('App\Models\HistoriasClinica', 'dni_medico', 'dni_medico');
 	}
 
 	public function medicamentos_recetados()

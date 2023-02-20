@@ -14,12 +14,6 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class SolicitarCitaComponent {
 
-<<<<<<< HEAD
-
-
-  
-}
-=======
   formularioCita = new FormGroup({
     fecha_creacion: new FormControl(new Date()),
     especialidad: new FormControl('',Validators.required),
@@ -134,4 +128,3 @@ export class SolicitarCitaComponent {
 
   }
 
->>>>>>> b270c0f2823762118ee306cfd07950818b48a026

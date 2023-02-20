@@ -16,7 +16,7 @@ import { HistorialMedicoComponent } from './usuarios/historial-medico/historial-
 import { PacientesComponent } from './pacientes/pacientes.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { PacienteComponent } from './pacientes/paciente/paciente.component';
-import { Toast, ToastrModule } from 'ngx-toastr';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -39,11 +39,7 @@ import { Toast, ToastrModule } from 'ngx-toastr';
     HttpClientModule,
     FormsModule,
     UsuariosModule,
-<<<<<<< HEAD
-
-=======
     ToastrModule.forRoot(),
->>>>>>> d91ef8d6b3e0883dc8558c4f8d34d2d4107e7eba
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

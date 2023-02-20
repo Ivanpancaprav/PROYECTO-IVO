@@ -4,7 +4,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Citas } from 'src/app/models/cita.model';
 import { TokenStorageService } from 'src/app/_services/token-storage.service';
 import { ToastrService } from 'ngx-toastr';
-
 @Component({
   selector: 'app-citas',
   templateUrl: './citas.component.html',

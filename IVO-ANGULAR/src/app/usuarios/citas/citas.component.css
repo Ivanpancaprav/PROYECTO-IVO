@@ -2,8 +2,6 @@
     border: 1px solid black;
 } */
 
-
-
 table {
   width: 100%;
   height: 100%;
@@ -18,25 +16,30 @@ tr:nth-child(odd) {
 }
 
 tr:first-child {
+
   background: rgba(0, 0, 0, 0.508);
   color: white;
 }
 
 tr td:first-child {
+
   text-align: left;
 }
 
 .general {
+
   height: 90vh;
 }
 
 .sombra {
+
   border: 1px solid #ccc;
   height: 200px;
   box-shadow: 7px 7px 15px #592A08;
 }
 
 .gestionar {
+
   align-self: down;
   width: 180px;
   height: 50px;
@@ -54,15 +57,18 @@ tr td:first-child {
 }
 
 .btn-primary {
+
   background-color: #17383f;
   border-color: #17383f;
 }
 
 .btn-outline-primary {
+
   border-color: #17383f;
 }
 
 .card-body {
+
   width: 70%;
   height: 70%;
   position: relative;
@@ -72,6 +78,7 @@ tr td:first-child {
 }
 
 .card {
+
   background-color: #ffffff00;
   border-color: #ffffff00;
 }
@@ -79,6 +86,7 @@ tr td:first-child {
 
 
 .botonInicio {
+
   width: 150px;
   height: 50px;
   margin: 10px;
@@ -93,6 +101,7 @@ tr td:first-child {
 
 .botonInicio:link,
 .botonInicio:visited {
+
   text-transform: uppercase;
   text-decoration: none;
   padding: 15px 40px;
@@ -103,36 +112,43 @@ tr td:first-child {
 }
 
 .botonInicio:hover {
+
   transform: translateY(-3px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .botonInicio:active {
+
   transform: translateY(-1px);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .botonInicio-white {
+
   background-color: #fff;
   color: #777;
 }
 
 
 .botonInicio-white::after {
+
   background-color: #fff;
 }
 
 .botonInicio:hover::after {
+
   transform: scaleX(1.4) scaleY(1.6);
   opacity: 0;
 }
 
 .botonInicio-animated {
+
   animation: moveInBottom 5s ease-out;
   animation-fill-mode: backwards;
 }
 
 @keyframes moveInBottom {
+
   0% {
     opacity: 0;
     transform: translateY(30px);
@@ -168,9 +184,9 @@ tr td:first-child {
 
 }
 
-
 .botonPrevia:link,
 .botonPrevia:visited {
+
   text-transform: uppercase;
   text-decoration: none;
   padding: 15px 40px;
@@ -181,36 +197,43 @@ tr td:first-child {
 }
 
 .botonPrevia:hover {
+
   transform: translateY(-3px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .botonPrevia:active {
+
   transform: translateY(-1px);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .botonPrevia-white {
+
   background-color: #fff;
   color: #777;
 }
 
 
 .botonPrevia-white::after {
+
   background-color: #fff;
 }
 
 .botonPrevia:hover::after {
+
   transform: scaleX(1.4) scaleY(1.6);
   opacity: 0;
 }
 
 .botonPrevia-animated {
+
   animation: moveInBottom 5s ease-out;
   animation-fill-mode: backwards;
 }
 
 @keyframes moveInBottom {
+
   0% {
     opacity: 0;
     transform: translateY(30px);

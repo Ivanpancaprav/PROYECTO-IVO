@@ -58,3 +58,8 @@ Route::post('/crea_cita',[ApiController::class,'creaCita']);
 Route::delete('/borraCita/{id_cita}',[ApiController::class,'borraCita']);
 Route::put('/citaUpdate/{id_cita}', [ApiController::class, 'citaUpdate']);
 Route::get('/verCita/{id_cita}',[ApiController::class,'verCita']);
+
+
+//RUTAS HISTORIAS MÉDICAS
+
+Route::post('/crea_historia',[ApiController::class,'historia_create']);

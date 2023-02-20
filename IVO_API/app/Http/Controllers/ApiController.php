@@ -6,6 +6,7 @@ use App\Models\Informe;
 use App\Models\User;
 use App\Models\Paciente;
 use App\Models\Cita;
+use App\Models\HistoriasClinica;
 use App\Models\Medico;
 use Illuminate\Http\Request;
 
@@ -168,6 +169,20 @@ class ApiController extends Controller
         $cita->descripcion = $request->descripcion;
 
         $cita->save();
+    }   
+
+    public function historia_create(Request $request){
+       
+    $medico = Medico::where('dni_medico', '=', $request->dni_medico)->firstOrFail();
+    
+    
+    $paciente = Paciente::where('dni_paciente', '=', $request->dni_paciente)->firstOrFail();
+  
+    $historia =new HistoriasClinica(['tratamiento'=>$request->tratamiento, 'progreso'=>$request->progreso, 'fecha_inicio'=>$request->fecha_inicio, 'fecha_fin'=>$request->fecha_fin]);
+
+    $paciente->historiasClinicas()->save($historia);
+    $medico->historiasClinicas()->save($historia);
+     
     }
 
 
