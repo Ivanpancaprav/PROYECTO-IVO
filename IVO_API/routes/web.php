@@ -100,19 +100,20 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
 //IMAGENES
-Route::get('/images/{filename}', function ($filename)
-{
-    $path = storage_path('app/images/' . $filename);
+// Route::get('/images/{filename}', function ($filename)
 
-    if (!File::exists($path)) {
-        abort(404);
-    }
+// {
+//     $path = storage_path('app/images/' . $filename);
 
-    $file = File::get($path);
-    $type = File::mimeType($path);
+//     if (!File::exists($path)) {
+//         abort(404);
+//     }
 
-    $response = Response::make($file, 200);
-    $response->header("Content-Type", $type);
+//     $file = File::get($path);
+//     $type = File::mimeType($path);
 
-    return $response;
-});
+//     $response = Response::make($file, 200);
+//     $response->header("Content-Type", $type);
+
+//     return $response;
+// });

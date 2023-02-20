@@ -18,29 +18,37 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $especialidad
  * @property string $descripcion
  * @property string $dni_paciente
- * 
+ * @property string $dni_medico
  * @property Paciente $paciente
- *
+ * @property Medico $medico
  * @package App\Models
  */
 class Cita extends Model
 {
 	protected $table = 'citas';
 	protected $primaryKey = 'id_cita';
-
+	protected $casts = [
+		'fecha_fin' => 'date:hh:mm'
+	];
 	protected $dates = [
-		'fecha_creacion'
+		'fecha_creacion',
+		'fecha_fin'
 	];
 
 	protected $fillable = [
 		'fecha_creacion',
+		'fecha_fin',
 		'especialidad',
 		'descripcion',
-		'dni_paciente'
 	];
 
 	public function paciente()
 	{
-		return $this->belongsTo(Paciente::class, 'dni_paciente');
+		return $this->belongsTo(Paciente::class,'dni_paciente','dni_paciente');
+	}
+
+	public function medico()
+	{
+		return $this->belongsTo(Medico::class, 'dni_medico');
 	}
 }

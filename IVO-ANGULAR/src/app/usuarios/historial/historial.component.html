@@ -86,7 +86,7 @@
               <td>{{ informe.observaciones }}</td>
               <td> 
                 <div class="my-3 text-center">
-                  <a class="btn btn-sm btn-ver ms-1" data-bs-toggle="tooltip" ><i class="bi bi-eye"></i></a>
+                  <a class="btn btn-sm btn-ver ms-1" data-bs-toggle="tooltip" ><i class="bi bi-eye" [routerLink]="['/informe',informe.id_informe]" ></i></a>
                           &nbsp;&nbsp;&nbsp;&nbsp;
                   <a class="btn btn-sm btn-danger ms-1" data-bs-toggle="tooltip">
                     <i class="bi bi-trash3"></i></a>
@@ -119,7 +119,7 @@
               <td>{{ informe.observaciones }}</td>
               <td> 
                 <div class="my-3 text-center">
-                  <a class="btn btn-sm btn-ver ms-1" data-bs-toggle="tooltip" ><i class="bi bi-eye"></i></a>
+                  <button class="btn btn-sm btn-ver ms-1" data-bs-toggle="tooltip" [routerLink]="['/informe',informe.id_informe]" ><i class="bi bi-eye" ></i></button>
                       &nbsp;&nbsp;&nbsp;&nbsp;
                   <a class="btn btn-sm btn-danger ms-1" data-bs-toggle="tooltip">
                     <i class="bi bi-trash3"></i></a>

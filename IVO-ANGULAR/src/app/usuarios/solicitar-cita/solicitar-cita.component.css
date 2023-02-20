@@ -6,6 +6,7 @@
  
 }
 
+
 :root {
     --color-bg-calendar: #0f0a0a;
     --color-cell: #e3e3e3;
@@ -14,34 +15,114 @@
 
 .root {
     min-height: 115vh;
-   padding: 0 300px;
+    padding: 0 300px;
     display: flex;
     justify-content: right;
     align-items: center;
 }
 
 
-.gestionar{
-    align-self: down;
-    width: 180px;
-    height: 50px;
-    background: #6BB0BF;
-    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.205);
-    border-radius: 20px;
-    color: black;
-    border-color: #6BB0BF;
-    border-width: 1px;
-    border-style: solid;
-}
-
 .calendar-wrapper {
     border-radius: 6px;
     margin: 8px;
-  background: #0f0a0a;
+    background: #0f0a0a;
 }
 
 .igx-calendar{
     border-radius: 4px;
 }
 
+#botonConfirmar{
+    z-index: 1;
+    position: fixed;
+    top: 77.2%;
+    left: 50%;
+}
 
+#botonCancelar{
+    z-index: 1;
+    position: absolute;
+    top:105.4%;
+    left: 50%;
+}
+
+button:disabled,
+button[disabled]{
+  background: #26635277;
+  color: #FFFFFF;
+}
+
+
+.botonPrevia{
+
+    width: 200px;
+    height: 55px;
+    padding: 6px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.5rem;
+    line-height: 2px;
+    border-width: 0.2px;
+    border-style: solid;
+    color: #FFFFFF;
+    
+    background: #266352;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+    
+    }
+
+    .botonPrevia:link,
+    .botonPrevia:visited {
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 15px 40px;
+        display: inline-block;
+        border-radius: 100px;
+        transition: all .2s;
+        position: absolute;
+    }
+    .botonPrevia:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .botonPrevia:active {
+        transform: translateY(-1px);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    .botonPrevia-white {
+        background-color: #fff;
+        color: #777;
+    }
+   
+    
+    .botonPrevia-white::after {
+        background-color: #fff;
+    }
+    
+    .botonPrevia:hover::after {
+        transform: scaleX(1.4) scaleY(1.6);
+        opacity: 0;
+    }
+    
+    .botonPrevia-animated {
+        animation: moveInBottom 5s ease-out;
+        animation-fill-mode: backwards;
+    }
+    
+    @keyframes moveInBottom {
+        0% {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+    
+        100% {
+            opacity: 1;
+            transform: translateY(0px);
+        }
+    }

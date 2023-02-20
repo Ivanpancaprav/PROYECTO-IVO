@@ -17,6 +17,7 @@ export class PerfilComponent implements OnInit  {
   dtOptions: DataTables.Settings = {};
 
   constructor(private usuarios_service:UsuariosServiceService, private Http: HttpClient, private aRoute: ActivatedRoute, private token: TokenStorageService){
+
     this.dni = this.aRoute.snapshot.paramMap.get('dni');
     this.mensajeErr ='';
   }

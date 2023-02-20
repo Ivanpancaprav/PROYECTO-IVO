@@ -25,20 +25,24 @@ COLUMNA IZQUIERDA
                 class="hover cell-border row-border display table-striped "
               >
                 <thead id="encabezad">
-                  <tr>
-                  <th>Fecha</th>
-                  <th>Especialidad</th>
-                  <th>Medico</th>
-              
+                  <tr id="encabezado">
+
+                    <th>Fecha Solicitud</th>
+                    <th>Fecha Cita</th>
+                    <th>Hora</th>
+                    <th>Especialidad</th>
+                    <th>Medico</th>
+  
+  
                   </tr>
                 </thead>
                 <tbody>
                   <tr *ngFor="let cita of citas">
-                  
-                    <td >{{ cita.fecha_creacion }}</td>
-                    <td >{{ cita.especialidad }}</td>
-                    <td > {{ cita.dni_medico}}</td>     
-                   
+                    <td>{{ cita.fecha_creacion }}</td>
+                    <td>{{cita.fecha_fin | date: 'dd/MM/YY'}}</td>
+                    <td>{{cita.fecha_fin | date:'shortTime'}}</td>
+                    <td>{{ cita.especialidad }}</td>
+                    <td>{{ cita.nombre }}</td>
                   </tr>
                 </tbody>
             </table></div>

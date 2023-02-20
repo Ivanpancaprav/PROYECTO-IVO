@@ -15,6 +15,7 @@ import { InicioComponent } from './inicio/inicio.component';
 import { PacienteGuard } from './guards/paciente.guard';
 import { historias_clinicas } from './models/historias_clinicas.model';
 import { PerfilComponent } from './usuarios/perfil/perfil.component';
+import { VerHistorialComponent } from './usuarios/ver-historial/ver-historial.component';
 
 const routes: Routes = [
   {
@@ -50,12 +51,20 @@ const routes: Routes = [
     component: GestionarCitaMedComponent
   },
   {
-    path:'solicitarCitas',
+    path:'solicitarCitas/:dni_paciente',
     component: SolicitarCitaComponent
+  },
+  {
+    path:'mod_cita/:id_cita',
+    component: GestionarCitaMedComponent
   },
   {
     path:'historial',
     component: HistorialComponent
+  },
+  {
+    path:'informe/:id_informe',
+    component: VerHistorialComponent
   },
   {
     path:'historialMedico',

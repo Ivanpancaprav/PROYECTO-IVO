@@ -20,13 +20,14 @@ use Illuminate\Database\Eloquent\Model;
  * @property Collection|GestionHistoria[] $gestion_historias
  * @property Collection|HistoriasClinica[] $historias_clinicas
  * @property Collection|MedicamentosRecetado[] $medicamentos_recetados
- *
+ *  @property Cita[] $citas
  * @package App\Models
  */
 class Medico extends Model
 {
-	// protected $primaryKey= "dni_medico";
-	protected $casts = ['dni_medico'=>'string']; 
+    protected $primaryKey = 'dni_medico';
+    public $incrementing = false;
+    protected $keyType = 'string';
 	static $rules = [
 		'dni_medico' => 'required',
 		'n_colegiado' => 'required',
@@ -43,7 +44,7 @@ class Medico extends Model
 
 	public function user()
     {
-        return $this->belongsTo(User::class,'dni_medico','dni');
+        return $this->belongsTo(User::class,'dni_medico');
     }
     
 	public function gestion_historias()
@@ -60,4 +61,9 @@ class Medico extends Model
 	{
 		return $this->hasMany('App\Models\Medicamento', 'dni_paciente', 'dni_paciente');
 	}
+
+	public function citas()
+    {
+        return $this->hasMany('App\Models\Cita', 'dni_medico', 'dni_medico');
+    }
 }
