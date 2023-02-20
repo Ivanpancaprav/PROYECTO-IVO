@@ -19,11 +19,14 @@ Route::get('/pacientes',[ApiController::class,'mostrarPacientes']);
 
 Route::get('/medicos',[ApiController::class,'mostrarMedicos']);
 
+Route::get('/medico/{dni}',[ApiController::class,'getMedico']);
+
+
 Route::get('/perfil/{dni}',[ApiController::class,'mostrarPerfil']);
 
-Route::get('/citas', [ApiController::class,'mostrarCitas']); 
+Route::get('/citas/{dni}/{role}', [ApiController::class,'mostrarCitas']); 
 
-Route::get('/citasprevias', [ApiController::class,'mostrarCitasPrevias']); 
+Route::get('/citasprev/{dni}/{role}', [ApiController::class,'mostrarCitasPrevias']); 
 
 Route::get('/historiasclinicas', [ApiController::class,'mostrarHistoriasClinicas']); 
 
@@ -37,7 +40,6 @@ Route::get('/user/{dni}', [ApiController::class,'getUser']);
 
 Route::get('/informe/{id_informe}', [ApiController::class,'getInforme']); 
 
-Route::get('/citas', [ApiController::class,'mostrarCitas']);
 
 Route::get('/informes', [ApiController::class,'mostrarInformes']);
 

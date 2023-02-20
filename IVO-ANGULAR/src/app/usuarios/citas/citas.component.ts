@@ -1,8 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { UsuariosServiceService } from '../usuarios-service.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Citas } from 'src/app/models/cita.model';
 import { TokenStorageService } from 'src/app/_services/token-storage.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-citas',
@@ -21,7 +22,9 @@ export class CitasComponent implements OnInit {
   constructor(
     private usuarios_service: UsuariosServiceService,
     private aRoute: ActivatedRoute,
-    private token: TokenStorageService
+    private token: TokenStorageService,
+    private toast: ToastrService,
+    private router: Router
   ) {
     this.mensajeErr = '';
     this.mostrarTabla = false;
@@ -39,11 +42,12 @@ export class CitasComponent implements OnInit {
   // FUNCION QUE NOS DEVUELVE EL RESULTADO DEL SERVICIO GET PACIENTES,
   // O SEA, TODOS LOS PACIENTES
 
-  obtenerCitas(tipo: number): void {
-    this.usuarios_service.getCitas(tipo).subscribe(
+  obtenerCitas(tipo: number,dni: string,role: string): void {
+    this.usuarios_service.getCitas(tipo,dni,role).subscribe(
       (result) => {
         this.citas = result;
         this.mostrarTabla = true;
+        console.log(this.citas);
       },
       (error) => {
         this.mensajeErr = '';
@@ -71,7 +75,7 @@ export class CitasComponent implements OnInit {
     this.usuarios_service.citaDelete(id_cita).subscribe(
 
       result =>{
-        console.log("Cita Borrada Con exito");
+        this.toast.success('Cita borrarada con éxito','Cita');
       },
       error =>{
         console.log("ERROR");
@@ -105,10 +109,15 @@ export class CitasComponent implements OnInit {
       },
     };
 
-    this.obtenerCitas(0);
+    this.obtenerCitas(0,this.token.getUser().success.dni,this.token.getUser().success.role);
   }
 
+  redirectTo(uri:string){
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
+    this.router.navigate([uri]));
+ }
   onSubmit(id_cita: number) {
     this.eliminarCita(id_cita);
+    this.redirectTo('citas');
   }
 }

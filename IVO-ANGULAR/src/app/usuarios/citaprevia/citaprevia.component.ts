@@ -3,6 +3,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { UsuariosServiceService } from '../usuarios-service.service';
 import { ActivatedRoute } from '@angular/router';
+import { TokenStorageService } from 'src/app/_services/token-storage.service';
 
 @Component({
   selector: 'app-pacientes',
@@ -15,19 +16,30 @@ export class CitapreviaComponent implements OnInit  {
   dtOptions: DataTables.Settings ={};
   public mostrarTabla: boolean;
   public fecha = new Date();
-  
+  public medico = false;
+  public paciente = false;
+  public user: any;
    
-  constructor(private usuarios_service:UsuariosServiceService, private aRoute: ActivatedRoute){
+  constructor(private usuarios_service:UsuariosServiceService, private aRoute: ActivatedRoute,    private token: TokenStorageService,
+    ){
     this.mensajeErr ='';
-   
+    this.user = token.getUser();
+    switch (this.user.success.role) {
+      case 'paciente':
+        this.paciente = true;
+        break;
+      case 'medico':
+        this.medico = true;
+        break;
+    }
     this.mostrarTabla = false;
   }
   // FUNCION QUE NOS DEVUELVE EL RESULTADO DEL SERVICIO GET PACIENTES,
   // O SEA, TODOS LOS PACIENTES
 
-  obtenerCitas(): void {
+  obtenerCitas(dni: string,role: string): void {
 
-    this.usuarios_service.getCitas(1).subscribe(
+    this.usuarios_service.getCitas(1,dni,role).subscribe(
       result =>{
         this.citas = result;
         this.mostrarTabla = true;
@@ -77,7 +89,7 @@ export class CitapreviaComponent implements OnInit  {
         
       };
 
-      this.obtenerCitas();
+      this.obtenerCitas(this.token.getUser().success.dni,this.token.getUser().success.role);
  
     }
 
