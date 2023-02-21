@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Medico;
+use Illuminate\Support\Facades\Storage;
 
 class MedicoController extends Controller
 {
@@ -97,6 +98,8 @@ class MedicoController extends Controller
     {
         $medico =Medico::where('dni_medico', '=', $dni)->firstOrFail();
         $user =User::where('dni', '=', $dni)->firstOrFail();
+        $imagen = User::find($dni)->foto;
+        Storage::delete('images/'.$imagen);
         return view('medico.edit', compact('medico','user'));
     }
 
@@ -114,6 +117,7 @@ class MedicoController extends Controller
             'nombre' =>'required',
             'apellido1' =>'required',
             'direccion' =>'required',
+            'foto' =>'required',
             'email' =>'required | email',
             'sexo' =>'required',
             'password' =>'required | min:8',
@@ -127,6 +131,7 @@ class MedicoController extends Controller
         ]);
 
         $dni_antiguo = $request['dni_antiguo'];
+        
         $validacion['foto']=date("d_m_Y_h_i_s")."_".$request->foto->getClientOriginalName();
 
         User::whereDni($dni_antiguo)->update($validacion);
@@ -147,6 +152,8 @@ class MedicoController extends Controller
      */
     public function destroy($dni)
     {
+        $imagen = User::find($dni)->foto;
+        Storage::delete('images/'.$imagen);
         $medico = User::where('dni',$dni)->delete();
 
         return redirect()->route('medicos.index')
