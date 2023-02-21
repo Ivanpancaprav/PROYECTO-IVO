@@ -63,10 +63,9 @@ class HistoriasClinica extends Model
      */
     public function medicamento()
     {
-        return $this->belongsToMany(Medicamento::class,'contiene_medicamentos','n_historia','id_medicamento')->withPivot('fecha_fin','fecha_receta');
-
+        return $this->belongsToMany(Medicamento::class,'contiene_medicamentos','n_historia','id_medicamento')->withPivot('fecha_fin','fecha_receta','dosis','comentario');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */

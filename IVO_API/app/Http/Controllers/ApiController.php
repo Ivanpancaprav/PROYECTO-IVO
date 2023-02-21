@@ -218,9 +218,7 @@ class ApiController extends Controller
         $medicamento = Medicamento::find($request->id_medicamento);
         $historia = HistoriasClinica::find($request->n_historia);
 
-        $historia->medicamento()->attach($medicamento,array('fecha_receta'=>$request->fecha_receta,'fecha_fin'=>$request->fecha_fin));
-    
-        // dd($historia->medicamento()->get()->toArray());
+        $historia->medicamento()->attach($medicamento,array('fecha_receta'=>$request->fecha_receta,'fecha_fin'=>$request->fecha_fin,'dosis'=>$request->dosis,'comentario'=>$request->comentario));
 
     }
 

@@ -26,11 +26,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Medicamento extends Model
 {
-<<<<<<< HEAD
 	protected $primaryKey = 'id_medicamento';
-=======
 	protected $table='medicamentos';
->>>>>>> 284bf7a555d3fd2db69d9d13a8a798ddaa28b2b8
 
 	static $rules = [
 		'nombre' => 'required',
