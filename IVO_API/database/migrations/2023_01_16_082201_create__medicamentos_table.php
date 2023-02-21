@@ -15,11 +15,9 @@ return new class extends Migration
     {
         Schema::create('medicamentos', function (Blueprint $table) {
             $table->increments("id_medicamento");
-            $table->date("fecha_creacion");
             $table->string("nombre",55);
-            $table->string("dosis",10);
-            $table->text("comentarios");
-
+            $table->integer("cantidad");
+            $table->date("fecha_creacion");
             $table->timestamps();
         });
     }
