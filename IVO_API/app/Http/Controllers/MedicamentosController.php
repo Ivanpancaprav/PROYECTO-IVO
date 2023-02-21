@@ -26,7 +26,7 @@ class MedicamentosController extends Controller
     {
         $validacion = $request->validate([
 		    'nombre' => 'required',
-		    'dosis' => 'required',
+		    'cantidad' => 'required',
 		    'fecha_creacion' => 'required',
         ]);
     
@@ -53,7 +53,7 @@ class MedicamentosController extends Controller
     {
         $validacion = $request->validate([
             'nombre' =>'required',
-            'dosis' =>'required',
+            'cantidad' =>'required',
             'fecha_creacion' =>'required',
         ]);
 

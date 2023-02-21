@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id_medicamento
  * @property Carbon $fecha_creacion
  * @property string $nombre
- * @property string $dosis
+ * @property string $cantidad
  * @property string $comentarios
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
@@ -30,13 +30,13 @@ class Medicamento extends Model
 
 	static $rules = [
 		'nombre' => 'required',
-		'dosis' => 'required',
+		'cantidad' => 'required',
 		'fecha_creacion' => 'required',
     ];
 	
 	protected $fillable = [
 		'nombre',
-		'dosis',
+		'cantidad',
 		'fecha_creacion'
 	];
 

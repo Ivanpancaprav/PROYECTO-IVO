@@ -36,7 +36,7 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Nombre Medicamento</th>
-										<th>Dosis</th>
+										<th>Cantidad</th>
 										<th>Fecha_creación</th>
                                         <th></th>
                                     </tr>
@@ -46,7 +46,7 @@
                                         <tr>
                                             <td>{{ $medicamento->id_medicamento }}</td>
                                             <td>{{ $medicamento->nombre }}</td>
-											<td>{{ $medicamento->dosis }}</td>
+											<td>{{ $medicamento->cantidad }}</td>
 											<td>{{ $medicamento->fecha_creacion }}</td>
                                             <td>
                                                 <form action="{{ route('medicamentos.destroy',$medicamento->id_medicamento) }}" method="POST">

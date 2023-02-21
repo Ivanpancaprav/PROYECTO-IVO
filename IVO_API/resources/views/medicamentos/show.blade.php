@@ -28,8 +28,8 @@
                             {{ $medicamento->nombre }}
                         </div>
                         <div class="form-group">
-                            <strong>Dosis:</strong>
-                            {{ $medicamento->dosis }}
+                            <strong>Cantidad:</strong>
+                            {{ $medicamento->cantidad }}
                         </div>
                         <div class="form-group">
                             <strong>Fecha_creacion:</strong>
