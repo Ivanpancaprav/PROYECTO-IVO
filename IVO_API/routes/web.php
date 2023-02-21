@@ -7,6 +7,7 @@ use App\Http\Controllers\HistoriasClinicaController;
 use App\Http\Controllers\PacienteController;
 use App\Http\Controllers\MedicoController;
 use App\Http\Controllers\PedirCitaController;
+use App\Http\Controllers\MedicamentosController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -98,22 +99,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::resource('historias_medicas', HistoriasClinicaController::class);
  
 
+    //*****RUTAS MEDICAMENTOS *****//
+ 
+    Route::resource('medicamentos', MedicamentosController::class);
 
-//IMAGENES
-// Route::get('/images/{filename}', function ($filename)
-
-// {
-//     $path = storage_path('app/images/' . $filename);
-
-//     if (!File::exists($path)) {
-//         abort(404);
-//     }
-
-//     $file = File::get($path);
-//     $type = File::mimeType($path);
-
-//     $response = Response::make($file, 200);
-//     $response->header("Content-Type", $type);
-
-//     return $response;
-// });

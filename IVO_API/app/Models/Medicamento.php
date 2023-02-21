@@ -28,18 +28,17 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Medicamento extends Model
 {
-	protected $table = 'medicamentos';
-	protected $primaryKey = 'id_medicamento';
-
-	protected $dates = [
-		'fecha_creacion'
-	];
+	static $rules = [
+		'nombre' => 'required',
+		'dosis' => 'required',
+		'fecha_creacion' => 'required',
+    ];
+	protected $perPage = 20;
 
 	protected $fillable = [
-		'fecha_creacion',
 		'nombre',
 		'dosis',
-		'comentarios'
+		'fecha_creacion'
 	];
 
 	public function contiene_medicamentos()
