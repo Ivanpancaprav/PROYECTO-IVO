@@ -79,7 +79,7 @@ class HistoriasClinica extends Model
      */
     public function medicos()
     {
-        return $this->belongsToMany('App\Models\Medico');
+        return $this->belongsToMany(Medico::class,'gestion_historias','n_historia','dni_medico');
     }
     
     /**

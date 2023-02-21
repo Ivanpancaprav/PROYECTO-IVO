@@ -22,9 +22,3 @@
     <div class="box-footer mt20">
         <button type="submit" class="btn btn-primary">Submit</button>
     </div>
-
-<script>
-    @if (session('success'))
-    swal("Buen Trabajo!", "{{ session('success') }}", "success");
-    @endif
-</script>

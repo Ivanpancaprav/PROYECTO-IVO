@@ -37,18 +37,14 @@
         </table>
     </div>
     <div class="col-8">
-  
-      
-      
+
           <h6 style="text-align: center;">𝗛𝗜𝗦𝗧𝗢𝗥𝗜𝗔𝗦 𝗔𝗖𝗧𝗨𝗔𝗟𝗘𝗦</h6><br>  <div id="encabezado"><div class="table-wrapper-scroll-y my-custom-scrollbar">
           <table class="table table-bordered table-striped mb-0">
             <thead style="text-align: center; ">
               <tr >
-            
-               
-               
-                <th scope="col"><H6>Especialidad</H6></th>
-                <th scope="col"><H6>Nombre</H6></th>
+
+                <th scope="col"><H6>Tramiento</H6></th>
+                <th scope="col"><H6>Medico</H6></th>
                 <th scope="col"><H6>Fecha</H6></th>
                 <th scope="col"><H6>Fecha Fin</H6></th>
                 <td style="width: 170px;"></td>
@@ -60,15 +56,15 @@
               <td>a</td>
               <td>a</td>
                <td>a</td> -->
-               <td>{{ historia_clinica.tratamiento }}</td>
-               <td>{{ historia_clinica.dni_medico }}</td>
-               <td>{{ historia_clinica.fecha_inicio }}</td>
-               <td>{{ historia_clinica.fecha_fin }}</td>
+               <td>{{ historia_clinica.tratamiento  }}</td>
+               <td>{{historia_clinica.medicos[0].user.nombre}}</td>
+               <td>{{ historia_clinica.fecha_inicio | date:'dd/MM/YY' }}</td>
+               <td>{{ historia_clinica.fecha_fin | date:'dd/MM/YY' }}</td>
          
               <td> 
                 <div class="my-3 text-center">
-                  <a class="btn btn-sm btn-warning ms-1" data-bs-toggle="tooltip" routerLink="/historial" >
-                  Visualizar</a>
+                  <a class="btn btn-sm btn-warning ms-1" data-bs-toggle="tooltip" [routerLink]="['/historial',historia_clinica.n_historia]" >
+                    Ver historial</a>
                           &nbsp;&nbsp;&nbsp;&nbsp;
                         
                             <a class="btn btn-sm btn-danger ms-1" data-bs-toggle="tooltip">
@@ -83,16 +79,14 @@
     
    <br>
    <br>
-      
-    
         
-          <h6 style="text-align: center;  ">𝗛𝗜𝗦𝗧𝗢𝗥𝗜𝗔𝗦</h6><br><div id="encabezado"><div class="table-wrapper-scroll-y my-custom-scrollbar">
+          <h6 style="text-align: center; ">𝗛𝗜𝗦𝗧𝗢𝗥𝗜𝗔𝗦</h6><br><div id="encabezado"><div class="table-wrapper-scroll-y my-custom-scrollbar">
           <table class="table table-bordered table-striped mb-0">
             <thead style="text-align: center; ">
               <tr>
                 
                 <th scope="col"><H6>Especialidad</H6></th>
-                <th scope="col"><H6>Nombre</H6></th>
+                <th scope="col"><H6>Medico</H6></th>
                 <th scope="col"><H6>Fecha</H6></th>
                 <th scope="col"><H6>Fecha Fin</H6></th>
                 <td style="width: 170px;"></td>
@@ -102,14 +96,14 @@
             <tbody>
               <tr *ngFor="let historia_clinica of historias_clinicas" style="text-align: center;">
                 <td>{{ historia_clinica.tratamiento }}</td>
-                <td>{{ historia_clinica.dni_medico }}</td>
-                <td>{{ historia_clinica.fecha_inicio }}</td>
-                <td>{{ historia_clinica.fecha_fin }}</td>
+                <td>{{historia_clinica.medicos[0].user.nombre}}</td>
+                <td>{{ historia_clinica.fecha_inicio | date:'dd/MM/YY' }}</td>
+                <td>{{ historia_clinica.fecha_fin  | date:'dd/MM/YY' }}</td>
               
                 <td> 
                   <div class="my-3 text-center">
-                    <a class="btn btn-sm btn-warning ms-1" data-bs-toggle="tooltip" routerLink="/historial" >
-                    Visualizar</a>
+                    <a class="btn btn-sm btn-warning ms-1" data-bs-toggle="tooltip" [routerLink]="['/historial',historia_clinica.n_historia]" >
+                    Ver historial</a>
                             &nbsp;&nbsp;&nbsp;&nbsp;
                   
 

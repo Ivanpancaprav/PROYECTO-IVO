@@ -13,7 +13,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 
   export class HistorialMedicoComponent implements OnInit  {
 
-
     public id: string | null;
     public titulo: string;
     public subtitulo: string;
@@ -59,15 +58,18 @@ import { ActivatedRoute, Router } from '@angular/router';
         );
         }
     
-    obtenerHistorias_clinicas(): void {
-  
-      this.usuarios_service.getHistorias_clinicas().subscribe(
+    obtenerHistorias_clinicas(dni:string): void {
+      
+      this.usuarios_service.getHistorias(dni).subscribe(
         result =>{
+
           this.historias_clinicas = result;
+          console.log (this.historias_clinicas);
           this.cargando = false;
           this.mostrarTabla = true;
         },
         error =>{
+
           this.mensajeErr="";
           this.cargando = false;
           if(error instanceof ErrorEvent){
@@ -82,8 +84,9 @@ import { ActivatedRoute, Router } from '@angular/router';
       );
     }
       ngOnInit(): void {
+
         this.obtenerPaciente(this.id!);
-        this.obtenerHistorias_clinicas();
+        this.obtenerHistorias_clinicas(this.id!);
        
         this.txBoton = ""
         this.dtOptions = {
