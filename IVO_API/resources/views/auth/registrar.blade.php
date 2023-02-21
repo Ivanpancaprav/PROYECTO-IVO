@@ -226,7 +226,7 @@ a.button:hover {
     <input type="password" name="password" class="form-control p_input">
 </div>
 <div class="form-group">
-    <label>Password</label>
+    <label>Repite Password</label>
     <input type="password" name="password" class="form-control p_input">
 </div>
 <input type="hidden" name="role" value="administrador">
