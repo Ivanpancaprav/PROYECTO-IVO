@@ -14,9 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('medicamentos', function (Blueprint $table) {
-            $table->increments("id_medicamento")->primary();
+            $table->increments("id_medicamento");
             $table->string("nombre",55);
-            $table->integer("dosis");
+            $table->integer("cantidad");
             $table->date("fecha_creacion");
             $table->timestamps();
         });
