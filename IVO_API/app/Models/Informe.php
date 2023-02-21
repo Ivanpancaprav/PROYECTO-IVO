@@ -21,4 +21,11 @@ use Illuminate\Database\Eloquent\Model;
 class Informe extends Model
 {
 	protected $table = 'informes';
+	protected $fillable = ['observaciones', 'fecha_creacion', ];
+
+	public function historias_clinicas()
+	{
+		return $this ->belongsTo('App\Models\HistoriasClinicas', 'n_historia', 'n_historia');
+	}
 }
+

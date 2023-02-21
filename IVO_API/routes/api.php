@@ -70,4 +70,8 @@ Route::get('/historiasclinicas', [ApiController::class,'mostrarHistoriasClinicas
 
 Route::delete('/borrarHistoriasClinicas/{n_historia}', [ApiController::class,'borrarHistoriasClinicas']); 
 
+Route::delete('/borrarinformes/{id_informe}', [ApiController::class,'borrarinformes']); 
+
 Route::post('/set_medicamento_en_historia',[ApiController::class,'set_medicamendo_en_historia']);
+
+Route::post('/crearInformes',[ApiController::class,'crearInformes']);

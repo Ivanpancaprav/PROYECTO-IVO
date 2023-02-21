@@ -47,9 +47,7 @@
             <td>{{ historia_clinica.progreso }}</td>
             <td> 
               <div class="my-3 text-center">
-                <a class="btn btn-sm btn-warning ms-1" data-bs-toggle="tooltip" >
-                  <i class="bi bi-pencil" style="font-size:20px;" ></i></a>
-                        &nbsp;
+              
                 <a class="btn btn-sm btn-danger ms-1" data-bs-toggle="tooltip">
                   <i class="bi bi-trash3"></i></a>
               </div>
@@ -116,7 +114,7 @@
               <td>{{ informe.observaciones }}</td>
               <td> 
                 <div class="my-3 text-center">
-                  <button class="btn btn-sm btn-ver ms-1" data-bs-toggle="tooltip" routerLink="/crear-historial" ><i class="bi bi-eye" ></i></button>
+                  <button class="btn btn-sm btn-ver ms-1" data-bs-toggle="tooltip" [routerLink]="['/informe',informe.id_informe]"><i class="bi bi-eye" ></i></button>
                       &nbsp;&nbsp;&nbsp;&nbsp;
                   <a class="btn btn-sm btn-danger ms-1" data-bs-toggle="tooltip">
                     <i class="bi bi-trash3"></i></a>
