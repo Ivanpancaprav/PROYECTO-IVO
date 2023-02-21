@@ -53,17 +53,18 @@ class HistoriasClinica extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function contieneMedicamentos()
-    {
-        return $this->hasMany('App\Models\ContieneMedicamento', 'n_historia', 'n_historia');
-    }
+    // public function contieneMedicamentos()
+    // {
+    //     return $this->hasMany('App\Models\ContieneMedicamento', 'n_historia', 'n_historia');
+    // }
     
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function gestionHistorias()
+    public function medicamento()
     {
-        return $this->hasMany('App\Models\GestionHistoria', 'n_historia', 'n_historia');
+        return $this->belongsToMany(Medicamento::class,'contiene_medicamentos','n_historia','id_medicamento');
+
     }
     
     /**
@@ -77,9 +78,9 @@ class HistoriasClinica extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function medico()
+    public function medicos()
     {
-        return $this->hasOne('App\Models\Medico', 'dni_medico', 'dni_medico');
+        return $this->belongsToMany('App\Models\Medico');
     }
     
     /**

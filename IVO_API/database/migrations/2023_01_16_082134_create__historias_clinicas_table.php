@@ -20,10 +20,7 @@ return new class extends Migration
             $table->date("fecha_fin")->nullable();
             $table->date("fecha_inicio");
             $table->string("dni_paciente",9)->nullable();
-            $table->string("dni_medico",9)->nullable();
             $table->foreign('dni_paciente')->references('dni_paciente')->on('pacientes');
-            $table->foreign('dni_medico')->references('dni_medico')->on('medicos');
-
 
             $table->timestamps();
         });
