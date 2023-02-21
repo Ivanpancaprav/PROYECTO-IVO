@@ -214,14 +214,15 @@ class ApiController extends Controller
     }
 
     public function set_medicamendo_en_historia(Request $request){
+
         $medicamento = Medicamento::find($request->id_medicamento);
         $historia = HistoriasClinica::find($request->n_historia);
 
-        $medicamento->historiaClinica()->attach($historia);
+        $historia->medicamento()->attach($medicamento,array('fecha_receta'=>$request->fecha_receta,'fecha_fin'=>$request->fecha_fin));
+    
+        // dd($historia->medicamento()->get()->toArray());
 
-        
     }
-
 
     // public function getImage(Request $request, $filename)
     // {

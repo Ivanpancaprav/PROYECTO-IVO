@@ -28,6 +28,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Medicamento extends Model
 {
+	protected $primaryKey = 'id_medicamento';
+
 	static $rules = [
 		'nombre' => 'required',
 		'dosis' => 'required',
@@ -41,7 +43,6 @@ class Medicamento extends Model
 		'fecha_creacion'
 	];
 
-    
 	public function historiaClinica()
 	{
 		return $this->belongsToMany(HistoriasClinica::class,'contiene_medicamentos','id_medicamento','n_historia');
