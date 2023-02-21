@@ -18,11 +18,11 @@ return new class extends Migration
             $table->id("id_contiene_medicamentos");
             $table->integer("n_historia")->unsigned();
             $table->integer('id_medicamento')->unsigned();
-            $table->date("fecha_receta")->nullable();
-            $table->date("fecha_fin")->nullable();
-
-            $table->foreign('n_historia')->references('n_historia')->on('historias_clinicas')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('id_medicamento')->references('id_medicamento')->on('medicamentos')->onDelete('cascade')->onUpdate('cascade');
+            $table->integer("dosis");
+            $table->date("fecha_receta");
+            $table->text("comentario");
+            $table->foreign('n_historia')->references('n_historia')->on('historias_clinicas');
+            $table->foreign('id_medicamento')->references('id_medicamento')->on('medicamentos');
             $table->timestamps();
         });
     }

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Medicamento;
 use Illuminate\Http\Request;
 
@@ -8,10 +9,10 @@ class MedicamentosController extends Controller
 {
     public function index()
     {
-        $medicamento = Medicamento::paginate();
+        $medicamentos = Medicamento::paginate();
 
-        return view('medicamentos.index', compact('medicamento'))
-            ->with('i', (request()->input('page', 1) - 1) * $medicamento->perPage());
+        return view('medicamentos.index', compact('medicamentos'))
+            ->with('i', (request()->input('page', 1) - 1) * $medicamentos->perPage());
     }
 
     public function create()
@@ -23,11 +24,13 @@ class MedicamentosController extends Controller
 
     public function store(Request $request)
     {
-        request()->validate(Medicamento::$rules);
-        
-        $new_medicamento = request()->all();
-        
-        Medicamento::create($new_medicamento);
+        $validacion = $request->validate([
+		    'nombre' => 'required',
+		    'cantidad' => 'required',
+		    'fecha_creacion' => 'required',
+        ]);
+    
+        Medicamento::create($validacion);
 
         return redirect()->route('medicamentos.index')
             ->with('success', 'medicamento created successfully.');
@@ -35,35 +38,33 @@ class MedicamentosController extends Controller
 
     public function show($id)
     {
-        $medicamento =(object) Medicamento::whereDni($id)->get()->toArray()[0];
+        $medicamento =(object) Medicamento::whereid_medicamento($id)->get()->toArray()[0];
        
         return view('medicamentos.show', compact('medicamento'));
     }
 
     public function edit($id)
     {
-        $medicamento =(object) Medicamento::whereDni($id)->get()->toArray()[0];
+        $medicamento =(object) Medicamento::whereid_medicamento($id)->get()->toArray()[0];
         return view('medicamentos.edit', compact('medicamento'));
     }
 
-    public function update(Request $request)
+    public function update(Request $request,$id)
     {
         $validacion = $request->validate([
             'nombre' =>'required',
-            'dosis' =>'required',
+            'cantidad' =>'required',
             'fecha_creacion' =>'required',
         ]);
-        
-        $medicamento =(object) Medicamento::whereDni($id)->get()->toArray()[0];
 
-        Medicamento::whereDni($id)->update($validacion);
+        Medicamento::whereid_medicamento($id)->update($validacion);
 
         return redirect()->route('medicamentos.index')->with('success', 'Medicamento updated successfully');
     }
 
     public function destroy($id)
     {
-        $medicamento = Medicamento::where('id',$id);
+        $medicamento = Medicamento::where('id_medicamento',$id);
 
         $medicamento->delete();
         

@@ -6,8 +6,6 @@
 
 namespace App\Models;
 
-use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -16,7 +14,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id_medicamento
  * @property Carbon $fecha_creacion
  * @property string $nombre
- * @property string $dosis
+ * @property string $cantidad
  * @property string $comentarios
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
@@ -28,16 +26,19 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Medicamento extends Model
 {
+	protected $table='medicamentos';
+
 	static $rules = [
+		'id_medicamento' => 'required',
 		'nombre' => 'required',
-		'dosis' => 'required',
+		'cantidad' => 'required',
 		'fecha_creacion' => 'required',
     ];
-	protected $perPage = 20;
-
+	
 	protected $fillable = [
+		'id_medicamento',
 		'nombre',
-		'dosis',
+		'cantidad',
 		'fecha_creacion'
 	];
 

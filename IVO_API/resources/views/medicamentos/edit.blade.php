@@ -16,11 +16,11 @@
                         <span class="card-title">Update medicamento</span>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('medicamentos.update', $medicamento->dni_medicamento) }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('medicamentos.update', $medicamento->id_medicamento) }}"  role="form" enctype="multipart/form-data">
                             {{ method_field('PATCH') }}
                             @csrf
 
-                            @include('medicamento.form')
+                            @include('medicamentos.form')
 
                         </form>
                     </div>
