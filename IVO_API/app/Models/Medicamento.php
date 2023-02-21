@@ -6,8 +6,6 @@
 
 namespace App\Models;
 
-use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -28,13 +26,14 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Medicamento extends Model
 {
+	protected $table='medicamentos';
+
 	static $rules = [
 		'nombre' => 'required',
 		'dosis' => 'required',
 		'fecha_creacion' => 'required',
     ];
-	protected $perPage = 20;
-
+	
 	protected $fillable = [
 		'nombre',
 		'dosis',

@@ -19,48 +19,22 @@
                     </div>
 
                     <div class="card-body">
-                        <img src="{{ url('/images/'.$user->foto) }}" style="height:150px; width:200px">
                         <div class="form-group">
-                            <strong>Dni medicamento:</strong>
-                            {{ $medicamento->dni_medicamento }}
-                        </div>
-                        <div class="form-group">
-                            <strong>N Colegiado:</strong>
-                            {{ $medicamento->n_colegiado }}
+                            <strong>ID medicamento:</strong>
+                            {{ $medicamento->id_medicamento }}
                         </div>
                         <div class="form-group">
                             <strong>Nombre:</strong>
-                            {{ $user->nombre }}
+                            {{ $medicamento->nombre }}
                         </div>
                         <div class="form-group">
-                            <strong>Apellido1:</strong>
-                            {{ $user->apellido1 }}
+                            <strong>Dosis:</strong>
+                            {{ $medicamento->dosis }}
                         </div>
                         <div class="form-group">
-                            <strong>Apellido2:</strong>
-                            {{ $user->apellido2 }}
+                            <strong>Fecha_creacion:</strong>
+                            {{ $medicamento->fecha_creacion }}
                         </div>
-                        <div class="form-group">
-                            <strong>Direccion:</strong>
-                            {{ $user->direccion }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Email:</strong>
-                            {{ $user->email }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Sexo:</strong>
-                            {{ $user->sexo }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Role:</strong>
-                            {{ $user->role }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Fecha Nacimiento:</strong>
-                            {{ $user->fecha_nacimiento }}
-                        </div>
-
                     </div>
                 </div>
             </div>

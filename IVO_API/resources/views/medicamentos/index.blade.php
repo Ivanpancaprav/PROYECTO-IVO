@@ -42,16 +42,16 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($medicamento as $medicamentos)
+                                    @foreach ($medicamentos as $medicamento)
                                         <tr>
-                                            <td>{{ ++$i }}</td>
+                                            <td>{{ $medicamento->id_medicamento }}</td>
                                             <td>{{ $medicamento->nombre }}</td>
 											<td>{{ $medicamento->dosis }}</td>
-											<td>{{ $medicamento-fecha_creacion }}</td>
+											<td>{{ $medicamento->fecha_creacion }}</td>
                                             <td>
-                                                <form action="{{ route('medicamentos.destroy',$medicamento->dni_medicamento) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('medicamentos.show',$medicamento->dni_medicamento) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('medicamentos.edit',$medicamento->dni_medicamento) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                <form action="{{ route('medicamentos.destroy',$medicamento->id_medicamento) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('medicamentos.show',$medicamento->id_medicamento) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('medicamentos.edit',$medicamento->id_medicamento) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
@@ -64,7 +64,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $medicamento->links() !!}
+                {!! $medicamentos->links() !!}
             </div>
         </div>
     </div>

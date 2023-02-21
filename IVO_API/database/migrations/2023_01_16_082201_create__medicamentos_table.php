@@ -14,12 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('medicamentos', function (Blueprint $table) {
-            $table->increments("id_medicamento");
-            $table->date("fecha_creacion");
+            $table->increments("id_medicamento")->primary();
             $table->string("nombre",55);
-            $table->string("dosis",10);
-            $table->text("comentarios");
-
+            $table->integer("dosis");
+            $table->date("fecha_creacion");
             $table->timestamps();
         });
     }
