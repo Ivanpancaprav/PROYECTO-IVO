@@ -12,8 +12,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 
   export class HistorialMedicoComponent implements OnInit  {
-    currentUser: any;
-    public op: number;
+
+
     public id: string | null;
     public titulo: string;
     public subtitulo: string;
@@ -21,22 +21,44 @@ import { ActivatedRoute, Router } from '@angular/router';
     public txBoton: string;
     public mensajeErr: string;
     public cargando = false;
-
+    public perfil: any;
     dtOptions: DataTables.Settings ={};
     public mostrarTabla: boolean;
    
-    constructor(private usuarios_service:UsuariosServiceService, private aRoute: ActivatedRoute, private token: TokenStorageService, private router: Router){
+    constructor(private usuarios_service:UsuariosServiceService, private aRoute: ActivatedRoute, private router: Router){
       this.mensajeErr ='';
       this.mostrarTabla = false;
-      this.id = this.aRoute.snapshot.paramMap.get('id');
+      this.id = this.aRoute.snapshot.paramMap.get('dni_paciente');
       this.txBoton = "Volver";
-      this.op = Number(this.aRoute.snapshot.paramMap.get('op'));
       this.titulo = "Consultar Empleado";
       this.subtitulo = "Datos del Empleado";
     }
     // FUNCION QUE NOS DEVUELVE EL RESULTADO DEL SERVICIO GET PACIENTES,
     // O SEA, TODOS LOS PACIENTES
-  
+    
+    obtenerPaciente(dni:string) {
+
+        this.usuarios_service.getPerfil(dni).subscribe(
+    
+          result =>{
+            this.perfil = result;
+            console.log(this.perfil);
+          },
+          error =>{
+            this.mensajeErr ="";
+            if(error instanceof ErrorEvent){
+              this.mensajeErr = error.error.message;
+    
+            }else if(error.status == 404){
+              this.mensajeErr ="Error 404"
+    
+            }else{
+              this.mensajeErr ="Error status: "+error.status;
+            }
+          }
+        );
+        }
+    
     obtenerHistorias_clinicas(): void {
   
       this.usuarios_service.getHistorias_clinicas().subscribe(
@@ -59,23 +81,11 @@ import { ActivatedRoute, Router } from '@angular/router';
         }
       );
     }
-
-   
-
-
       ngOnInit(): void {
-        if (this.op == 1) {
-          this.titulo = "Borrar Empleado";
-          this.subtitulo = "Confirmación del borrado del Empleado";
-          this.txBoton = "BORRAR"
-        }
-  
+        this.obtenerPaciente(this.id!);
         this.obtenerHistorias_clinicas();
        
         this.txBoton = ""
-        this.currentUser = this.token.getUser();
-        
-       
         this.dtOptions = {
           
           lengthMenu:[10],
@@ -102,9 +112,7 @@ import { ActivatedRoute, Router } from '@angular/router';
           },
           
         };
-
       }
-
 
       eliminarHistorial(id: string) {
         this.cargando = true;
@@ -132,19 +140,11 @@ import { ActivatedRoute, Router } from '@angular/router';
           );
       }
     
-  
       onSubmit() {
-        if (this.op == 1) {
+  
           this.eliminarHistorial(this.id!);
           setTimeout(() =>{this.router.navigate(['/borrarMedicamentos']);}, 500);
-        }else this.router.navigate(['/borrarMedicamentos']);
-        // console.log("VOLVEMOS AL LISTADO DE EMPLEADOS, ERA UNA CONSULTA")
       }
-
-    
-   
-   
-  
   }
   
   

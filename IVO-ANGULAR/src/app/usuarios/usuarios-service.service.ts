@@ -50,10 +50,6 @@ export class UsuariosServiceService {
     return this.Http.get<Informes[]>(baseUrl + 'informes');
   }
 
-  getHistorias_clinicas() {
-    return this.Http.get<historias_clinicas[]>(baseUrl + 'historiasclinicas');
-  }
-
   borrarHistorias_clinicas() {
     return this.Http.delete<historias_clinicas[]>(baseUrl + 'historiasclinicas');
   }
@@ -78,5 +74,16 @@ export class UsuariosServiceService {
   citaDelete(id_cita: number){
     return this.Http.delete(baseUrl+'borraCita/'+id_cita);
   }
+
+  // RUTAS HISTORIAS MEDICAS
+  historia_create(historia: historias_clinicas):Observable<any>{
+    return this.Http.post(baseUrl+'crea_historia',historia,httpOptions);
+  }
+
+  getHistorias(dni_paciente: string): Observable<any>{
+
+      return this.Http.get<historias_clinicas[]>();
+ 
+  } 
 
 }
