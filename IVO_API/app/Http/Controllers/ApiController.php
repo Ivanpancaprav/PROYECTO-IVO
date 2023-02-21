@@ -8,6 +8,7 @@ use App\Models\Paciente;
 use App\Models\Cita;
 use App\Models\HistoriasClinica;
 use App\Models\Medico;
+use App\Models\Medicamento;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\DB;
@@ -83,8 +84,8 @@ class ApiController extends Controller
         }
 
         return $citas;
-        }
-    
+    }
+
     public function mostrarMedicamentos()
     {
 
@@ -101,7 +102,6 @@ class ApiController extends Controller
 
     public function mostrarInformes()
     {
-
         $informes = DB::select('SELECT * FROM informes');
         return $informes;
     }
@@ -127,7 +127,6 @@ class ApiController extends Controller
 
     public function borraCita(Request $request)
     {
-
         $cita = Cita::destroy($request->id_cita);
 
         return response()->json([
@@ -135,13 +134,10 @@ class ApiController extends Controller
         ], 201);
     }
 
-    public function verCita(Request $request)
-    {
-
+    public function verCita(Request $request){
         // $cita = Cita::find($request->id_cita);
 
         $cita = DB::select('SELECT * FROM citas where id_cita =' . $request->id_cita);
-
 
         // $cita = Cita::find($request->id_cita);
         $medico = Medico::findOrFail($cita[0]->dni_medico)->user()->get()[0]->nombre;
@@ -151,10 +147,7 @@ class ApiController extends Controller
         return $cita;
     }
 
-    public function citaUpdate(Request $request)
-    {
-
-
+    public function citaUpdate(Request $request){
 
         $cita = Cita::findOrFail($request->id_cita);
 
@@ -166,24 +159,67 @@ class ApiController extends Controller
         $cita->descripcion = $request->descripcion;
 
         $cita->save();
-    }   
-
-    public function historia_create(Request $request){
-       
-    $medico = Medico::where('dni_medico', '=', $request->dni_medico)->firstOrFail();
-    
-    
-    $paciente = Paciente::where('dni_paciente', '=', $request->dni_paciente)->firstOrFail();
-  
-    $historia =new HistoriasClinica(['tratamiento'=>$request->tratamiento, 'progreso'=>$request->progreso, 'fecha_inicio'=>$request->fecha_inicio]);
-
-    $paciente->historiasClinicas()->save($historia);
-    $medico->historiasClinicas()->save($historia);
-     
     }
 
-    public function set_medicamendo(Request $request){
+    public function historia_create(Request $request){
 
+        $medico = Medico::where('dni_medico', '=', $request->dni_medico)->firstOrFail();
+        $paciente = Paciente::where('dni_paciente', '=', $request->dni_paciente)->firstOrFail();
+        $historia = new HistoriasClinica(['tratamiento' => $request->tratamiento, 'progreso' => $request->progreso, 'fecha_inicio' => $request->fecha_inicio]);
+
+        //INSERTAMOS EL PACIENTE EN LA RELACION 1 A M
+        $paciente->historiasClinicas()->save($historia);
+
+        //INSERTAMOS EL MEDICO EN LA TABLA INTERMEDIA RELACION M : M
+        // $historia->medico()->attach($medico);
+        $medico->historiasClinicas()->attach($historia);
+    }
+
+    public function update_historia(Request $request){
+
+        $historia = HistoriasClinica::findOrFail($request->id_historia);
+
+        if($request->fecha_fin){
+
+            $historia->fecha_fin = $request->fecha_fin;
+        }
+
+        if($request->progreso){
+
+            $historia->progreso = $request->progreso;
+        }
+
+        if($request->tratamiento){
+
+            $historia->tratamiento = $request->tratamiento;
+        }
+
+        $historia->save();
+    }
+
+    public function getHistoria(Request $request){
+
+        $historia = HistoriasClinica::findOrFail($request->id_historia);
+
+        return $historia;
+    }
+
+    public function borra_historia(Request $request){
+
+        $historia = HistoriasClinica::destroy($request->id_historia);
+
+        return response()->json([
+            "message" => "La historia con id =" . $historia . " ha sido borrado con éxito"
+        ], 201);
+    }
+
+    public function set_medicamendo_en_historia(Request $request){
+        $medicamento = Medicamento::find($request->id_medicamento);
+        $historia = HistoriasClinica::find($request->n_historia);
+
+        $medicamento->historiaClinica()->attach($historia);
+
+        
     }
 
 

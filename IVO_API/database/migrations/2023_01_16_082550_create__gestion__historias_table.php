@@ -14,13 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('gestion_historias', function (Blueprint $table) {
+            
             $table->id("n_gestion_historias");
             $table->string("dni_medico",9);
             $table->integer("n_historia")->unsigned();
-            $table->date("fecha_modificacion");
 
-            $table->foreign('dni_medico')->references('dni_medico')->on('medicos');
-            $table->foreign('n_historia')->references('n_historia')->on('historias_clinicas');
+            $table->foreign('dni_medico')->references('dni_medico')->on('medicos')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('n_historia')->references('n_historia')->on('historias_clinicas')->onDelete('cascade')->onUpdate('cascade');
 
             $table->timestamps();
 

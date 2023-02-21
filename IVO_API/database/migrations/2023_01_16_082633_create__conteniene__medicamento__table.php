@@ -14,12 +14,15 @@ return new class extends Migration
     public function up()
     {
         Schema::create('contiene_medicamentos', function (Blueprint $table) {
+            
             $table->id("id_contiene_medicamentos");
             $table->integer("n_historia")->unsigned();
             $table->integer('id_medicamento')->unsigned();
-            $table->date("fecha_receta");
-            $table->foreign('n_historia')->references('n_historia')->on('historias_clinicas');
-            $table->foreign('id_medicamento')->references('id_medicamento')->on('medicamentos');
+            $table->date("fecha_receta")->nullable();
+            $table->date("fecha_fin")->nullable();
+
+            $table->foreign('n_historia')->references('n_historia')->on('historias_clinicas')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('id_medicamento')->references('id_medicamento')->on('medicamentos')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

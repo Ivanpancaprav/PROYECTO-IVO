@@ -21,7 +21,6 @@ return new class extends Migration
             $table->foreign('id_medicamento')->references('id_medicamento')->on('medicamentos');
             $table->foreign('dni_medico')->references('dni_medico')->on('medicos');
             
-
             $table->timestamps();
         });
     }

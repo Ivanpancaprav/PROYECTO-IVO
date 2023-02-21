@@ -48,15 +48,15 @@ class Medico extends Model
         return $this->belongsTo(User::class,'dni_medico');
     }
     
-	public function gestion_historias()
-	{
-		return $this->hasMany('App\Models\GestionHistoria', 'dni_paciente', 'dni_paciente');
-	}
-
 	public function historiasClinicas()
 	{
-		return $this->hasMany('App\Models\HistoriasClinica', 'dni_medico', 'dni_medico');
+		return $this->belongsToMany(HistoriasClinica::class,'gestion_historias','dni_medico','n_historia');
 	}
+
+	// public function historiasClinicas()
+	// {
+	// 	return $this->hasMany('App\Models\HistoriasClinica', 'dni_medico', 'dni_medico');
+	// }
 
 	public function medicamentos_recetados()
 	{

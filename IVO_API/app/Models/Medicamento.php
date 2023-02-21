@@ -42,9 +42,10 @@ class Medicamento extends Model
 		'comentarios'
 	];
 
-	public function contiene_medicamentos()
+    
+	public function historiaClinica()
 	{
-		return $this->hasMany(ContieneMedicamento::class, 'id_medicamento');
+		return $this->belongsToMany(HistoriasClinica::class,'contiene_medicamentos','id_medicamento','n_historia');
 	}
 
 	public function medicamentos_recetados()
