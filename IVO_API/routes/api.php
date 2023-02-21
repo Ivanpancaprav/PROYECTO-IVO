@@ -28,7 +28,6 @@ Route::get('/citas/{dni}/{role}', [ApiController::class,'mostrarCitas']);
 
 Route::get('/citasprev/{dni}/{role}', [ApiController::class,'mostrarCitasPrevias']); 
 
-Route::get('/historiasclinicas', [ApiController::class,'mostrarHistoriasClinicas']); 
 
 Route::get('/medicamentos', [ApiController::class,'mostrarMedicamentos']); 
 
@@ -66,3 +65,7 @@ Route::post('/crea_historia',[ApiController::class,'historia_create']);
 Route::delete('/borra_historia/{id_historia}',[ApiController::class,'borra_historia']);
 Route::put('/update_historia/{id_historia}', [ApiController::class, 'updateHistoria']);
 Route::get('/ver_historia/{id_historia}',[ApiController::class,'ver_historia']);
+
+Route::get('/historiasclinicas', [ApiController::class,'mostrarHistoriasClinicas']); 
+
+Route::delete('/borrarHistoriasClinicas/{n_historia}', [ApiController::class,'borrarHistoriasClinicas']); 

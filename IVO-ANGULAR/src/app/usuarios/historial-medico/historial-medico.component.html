@@ -67,12 +67,11 @@
          
               <td> 
                 <div class="my-3 text-center">
-                  <a class="btn btn-sm btn-warning ms-1" data-bs-toggle="tooltip" routerLink="/historial" >
-                  Visualizar</a>
+                  <a class="btn btn-sm btn-ver ms-1" data-bs-toggle="tooltip" ><i class="bi bi-eye" routerLink="/historial"></i></a>
                           &nbsp;&nbsp;&nbsp;&nbsp;
                         
                             <a class="btn btn-sm btn-danger ms-1" data-bs-toggle="tooltip">
-                              <i class="bi bi-trash3"></i>{{ txBoton }}</a>
+                              <i class="bi bi-trash3"></i></a>
                           
                 </div>
               </td>
@@ -108,13 +107,12 @@
               
                 <td> 
                   <div class="my-3 text-center">
-                    <a class="btn btn-sm btn-warning ms-1" data-bs-toggle="tooltip" routerLink="/historial" >
-                    Visualizar</a>
+                    <a class="btn btn-sm btn-ver ms-1" data-bs-toggle="tooltip" ><i class="bi bi-eye" routerLink="/historial"></i></a>
                             &nbsp;&nbsp;&nbsp;&nbsp;
                   
 
-                    <a class="btn btn-sm btn-danger ms-1" data-bs-toggle="tooltip">
-                      <i class="bi bi-trash3"></i>{{ txBoton }}</a>
+                    <a class="btn btn-sm btn-danger ms-1" data-bs-toggle="tooltip" (click)="eliminarHistorial(historia_clinica.n_historia)">
+                      <i class="bi bi-trash3"></i></a>
                       
                   </div>
                 </td>

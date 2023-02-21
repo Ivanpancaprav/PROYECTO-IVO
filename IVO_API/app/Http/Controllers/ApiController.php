@@ -99,6 +99,15 @@ class ApiController extends Controller
         return $historiasclinicas;
     }
 
+    public function borrarHistoriasClinicas(Request $request)
+    {  
+        $historiasclinicas = HistoriasClinica::destroy($request->n_historia);
+
+        return response()->json([
+            "message" => "La historia con id =" . $historiasclinicas . " ha sido borrado con éxito"
+        ], 201);
+    }
+
     public function mostrarInformes()
     {
 

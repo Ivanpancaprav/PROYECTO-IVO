@@ -18,7 +18,7 @@ import { ActivatedRoute, Router } from '@angular/router';
     public titulo: string;
     public subtitulo: string;
     public historias_clinicas: any;
-    public txBoton: string;
+   
     public mensajeErr: string;
     public cargando = false;
 
@@ -29,7 +29,7 @@ import { ActivatedRoute, Router } from '@angular/router';
       this.mensajeErr ='';
       this.mostrarTabla = false;
       this.id = this.aRoute.snapshot.paramMap.get('id');
-      this.txBoton = "Volver";
+     
       this.op = Number(this.aRoute.snapshot.paramMap.get('op'));
       this.titulo = "Consultar Empleado";
       this.subtitulo = "Datos del Empleado";
@@ -67,12 +67,12 @@ import { ActivatedRoute, Router } from '@angular/router';
         if (this.op == 1) {
           this.titulo = "Borrar Empleado";
           this.subtitulo = "Confirmación del borrado del Empleado";
-          this.txBoton = "BORRAR"
+          
         }
   
         this.obtenerHistorias_clinicas();
        
-        this.txBoton = ""
+ 
         this.currentUser = this.token.getUser();
         
        
@@ -107,8 +107,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 
       eliminarHistorial(id: string) {
-        this.cargando = true;
-        this.usuarios_service.borrarHistorias_clinicas().subscribe(
+      
+   
+        this.usuarios_service.borrarHistorias_clinicas(id).subscribe(
             result => {
               this.cargando = false;
               // console.log("Empleado eliminado con éxito");
