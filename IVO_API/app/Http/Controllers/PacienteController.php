@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Paciente;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * Class PacienteController
@@ -55,7 +56,7 @@ class PacienteController extends Controller
             'apellido2' =>'required',
             'direccion' =>'required',
             'email' =>'required',
-            'foto' =>'required',
+            'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'sexo' =>'required',
             'password' =>'required',
             'role' =>'required',
@@ -70,11 +71,10 @@ class PacienteController extends Controller
 
    
         $validacion['foto']=date("d_m_Y_h_i_s")."_".$request->foto->getClientOriginalName();
+        $validacion["password"] = $pass_encrypt;
 
-         $validacion["password"] = $pass_encrypt;
-
-       User::create($validacion);
-       Paciente::create($validacion2);
+        User::create($validacion);
+        Paciente::create($validacion2);
 
         // Subir imagenes
         $image = date("d_m_Y_h_i_s")."_".$request->foto->getClientOriginalName();
@@ -107,7 +107,8 @@ class PacienteController extends Controller
     {
         $paciente =Paciente::where('dni_paciente', '=', $dni)->firstOrFail();
         $user =User::where('dni', '=', $dni)->firstOrFail();
-
+        $imagen = User::find($dni)->foto;
+        Storage::delete('images/'.$imagen);
         return view('paciente.edit', compact('paciente','user'));
     }
 
@@ -140,12 +141,17 @@ class PacienteController extends Controller
 
         $dni_antiguo = $request['dni_antiguo'];
         //COMPARAMOS SI LA CONTRASEÑA QUE NOS LLEGA ES IGUAL A LA CONTRASEÑA ENCRIPTADA, SI ES IGUAL NO LA CAMBIAMOS SI ES DIFERENTE LA ACTUALIZAMOS
-       $user =(object) User::whereDni($request->dni_antiguo)->get()->toArray()[0];
+        $user =(object) User::whereDni($request->dni_antiguo)->get()->toArray()[0];
 
-       if($user->password != $validacion["password"]){
+        if($user->password != $validacion["password"]){
               $validacion["password"] = password_hash($request->password,PASSWORD_DEFAULT);
-       }
-    
+        }
+
+        // Subir imagenes
+        $validacion['foto']=date("d_m_Y_h_i_s")."_".$request->foto->getClientOriginalName();
+        $image = date("d_m_Y_h_i_s")."_".$request->foto->getClientOriginalName();
+        $request->file('foto')->storeAs('./images',$image);
+
         User::whereDni($dni_antiguo)->update($validacion);
         Paciente::whereDni_paciente($validacion['dni'])->update($validacion2);
         
@@ -164,6 +170,8 @@ class PacienteController extends Controller
      */
     public function destroy($dni)
     {
+        $imagen = User::find($dni)->foto;
+        Storage::delete('images/'.$imagen);
         $paciente = User::where('dni',$dni)->delete();
 
         return redirect()->route('pacientes.index')
