@@ -29,12 +29,14 @@ class Medicamento extends Model
 	protected $table='medicamentos';
 
 	static $rules = [
+		'id_medicamento' => 'required',
 		'nombre' => 'required',
 		'cantidad' => 'required',
 		'fecha_creacion' => 'required',
     ];
 	
 	protected $fillable = [
+		'id_medicamento',
 		'nombre',
 		'cantidad',
 		'fecha_creacion'

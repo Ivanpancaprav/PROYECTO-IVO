@@ -49,7 +49,7 @@ class MedicamentosController extends Controller
         return view('medicamentos.edit', compact('medicamento'));
     }
 
-    public function update(Request $request)
+    public function update(Request $request,$id)
     {
         $validacion = $request->validate([
             'nombre' =>'required',
@@ -57,7 +57,7 @@ class MedicamentosController extends Controller
             'fecha_creacion' =>'required',
         ]);
 
-        Medicamento::whereid_medicamento($request->id_medicamento)->update($validacion);
+        Medicamento::whereid_medicamento($id)->update($validacion);
 
         return redirect()->route('medicamentos.index')->with('success', 'Medicamento updated successfully');
     }
