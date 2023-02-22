@@ -46,8 +46,12 @@ export class UsuariosServiceService {
     return this.Http.get<Informes[]>(baseUrl + 'informes');
   }
 
-  borrarHistorias_clinicas() {
-    return this.Http.delete<historias_clinicas[]>(baseUrl + 'historiasclinicas');
+  getHistorias_clinicas() {
+    return this.Http.get<historias_clinicas[]>(baseUrl + 'historiasclinicas');
+  }
+
+  borrarHistorias_clinicas(id: string): Observable<any> {
+    return this.Http.delete(baseUrl + 'borrarHistoriasClinicas/'+id);
   }
   crearCita(cita: Citas): Observable<any>{
     return this.Http.post(baseUrl +'crea_cita',cita,httpOptions);

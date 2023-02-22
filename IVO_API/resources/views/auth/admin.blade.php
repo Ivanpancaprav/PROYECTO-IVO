@@ -50,7 +50,7 @@
                       
                         <div class="card-body text-center">
                             <div class="mt-3 mb-4">
-                                <img src="{{ url('/images/'.Auth::user()->foto) }}"
+                                <img src="{{ url('/images/Admin.png') }}"
                                     class="rounded-circle img-fluid" style="width: 150px" />
                             </div>
                             <div style="background-color: white; text-align: center">
@@ -70,14 +70,6 @@
                                     <tr>
                                         <th>Email</th>
                                         <td>{{Auth::user()->email}}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Direccion</th>
-                                        <td>{{Auth::user()->direccion}}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Fecha de Nacimiento</th>
-                                        <td>{{Auth::user()->fecha_nacimiento}}</td>
                                     </tr>
                                 </tbody>
                             </table>

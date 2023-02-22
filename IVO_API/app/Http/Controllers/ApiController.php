@@ -100,6 +100,24 @@ class ApiController extends Controller
         return $historiasclinicas;
     }
 
+    public function borrarHistoriasClinicas(Request $request)
+    {  
+        $historiasclinicas = HistoriasClinica::destroy($request->n_historia);
+
+        return response()->json([
+            "message" => "La historia con id =" . $historiasclinicas . " ha sido borrado con éxito"
+        ], 201);
+    }
+
+    public function borrarInformes(Request $request)
+    {  
+        $borrarinforme = HistoriasClinica::destroy($request->observaciones);
+
+        return response()->json([
+            "message" => "La observacion con id =" . $borrarinforme . " ha sido borrado con éxito"
+        ], 201);
+    }
+
     public function mostrarInformes()
     {
         $informes = DB::select('SELECT * FROM informes');
@@ -112,9 +130,16 @@ class ApiController extends Controller
         return $informes;
     }
 
+    public function crearInformes(Request $request)
+    {
+       $historiasclinicas= HistoriasClinica::find($request->id_historia);  
+       $informes = new Informe();
+       $historiasclinicas -> informe()->save($informes);
+     
+    }
+
     public function creaCita(Request $request)
     {
-
         $medico = Medico::where('dni_medico', '=', $request->dni_medico)->firstOrFail();
         $paciente = Paciente::where('dni_paciente', '=', $request->dni_paciente)->firstOrFail();
 

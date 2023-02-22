@@ -8,7 +8,7 @@
           Foto de perfil</div>
         <div class="card-body text-center ">
           <!-- Profile picture image-->
-          <img class="rounded-circle img-account-profile zoom" src='./assets/images/perro.jpeg'>
+          <img class="rounded-circle img-account-profile zoom" src='assets/images/perfil_falso.webp'>
           <!-- Profile picture help block-->
           <br><br>
           <div class="big font-italic mb-4 text-uppercase">{{ perfil.role }}</div>
@@ -81,16 +81,13 @@
               </div>
             </div>
             <div class="row gx-3 mb-3">
-              <!-- Save changes button-->
-              <div class="col-md-6">
-                <button class="btn btn-primary" type="button">Modificar</button>
+              <div class="col-md-10">
+                <button class="btn btn-primary" type="button" [routerLink]="['/historialMedico',perfil.dni]">Ver historial</button>
               </div>
-              <div class="col-md-6">
+              <div class="col-md-2">
                 <button class="btn btn-primary" type="button" routerLink="/pacientes">Volver</button>
               </div>
             </div>
-            <button class="btn btn-primary" type="button" [routerLink]="['/historialMedico',perfil.dni]">Ver historial</button>
-
           </form>
         </div>
       </div>

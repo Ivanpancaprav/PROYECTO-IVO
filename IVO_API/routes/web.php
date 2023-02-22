@@ -7,7 +7,7 @@ use App\Http\Controllers\HistoriasClinicaController;
 use App\Http\Controllers\PacienteController;
 use App\Http\Controllers\MedicoController;
 use App\Http\Controllers\PedirCitaController;
-use App\Http\Controllers\MedicamentosController;
+use App\Htttp\Controllers\MedicamentosController;
 
 /*
 |--------------------------------------------------------------------------

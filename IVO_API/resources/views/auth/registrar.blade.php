@@ -21,6 +21,12 @@ select {
   color: #4c4c4c;
 }
 
+body{
+  width: 100%;
+  height: 100%;
+  background-color: rgb(212, 242, 248);
+}
+
 p {
   font-size: 12px;
   width: 150px;
@@ -41,9 +47,11 @@ html{
 }
 
 .testbox {
-  margin: 20px auto;
+  position: absolute;
+  top: 10%;
+  left: 38%;
   width: 350px; 
-  height: 640px; 
+  height: 450px; 
   -webkit-border-radius: 8px/7px; 
   -moz-border-radius: 8px/7px; 
   border-radius: 8px/7px; 
@@ -65,46 +73,6 @@ form{
 label{
   display: inline-block;
   width: 80px;
-}
-
-label.radio {
-	cursor: pointer;
-  text-indent: 35px;
-  overflow: visible;
-  display: inline-block;
-  position: relative;
-  margin-bottom: 15px;
-}
-
-label.radio:before {
-  background: #3a57af;
-  content:'';
-  position: absolute;
-  top:2px;
-  left: 0;
-  width: 20px;
-  height: 20px;
-  border-radius: 100%;
-}
-
-label.radio:after {
-	opacity: 0;
-	content: '';
-	position: absolute;
-	width: 0.5em;
-	height: 0.25em;
-	background: transparent;
-	top: 7.5px;
-	left: 4.5px;
-	border: 3px solid #ffffff;
-	border-top: none;
-	border-right: none;
-
-	-webkit-transform: rotate(-45deg);
-	-moz-transform: rotate(-45deg);
-	-o-transform: rotate(-45deg);
-	-ms-transform: rotate(-45deg);
-	transform: rotate(-45deg);
 }
 
 input[type=radio]:checked + label:after {
@@ -132,15 +100,11 @@ input[type=text],input[type=password]{
   padding-left: 10px;
 }
 
-input[type=password]{
-  margin-bottom: 25px;
-}
-
 #icon {
   display: inline-block;
   width: 30px;
   background-color: #3a57af;
-  padding: 8px 0px 8px 15px;
+  padding: 11px 0px 11px 15px;
   margin-left: 15px;
   -webkit-border-radius: 4px 0px 0px 4px; 
   -moz-border-radius: 4px 0px 0px 4px; 
@@ -162,95 +126,55 @@ input[type=password]{
   margin-top: 20px;
 }
 
-a.button {
-  font-size: 14px;
-  font-weight: 600;
-  color: white;
-  padding: 6px 25px 0px 20px;
-  margin: 10px 8px 20px 0px;
-  display: inline-block;
-  float: right;
-  text-decoration: none;
-  width: 50px; height: 27px; 
-  -webkit-border-radius: 5px; 
-  -moz-border-radius: 5px; 
-  border-radius: 5px; 
-  background-color: #3a57af; 
-  -webkit-box-shadow: 0 3px rgba(58,87,175,.75); 
-  -moz-box-shadow: 0 3px rgba(58,87,175,.75); 
-  box-shadow: 0 3px rgba(58,87,175,.75);
-  transition: all 0.1s linear 0s; 
-  top: 0px;
-  position: relative;
+button {
+    background-color: #3a57af;
+    border-radius: 4px;
+    border: none;
+    color: white;
+    padding: 5px 5px;
+    text-align: center;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-left: 35%;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    border: 1px solid black;
 }
 
-a.button:hover {
-  top: 3px;
-  background-color:#2e458b;
-  -webkit-box-shadow: none; 
-  -moz-box-shadow: none; 
-  box-shadow: none;
-  
+button:hover {
+    background-color: white;
+    color: black;
 }
+
 </style>
 <div class="testbox">
   <h1>Registro para Administradores</h1>
+  <hr>
   <form method="post" action="{{ route('registro') }}">
 @csrf
 <div class="form-group">
-    <label>Nombre</label>
-    <input type="text" name="nombre" class="form-control p_input" required/>
+    <label id="icon"><i class="icon-user"></i></label>
+    <input type="text" name="nombre" class="form-control p_input" placeholder="Nombre" required/>
 </div>     
 <div class="form-group">
-    <label>Dni</label>
-    <input type="text" name="dni" class="form-control p_input">
+    <label id="icon"><i class="icon-credit-card"></i></label>
+    <input type="text" name="dni" class="form-control p_input" placeholder="DNI" required/>
 </div>
 <div class="form-group">
-    <label>Apellido1</label>
-    <input type="text" name="apellido1" class="form-control p_input">
+    <label id="icon"><i class="icon-envelope"></i></label>
+    <input type="text" name="email" class="form-control p_input" placeholder="Email" required/>
 </div>
 <div class="form-group">
-    <label>Apellido2</label>
-    <input type="text" name="apellido2" class="form-control p_input">
-</div>
-<div class="form-group">
-    <label>Direccion</label>
-    <input type="text" name="direccion" class="form-control p_input">
-</div> 
-<div class="form-group">
-    <label>Email</label>
-    <input type="text" name="email" class="form-control p_input">
-</div>
-<div class="form-group">
-    <label>Password</label>
-    <input type="password" name="password" class="form-control p_input">
-</div>
-<div class="form-group">
-    <label>Repite Password</label>
-    <input type="password" name="password" class="form-control p_input">
+    <label id="icon"><i class="icon-shield"></i></label>
+    <input type="password" name="password" class="form-control p_input" placeholder="Contraseña" required/>
+    <label id="icon"><i class="icon-shield"></i></label>
+    <input type="password" name="password" class="form-control p_input" placeholder="Repite contraseña" required/>
 </div>
 <input type="hidden" name="role" value="administrador">
 <div class="text-center">
-    <a type="submit" class="button">Register</a>
+    <button type="submit" onclick="window.location='http://localhost'">Registrar</button>
 </div>                    
 </div>
 </form>
-  <!-- <form method="post" action="{{ route('registro') }}">
-  <hr>
-  <label id="icon" for="name"><i class="icon-envelope "></i></label>
-  <input type="text" name="name" id="name" placeholder="Email" required/>
-  <label id="icon" for="name"><i class="icon-user"></i></label>
-  <input type="text" name="name" id="name" placeholder="Name" required/>
-  <label id="icon" for="name"><i class="icon-shield"></i></label>
-  <input type="password" name="name" id="name" placeholder="Password" required/>
-  <div class="gender">
-    <input type="radio" value="None" id="male" name="gender" checked/>
-    <label for="male" class="radio" chec>Male</label>
-    <input type="radio" value="None" id="female" name="gender" />
-    <label for="female" class="radio">Female</label>
-   </div> 
-   <p>By clicking Register, you agree on our <a href="#">terms and condition</a>.</p>
-   <a href="#" class="button">Register</a>
-  </form> -->
 </div>
 

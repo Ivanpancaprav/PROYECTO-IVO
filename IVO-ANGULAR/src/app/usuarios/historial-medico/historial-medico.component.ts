@@ -17,7 +17,7 @@ import { ActivatedRoute, Router } from '@angular/router';
     public titulo: string;
     public subtitulo: string;
     public historias_clinicas: any;
-    public txBoton: string;
+   
     public mensajeErr: string;
     public cargando = false;
     public perfil: any;
@@ -28,7 +28,6 @@ import { ActivatedRoute, Router } from '@angular/router';
       this.mensajeErr ='';
       this.mostrarTabla = false;
       this.id = this.aRoute.snapshot.paramMap.get('dni_paciente');
-      this.txBoton = "Volver";
       this.titulo = "Consultar Empleado";
       this.subtitulo = "Datos del Empleado";
     }
@@ -87,8 +86,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 
         this.obtenerPaciente(this.id!);
         this.obtenerHistorias_clinicas(this.id!);
-       
-        this.txBoton = ""
         this.dtOptions = {
           
           lengthMenu:[10],
@@ -118,8 +115,9 @@ import { ActivatedRoute, Router } from '@angular/router';
       }
 
       eliminarHistorial(id: string) {
-        this.cargando = true;
-        this.usuarios_service.borrarHistorias_clinicas().subscribe(
+      
+   
+        this.usuarios_service.borrarHistorias_clinicas(id).subscribe(
             result => {
               this.cargando = false;
               // console.log("Empleado eliminado con éxito");

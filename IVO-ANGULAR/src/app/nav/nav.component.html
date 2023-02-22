@@ -11,21 +11,30 @@
         <li class="nav-item mx-5 ">
           <a class="nav-link " routerLink="/" aria-current="page">Inicio</a>
         </li>
-        <li class="nav-item mx-5">
-          <a *ngIf="paciente" class="nav-link" routerLink="/historialMedico">Historial Medico</a>
-          <a *ngIf="medico" [ngStyle]="styles" class="nav-link" routerLink="/pacientes">Pacientes</a>
-        </li>
-        <li class="nav-item mx-5">
-
-          <a class="nav-link" routerLink="/citas">Citas</a>
-
-        </li>
+        <div *ngIf="paciente">
+          <li class="nav-item mx-5">
+            <a class="nav-link" [routerLink]="['/historialMedico']">Historial Medico</a>
+          </li>
+        </div>
+        <div *ngIf="paciente">
+          <li class="nav-item mx-5">
+            <a class="nav-link" routerLink="/citas">Citas</a>
+          </li>
+        </div>
+        <div *ngIf="medico">
+          <li class="nav-item mx-5">
+            <a class="nav-link" routerLink="/pacientes">Pacientes</a>
+          </li>
+        </div>
+        <div *ngIf="medico">
+          <li class="nav-item mx-5">
+            <a class="nav-link" routerLink="/citas">Mis citas</a>
+          </li>
+        </div>
         <li class="nav-item mx-5">
           <a routerLink="/perfil" class="nav-link">Mi Perfil</a>
-
         </li>
       </ul>
-
       <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
         <li class="">
           <a href="/login" class="button-48" routerLink="login">Login</a>
@@ -34,7 +43,8 @@
 
       <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
         <li class="">
-          <div class="col-2 mt-2  d-flex fs-5">{{email}} <button class="button-48 ms-2" (click)="logout()"><i href  class="imt-2 ml-2 bi bi-box-arrow-right" style="font-size: 20px;" ></i></button> </div>
+          <div class="col-2 mt-2  d-flex fs-5">{{email}} <button class="button-48 ms-2" (click)="logout()"><i href
+                class="imt-2 ml-2 bi bi-box-arrow-right" style="font-size: 20px;"></i></button> </div>
         </li>
       </ul>
     </div>
@@ -43,8 +53,8 @@
 
 
 <style>
-   /* CSS */
-   .button-48 {
+  /* CSS */
+  .button-48 {
     appearance: none;
     border-radius: 10px;
     background-color: #ff3737;
@@ -54,14 +64,14 @@
     cursor: pointer;
     display: inline-block;
     font-family: Clarkson, Helvetica, sans-serif;
-  
+
     letter-spacing: 0;
     line-height: 1em;
     margin: 0;
     opacity: 1;
     outline: 0;
     padding: 6px;
-    padding-left: 12px ;
+    padding-left: 12px;
     position: relative;
     text-align: center;
     text-decoration: none;

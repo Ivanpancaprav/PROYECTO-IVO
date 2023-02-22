@@ -27,6 +27,7 @@ use Illuminate\Database\Eloquent\Model;
 class HistoriasClinica extends Model
 {
     protected $table= 'historias_clinicas';
+   
     protected $primaryKey ='n_historia';
     protected $dates =[
         'fecha_fin',

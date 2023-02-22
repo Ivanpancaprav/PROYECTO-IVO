@@ -21,8 +21,7 @@ import {
 import { GestionarCitaMedComponent } from './gestionar-cita-med/gestionar-cita-med.component';
 import { BrowserModule } from "@angular/platform-browser";
 import { VerHistorialComponent } from './ver-historial/ver-historial.component';
-import { CrearHistorialComponent } from './historial/crear-historial/crear-historial.component';
-import { ModificarHistorialComponent } from './historial/modificar-historial/modificar-historial.component';
+import { CrearHistoriaClinicaComponent } from './crear-historia-clinica/crear-historia-clinica.component';
 
 
 @NgModule({
@@ -34,8 +33,12 @@ import { ModificarHistorialComponent } from './historial/modificar-historial/mod
     SolicitarCitaComponent,
     GestionarCitaMedComponent,
     VerHistorialComponent,
+<<<<<<< HEAD
     CrearHistorialComponent,
     ModificarHistorialComponent,
+=======
+    CrearHistoriaClinicaComponent,
+>>>>>>> a5e7de56724c359620c89cb1a4c4c20b8df6f8ca
     
   ],
   imports: [
