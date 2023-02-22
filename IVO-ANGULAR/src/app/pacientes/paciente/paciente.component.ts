@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-paciente',
@@ -9,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 export class PacienteComponent {
 
  
-  constructor(private_route: ActivatedRoute){}
+  constructor(){}
   
     @Input() paciente: any;  
 
