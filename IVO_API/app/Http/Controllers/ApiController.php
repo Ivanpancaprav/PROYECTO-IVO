@@ -99,6 +99,11 @@ class ApiController extends Controller
         $historiasclinicas = DB::select('SELECT * FROM historias_clinicas, users');
         return $historiasclinicas;
     }
+    public function crearHistoriasClinicas(Request $request)
+    {
+      dd($request);
+     
+    }
 
     public function borrarHistoriasClinicas(Request $request)
     {  

@@ -50,6 +50,7 @@ export class UsuariosServiceService {
     return this.Http.get<historias_clinicas[]>(baseUrl + 'historiasclinicas');
   }
 
+
   borrarHistorias_clinicas(id: string): Observable<any> {
     return this.Http.delete(baseUrl + 'borrarHistoriasClinicas/'+id);
   }

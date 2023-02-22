@@ -5,7 +5,7 @@ export class historias_clinicas {
     public progreso?: string,
     public fecha_fin?: Date,
     public fecha_inicio?: Date,
-    public dni_paciente?: BigInt,
-    public dni_medico?: BigInt
+    public dni_paciente?: number,
+    public dni_medico?: number
   ) {}
 }

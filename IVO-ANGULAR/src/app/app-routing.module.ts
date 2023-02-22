@@ -84,7 +84,7 @@ const routes: Routes = [
     component: historias_clinicas
   },
   {
-    path:'crearhistoria',
+    path:'crearhistoria/:dni_paciente',
     component: CrearHistoriaClinicaComponent
   },
   {

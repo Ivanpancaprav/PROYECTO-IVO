@@ -35,6 +35,7 @@ export class SolicitarCitaComponent {
   protected dni_paciente: string | null;
 
   protected fecha: Date;
+  
   constructor(private toast: ToastrService, private usuarios_service:UsuariosServiceService, private aRoute: ActivatedRoute,private route: Router,private token: TokenStorageService){
     this.selectedTeam ="";
     this.medicoSelec ="";
