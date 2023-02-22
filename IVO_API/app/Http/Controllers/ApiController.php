@@ -126,7 +126,6 @@ class ApiController extends Controller
 
     public function getInforme(Request $request)
     {
-
         $informes = DB::select('SELECT * FROM informes WHERE id_informe =' . $request->id_informe);
         return $informes;
     }
