@@ -36,6 +36,7 @@ import { ModificarHistorialComponent } from './historial/modificar-historial/mod
     VerHistorialComponent,
     CrearHistorialComponent,
     ModificarHistorialComponent,
+    
   ],
   imports: [
     CommonModule,
