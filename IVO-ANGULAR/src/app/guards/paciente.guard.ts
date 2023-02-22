@@ -11,7 +11,7 @@ export class PacienteGuard implements CanActivate {
   constructor(private token: TokenStorageService, private router:Router){}
   
   
-  canActivate(route: ActivatedRouteSnapshot, stat:RouterStateSnapshot): boolean{
+  canActivate(): boolean{
     
     this.currentUser = this.token.getUser();
   

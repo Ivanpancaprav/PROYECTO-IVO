@@ -100,12 +100,11 @@ export class SolicitarCitaComponent {
       this.cita.dni_medico = this.medicoSelec;
       this.cita.dni_paciente =this.dni_paciente!;
 
-      console.log(this.cita);
       this.usuarios_service.crearCita(this.cita).subscribe(
         result => {
           this.toast.success('Cita guardada con éxito','Cita');
           this.route.navigate(['/citas']);
-    
+
         },
         error =>{
           this.mensajeErr = '';

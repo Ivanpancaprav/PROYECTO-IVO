@@ -8,7 +8,7 @@ import { historias_clinicas } from '../models/historias_clinicas.model';
 import { Observable } from 'rxjs';
 import { Medico } from '../models/medico.model';
 
-const baseUrl = 'http://localhost/api/';
+const baseUrl = 'http://localhost/IVO_API/public/api/';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -42,10 +42,6 @@ export class UsuariosServiceService {
     return this.Http.get(baseUrl + 'informe/' + id);
   }
 
-  getMedicamentos() :Observable<Medicamentos[]>{
-    return this.Http.get<Medicamentos[]>(baseUrl + 'medicamentos');
-  }
-
   getInformes() {
     return this.Http.get<Informes[]>(baseUrl + 'informes');
   }
@@ -77,6 +73,24 @@ export class UsuariosServiceService {
 
   citaDelete(id_cita: number){
     return this.Http.delete(baseUrl+'borraCita/'+id_cita);
+  }
+
+  // RUTAS HISTORIAS MEDICAS
+
+  historia_create(historia: historias_clinicas):Observable<any>{
+    return this.Http.post(baseUrl+'crea_historia',historia,httpOptions);
+  }
+
+  getHistoria(n_historia: number): Observable<any>{
+    return this.Http.get(baseUrl+'ver_historia/'+n_historia);
+  }
+
+  getHistorias(dni_paciente: string): Observable<any>{
+      return this.Http.get<historias_clinicas[]>(baseUrl + 'historias/'+dni_paciente);
+  } 
+
+  get_med_in_historia(n_historia: number): Observable<any>{
+    return this.Http.get<Medicamentos[]>(baseUrl +'get_medicamento_en_historia/'+n_historia);
   }
 
 }

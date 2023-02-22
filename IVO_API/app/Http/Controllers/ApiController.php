@@ -224,10 +224,27 @@ class ApiController extends Controller
 
     public function getHistoria(Request $request){
 
-        $historia = HistoriasClinica::findOrFail($request->id_historia);
+        $historia = HistoriasClinica::findOrFail($request->id_historia); 
 
         return $historia;
     }
+
+
+    public function get_progreso_historia(Request $request){
+
+        $historia = HistoriasClinica::findOrFail($request->id_historia)->progreso; 
+
+        return $historia;
+    }
+
+    public function getHistorias(Request $request){
+        $citas = Paciente::find($request->dni)->citas()->with('medico.user')->where('fecha_fin', '<', NOW())->get();
+
+        $paciente = Paciente::findOrFail($request->dni);
+       
+        return $paciente->historiasClinicas()->with('medicos.user')->get();
+
+    } 
 
     public function borra_historia(Request $request){
 
@@ -239,14 +256,21 @@ class ApiController extends Controller
     }
 
     public function set_medicamendo_en_historia(Request $request){
+
         $medicamento = Medicamento::find($request->id_medicamento);
         $historia = HistoriasClinica::find($request->n_historia);
 
-        $medicamento->historiaClinica()->attach($historia);
+        $historia->medicamento()->attach($medicamento,array('fecha_receta'=>$request->fecha_receta,'fecha_fin'=>$request->fecha_fin,'dosis'=>$request->dosis,'comentario'=>$request->comentario));
 
-        
     }
 
+    public function get_medicamentos_en_historia(Request $request){
+        
+        $historia = HistoriasClinica::find($request->id);
+        $progreso = $historia->progreso;
+        $historia['progreso'] = $progreso; 
+        return [$historia->medicamento()->get(),'progreso'=>$progreso];
+    }
 
     // public function getImage(Request $request, $filename)
     // {

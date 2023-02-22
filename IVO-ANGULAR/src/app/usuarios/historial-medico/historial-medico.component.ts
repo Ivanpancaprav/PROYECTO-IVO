@@ -12,8 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 
   export class HistorialMedicoComponent implements OnInit  {
-    currentUser: any;
-    public op: number;
+
     public id: string | null;
     public titulo: string;
     public subtitulo: string;
@@ -21,31 +20,56 @@ import { ActivatedRoute, Router } from '@angular/router';
    
     public mensajeErr: string;
     public cargando = false;
-
+    public perfil: any;
     dtOptions: DataTables.Settings ={};
     public mostrarTabla: boolean;
    
-    constructor(private usuarios_service:UsuariosServiceService, private aRoute: ActivatedRoute, private token: TokenStorageService, private router: Router){
+    constructor(private usuarios_service:UsuariosServiceService, private aRoute: ActivatedRoute, private router: Router){
       this.mensajeErr ='';
       this.mostrarTabla = false;
-      this.id = this.aRoute.snapshot.paramMap.get('id');
-     
-      this.op = Number(this.aRoute.snapshot.paramMap.get('op'));
+      this.id = this.aRoute.snapshot.paramMap.get('dni_paciente');
+      this.txBoton = "Volver";
       this.titulo = "Consultar Empleado";
       this.subtitulo = "Datos del Empleado";
     }
     // FUNCION QUE NOS DEVUELVE EL RESULTADO DEL SERVICIO GET PACIENTES,
     // O SEA, TODOS LOS PACIENTES
-  
-    obtenerHistorias_clinicas(): void {
-  
-      this.usuarios_service.getHistorias_clinicas().subscribe(
+    
+    obtenerPaciente(dni:string) {
+
+        this.usuarios_service.getPerfil(dni).subscribe(
+    
+          result =>{
+            this.perfil = result;
+            console.log(this.perfil);
+          },
+          error =>{
+            this.mensajeErr ="";
+            if(error instanceof ErrorEvent){
+              this.mensajeErr = error.error.message;
+    
+            }else if(error.status == 404){
+              this.mensajeErr ="Error 404"
+    
+            }else{
+              this.mensajeErr ="Error status: "+error.status;
+            }
+          }
+        );
+        }
+    
+    obtenerHistorias_clinicas(dni:string): void {
+      
+      this.usuarios_service.getHistorias(dni).subscribe(
         result =>{
+
           this.historias_clinicas = result;
+          console.log (this.historias_clinicas);
           this.cargando = false;
           this.mostrarTabla = true;
         },
         error =>{
+
           this.mensajeErr="";
           this.cargando = false;
           if(error instanceof ErrorEvent){
@@ -59,23 +83,12 @@ import { ActivatedRoute, Router } from '@angular/router';
         }
       );
     }
-
-   
-
-
       ngOnInit(): void {
-        if (this.op == 1) {
-          this.titulo = "Borrar Empleado";
-          this.subtitulo = "Confirmación del borrado del Empleado";
-          
-        }
-  
-        this.obtenerHistorias_clinicas();
+
+        this.obtenerPaciente(this.id!);
+        this.obtenerHistorias_clinicas(this.id!);
        
- 
-        this.currentUser = this.token.getUser();
-        
-       
+        this.txBoton = ""
         this.dtOptions = {
           
           lengthMenu:[10],
@@ -102,9 +115,7 @@ import { ActivatedRoute, Router } from '@angular/router';
           },
           
         };
-
       }
-
 
       eliminarHistorial(id: string) {
       
@@ -133,19 +144,11 @@ import { ActivatedRoute, Router } from '@angular/router';
           );
       }
     
-  
       onSubmit() {
-        if (this.op == 1) {
+  
           this.eliminarHistorial(this.id!);
           setTimeout(() =>{this.router.navigate(['/borrarMedicamentos']);}, 500);
-        }else this.router.navigate(['/borrarMedicamentos']);
-        // console.log("VOLVEMOS AL LISTADO DE EMPLEADOS, ERA UNA CONSULTA")
       }
-
-    
-   
-   
-  
   }
   
   

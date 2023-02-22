@@ -56,7 +56,7 @@ class Paciente extends Model
      */
     public function historiasClinicas()
     {
-        return $this->hasMany('App\Models\HistoriasClinica', 'dni_paciente', 'dni_paciente');
+        return $this->hasMany('App\Models\HistoriasClinica', 'dni_paciente');
     }
     
     /**

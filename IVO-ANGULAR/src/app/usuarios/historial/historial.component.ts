@@ -10,33 +10,61 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./historial.component.css'],
 })
 export class HistorialComponent implements OnInit  {
+
   public medicamentos: any;
   public informes: any;
-  public historias_clinicas: any;
+  public historia: any;
   public txBoton: string;
+  public progreso: string;
   public mensajeErr: string;
   dtOptions: DataTables.Settings ={};
   public mostrarTabla: boolean;
   public fecha = new Date();
+  public n_historia: number;
   
-   
   constructor(private usuarios_service:UsuariosServiceService, private aRoute: ActivatedRoute){
     this.mensajeErr ='';
-    this.txBoton = "Volver"
+    this.progreso ='';
+    this.txBoton = "Volver";
+    this.n_historia = parseInt(this.aRoute.snapshot.paramMap.get('n_historia')!);
     this.mostrarTabla = false;
   }
   // FUNCION QUE NOS DEVUELVE EL RESULTADO DEL SERVICIO GET PACIENTES,
   // O SEA, TODOS LOS PACIENTES
 
-  obtenerMedicamentos(): void {
-
-    this.usuarios_service.getMedicamentos().subscribe(
+  obtenerHistoria(n_historia: number): void{
+    this.usuarios_service.getHistoria(n_historia).subscribe(
       result =>{
+
         this.medicamentos = result;
         this.mostrarTabla = true;
-      
       },
       error =>{
+
+        this.mensajeErr="";
+        if(error instanceof ErrorEvent){
+          this.mensajeErr =error.error.message;
+        }else if(error.status == 404){
+          this.mensajeErr = "Error 404"
+        }else{
+          this.mensajeErr = "Error status:"+error.status;
+        }
+        this.mostrarTabla = true;
+      }
+    );
+  }
+
+  obtenerMedicamentos(n_historia: number): void {
+
+    this.usuarios_service.get_med_in_historia(n_historia).subscribe(
+      result =>{
+
+        this.medicamentos = result[0];
+        this.progreso =result['progreso'];
+        this.mostrarTabla = true;
+      },
+      error =>{
+
         this.mensajeErr="";
         if(error instanceof ErrorEvent){
           this.mensajeErr =error.error.message;
@@ -75,35 +103,11 @@ export class HistorialComponent implements OnInit  {
     );
   }
 
-  obtenerHistorias_clinicas(): void {
-
-    this.usuarios_service.getHistorias_clinicas().subscribe(
-      result =>{
-        this.historias_clinicas = result;
-        this.mostrarTabla = true;
-      },
-      error =>{
-        this.mensajeErr="";
-        if(error instanceof ErrorEvent){
-          this.mensajeErr =error.error.message;
-        }else if(error.status == 404){
-          this.mensajeErr = "Error 404"
-        }else{
-          this.mensajeErr = "Error status:"+error.status;
-        }
-        this.mostrarTabla = true;
-      }
-    );
-  }
-
-  
-
-
     ngOnInit(): void {
 
-      this.obtenerMedicamentos();
+      this.obtenerMedicamentos(this.n_historia);
       this.obtenerInformes();
-      this.obtenerHistorias_clinicas();
+      // this.obtenerHistorias_clinicas();
       this.txBoton = "BORRAR"
 
       this.dtOptions = {
@@ -128,15 +132,9 @@ export class HistorialComponent implements OnInit  {
             previous: "Anterior"
           },
           info: "Mostrando _START_ a _END_ de _TOTAL_ registros",
-       
+  
         },
-        
       };
-
- 
- 
     }
-
-
 }
 
