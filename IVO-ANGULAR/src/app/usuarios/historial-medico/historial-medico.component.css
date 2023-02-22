@@ -51,15 +51,20 @@
     color:#010807;
     font-size:20px;
  }
+ .btn{
+    width: 58px;
+    height: 35px;
+}
  .btn-info{
-    background-color: #05575700;
+    background-color: #055757;
     border-color:#ad070700;
-    font-size:20px;
-    height: 20%;
-    width: 40px;
+    font-size:18px;
+    height: 30PX;
+    width: 30px;
     border-radius: 80%;
 
 }
+
 .bi-eye{
     color:#08382c;
     font-size:20px;
