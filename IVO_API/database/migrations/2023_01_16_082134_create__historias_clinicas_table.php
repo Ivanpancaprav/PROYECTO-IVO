@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('historias_clinicas', function (Blueprint $table) {
             $table->increments("n_historia");
             $table->enum('tratamiento',array('emergencia','consulta','hospitalizacion','medicina','oncologia','cirugia','traumatologia'));
-            $table->text("progreso");
+            $table->text("progreso")->nullable();
             $table->date("fecha_fin")->nullable();
             $table->date("fecha_inicio");
             $table->string("dni_paciente",9)->nullable();
