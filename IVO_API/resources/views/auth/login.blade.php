@@ -9,15 +9,12 @@
 <style>
 
 body {
-    background: url({{url("assets/fondo.jpg")}});
-   
-}
-
-body{
+    background: url("assets/fondo.jpg");
     width: 100%;
     height: 100vh;
     background-size: 100% 100%;
 }
+
 .contenedor{
     padding: 10px;
     width: 45%;
@@ -72,6 +69,7 @@ body{
     font-family: 'Interger';
     font-size: 20px;
 }
+
 .verde{
     background-color: #266352;
     width: 30px;
@@ -115,14 +113,7 @@ input:invalid {
                           <div class="form-group">
                             <label>Contraseña</label>
                             <input type="password" class="form-control" name="password" placeholder="Introduce tu contraseña">
-                          </div><br>
-                          <div class="form-check d-flex justify-content-between">
-                            <div>
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label">Recordar</label>
-                            </div>
-                            <a class="text-end" href="">Olvidaste la contraseña?</a>
-                        </div>
+                          </div>
                         <div class="row-2 d-flex justify-content-end my-3">
                           <button type="submit" class="acceder">Acceder ➔</button>
                         </div>
@@ -131,7 +122,7 @@ input:invalid {
                  
               </div>
               <div class="d-flex flex-row mb-2 justify-content-center mt-5">
-                <div class="cuenta">No tienes una cuenta?</div><a href="#"> Registrate</a>
+                <div class="cuenta">No tienes una cuenta?</div><a href="registrar"> Registrate</a>
               </div>
               <br>  
           </div>

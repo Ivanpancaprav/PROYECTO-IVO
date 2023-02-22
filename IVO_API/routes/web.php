@@ -21,8 +21,7 @@ use App\Htttp\Controllers\MedicamentosController;
 */
 
 //RUTAS LOGIN
-Route::view('/', 'auth.login')->name('logear');
-
+Route::view('/','auth.login')->name('logear');
 Route::post('/login-usuario', [AuthController::class, 'login'])->name('login');
 Route::view('/registrar', 'auth.registrar');
 Route::post('/registro', [AuthController::class, 'registro'])->name('registro');
@@ -58,7 +57,6 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     //*****RUTAS IMAGENES *****//
     
     Route::get('/images/{filename}', function ($filename)
-
     {
     $path = storage_path('app/images/' . $filename);
 
