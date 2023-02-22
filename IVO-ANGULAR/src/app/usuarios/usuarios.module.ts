@@ -33,12 +33,7 @@ import { CrearHistoriaClinicaComponent } from './crear-historia-clinica/crear-hi
     SolicitarCitaComponent,
     GestionarCitaMedComponent,
     VerHistorialComponent,
-<<<<<<< HEAD
-    CrearHistorialComponent,
-    ModificarHistorialComponent,
-=======
     CrearHistoriaClinicaComponent,
->>>>>>> a5e7de56724c359620c89cb1a4c4c20b8df6f8ca
     
   ],
   imports: [

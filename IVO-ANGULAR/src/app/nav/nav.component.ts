@@ -23,6 +23,7 @@ export class NavComponent implements OnInit {
   protected medico: boolean;
   protected paciente: boolean;
   protected email: string;
+  protected dni: string;
   public styles = {};
 
 
@@ -30,6 +31,7 @@ export class NavComponent implements OnInit {
     this.medico = false;
     this.paciente = false;
     this.email = "";
+    this.dni ="";
   }
 
   ngOnInit(): void {
@@ -43,7 +45,7 @@ export class NavComponent implements OnInit {
 
     if (this.isLoggedIn) {
       const user = this.tokenStorageService.getUser();
-
+      this.dni = user.succes.dni;
       this.email = user.success.email;
 
       this.nombre = user.nombre;

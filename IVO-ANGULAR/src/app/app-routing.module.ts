@@ -16,11 +16,7 @@ import { PacienteGuard } from './guards/paciente.guard';
 import { historias_clinicas } from './models/historias_clinicas.model';
 import { PerfilComponent } from './usuarios/perfil/perfil.component';
 import { VerHistorialComponent } from './usuarios/ver-historial/ver-historial.component';
-<<<<<<< HEAD
-import { CrearHistorialComponent } from './usuarios/historial/crear-historial/crear-historial.component';
-=======
 import { CrearHistoriaClinicaComponent } from './usuarios/crear-historia-clinica/crear-historia-clinica.component';
->>>>>>> a5e7de56724c359620c89cb1a4c4c20b8df6f8ca
 
 const routes: Routes = [
   {
@@ -72,7 +68,7 @@ const routes: Routes = [
     component: VerHistorialComponent
   },
   {
-    path:'historialMedico/:dni_paciente',
+    path:'historialMedico',
     component: HistorialMedicoComponent
   },
   {
@@ -88,16 +84,12 @@ const routes: Routes = [
     component: historias_clinicas
   },
   {
-    path:'crearhistoria',
-    component: CrearHistoriaClinicaComponent
-  },
-  {
     path: 'pacientes',
     component: PacientesComponent, canActivate: [PacienteGuard],
   },
   {
     path: 'crearHistoria',
-    component: CrearHistorialComponent, canActivate: [PacienteGuard],
+    component:CrearHistoriaClinicaComponent,
   },
 
 ];

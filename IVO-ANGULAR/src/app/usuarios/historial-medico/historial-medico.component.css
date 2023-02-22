@@ -34,11 +34,7 @@ table{
 }
 
 #encabezado2 {
-<<<<<<< HEAD
  
-=======
-    background: linear-gradient(200deg, rgba(233, 233, 233, 0.932292) -20%, #6BB0BF );
->>>>>>> a5e7de56724c359620c89cb1a4c4c20b8df6f8ca
     color: #020000;
     border-radius: 15px;
    
@@ -127,7 +123,6 @@ table{
 
 
 
-<<<<<<< HEAD
 
 .botonVerPaciente {
     font-size: 20px;
@@ -203,34 +198,3 @@ table{
     }
   }
   
-=======
-.btn-danger{
-    background-color: #ad070700;
-    border-color:#ad070700;
-    height: 20%;
-    width: 40px;
-    border-radius: 80%;
-}
-.bi-trash3{
-    color:#010807;
-    font-size:20px;
- }
- .btn{
-    width: 58px;
-    height: 35px;
-}
- .btn-info{
-    background-color: #055757;
-    border-color:#ad070700;
-    font-size:18px;
-    height: 30PX;
-    width: 30px;
-    border-radius: 80%;
-
-}
-
-.bi-eye{
-    color:#08382c;
-    font-size:20px;
-}
->>>>>>> a5e7de56724c359620c89cb1a4c4c20b8df6f8ca
