@@ -2,6 +2,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { UsuariosServiceService } from '../usuarios-service.service';
 import { ActivatedRoute } from '@angular/router';
+import { TokenStorageService } from 'src/app/_services/token-storage.service';
 
 
 @Component({
@@ -20,10 +21,16 @@ export class HistorialComponent implements OnInit  {
   public mostrarTabla: boolean;
   public fecha = new Date();
   public n_historia: number;
+  public medico: boolean;
   
-  constructor(private usuarios_service:UsuariosServiceService, private aRoute: ActivatedRoute){
+  constructor(private usuarios_service:UsuariosServiceService, private aRoute: ActivatedRoute, private token: TokenStorageService){
     this.mensajeErr ='';
     this.progreso ='';
+  this.medico = false
+
+  if(this.token.getUser().success.role == 'medico'){
+    this.medico = true;
+  }
     
     this.n_historia = parseInt(this.aRoute.snapshot.paramMap.get('n_historia')!);
     this.mostrarTabla = false;
@@ -31,28 +38,7 @@ export class HistorialComponent implements OnInit  {
   // FUNCION QUE NOS DEVUELVE EL RESULTADO DEL SERVICIO GET PACIENTES,
   // O SEA, TODOS LOS PACIENTES
 
-  obtenerHistoria(n_historia: number): void{
-    this.usuarios_service.getHistoria(n_historia).subscribe(
-      result =>{
-
-        this.historia = result;
-        this.mostrarTabla = true;
-      },
-      error =>{
-
-        this.mensajeErr="";
-        if(error instanceof ErrorEvent){
-          this.mensajeErr =error.error.message;
-        }else if(error.status == 404){
-          this.mensajeErr = "Error 404"
-        }else{
-          this.mensajeErr = "Error status:"+error.status;
-        }
-        this.mostrarTabla = true;
-      }
-    );
-  }
-
+ 
   obtenerMedicamentos(n_historia: number): void {
 
     this.usuarios_service.get_med_in_historia(n_historia).subscribe(
@@ -61,6 +47,7 @@ export class HistorialComponent implements OnInit  {
         this.medicamentos = result[0];
         this.progreso =result['progreso'];
         this.mostrarTabla = true;
+
       },
       error =>{
 
@@ -107,10 +94,7 @@ export class HistorialComponent implements OnInit  {
 
       this.obtenerMedicamentos(this.n_historia);
       this.obtenerInformes();
-      this.obtenerHistoria(this.n_historia);
-      // this.obtenerHistorias_clinicas();
   
-
       this.dtOptions = {
         
         lengthMenu:[10],

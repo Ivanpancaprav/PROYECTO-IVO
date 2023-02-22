@@ -68,7 +68,7 @@ const routes: Routes = [
     component: VerHistorialComponent
   },
   {
-    path:'historialMedico',
+    path:'historialMedico/:dni_paciente',
     component: HistorialMedicoComponent
   },
   {
@@ -78,10 +78,6 @@ const routes: Routes = [
   {
     path:'Informes',
     component: Informes
-  },
-  {
-    path:'Historias_clinicas',
-    component: historias_clinicas
   },
   {
     path: 'pacientes',

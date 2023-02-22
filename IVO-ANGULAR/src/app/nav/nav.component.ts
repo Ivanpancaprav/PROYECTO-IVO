@@ -37,15 +37,10 @@ export class NavComponent implements OnInit {
   ngOnInit(): void {
     this.isLoggedIn = !!this.tokenStorageService.getToken();
 
-    const currentRoute = this.route.snapshot.url.join('/');
-
-  if (currentRoute == 'pacientes') {
-    this.styles = { 'background-color': 'blue' };
-  }
 
     if (this.isLoggedIn) {
       const user = this.tokenStorageService.getUser();
-      this.dni = user.succes.dni;
+      this.dni = user.success.dni;
       this.email = user.success.email;
 
       this.nombre = user.nombre;
