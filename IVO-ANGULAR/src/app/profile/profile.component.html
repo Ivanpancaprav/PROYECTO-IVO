@@ -52,7 +52,7 @@
           </div>
           <!-- Profile picture image-->
           <div *ngIf="currentUser.success.foto">
-            <img class="rounded-circle img-account-profile zoom" src="">
+            <img class="rounded-circle img-account-profile zoom" src="/assets/images/perfil_falso.webp">
           </div>
           <!-- Profile picture help block-->
           <br><br>
@@ -123,15 +123,6 @@
                 <label class="mb-1">Fecha de Nacimiento</label>
                 <input class="form-control shadow text-uppercase negrita" type="text"
                   value="{{ currentUser.success.fecha_nacimiento}}" disabled>
-              </div>
-            </div>
-            <div class="row gx-3 mb-3">
-              <!-- Save changes button-->
-              <div class="col-md-6">
-                <button class="btn btn-primary" type="button">Modificar</button>
-              </div>
-              <div class="col-md-6">
-                <button class="btn btn-primary" type="button" routerLink="/pacientes">Volver</button>
               </div>
             </div>
           </form>

@@ -13,24 +13,28 @@
         </li>
         <div *ngIf="paciente">
           <li class="nav-item mx-5">
-            <a *ngIf="paciente" class="nav-link" routerLink="/historialMedico">Historial Medico</a>
-            <a *ngIf="medico" [ngStyle]="styles" class="nav-link" routerLink="/pacientes">Pacientes</a>
+            <a class="nav-link" [routerLink]="['/historialMedico']">Historial Medico</a>
           </li>
         </div>
-        <li class="nav-item mx-5">
-          <a class="nav-link" routerLink="/citas">Citas</a>
-        </li>
-        <div *ngIf="!paciente && !medico">
+        <div *ngIf="paciente">
           <li class="nav-item mx-5">
-            <a class="nav-link" routerLink="/usuarios">Usuarios</a>
+            <a class="nav-link" routerLink="/citas">Citas</a>
+          </li>
+        </div>
+        <div *ngIf="medico">
+          <li class="nav-item mx-5">
+            <a class="nav-link" routerLink="/pacientes">Pacientes</a>
+          </li>
+        </div>
+        <div *ngIf="medico">
+          <li class="nav-item mx-5">
+            <a class="nav-link" routerLink="/citas">Mis citas</a>
           </li>
         </div>
         <li class="nav-item mx-5">
           <a routerLink="/perfil" class="nav-link">Mi Perfil</a>
-
         </li>
       </ul>
-
       <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
         <li class="">
           <a href="/login" class="button-48" routerLink="login">Login</a>
