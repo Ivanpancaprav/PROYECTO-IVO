@@ -44,7 +44,7 @@
               <tr >
 
                 <th scope="col"><H6>Tramiento</H6></th>
-                <th scope="col"><H6>Medico</H6></th>
+                <!-- <th scope="col"><H6>Medico</H6></th> -->
                 <th scope="col"><H6>Fecha</H6></th>
                 <th scope="col"><H6>Fecha Fin</H6></th>
                 <td style="width: 170px;"></td>
@@ -57,15 +57,15 @@
               <td>a</td>
                <td>a</td> -->
                <td>{{ historia_clinica.tratamiento  }}</td>
-               <td>{{historia_clinica.medicos[0].user.nombre}}</td>
+               <!-- <td>{{historia_clinica.medicos[0].user.nombre}}</td> -->
                <td>{{ historia_clinica.fecha_inicio | date:'dd/MM/YY' }}</td>
                <td>{{ historia_clinica.fecha_fin | date:'dd/MM/YY' }}</td>
          
               <td> 
                 <div class="my-3 text-center">
-                  <a class="btn btn-sm btn-ver ms-1" data-bs-toggle="tooltip" ><i class="bi bi-eye" routerLink="/historial"></i></a>
-                  <a class="btn btn-sm btn-warning ms-1" data-bs-toggle="tooltip" [routerLink]="['/historial',historia_clinica.n_historia]" >
-                    Ver historial</a>
+                
+                  <a class="btn btn-sm btn-ver ms-1" data-bs-toggle="tooltip" [routerLink]="['/historial',historia_clinica.n_historia]"  ><i class="bi bi-eye" routerLink="/historial"></i></a>
+
                           &nbsp;&nbsp;&nbsp;&nbsp;
                         
                             <a class="btn btn-sm btn-danger ms-1" data-bs-toggle="tooltip">
@@ -87,7 +87,7 @@
               <tr>
                 
                 <th scope="col"><H6>Especialidad</H6></th>
-                <th scope="col"><H6>Medico</H6></th>
+                <!-- <th scope="col"><H6>Medico</H6></th> -->
                 <th scope="col"><H6>Fecha</H6></th>
                 <th scope="col"><H6>Fecha Fin</H6></th>
                 <td style="width: 170px;"></td>
@@ -97,15 +97,14 @@
             <tbody>
               <tr *ngFor="let historia_clinica of historias_clinicas" style="text-align: center;">
                 <td>{{ historia_clinica.tratamiento }}</td>
-                <td>{{historia_clinica.medicos[0].user.nombre}}</td>
+                <!-- <td>{{historia_clinica.medicos[0].user.nombre}}</td> -->
                 <td>{{ historia_clinica.fecha_inicio | date:'dd/MM/YY' }}</td>
                 <td>{{ historia_clinica.fecha_fin  | date:'dd/MM/YY' }}</td>
               
                 <td> 
                   <div class="my-3 text-center">
-                    <a class="btn btn-sm btn-ver ms-1" data-bs-toggle="tooltip" ><i class="bi bi-eye" routerLink="/historial"></i></a>
-                    <a class="btn btn-sm btn-warning ms-1" data-bs-toggle="tooltip" [routerLink]="['/historial',historia_clinica.n_historia]" >
-                    Ver historial</a>
+                    <a class="btn btn-sm btn-ver ms-1" data-bs-toggle="tooltip" [routerLink]="['/historial',historia_clinica.n_historia]"  ><i class="bi bi-eye" routerLink="/historial"></i></a>
+                  
                             &nbsp;&nbsp;&nbsp;&nbsp;
                   
 

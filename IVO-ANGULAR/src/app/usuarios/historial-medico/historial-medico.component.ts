@@ -28,7 +28,7 @@ import { ActivatedRoute, Router } from '@angular/router';
       this.mensajeErr ='';
       this.mostrarTabla = false;
       this.id = this.aRoute.snapshot.paramMap.get('dni_paciente');
-      this.txBoton = "Volver";
+ 
       this.titulo = "Consultar Empleado";
       this.subtitulo = "Datos del Empleado";
     }
@@ -88,7 +88,6 @@ import { ActivatedRoute, Router } from '@angular/router';
         this.obtenerPaciente(this.id!);
         this.obtenerHistorias_clinicas(this.id!);
        
-        this.txBoton = ""
         this.dtOptions = {
           
           lengthMenu:[10],
