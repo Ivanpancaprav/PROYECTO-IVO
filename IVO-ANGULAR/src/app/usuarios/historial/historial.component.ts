@@ -14,7 +14,6 @@ export class HistorialComponent implements OnInit  {
   public medicamentos: any;
   public informes: any;
   public historia: any;
-  public txBoton: string;
   public progreso: string;
   public mensajeErr: string;
   dtOptions: DataTables.Settings ={};
@@ -25,7 +24,7 @@ export class HistorialComponent implements OnInit  {
   constructor(private usuarios_service:UsuariosServiceService, private aRoute: ActivatedRoute){
     this.mensajeErr ='';
     this.progreso ='';
-    this.txBoton = "Volver";
+    
     this.n_historia = parseInt(this.aRoute.snapshot.paramMap.get('n_historia')!);
     this.mostrarTabla = false;
   }
@@ -36,7 +35,7 @@ export class HistorialComponent implements OnInit  {
     this.usuarios_service.getHistoria(n_historia).subscribe(
       result =>{
 
-        this.medicamentos = result;
+        this.historia = result;
         this.mostrarTabla = true;
       },
       error =>{
@@ -103,12 +102,14 @@ export class HistorialComponent implements OnInit  {
     );
   }
 
+  
     ngOnInit(): void {
 
       this.obtenerMedicamentos(this.n_historia);
       this.obtenerInformes();
+      this.obtenerHistoria(this.n_historia);
       // this.obtenerHistorias_clinicas();
-      this.txBoton = "BORRAR"
+  
 
       this.dtOptions = {
         

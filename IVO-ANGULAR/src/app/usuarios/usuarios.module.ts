@@ -21,6 +21,7 @@ import {
 import { GestionarCitaMedComponent } from './gestionar-cita-med/gestionar-cita-med.component';
 import { BrowserModule } from "@angular/platform-browser";
 import { VerHistorialComponent } from './ver-historial/ver-historial.component';
+import { CrearHistoriaClinicaComponent } from './crear-historia-clinica/crear-historia-clinica.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { VerHistorialComponent } from './ver-historial/ver-historial.component';
     SolicitarCitaComponent,
     GestionarCitaMedComponent,
     VerHistorialComponent,
+    CrearHistoriaClinicaComponent,
     
   ],
   imports: [

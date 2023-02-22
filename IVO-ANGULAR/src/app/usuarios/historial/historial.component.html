@@ -46,10 +46,10 @@
             </tr>
           </thead>
           <tr style="text-align: center;">
-            <td>{{progreso}}</td>
+            <tr *ngFor="let historia_clinica of historia" style="text-align: center;">
+ 
+              <td>{{ historia_clinica.progreso }}</td>
             <td> 
-          
-            </td>
           </tr> 
         </table>
       </div>
