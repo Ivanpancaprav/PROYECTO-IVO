@@ -12,8 +12,6 @@
           <!-- Profile picture help block-->
           <br><br>
           <div class="big font-italic mb-4 text-uppercase">{{ perfil.role }}</div>
-          <!-- Profile picture upload button-->
-          <button class="btn btn-primary" type="button">Editar imagen</button>
         </div>
       </div>
     </div>
@@ -82,10 +80,10 @@
             </div>
             <div class="row gx-3 mb-3">
               <div class="col-md-10">
-                <button class="btn btn-primary" type="button" [routerLink]="['/historialMedico',perfil.dni]">Ver historial</button>
+                <button class="botonPrevia" type="button" [routerLink]="['/historialMedico',perfil.dni]">Historial</button>
               </div>
               <div class="col-md-2">
-                <button class="btn btn-primary" type="button" routerLink="/pacientes">Volver</button>
+                <button class="botonPrevia" type="button" routerLink="/pacientes">Volver</button>
               </div>
             </div>
           </form>
