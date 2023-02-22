@@ -9,9 +9,13 @@
   >
     <div class="row"><h3>Bienvenido, {{ currentUser.success.nombre }}</h3></div>
     <div class="row d-flex mt-5 align-items-center">
-      <div class="botonInicio d-flex pb-5 align-items-center justify-content-between flex-column" routerLink="/citas">
+      <div *ngIf="paciente && medico"class="botonInicio d-flex pb-5 align-items-center justify-content-between flex-column" routerLink="/citas">
         <i class="bi-calendar event" style="font-size: 80px;"></i>
         <h4>Mis Citas</h4>
+      </div>
+      <div *ngIf="!paciente && !medico"class="botonInicio d-flex pb-5 align-items-center justify-content-between flex-column" routerLink="/usuarios">
+        <i class="bi-people-fill" style="font-size: 80px;"></i>
+        <h4>Usuarios</h4>
       </div>
       <div *ngIf="paciente" class="botonInicio d-flex pb-5 align-items-center justify-content-between flex-column"
          [routerLink]="['/solicitarCitas',currentUser.success.dni]">
