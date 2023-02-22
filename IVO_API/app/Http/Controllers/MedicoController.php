@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Medico;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class MedicoController extends Controller
 {
@@ -69,6 +70,7 @@ class MedicoController extends Controller
         // Subir imagenes
         $image = date("d_m_Y_h_i_s")."_".$request->foto->getClientOriginalName();
         $request->file('foto')->storeAs('./images',$image);
+        $request->foto->move('./public/app/images',$image);
         
         return redirect()->route('medicos.index')
             ->with('success', 'medico created successfully.');
