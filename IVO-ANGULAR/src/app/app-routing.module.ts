@@ -16,6 +16,7 @@ import { PacienteGuard } from './guards/paciente.guard';
 import { historias_clinicas } from './models/historias_clinicas.model';
 import { PerfilComponent } from './usuarios/perfil/perfil.component';
 import { VerHistorialComponent } from './usuarios/ver-historial/ver-historial.component';
+import { CrearHistoriaClinicaComponent } from './usuarios/crear-historia-clinica/crear-historia-clinica.component';
 
 const routes: Routes = [
   {
@@ -81,6 +82,10 @@ const routes: Routes = [
   {
     path:'Historias_clinicas',
     component: historias_clinicas
+  },
+  {
+    path:'crearhistoria',
+    component: CrearHistoriaClinicaComponent
   },
   {
     path: 'pacientes',
