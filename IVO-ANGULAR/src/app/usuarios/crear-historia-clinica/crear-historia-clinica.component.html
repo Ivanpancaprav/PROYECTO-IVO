@@ -11,7 +11,6 @@
                           <fieldset>
                             <div class="d-flex flex-column">
                               <label for="especialidad" class="form-label">Tratamiento </label>
-                              <span style="color:red" ></span>
                               <select id="especialidad" name="especialidad" formControlName="especialidad"   class="form-select form-select-lg mb-4" aria-label="Ejemplo de .form-select-lg" required>
                                   <option value="emergencia">emergencia</option>
                                   <option value="consulta">consulta</option>
@@ -22,35 +21,16 @@
                                   <option value="traumatologia">traumatologia</option>
                               </select>
                             </div>
-                              <label for="dni_medico" class="form-label">Medico</label>
+                            
+                           
+                              <label for="dni_medico" class="form-label">Fecha inicio</label>
                               <select id="dni_medico" name="dni_medico" formControlName="dni_medico" class="form-select form-select-lg"  aria-label="Ejemplo de .form-select-lg" required>
-                                  <option selected aria-required="true">Escoja medico para atenderle</option>
-                                  <option ></option>
-                              </select>
-                              <span style="color:red" >(Debes seleccionar un medico)</span>
-                              <br>
-                              <label for="hora" class="form-label">Horas disponibles</label>
-                              <select id="hora" name="hora" class="form-select form-select-lg" aria-label="Ejemplo de .form-select-lg" formControlName="hora"  required>
-                                <option value="12:00:00">12:00</option>
-                                <option value="13:00:00">13:00</option>
-                                <option value="14:00:00">14:00</option>
-                                <option value="15:00:00">15:00</option>
-                                <option value="16:00:00">16:00</option>
-                                <option value="17:00:00">17:00</option>
-                                <option value="18:00:00">18:00</option>
-                                <option value="19:00:00">19:00</option>
-                                <option value="20:00:00">20:00</option>
-                                <option value="21:00:00">21:00</option>
-                                <option value="21:30:00">21:30</option>
-                            </select>
-                            <span style="color:red" >(Debes seleccionar una hora)</span>
-    
-                            <br>
+                                <input type="time">    </select>
+
+                              <label for="dni_medico" class="form-label">Fecha Fin</label>
+                              <select id="dni_medico" name="dni_medico" formControlName="dni_medico" class="form-select form-select-lg"  aria-label="Ejemplo de .form-select-lg" required>
+                                <input type="time">    </select>
                             <div class="d-flex flex-column">
-                            <label for="descripcion" class="form-label">Descripcion</label>
-                            <textarea name="Text1" cols="40" rows="5"  formControlName="descripcion" name="descripcion" id="descripcion" required></textarea>
-                    
-                            <span style="color:red" >(Debes poner una descripcion)</span>
     
                             <button type="submit"  id ="botonConfirmar" class="botonPrevia"     >Confirmar </button>  &nbsp;
                             </div>
