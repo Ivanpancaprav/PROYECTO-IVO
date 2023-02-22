@@ -16,10 +16,10 @@
             <a *ngIf="paciente" class="nav-link" routerLink="/historialMedico">Historial Medico</a>
             <a *ngIf="medico" [ngStyle]="styles" class="nav-link" routerLink="/pacientes">Pacientes</a>
           </li>
-          <li class="nav-item mx-5">
-            <a class="nav-link" routerLink="/citas">Citas</a>
-          </li>
         </div>
+        <li class="nav-item mx-5">
+          <a class="nav-link" routerLink="/citas">Citas</a>
+        </li>
         <div *ngIf="!paciente && !medico">
           <li class="nav-item mx-5">
             <a class="nav-link" routerLink="/usuarios">Usuarios</a>
