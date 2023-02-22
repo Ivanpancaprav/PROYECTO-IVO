@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Navigate } from 'igniteui-angular/lib/drop-down/drop-down.common';
 import { AuthService } from '../_services/auth.service';
 import { TokenStorageService } from '../_services/token-storage.service';
 import { Router } from '@angular/router';
@@ -24,7 +23,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
-      this.roles = this.tokenStorage.getUser().roles;
+      this.roles = this.tokenStorage.getUser().role;
     }
   }
 
