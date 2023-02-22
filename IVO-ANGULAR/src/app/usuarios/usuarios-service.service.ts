@@ -42,10 +42,6 @@ export class UsuariosServiceService {
     return this.Http.get(baseUrl + 'informe/' + id);
   }
 
-  getMedicamentos() :Observable<Medicamentos[]>{
-    return this.Http.get<Medicamentos[]>(baseUrl + 'medicamentos');
-  }
-
   getInformes() {
     return this.Http.get<Informes[]>(baseUrl + 'informes');
   }
@@ -54,8 +50,8 @@ export class UsuariosServiceService {
     return this.Http.get<historias_clinicas[]>(baseUrl + 'historiasclinicas');
   }
 
-  borrarHistorias_clinicas() {
-    return this.Http.delete<historias_clinicas[]>(baseUrl + 'historiasclinicas');
+  borrarHistorias_clinicas(id: string): Observable<any> {
+    return this.Http.delete(baseUrl + 'borrarHistoriasClinicas/'+id);
   }
   crearCita(cita: Citas): Observable<any>{
     return this.Http.post(baseUrl +'crea_cita',cita,httpOptions);
@@ -77,6 +73,24 @@ export class UsuariosServiceService {
 
   citaDelete(id_cita: number){
     return this.Http.delete(baseUrl+'borraCita/'+id_cita);
+  }
+
+  // RUTAS HISTORIAS MEDICAS
+
+  historia_create(historia: historias_clinicas):Observable<any>{
+    return this.Http.post(baseUrl+'crea_historia',historia,httpOptions);
+  }
+
+  getHistoria(n_historia: number): Observable<any>{
+    return this.Http.get(baseUrl+'ver_historia/'+n_historia);
+  }
+
+  getHistorias(dni_paciente: string): Observable<any>{
+      return this.Http.get<historias_clinicas[]>(baseUrl + 'historias/'+dni_paciente);
+  } 
+
+  get_med_in_historia(n_historia: number): Observable<any>{
+    return this.Http.get<Medicamentos[]>(baseUrl +'get_medicamento_en_historia/'+n_historia);
   }
 
 }

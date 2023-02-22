@@ -1,11 +1,11 @@
-export class historias_clinicas{
-    
-    n_historia?: BigInt;
-    tratamiento?: string;
-    progreso?: string;
-    fecha_fin?:BigInt;
-    fecha_inicio?:BigInt;
-    dni_paciente?:BigInt;
-    dni_medico?:BigInt;
-
+export class historias_clinicas {
+  constructor(
+    public n_historia?: number,
+    public tratamiento?: string,
+    public progreso?: string,
+    public fecha_fin?: Date,
+    public fecha_inicio?: Date,
+    public dni_paciente?: BigInt,
+    public dni_medico?: BigInt
+  ) {}
 }

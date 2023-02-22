@@ -27,6 +27,7 @@ use Illuminate\Database\Eloquent\Model;
 class HistoriasClinica extends Model
 {
     protected $table= 'historias_clinicas';
+   
     protected $primaryKey ='n_historia';
     protected $dates =[
         'fecha_fin',
@@ -63,10 +64,9 @@ class HistoriasClinica extends Model
      */
     public function medicamento()
     {
-        return $this->belongsToMany(Medicamento::class,'contiene_medicamentos','n_historia','id_medicamento');
-
+        return $this->belongsToMany(Medicamento::class,'contiene_medicamentos','n_historia','id_medicamento')->withPivot('fecha_fin','fecha_receta','dosis','comentario');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -80,7 +80,7 @@ class HistoriasClinica extends Model
      */
     public function medicos()
     {
-        return $this->belongsToMany('App\Models\Medico');
+        return $this->belongsToMany(Medico::class,'gestion_historias','n_historia','dni_medico');
     }
     
     /**

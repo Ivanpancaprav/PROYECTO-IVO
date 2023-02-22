@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: mysql
--- Tiempo de generación: 20-02-2023 a las 07:48:45
+-- Tiempo de generación: 22-02-2023 a las 07:17:26
 -- Versión del servidor: 8.0.32
 -- Versión de PHP: 8.0.24
 
@@ -49,10 +49,21 @@ CREATE TABLE `contiene_medicamentos` (
   `id_contiene_medicamentos` bigint UNSIGNED NOT NULL,
   `n_historia` int UNSIGNED NOT NULL,
   `id_medicamento` int UNSIGNED NOT NULL,
-  `fecha_receta` date NOT NULL,
+  `dosis` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `fecha_receta` date DEFAULT NULL,
+  `fecha_fin` date DEFAULT NULL,
+  `comentario` text COLLATE utf8mb4_unicode_ci,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `contiene_medicamentos`
+--
+
+INSERT INTO `contiene_medicamentos` (`id_contiene_medicamentos`, `n_historia`, `id_medicamento`, `dosis`, `fecha_receta`, `fecha_fin`, `comentario`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, '2 pastillas', '2023-02-21', '2024-02-21', NULL, NULL, NULL),
+(2, 1, 1, '2 pastillas', '2023-02-21', '2024-02-21', 'las pastillas es 1 cada 8 hora', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -80,10 +91,16 @@ CREATE TABLE `gestion_historias` (
   `n_gestion_historias` bigint UNSIGNED NOT NULL,
   `dni_medico` varchar(9) COLLATE utf8mb4_unicode_ci NOT NULL,
   `n_historia` int UNSIGNED NOT NULL,
-  `fecha_modificacion` date NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `gestion_historias`
+--
+
+INSERT INTO `gestion_historias` (`n_gestion_historias`, `dni_medico`, `n_historia`, `created_at`, `updated_at`) VALUES
+(1, 'medicos', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -93,15 +110,21 @@ CREATE TABLE `gestion_historias` (
 
 CREATE TABLE `historias_clinicas` (
   `n_historia` int UNSIGNED NOT NULL,
-  `tratamiento` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tratamiento` enum('emergencia','consulta','hospitalizacion','medicina','oncologia','cirugia','traumatologia') COLLATE utf8mb4_unicode_ci NOT NULL,
   `progreso` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `fecha_fin` date NOT NULL,
+  `fecha_fin` date DEFAULT NULL,
   `fecha_inicio` date NOT NULL,
-  `dni_paciente` varchar(9) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `dni_medico` varchar(9) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `dni_paciente` varchar(9) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `historias_clinicas`
+--
+
+INSERT INTO `historias_clinicas` (`n_historia`, `tratamiento`, `progreso`, `fecha_fin`, `fecha_inicio`, `dni_paciente`, `created_at`, `updated_at`) VALUES
+(1, 'consulta', 'a morido', NULL, '2023-02-15', 'pacientes', '2023-02-21 12:20:57', '2023-02-21 12:20:57');
 
 -- --------------------------------------------------------
 
@@ -128,13 +151,19 @@ CREATE TABLE `informes` (
 
 CREATE TABLE `medicamentos` (
   `id_medicamento` int UNSIGNED NOT NULL,
-  `fecha_creacion` date NOT NULL,
   `nombre` varchar(55) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `dosis` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `comentarios` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cantidad` int NOT NULL,
+  `fecha_creacion` date NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `medicamentos`
+--
+
+INSERT INTO `medicamentos` (`id_medicamento`, `nombre`, `cantidad`, `fecha_creacion`, `created_at`, `updated_at`) VALUES
+(1, 'diazpeman', 10, '1999-11-19', '2023-02-21 12:19:54', '2023-02-21 12:19:54');
 
 -- --------------------------------------------------------
 
@@ -170,8 +199,8 @@ CREATE TABLE `medicos` (
 --
 
 INSERT INTO `medicos` (`dni_medico`, `especialidad`, `created_at`, `updated_at`, `n_colegiado`) VALUES
-('medico', 'medico', '2023-02-20 07:47:33', '2023-02-20 07:47:33', '5623'),
-('radiologo', 'radiologo', '2023-02-20 07:47:54', '2023-02-20 07:47:54', '6613');
+('medico', 'medico', '2023-02-21 12:38:16', '2023-02-21 12:38:16', '1411'),
+('medicos', 'medico', '2023-02-21 12:20:18', '2023-02-21 12:20:18', '21313');
 
 -- --------------------------------------------------------
 
@@ -228,6 +257,15 @@ CREATE TABLE `oauth_access_tokens` (
   `expires_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Volcado de datos para la tabla `oauth_access_tokens`
+--
+
+INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes`, `revoked`, `created_at`, `updated_at`, `expires_at`) VALUES
+('18360abf10259f619c166b3f9549d970902bb739e728dcdddbb257ac888e12ede6bf8b7b304dafb6', 'medico', 1, 'MyApp', '[]', 0, '2023-02-21 12:52:03', '2023-02-21 12:52:03', '2024-02-21 12:52:03'),
+('8ced1afe45dd9981fd95a026a59fbe208bb7519ef0ff9c7f1f08f172a42b7f7cbf84983e41337cb6', 'medico', 1, 'MyApp', '[]', 0, '2023-02-22 07:13:54', '2023-02-22 07:13:54', '2024-02-22 07:13:54'),
+('a3c715e4e17e364711182650dd494f56a64d787480e4db0e70f5ec12d727b4f40de63eb8be2b3e0c', 'medico', 1, 'MyApp', '[]', 0, '2023-02-21 12:40:06', '2023-02-21 12:40:06', '2024-02-21 12:40:06');
+
 -- --------------------------------------------------------
 
 --
@@ -268,8 +306,8 @@ CREATE TABLE `oauth_clients` (
 --
 
 INSERT INTO `oauth_clients` (`id`, `user_id`, `name`, `secret`, `provider`, `redirect`, `personal_access_client`, `password_client`, `revoked`, `created_at`, `updated_at`) VALUES
-(1, NULL, 'Laravel Personal Access Client', 'EvZDryHuX176ZPXuaRcSVJQMEnYNQRZcIeotN6BK', NULL, 'http://localhost', 1, 0, 0, '2023-02-20 07:45:21', '2023-02-20 07:45:21'),
-(2, NULL, 'Laravel Password Grant Client', 'EbKiB4aE5AHWSoiCjNlJ3kuWVXtEesyxG8wWYK2F', 'users', 'http://localhost', 0, 1, 0, '2023-02-20 07:45:21', '2023-02-20 07:45:21');
+(1, NULL, 'Laravel Personal Access Client', 'ejl26KpHtJIOYO4fekLqLyx9vyon9XbmIgU0NUKo', NULL, 'http://localhost', 1, 0, 0, '2023-02-21 12:40:03', '2023-02-21 12:40:03'),
+(2, NULL, 'Laravel Password Grant Client', 'XLpIOTlfO7o6ymSLwihT1QcE4Jyxh17j6yJAlu7L', 'users', 'http://localhost', 0, 1, 0, '2023-02-21 12:40:03', '2023-02-21 12:40:03');
 
 -- --------------------------------------------------------
 
@@ -289,7 +327,7 @@ CREATE TABLE `oauth_personal_access_clients` (
 --
 
 INSERT INTO `oauth_personal_access_clients` (`id`, `client_id`, `created_at`, `updated_at`) VALUES
-(1, 1, '2023-02-20 07:45:21', '2023-02-20 07:45:21');
+(1, 1, '2023-02-21 12:40:03', '2023-02-21 12:40:03');
 
 -- --------------------------------------------------------
 
@@ -323,8 +361,7 @@ CREATE TABLE `pacientes` (
 --
 
 INSERT INTO `pacientes` (`dni_paciente`, `n_seguridad_social`, `n_historial_clinico`, `created_at`, `updated_at`) VALUES
-('paciente', 6234, 2523, '2023-02-20 07:46:52', '2023-02-20 07:46:52'),
-('paciente1', 53622, 25233, '2023-02-20 07:47:14', '2023-02-20 07:47:14');
+('pacientes', 123123, 12312, '2023-02-21 12:19:38', '2023-02-21 12:19:38');
 
 -- --------------------------------------------------------
 
@@ -401,11 +438,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`dni`, `nombre`, `apellido1`, `apellido2`, `direccion`, `foto`, `email`, `email_verified_at`, `sexo`, `role`, `fecha_nacimiento`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-('admin', 'admin', 'admin', NULL, 'admin', NULL, 'admin@admin', NULL, NULL, 'administrador', NULL, '$2y$10$tjq7r.UJZDKW3xTGcRhK7e.63BsbTScZUtP3pB9IQ5qAfsivg6lA2', NULL, '2023-02-20 07:46:08', '2023-02-20 07:46:08'),
-('medico', 'medico', 'medico', NULL, 'medico', '20_02_2023_07_47_33_descarga.png', 'medico@medico.com', NULL, 'masculino', 'medico', '2023-02-16', '$2y$10$dkMJzwb8ftxsyKd5Zl5DleL6TEBD2FbyOqM7YHl0p6dfHch/nHwpi', NULL, '2023-02-20 07:47:33', '2023-02-20 07:47:33'),
-('paciente', 'paciente', 'paciente', 'paciente', 'paciente', '20_02_2023_07_46_52_descarga.png', 'paciente@paciente.com', NULL, 'masculino', 'paciente', '2023-02-17', '$2y$10$LZNnWRf8RyPvz4OQPDnki.Am5HamXyFZ5PQk7XlwAFAglZnbwNFxa', NULL, '2023-02-20 07:46:52', '2023-02-20 07:46:52'),
-('paciente1', 'paciente1', 'paciente1', 'paciente1', 'paciente1', '20_02_2023_07_47_14_descarga.png', 'paciente1@paciente1.com', NULL, 'femenino', 'paciente', '2023-02-25', '$2y$10$HcibrYZ3RaThSe1DpnpSwu6./Z/0k663qtu0i2uF4wMLXxdYzucfi', NULL, '2023-02-20 07:47:14', '2023-02-20 07:47:14'),
-('radiologo', 'radiologo', 'radiologo', NULL, 'radiologo', '20_02_2023_07_47_54_descarga.png', 'radiologo@radiologo.com', NULL, 'masculino', 'medico', '2023-03-04', '$2y$10$Lv6UyHCh.9htkalzr.Go3OCBU9Hh91vnZEDp/HReGv1I9UAZX2VV2', NULL, '2023-02-20 07:47:54', '2023-02-20 07:47:54');
+('medico', 'medico', 'medico', NULL, 'medico', '21_02_2023_12_38_16_descarga.png', 'medico@medico.com', NULL, 'masculino', 'medico', '2023-02-22', '$2y$10$dbyAbizn/6v/yzjYZyR9Ze9GQE.CO7O3DFceAM/cz0U49i2A5LLyq', NULL, '2023-02-21 12:38:16', '2023-02-21 12:38:16'),
+('medicos', 'medicos', 'medicos', NULL, 'medicos', '21_02_2023_12_20_18_descarga.png', 'medicosmedicos', NULL, 'masculino', 'medico', '2023-02-25', '$2y$10$shLdxw7A8Hk7xFNhrNTUDeZC1/1WeYaXTx6umemaO.OHOPmF16ErO', NULL, '2023-02-21 12:20:18', '2023-02-21 12:20:18'),
+('pacientes', 'pacientes', 'pacientes', 'pacientes', 'pacientes', '21_02_2023_12_19_38_descarga.png', 'pacientespacientes', NULL, 'masculino', 'paciente', '2023-03-09', '$2y$10$W2ftKX3Pezllfxefb86Dd.E9TRdHr2VxAasiC7tdn8k.5TH9ncnxG', NULL, '2023-02-21 12:19:38', '2023-02-21 12:19:38');
 
 --
 -- Índices para tablas volcadas
@@ -447,8 +482,7 @@ ALTER TABLE `gestion_historias`
 --
 ALTER TABLE `historias_clinicas`
   ADD PRIMARY KEY (`n_historia`),
-  ADD KEY `historias_clinicas_dni_paciente_foreign` (`dni_paciente`),
-  ADD KEY `historias_clinicas_dni_medico_foreign` (`dni_medico`);
+  ADD KEY `historias_clinicas_dni_paciente_foreign` (`dni_paciente`);
 
 --
 -- Indices de la tabla `informes`
@@ -567,7 +601,7 @@ ALTER TABLE `citas`
 -- AUTO_INCREMENT de la tabla `contiene_medicamentos`
 --
 ALTER TABLE `contiene_medicamentos`
-  MODIFY `id_contiene_medicamentos` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id_contiene_medicamentos` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `failed_jobs`
@@ -579,13 +613,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT de la tabla `gestion_historias`
 --
 ALTER TABLE `gestion_historias`
-  MODIFY `n_gestion_historias` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `n_gestion_historias` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `historias_clinicas`
 --
 ALTER TABLE `historias_clinicas`
-  MODIFY `n_historia` int UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `n_historia` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `informes`
@@ -597,7 +631,7 @@ ALTER TABLE `informes`
 -- AUTO_INCREMENT de la tabla `medicamentos`
 --
 ALTER TABLE `medicamentos`
-  MODIFY `id_medicamento` int UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id_medicamento` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `medicamentos_recetados`
@@ -657,14 +691,13 @@ ALTER TABLE `contiene_medicamentos`
 -- Filtros para la tabla `gestion_historias`
 --
 ALTER TABLE `gestion_historias`
-  ADD CONSTRAINT `gestion_historias_dni_medico_foreign` FOREIGN KEY (`dni_medico`) REFERENCES `medicos` (`dni_medico`),
-  ADD CONSTRAINT `gestion_historias_n_historia_foreign` FOREIGN KEY (`n_historia`) REFERENCES `historias_clinicas` (`n_historia`);
+  ADD CONSTRAINT `gestion_historias_dni_medico_foreign` FOREIGN KEY (`dni_medico`) REFERENCES `medicos` (`dni_medico`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `gestion_historias_n_historia_foreign` FOREIGN KEY (`n_historia`) REFERENCES `historias_clinicas` (`n_historia`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `historias_clinicas`
 --
 ALTER TABLE `historias_clinicas`
-  ADD CONSTRAINT `historias_clinicas_dni_medico_foreign` FOREIGN KEY (`dni_medico`) REFERENCES `medicos` (`dni_medico`),
   ADD CONSTRAINT `historias_clinicas_dni_paciente_foreign` FOREIGN KEY (`dni_paciente`) REFERENCES `pacientes` (`dni_paciente`);
 
 --

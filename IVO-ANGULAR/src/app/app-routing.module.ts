@@ -59,7 +59,7 @@ const routes: Routes = [
     component: GestionarCitaMedComponent
   },
   {
-    path:'historial',
+    path:'historial/:n_historia',
     component: HistorialComponent
   },
   {
@@ -67,7 +67,7 @@ const routes: Routes = [
     component: VerHistorialComponent
   },
   {
-    path:'historialMedico',
+    path:'historialMedico/:dni_paciente',
     component: HistorialMedicoComponent
   },
   {
