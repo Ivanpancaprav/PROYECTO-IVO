@@ -27,6 +27,9 @@ export class CrearHistoriaClinicaComponent {
     public mensajeErr: string;
     public nombre_medico: string;
     public medicos: any;
+  fecha: any;
+  selectedTeam: any;
+  medicoSelec: any;
   
     constructor(private usuarios_service: UsuariosServiceService,private aRoute: ActivatedRoute,private token: TokenStorageService, private toast: ToastrService,private router: Router ) {
       
