@@ -1,0 +1,226 @@
+<div class="container-fluid"><BR>
+  <div class="row">
+    <div class="col-4 p-5 text-center">
+      
+        <div id="encabezado2"><BR>
+          <h6>𝗗𝗔𝗧𝗢𝗦 𝗣𝗘𝗥𝗦𝗢𝗡𝗔𝗟𝗘𝗦</h6><BR>
+        </div><br><BR>
+        <table class="table">
+          <tbody>
+            <tr>
+              <th><h6>Nombre</h6></th>
+              <td>
+                <input
+                  class="form-control shadow text-uppercase negrita"
+                  type="text"
+                  value="{{ perfil.nombre }}"
+                  disabled
+                />
+              </td>
+            </tr>
+            <tr>
+              <th><h6>Apellido</h6></th>
+              <td>   <input class="form-control shadow text-uppercase negrita" type="text"
+                value="{{ perfil.apellido1 }}" disabled></td>
+            </tr>
+            <tr>
+              <th><h6>Fecha nacimiento</h6></th>
+              <td>
+                <input
+                  class="form-control shadow text-uppercase negrita"
+                  type="text"
+                  value="{{ perfil.fecha_nacimiento }}"
+                  disabled >
+              </td>
+            </tr>
+            <tr>
+              <th><h6>DNI</h6></th>
+              <td>
+                <input
+                  class="form-control shadow text-uppercase negrita"
+                  type="text"
+                  value="{{ perfil.dni }}"
+                  disabled
+                />
+              </td>
+            </tr>
+            <tr>
+              <th><h6>Sexo</h6></th>
+              <td>
+                <input
+                  class="form-control shadow text-uppercase negrita"
+                  type="text"
+                  value="{{ perfil.sexo }}"
+                  disabled
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+    <div class="col-8">
+
+          <h6 style="text-align: center;">𝗛𝗜𝗦𝗧𝗢𝗥𝗜𝗔𝗦 𝗔𝗖𝗧𝗨𝗔𝗟𝗘𝗦<a class="btn btn-sm btn-info" data-bs-toggle="tooltip" [routerLink]="['/crearhistoria', id]" style="color: white;">✚</a><br> </h6> <div id="encabezado"><div class="table-wrapper-scroll-y my-custom-scrollbar">
+            
+            <table class="table table-bordered table-striped mb-0">
+            <thead style="text-align: center; ">
+              <tr >
+
+                <th scope="col"><H6>Tramiento</H6></th>
+                <!-- <th scope="col"><H6>Medico</H6></th> -->
+                <th scope="col"><H6>Fecha</H6></th>
+                <th scope="col"><H6>Fecha Fin</H6></th>
+                <td style="width: 170px;"></td>
+              </tr>
+            </thead> <tbody>
+              <tr *ngFor="let historia_clinica of historias_clinicas" style="text-align: center;">
+              <!-- <tr style="text-align: center;">
+              <td scope="row">a</td>
+              <td>a</td>
+              <td>a</td>
+               <td>a</td> -->
+               <td>{{ historia_clinica.tratamiento  }}</td>
+               <!-- <td>{{historia_clinica.medicos[0].user.nombre}}</td> -->
+               <td>{{ historia_clinica.fecha_inicio | date:'dd/MM/YY' }}</td>
+               <td>{{ historia_clinica.fecha_fin | date:'dd/MM/YY' }}</td>
+         
+              <td> 
+                <div class="my-3 text-center">
+                
+                  <a class="btn btn-sm btn-ver ms-1" data-bs-toggle="tooltip" [routerLink]="['/historial',historia_clinica.n_historia]"  ><i class="bi bi-eye" routerLink="/historial"></i></a>
+
+                          &nbsp;&nbsp;&nbsp;&nbsp;
+                        
+                            <a class="btn btn-sm btn-danger ms-1" data-bs-toggle="tooltip">
+                              <i class="bi bi-trash3"></i></a>
+                          
+                </div>
+              </td>
+            </tr></tbody>
+          </table>
+        </div>
+      </div>
+    
+   <br>
+   <br>
+        
+          <h6 style="text-align: center; ">𝗛𝗜𝗦𝗧𝗢𝗥𝗜𝗔𝗦</h6><br><div id="encabezado"><div class="table-wrapper-scroll-y my-custom-scrollbar">
+          <table class="table table-bordered table-striped mb-0">
+            <thead style="text-align: center; ">
+              <tr>
+                
+                <th scope="col"><H6>Especialidad</H6></th>
+                <!-- <th scope="col"><H6>Medico</H6></th> -->
+                <th scope="col"><H6>Fecha</H6></th>
+                <th scope="col"><H6>Fecha Fin</H6></th>
+                <td style="width: 170px;"></td>
+    
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let historia_clinica of historias_clinicas" style="text-align: center;">
+                <td>{{ historia_clinica.tratamiento }}</td>
+                <!-- <td>{{historia_clinica.medicos[0].user.nombre}}</td> -->
+                <td>{{ historia_clinica.fecha_inicio | date:'dd/MM/YY' }}</td>
+                <td>{{ historia_clinica.fecha_fin  | date:'dd/MM/YY' }}</td>
+              
+                <td> 
+                  <div class="my-3 text-center">
+                    <a class="btn btn-sm btn-ver ms-1" data-bs-toggle="tooltip" [routerLink]="['/historial',historia_clinica.n_historia]"  ><i class="bi bi-eye" routerLink="/historial"></i></a>
+                  
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                  
+
+                    <a class="btn btn-sm btn-danger ms-1" data-bs-toggle="tooltip" (click)="eliminarHistorial(historia_clinica.n_historia)">
+                      <i class="bi bi-trash3"></i></a>
+                      
+                  </div>
+               </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    </div>
+ </div>
+
+  <div class="row">
+  <!-- ROW TABLA 1 -->
+  <div class="row p-3 d-flex flex-column">
+      
+    <div class="row mb-2 text-center ">
+      <p class="tituloTabla">Historias Actuales</p>
+    </div>
+    <div class="row ">
+ 
+      <table class="table table-striped table-hover overflow-scroll bg-light" >
+        <thead class="table-light">
+          <tr>
+            <th scope="col">Tramiento</th>
+            <th scope="col">Medico</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Fecha Fin</th>
+            <th scope="col">Administrar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let historia_clinica of historias_clinicas">
+          <td scope="row">{{ historia_clinica.tratamiento }}</td>
+          <td>{{ historia_clinica.medicos[0].user.nombre }}</td>
+          <td>{{ historia_clinica.fecha_inicio | date : "dd/MM/YY" }}</td>
+          <td class="">{{ historia_clinica.fecha_fin | date : "dd/MM/YY" }}</td>
+
+          <td>
+            <button class="botonVerPaciente" [routerLink]="['/historial', historia_clinica.n_historia]">Ver historial</button>
+            <button class="btn btn-sm btn-danger" >
+            <i class="bi bi-trash3"></i></button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+</div>
+     <!-- FIN ROW TABLA -->
+
+     <!-- ROW TABLA 2 -->
+     <div class="row p-3  d-flex flex-column">
+      
+          <div class="row mb-2 text-center  ">
+            <p class="tituloTabla">Historias</p>
+
+          </div>
+          <div class="row">
+  
+            <table class="table table-striped table-hover  bg-light">
+              <thead class="table-light">
+                <tr>
+                  <th scope="col">Tramiento</th>
+                  <th scope="col">Medico</th>
+                  <th scope="col">Fecha</th>
+                  <th scope="col">Fecha Fin</th>
+                  <th scope="col">Administrar</th>
+
+                </tr>
+              </thead>
+              <tbody>
+           
+             
+                <tr *ngFor="let historia_clinica of historias_clinicas">
+                <td scope="row">{{ historia_clinica.tratamiento }}</td>
+                <td>{{ historia_clinica.medicos[0].user.nombre }}</td>
+                <td>{{ historia_clinica.fecha_inicio | date : "dd/MM/YY" }}</td>
+                <td>{{ historia_clinica.fecha_fin | date : "dd/MM/YY" }}</td>
+
+                <td>
+                  <button class="botonVerPaciente" [routerLink]="['/historial', historia_clinica.n_historia]">Ver historial</button>
+                  <button class="btn btn-sm btn-danger" >
+                  <i class="bi bi-trash3"></i></button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+     </div>
+     <!-- FIN ROW TABLA 2 -->
+    </div>
+  
+</div>

@@ -1,0 +1,154 @@
+#encabezado {
+
+    background-color: #fffefec0;
+    color: #020000;
+    border-radius: 15px;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.tituloTabla{
+
+font-size: 35px;
+background-color: rgb(255, 255, 255);
+border: solid 1px black;
+padding: 4px;
+padding-top: 5px;
+padding-bottom: 5px;
+box-shadow: 1px 1px 5px;
+}
+
+table{
+    font-size: 23px;
+}
+
+
+.container
+{
+    min-width: 100%;
+    min-height: 80vh;
+    max-height: 80vh;
+}
+
+#encabezado2 {
+    background: linear-gradient(200deg, rgba(233, 233, 233, 0.932292) -20%, #6BB0BF );
+    color: #020000;
+    border-radius: 15px;
+   
+}
+
+.botonInicio {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    width: 150px;
+    height: 50px;
+    margin: 10px;
+  
+    color: white;
+  
+    background: #266352;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+    border-width: 1px;
+    border-style: solid;
+  }
+  
+  .botonInicio:link,
+  .botonInicio:visited {
+  
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all .2s;
+    position: absolute;
+  }
+  
+  .botonInicio:hover {
+  
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .botonInicio:active {
+  
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .botonInicio-white {
+  
+    background-color: #fff;
+    color: #777;
+  }
+  
+  .botonInicio-white::after {
+  
+    background-color: #fff;
+  }
+  
+  .botonInicio:hover::after {
+  
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+  }
+  
+  .botonInicio-animated {
+  
+    animation: moveInBottom 5s ease-out;
+    animation-fill-mode: backwards;
+  }
+  
+  @keyframes moveInBottom {
+  
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+  
+    100% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+
+
+
+
+
+
+
+.btn-danger{
+    background-color: #ad070700;
+    border-color:#ad070700;
+    height: 20%;
+    width: 40px;
+    border-radius: 80%;
+}
+.bi-trash3{
+    color:#010807;
+    font-size:20px;
+ }
+ .btn{
+    width: 58px;
+    height: 35px;
+}
+ .btn-info{
+    background-color: #055757;
+    border-color:#ad070700;
+    font-size:18px;
+    height: 30PX;
+    width: 30px;
+    border-radius: 80%;
+
+}
+
+.bi-eye{
+    color:#08382c;
+    font-size:20px;
+}
