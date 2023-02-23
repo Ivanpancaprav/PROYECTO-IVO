@@ -4,6 +4,7 @@ import  {HttpClient} from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
 import { TokenStorageService } from 'src/app/_services/token-storage.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Token } from '@angular/compiler';
 
 @Component({
   selector: 'app-historial-medico',
@@ -17,6 +18,7 @@ import { ActivatedRoute, Router } from '@angular/router';
     public titulo: string;
     public subtitulo: string;
     public historias_clinicas: any;
+    public medico: boolean;
    
     public mensajeErr: string;
     public cargando = false;
@@ -24,12 +26,19 @@ import { ActivatedRoute, Router } from '@angular/router';
     dtOptions: DataTables.Settings ={};
     public mostrarTabla: boolean;
    
-    constructor(private usuarios_service:UsuariosServiceService, private aRoute: ActivatedRoute, private router: Router){
+    constructor(private usuarios_service:UsuariosServiceService, private aRoute: ActivatedRoute, private router: Router, private token: TokenStorageService){
       this.mensajeErr ='';
       this.mostrarTabla = false;
+      this.medico = false;
       this.id = this.aRoute.snapshot.paramMap.get('dni_paciente');
       this.titulo = "Consultar Empleado";
       this.subtitulo = "Datos del Empleado";
+
+
+      if(this.token.getUser().success.role == 'medico'){
+        this.medico = true;
+      }
+
     }
     // FUNCION QUE NOS DEVUELVE EL RESULTADO DEL SERVICIO GET PACIENTES,
     // O SEA, TODOS LOS PACIENTES

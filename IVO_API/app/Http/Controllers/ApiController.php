@@ -40,7 +40,6 @@ class ApiController extends Controller
     public function mostrarCitas(Request $request)
     {
 
-
         switch ($request->role) {
             case 'medico':
             case 'radiologo':
@@ -93,21 +92,6 @@ class ApiController extends Controller
         return $medicamentos;
     }
 
-    public function mostrarHistoriasClinicas()
-    {
-
-        $historiasclinicas = DB::select('SELECT * FROM historias_clinicas, users');
-        return $historiasclinicas;
-    }
-
-    public function borrarHistoriasClinicas(Request $request)
-    {  
-        $historiasclinicas = HistoriasClinica::destroy($request->n_historia);
-
-        return response()->json([
-            "message" => "La historia con id =" . $historiasclinicas . " ha sido borrado con éxito"
-        ], 201);
-    }
 
     public function borrarInformes(Request $request)
     {  
