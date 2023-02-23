@@ -2,7 +2,19 @@ Breve descripción:
 
 -Buenas mi nombre es Ivan y estos son mis compañeros Alba y Kike. Nuestro cliente IVO nos pidió un software que permitiese almacenar datos de pacientes, médicos y que permitiese grabar información en las historas médicas
 y después fuera visible por los médicos y los pacientes. 
+
+Comentar que hay back y front, api, que usamos github, jira y figma para el diseño. 
 	
+
+*enseñar figma pantallazo, y acerca a alguna pantalla random*
+
+Para que el desarrollo de la aplicación fuera más ágil usamos jira, que es una herramienta donde permite organizarnos desde el primer día con pequeñas tareas con fecha limite y así tiener cierca conciencia de como avanza el proyecto.
+
+Como cada miembro del grupo trabaja en su respectivo ordenador para poder tener un reposotorio en común dónde guardar las actualizaciónes y que luego a la hora de juntar los cambios no hayan muchos conflictos. 
+
+Antes de comenzar con el desarrollo del software, comenzamos con el diseño de la vista, para ello utilizamos una herramienta llamada figma donde se permite trabajar en equipo y en tiempo real. 
+
+
 	
 	*A medida que voy presentando el proyecto kike o alba van poniendo pantallas de figma, cuando se pone una pantalla figma explico que ese es el prototipo y que el producto 'final' es el que veremos a continuación dentro de 
 	la aplicación* 

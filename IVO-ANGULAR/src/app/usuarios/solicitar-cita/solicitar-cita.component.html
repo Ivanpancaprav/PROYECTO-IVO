@@ -66,7 +66,6 @@ COLUMNA DERECHA
                 
                         <span style="color:red" *ngIf="this.formularioCita.get('descripcion')?.touched && this.formularioCita.get('descripcion')?.errors?.['required']">(Debes poner una descripcion)</span>
 
-                        <button type="submit"  id ="botonConfirmar" class="botonPrevia"   [disabled]="!formularioCita.valid"  >Confirmar </button>  &nbsp;
                         </div>
                       </fieldset>
                   </form>
@@ -74,37 +73,41 @@ COLUMNA DERECHA
                 </ul>
               </div>
           </div>
-<br><br>
-
-</div>
-
-<!-- =====================
+          <br><br>
+          
+        </div>
+        
+        <!-- =====================
 COLUMNA IZQUIERDA
 ================== -->
 
 <div class="col"><br>
-
-<div class="card-body"> 
-
-      <div class="card-deck mb-3 text-center">
-          <div class="card mb-4 box-shadow">
-
-              <div class="card-body ">
-                    <form  [formGroup]="formularioCita" >
+  
+  <div class="card-body"> 
+    
+    <div class="card-deck mb-3 text-center">
+      <div class="card mb-4 box-shadow">
+        
+        <div class="card-body ">
+          <form  [formGroup]="formularioCita" >
                       <article  class="calendar-wrapper">
                         <igx-calendar formControlName="fecha" #calendar (selected)="onSelection($event)"></igx-calendar>
-                    </article>
+                      </article>
                         <span style="color:red" *ngIf="this.formularioCita.get('fecha')?.touched && this.formularioCita.get('fecha')?.errors?.['required']">(Debes seleccionar una fecha)</span>
                         
                       </form>
-                    <button type="button" id="botonCancelar" class="botonPrevia" routerLink="/citas" >Cancelar</button>
+                    </div>
                   </div>
+                </div>
               </div>
-          </div>
-      </div>
 </div>
 </div>
 
+<div class="row  d-flex justify-content-end">
+  <button   id ="botonConfirmar" class="botonPrevia me-5 " (click)="onSubmit()"  [disabled]="!formularioCita.valid"  >Confirmar </button>  &nbsp;
+  <button type="button" id="botonCancelar" class="botonPrevia" routerLink="/citas" >Cancelar</button>
+
+</div>
 </div>
 
 

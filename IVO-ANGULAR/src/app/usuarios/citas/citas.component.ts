@@ -84,7 +84,7 @@ export class CitasComponent implements OnInit {
 
   ngOnInit(): void {
     this.dtOptions = {
-      lengthMenu: [10],
+      lengthMenu: [5],
       processing: true,
       serverSide: false,
       pagingType: 'full_numbers',

@@ -174,3 +174,10 @@ img {
     border-width: 1px;
     border-style: solid;
 }
+
+#radio{
+  background: url( "/assets/images/brazo.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto;
+}

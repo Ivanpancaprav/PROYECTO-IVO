@@ -48,10 +48,10 @@ export class CrearHistoriaClinicaComponent {
         let hora = parseInt(this.formularioCita.value.hora!);
         let minutos = parseInt((this.formularioCita.value.hora!).substring(3,5));
     
-        this.cita.fecha_fin = new Date(this.fecha.getFullYear(),(this.fecha.getMonth()),(this.fecha.getDate()),(hora),(minutos),(0o0),(0o0));
-        this.cita.descripcion = this.formularioCita.value.descripcion!;
-        this.cita.especialidad = this.selectedTeam;
-        this.cita.dni_medico = this.medicoSelec;
+        // this.cita.fecha_fin = new Date(this.fecha.getFullYear(),(this.fecha.getMonth()),(this.fecha.getDate()),(hora),(minutos),(0o0),(0o0));
+        // this.cita.descripcion = this.formularioCita.value.descripcion!;
+        // this.cita.especialidad = this.selectedTeam;
+        // this.cita.dni_medico = this.medicoSelec;
         this.cita.dni_paciente =this.cita.dni_paciente
         console.log(this.cita);
         this.usuarios_service.citaUpdate(this.cita.id_cita,this.cita).subscribe(
