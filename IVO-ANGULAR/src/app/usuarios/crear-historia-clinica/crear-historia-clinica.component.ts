@@ -1,12 +1,4 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
-import { TokenStorageService } from 'src/app/_services/token-storage.service';
-import { UsuariosServiceService } from '../usuarios-service.service';
-import { historias_clinicas } from 'src/app/models/historias_clinicas.model';
-import { data } from 'jquery';
-
 
 @Component({
   selector: 'app-crear-historia-clinica',
@@ -15,25 +7,7 @@ import { data } from 'jquery';
 })
 export class CrearHistoriaClinicaComponent {
 
-  formularioHistoria = new FormGroup({
-    tratamiento: new FormControl('',Validators.required),
-    progreso:new FormControl('',Validators.required),
-    fecha: new FormControl(new Date()),
-    fecha2: new FormControl(new Date()),
-
-  });
-  public dni_paciente:any;
-  public historiaclinica: historias_clinicas;
-
-  constructor(private toast: ToastrService, private usuarios_service:UsuariosServiceService, private aRoute: ActivatedRoute,private route: Router,private token: TokenStorageService){
-
-   this.historiaclinica = new historias_clinicas(0,'','',new Date(),new Date(),0,0);
-    
-  
-    this.dni_paciente = this.aRoute.snapshot.paramMap.get('dni_paciente');
-    
-
-  }
+}
 
 
   onSubmit(){

@@ -3,7 +3,7 @@
     
 <!-- LADO IZQUIERDO -->
     <div class="col-6">
-      <p id="encab"><h5>𝗠𝗘𝗗𝗜𝗖𝗔𝗖𝗜𝗢𝗡  &nbsp;  <a class="btn btn-sm btn-info" data-bs-toggle="tooltip" style="color: white;" >✚</a></h5><br>
+      <p id="encab"><h5>MEDICACIÓN  &nbsp;  <a *ngIf="medico" class="btn btn-sm btn-info" data-bs-toggle="tooltip" style="color: white;" >✚</a></h5><br>
 
       <div class="table-wrapper-scroll-y my-custom-scrollbar">
         
@@ -37,20 +37,18 @@
         </table>
       </div>
       <br>
-      <p id="encab" ><h5> OBSERVACIONES  &nbsp;  <a class="btn btn-sm btn-info" data-bs-toggle="tooltip" style="color: white;">✚</a></h5><br>
+      <p id="encab" ><h5> OBSERVACIONES  &nbsp;  <a *ngIf="medico" class="btn btn-sm btn-info" data-bs-toggle="tooltip" style="color: white;">✚</a></h5><br>
       <div class="table-wrapper-scroll-y my-custom-scrollbar">
         <table class="table table-bordered table-striped mb-0">
           <thead id="encabezado" style="text-align: center;">
             <tr >
-              <th><h6>Progreso</h6></th>
+              <th><h6>Observaciones</h6></th>
             </tr>
           </thead>
-          <tr style="text-align: center;">
-            <tr *ngFor="let historia_clinica of historia" style="text-align: center;">
- 
-              <td>{{ historia_clinica.progreso }}</td>
-            <td> 
-          </tr> 
+          <ul>
+            <li> {{progreso }}</li>
+          </ul>
+             
         </table>
       </div>
   </div>
@@ -58,23 +56,21 @@
 <!-- LADO DERECHO -->
     <div class="col-6">
     
-        <p id="encab"> <h5>RADIOGRAFIA  &nbsp;  <a class="btn btn-sm btn-info" data-bs-toggle="tooltip" style="color: white;" >✚</a></h5><br>
+        <p id="encab"> <h5>RADIOGRAFÍAS  &nbsp;  <a *ngIf="medico" class="btn btn-sm btn-info" data-bs-toggle="tooltip" style="color: white;" >✚</a></h5><br>
 
-        <!-- <select class="form-select" aria-label="Default select example" id="desplegable">
+        <select class="form-select" aria-label="Default select example" id="desplegable">
           <option style="text-align:center">Mostrar radiologías ...</option>
             <tr *ngFor="let medicamento of medicamentos">
               <td >{{ medicamento.progreso }}</td>
             </tr>
-        </select> -->
+        </select>
 
         <div class="table-wrapper-scroll-y my-custom-scrollbar">
           <table class="table table-bordered table-striped mb-0">
            
-           
                 <td></td>
                 <td style="width: 170px;"></td>
-          
-          
+    
             <tr *ngFor="let informe of informes" style="text-align: center;">
               <td>{{ informe.observaciones }}</td>
               <td> 
@@ -89,25 +85,22 @@
           </table>
         </div>
         <br>
-     
 
-        <p id="encab"> <h5>ANALITICA  &nbsp;  <a class="btn btn-sm btn-info" data-bs-toggle="tooltip" style="color: white;" [routerLink]="['/informe']">✚</a></h5><br>
+        <p id="encab"> <h5>ANALÍTICA  &nbsp;  <a  *ngIf="medico" class="btn btn-sm btn-info" data-bs-toggle="tooltip" style="color: white;" [routerLink]="['/informe']">✚</a></h5><br>
 
-        <!-- <select class="form-select" aria-label="Default select example" id="desplegable">
+        <select class="form-select" aria-label="Default select example" id="desplegable">
           <option style="text-align:center">Mostrar radiologías ...</option>
             <tr *ngFor="let medicamento of medicamentos">   
               <td >{{ medicamento.progreso }}</td>
             </tr>
-        </select>  -->
+        </select> 
 
         <div class="table-wrapper-scroll-y my-custom-scrollbar">
           <table class="table table-bordered table-striped mb-0">
-            
-            
+
                 <td></td>
                 <td style="width: 170px;"></td>
-            
-    
+
             <tr *ngFor="let informe of informes" style="text-align: center;">
               <td>{{ informe.observaciones }}</td>
               <td> 

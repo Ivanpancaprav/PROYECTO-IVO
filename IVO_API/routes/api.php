@@ -63,9 +63,17 @@ Route::get('/verCita/{id_cita}',[ApiController::class,'verCita']);
 
 Route::post('/crea_historia',[ApiController::class,'historia_create']);
 Route::delete('/borra_historia/{id_historia}',[ApiController::class,'borra_historia']);
-Route::put('/update_historia/{id_historia}', [ApiController::class, 'updateHistoria']);
-Route::get('/ver_historia/{id_historia}',[ApiController::class,'ver_historia']);
+Route::put('/update_historia/{id_historia}', [ApiController::class, 'update_historia']);
 Route::get('/historiasclinicas', [ApiController::class,'mostrarHistoriasClinicas']); 
+
+
+Route::delete('/borrarinformes/{id_informe}', [ApiController::class,'borrarinformes']); 
+
+Route::post('/set_medicamento_en_historia',[ApiController::class,'set_medicamendo_en_historia']);
+
+Route::post('/crearInformes',[ApiController::class,'crearInformes']);
+Route::get('/ver_historia/{id_historia}',[ApiController::class,'getHistoria']);
+Route::get('/historias/{dni}',[ApiController::class,'getHistorias']);
 
 Route::post('/set_medicamento_en_historia',[ApiController::class,'set_medicamendo_en_historia']);
 Route::get('/get_medicamento_en_historia/{id}',[ApiController::class,'get_medicamentos_en_historia']);

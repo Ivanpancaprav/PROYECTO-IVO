@@ -34,7 +34,7 @@ table{
 }
 
 #encabezado2 {
-    background: linear-gradient(200deg, rgba(233, 233, 233, 0.932292) -20%, #6BB0BF );
+ 
     color: #020000;
     border-radius: 15px;
    
@@ -123,32 +123,78 @@ table{
 
 
 
-.btn-danger{
-    background-color: #ad070700;
-    border-color:#ad070700;
-    height: 20%;
-    width: 40px;
-    border-radius: 80%;
-}
-.bi-trash3{
-    color:#010807;
-    font-size:20px;
- }
- .btn{
-    width: 58px;
-    height: 35px;
-}
- .btn-info{
-    background-color: #055757;
-    border-color:#ad070700;
-    font-size:18px;
-    height: 30PX;
-    width: 30px;
-    border-radius: 80%;
 
-}
-
-.bi-eye{
-    color:#08382c;
-    font-size:20px;
-}
+.botonVerPaciente {
+    font-size: 20px;
+    width: 150px;
+    height: 30px;
+    margin: 3px;
+    color: white;
+  
+    background: #266352;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+    border-width: 1px;
+    border-style: solid;
+  }
+  
+  .botonVerPaciente:link,
+  .botonVerPaciente:visited {
+  
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all .2s;
+    position: absolute;
+  }
+  
+  .botonVerPaciente:hover {
+  
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .botonVerPaciente:active {
+  
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .botonVerPaciente-white {
+  
+    background-color: #fff;
+    color: #777;
+  }
+  
+  .botonVerPaciente-white::after {
+  
+    background-color: #fff;
+  }
+  
+  .botonVerPaciente:hover::after {
+  
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+  }
+  
+  .botonVerPaciente-animated {
+  
+    animation: moveInBottom 5s ease-out;
+    animation-fill-mode: backwards;
+  }
+  
+  @keyframes moveInBottom {
+  
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+  
+    100% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+  

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="container-fluid"><BR>
   <div class="row">
     <div class="col-4 p-5 text-center">
@@ -5,6 +6,16 @@
         <div id="encabezado2"><BR>
           <h6>𝗗𝗔𝗧𝗢𝗦 𝗣𝗘𝗥𝗦𝗢𝗡𝗔𝗟𝗘𝗦</h6><BR>
         </div><br><BR>
+=======
+<div class="container d-flex justify-content-around ">
+ 
+  <div class="row  d-flex justify-content-center">
+    <div class="row align-items-center d-flex">
+      <div class="col mb-5 ">
+        <div id="encabezado2">
+          <h6 class="text-center my-5">DATOS DEL PACIENTE</h6>
+        </div>
+>>>>>>> d482a84ea86f464fb224ca3259300a0cbe813e38
         <table class="table">
           <tbody>
             <tr>
@@ -19,9 +30,21 @@
               </td>
             </tr>
             <tr>
+<<<<<<< HEAD
               <th><h6>Apellido</h6></th>
               <td>   <input class="form-control shadow text-uppercase negrita" type="text"
                 value="{{ perfil.apellido1 }}" disabled></td>
+=======
+              <th><h6>Apellidos</h6></th>
+              <td>
+                <input
+                  class="form-control shadow text-uppercase negrita"
+                  type="text"
+                  value="{{ perfil.apellido1 }}"
+                  disabled
+                />
+              </td>
+>>>>>>> d482a84ea86f464fb224ca3259300a0cbe813e38
             </tr>
             <tr>
               <th><h6>Fecha nacimiento</h6></th>
@@ -57,6 +80,7 @@
             </tr>
           </tbody>
         </table>
+<<<<<<< HEAD
     </div>
     <div class="col-8">
 
@@ -140,6 +164,10 @@
             </tbody>
           </table>
         </div>
+=======
+        <button *ngIf="medico" class="botonInicio m-5" routerLink="/crearHistoria">Nueva historia</button>
+      </div>
+>>>>>>> d482a84ea86f464fb224ca3259300a0cbe813e38
     </div>
  </div>
 

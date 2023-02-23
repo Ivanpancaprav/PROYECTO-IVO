@@ -8,7 +8,7 @@ import { historias_clinicas } from '../models/historias_clinicas.model';
 import { Observable } from 'rxjs';
 import { Medico } from '../models/medico.model';
 
-const baseUrl = 'http://localhost/api/';
+const baseUrl = 'http://localhost/IVO_API/public/api/';
 
 const httpOptions = {
   headers: new HttpHeaders({
