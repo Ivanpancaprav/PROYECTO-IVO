@@ -64,7 +64,7 @@
             </tr>
           </tbody>
         </table>
-        <button class="botonInicio m-5" routerLink="/crearHistoria">Nueva historia</button>
+        <button *ngIf="medico" class="botonInicio m-5" routerLink="/crearHistoria">Nueva historia</button>
       </div>
     </div>
  </div>

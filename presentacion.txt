@@ -1,0 +1,44 @@
+Breve descripción:
+
+-Buenas mi nombre es Ivan y estos son mis compañeros Alba y Kike. Nuestro cliente IVO nos pidió un software que permitiese almacenar datos de pacientes, médicos y que permitiese grabar información en las historas médicas
+y después fuera visible por los médicos y los pacientes. 
+	
+	
+	*A medida que voy presentando el proyecto kike o alba van poniendo pantallas de figma, cuando se pone una pantalla figma explico que ese es el prototipo y que el producto 'final' es el que veremos a continuación dentro de 
+	la aplicación* 
+
+	En el podrías iniciar sesión y dependiendo del tipo de usuario la aplicación funcionaría para una cosa u otra. Este debebía tener un entorno de administración (que lo presentará mi compañero Kike), 
+
+	Pantallas de seguimientos de consultas[historias medicas](que lo presentará Alba):
+
+	Pantalla para citas médicas que darán lugar a las historias médicas que ahora lo veréis.: 
+	
+	1.Primero  Iván empezamos con citas: 
+
+	*.- Ahora, me loguearé como médico y crearemos una cita para un paciente que después logueados como paciente podremos ver.
+
+	Iván: En esta pantalla cuando logueamos como médico podemos ver las citas actuales donde nos aparece el tipo de servicio, la fecha, la hora
+	y el paciente. Podemos también ver las citas previas. Para solicitar una cita como médico primero tenemos que seleccionar el paciente, en esta tabla aparecen todos los pacientes de la aplicación,donde podemos 
+	buscar el que necesitemos o filtrarlo por nombre etc..., nos sale una vista previa desde aqui o bien podemos acceder a su perfil o darle a nueva cita,
+
+	[PANTALLA CITA]: En esta pantalla podemos seleccionar una fecha, el médico al que queremos asignarle la cita ya que como médico podemos derivar pacientes a otros médicos y la hora disponible de ese médico y una breve descripción,
+	 una vez solicitada la cita aparecerá en nuestra pantalla 'citas' y
+	desde aquí podremos o bien eliminarla o bien modificarla, si la modificamos nos lleva a esta pantalla donde podemos modificar cualquier campo. 
+
+	[PANTALLA CITA DESDE PACIENTE]: Ahora como estamos logueados como paciente, podemos ver nuestras citas y también podemos solicitar una cita, le damos a solicitar cita y rellenamos los campos, podemos borrarlas o modificarlas.
+	
+	Y ahora pasará mi compañera alba a explicar como funcionan las historias médicas.
+
+	2.-Segundo Alba que empezará con historias.
+
+	 Alba: Este es la pantalla historial médico donde se encuentran todas las historias actuales(sin finalizar) y las ya finalizadas que solo se pueden observar, 
+	dependiendo de si estas logueado como paciente puedes ver la historia pero si eres médico puedes crear una nueva y añadir información...
+
+	3.- Kike que empezará con administración. 
+
+	Kike: En el entorno de administración se de de alta a usuarios ya sean médicos o pacientes, también podemos almacenar medicamentos.
+
+	*futuras implementaciones:
+		-Poder subir informes: radiografías o analíticas.
+		-Estados en las citas (activa o cancelada)
+		-modificar pequeños detalles de maquetación, botones, datos más realistas.
