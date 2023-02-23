@@ -93,7 +93,7 @@ const routes: Routes = [
   },
   {
     path: 'crearHistoria',
-    component: CrearHistorialComponent, canActivate: [PacienteGuard],
+    component: CrearHistoriaClinicaComponent, canActivate: [PacienteGuard],
   },
 
 ];
