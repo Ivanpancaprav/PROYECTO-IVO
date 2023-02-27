@@ -11,7 +11,7 @@
                         <fieldset>
                           <div class="d-flex flex-column">
                             <label for="tratamiento" class="form-label">Tratamiento </label>
-                            <span style="color:red" *ngIf="this.formularioCita.get('tratamiento')?.touched && this.formularioCita.get('tratamiento')?.errors?.['required']">(Debes seleccionar una especialidad)</span>
+                            <!-- <span style="color:red" *ngIf="this.formularioCita.get('tratamiento')?.touched && this.formularioCita.get('tratamiento')?.errors?.['required']">(Debes seleccionar una especialidad)</span> -->
                             <select id="tratamiento" name="tratamiento" formControlName="tratamiento"  #teams (change)="onSelected(teams.value)" class="form-select form-select-lg mb-4" aria-label="Ejemplo de .form-select-lg" required>
                               <option value="emergencia">emergencia</option>
                               <option value="consulta">consulta</option>
@@ -30,16 +30,15 @@
                             </select> -->
                             <!-- <span style="color:red" >(Debes seleccionar un medico)</span> -->
                             <br>
-                            <label for="hora" class="form-label">Fecha inicio</label><br>
+                            <label for="hora" class="form-label" >Fecha inicio</label><br>
                         
-                              <input type="date" id="start" name="trip-start">
+                              <input type="date" id="start" name="trip-start" formControlName="fecha_creacion">
                        <br>
                           <span style="color:red" >(Debes seleccionar un dia)</span>
   <br><br>
                           <br>
                          
                         </fieldset>   
-                        
-                        <button onclick="(click)" id ="botonConfirmar" class="botonPrevia" [disabled]="!formularioCita.valid"   >Confirmar </button>  &nbsp;
+                        <button type="submit" id ="botonConfirmar" class="botonPrevia"    >Confirmar </button>  &nbsp;
 
                     </form>

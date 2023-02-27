@@ -58,19 +58,17 @@
     
         <p id="encab"> <h5> RADIOGRAFÍAS &nbsp;  <a *ngIf="medico" class="btn btn-sm btn-info" data-bs-toggle="tooltip" style="color: white;" >✚</a></h5><br>
 
-        <select class="form-select" aria-label="Default select example" id="desplegable">
+        <!-- <select class="form-select" aria-label="Default select example" id="desplegable">
           <option style="text-align:center">Mostrar radiologías ...</option>
             <tr *ngFor="let medicamento of medicamentos">
               <td >{{ medicamento.progreso }}</td>
             </tr>
-        </select>
+        </select> -->
 
         <div class="table-wrapper-scroll-y my-custom-scrollbar">
           <table class="table table-bordered table-striped mb-0">
-           
                 <td></td>
                 <td style="width: 170px;"></td>
-    
             <tr *ngFor="let informe of informes" style="text-align: center;">
               <td>{{ informe.observaciones }}</td>
               <td> 
@@ -88,12 +86,12 @@
 
         <p id="encab"> <h5>ANALÍTICA  &nbsp;  <a  *ngIf="medico" class="btn btn-sm btn-info" data-bs-toggle="tooltip" style="color: white;" [routerLink]="['/informe']">✚</a></h5><br>
 
-        <select class="form-select" aria-label="Default select example" id="desplegable">
+        <!-- <select class="form-select" aria-label="Default select example" id="desplegable">
           <option style="text-align:center">Mostrar radiologías ...</option>
             <tr *ngFor="let medicamento of medicamentos">   
               <td >{{ medicamento.progreso }}</td>
             </tr>
-        </select> 
+        </select>  -->
 
         <div class="table-wrapper-scroll-y my-custom-scrollbar">
           <table class="table table-bordered table-striped mb-0">

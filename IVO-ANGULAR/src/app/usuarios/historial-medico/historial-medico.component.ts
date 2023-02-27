@@ -34,11 +34,9 @@ import { Token } from '@angular/compiler';
       this.titulo = "Consultar Empleado";
       this.subtitulo = "Datos del Empleado";
 
-
       if(this.token.getUser().success.role == 'medico'){
         this.medico = true;
       }
-
     }
     // FUNCION QUE NOS DEVUELVE EL RESULTADO DEL SERVICIO GET PACIENTES,
     // O SEA, TODOS LOS PACIENTES
@@ -55,7 +53,7 @@ import { Token } from '@angular/compiler';
             this.mensajeErr ="";
             if(error instanceof ErrorEvent){
               this.mensajeErr = error.error.message;
-    
+
             }else if(error.status == 404){
               this.mensajeErr ="Error 404"
     

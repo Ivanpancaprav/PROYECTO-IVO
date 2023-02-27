@@ -67,11 +67,6 @@ Route::put('/update_historia/{id_historia}', [ApiController::class, 'update_hist
 Route::get('/historiasclinicas', [ApiController::class,'mostrarHistoriasClinicas']); 
 
 
-Route::delete('/borrarinformes/{id_informe}', [ApiController::class,'borrarinformes']); 
-
-Route::post('/set_medicamento_en_historia',[ApiController::class,'set_medicamendo_en_historia']);
-
-Route::post('/crearInformes',[ApiController::class,'crearInformes']);
 Route::get('/ver_historia/{id_historia}',[ApiController::class,'getHistoria']);
 Route::get('/historias/{dni}',[ApiController::class,'getHistorias']);
 
