@@ -1,7 +1,7 @@
 
 .botonPrevia{
 position: absolute;
-top: 105%;
+top: 104%;
 left: 26%;
     width: 200px;
     height: 55px;
@@ -26,6 +26,6 @@ left: 26%;
 
     .card{
     position: absolute;
-    top:25%;
+    top:18%;
     left: 41%;
     }

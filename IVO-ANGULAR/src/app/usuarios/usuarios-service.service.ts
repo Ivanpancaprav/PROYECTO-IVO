@@ -78,9 +78,10 @@ export class UsuariosServiceService {
 
   // RUTAS HISTORIAS MEDICAS
 
-  historia_create(historia: historias_clinicas):Observable<any>{
-    // console.log(baseUrl+'crea_historia')
-    return this.Http.post(baseUrl+'crea_historia',historia,httpOptions);
+  historia_create(tratamiento: string, fecha_inicio:string, dni_paciente:string, progreso:string):Observable<any>{
+    console.log(baseUrl+'crea_historia', tratamiento, fecha_inicio, dni_paciente,progreso);
+    // console.log(historia);
+    return this.Http.post(baseUrl+'crea_historia',{tratamiento,fecha_inicio, dni_paciente, progreso},httpOptions);
   }
 
   getHistoria(n_historia: number): Observable<any>{

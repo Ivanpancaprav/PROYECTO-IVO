@@ -32,12 +32,16 @@
                             <br>
                             <label for="hora" class="form-label" >Fecha inicio</label><br>
                         
-                              <input type="date" id="start" name="trip-start" formControlName="fecha_creacion">
+                              <input type="date" id="start" name="trip-start" formControlName="fecha_inicio">
                        <br>
-                          <span style="color:red" >(Debes seleccionar un dia)</span>
-  <br><br>
-                          <br>
-                         
+                          <!-- <span style="color:red" >(Debes seleccionar un dia)</span>
+  <br><br> --><br> 
+                          <br>  <label for="descripcion" >Dni del paciente</label><br>
+                          <input  type="text" name="dni_paciente" formControlName="dni_paciente" name="dni_paciente" id="dni_paciente" required>
+                         <br>
+
+                          <label for="progreso" class="form-label">Añadir comentarios</label><br>
+                          <textarea name="Text1" cols="40" rows="5"  formControlName="progreso" name="progreso" id="progreso" required></textarea>
                         </fieldset>   
                         <button type="submit" id ="botonConfirmar" class="botonPrevia"    >Confirmar </button>  &nbsp;
 
