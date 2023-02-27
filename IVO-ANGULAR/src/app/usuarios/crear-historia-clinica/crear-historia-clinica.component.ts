@@ -58,8 +58,8 @@ export class CrearHistoriaClinicaComponent {
        
         this.usuarios_service.historia_create(this.formularioCita.value.tratamiento!, this.formularioCita.value.fecha_inicio!, this.formularioCita.value.dni_paciente!,this.formularioCita.value.progreso! ).subscribe(
           result => {
-            this.toast.success('La historia ha sido guardada con éxito','Historias_clinicas');
-            this.route.navigate(['/Historias_clinicas']);
+            this.toast.success('La historia ha sido guardada con éxito','Historia Clinica');
+            this.route.navigate(['/historial']);
       
           },
           error =>{

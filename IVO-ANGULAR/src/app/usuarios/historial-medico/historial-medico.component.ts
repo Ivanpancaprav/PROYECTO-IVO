@@ -25,6 +25,7 @@ import { Token } from '@angular/compiler';
     public perfil: any;
     dtOptions: DataTables.Settings ={};
     public mostrarTabla: boolean;
+dialog: any;
    
     constructor(private usuarios_service:UsuariosServiceService, private aRoute: ActivatedRoute, private router: Router, private token: TokenStorageService){
       this.mensajeErr ='';
