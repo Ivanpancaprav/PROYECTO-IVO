@@ -26,6 +26,7 @@ import { Token } from '@angular/compiler';
     dtOptions: DataTables.Settings ={};
     public mostrarTabla: boolean;
 dialog: any;
+  toast: any;
    
     constructor(private usuarios_service:UsuariosServiceService, private aRoute: ActivatedRoute, private router: Router, private token: TokenStorageService){
       this.mensajeErr ='';
@@ -122,32 +123,45 @@ dialog: any;
         };
       }
 
-      eliminarHistorial(id: string) {
+      // eliminarHistorial(id: string) {
       
    
+      //   this.usuarios_service.borrarHistorias_clinicas(id).subscribe(
+      //       result => {
+      //         this.cargando = false;
+      //         console.log("Empleado eliminado con éxito");
+      //        this.toastr.success('Dato eliminado con éxito!!', 'Eliminado empleado', {positionClass: 'toast-bottom-right', timeOut:2000});
+      //         this.getEmpleados();
+      //         console.log("VOLVEMOS AL LISTADO DE EMPLEADOS, ERA UN BORRADO")
+      //       },
+      //       error => {
+      //         this.cargando = false;
+      //         this.mensajeErr = '';
+      //         if (error instanceof ErrorEvent) {
+      //           this.mensajeErr = error.error.message;
+      //         }
+      //         else if (error.status == 404) {
+      //           this.mensajeErr = "Error 404"
+      //         } else {
+      //           this.mensajeErr = "Error status:" + error.status;
+      //         }
+      //         console.log(this.mensajeErr);
+      //       }
+      //     );
+      // }
+
+      eliminarHistorial(id: string){
         this.usuarios_service.borrarHistorias_clinicas(id).subscribe(
-            result => {
-              this.cargando = false;
-              // console.log("Empleado eliminado con éxito");
-             // this.toastr.success('Dato eliminado con éxito!!', 'Eliminado empleado', {positionClass: 'toast-bottom-right', timeOut:2000});
-              // this.getEmpleados();
-              // console.log("VOLVEMOS AL LISTADO DE EMPLEADOS, ERA UN BORRADO")
-            },
-            error => {
-              this.cargando = false;
-              this.mensajeErr = '';
-              if (error instanceof ErrorEvent) {
-                this.mensajeErr = error.error.message;
-              }
-              else if (error.status == 404) {
-                this.mensajeErr = "Error 404"
-              } else {
-                this.mensajeErr = "Error status:" + error.status;
-              }
-              console.log(this.mensajeErr);
-            }
-          );
+    
+          result =>{
+            this.toast.success('Historia borrarada con éxito','Historia');
+          },
+          error =>{
+            console.log("ERROR");
+          }
+        );
       }
+    
     
       onSubmit() {
   

@@ -51,9 +51,7 @@ export class UsuariosServiceService {
   }
 
 
-  borrarHistorias_clinicas(id: string): Observable<any> {
-    return this.Http.delete(baseUrl + 'borrarHistoriasClinicas/'+id);
-  }
+ 
   crearCita(cita: Citas): Observable<any>{
     return this.Http.post(baseUrl +'crea_cita',cita,httpOptions);
   }
@@ -82,6 +80,10 @@ export class UsuariosServiceService {
     console.log(baseUrl+'crea_historia', tratamiento, fecha_inicio, dni_paciente,progreso);
     // console.log(historia);
     return this.Http.post(baseUrl+'crea_historia',{tratamiento,fecha_inicio, dni_paciente, progreso},httpOptions);
+  }
+
+  borrarHistorias_clinicas(id: string): Observable<any> {
+    return this.Http.delete(baseUrl + 'borrarHistoriasClinicas/'+id);
   }
 
   getHistoria(n_historia: number): Observable<any>{

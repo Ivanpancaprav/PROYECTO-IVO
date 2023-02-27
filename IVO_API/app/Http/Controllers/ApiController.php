@@ -246,7 +246,7 @@ class ApiController extends Controller
         return response()->json([
             "message" => "La historia con id =" . $historia . " ha sido borrado con éxito"
         ], 201);
-    }
+    } 
 
     public function set_medicamendo_en_historia(Request $request){
 
