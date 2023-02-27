@@ -67,19 +67,14 @@
 
         <div class="table-wrapper-scroll-y my-custom-scrollbar">
           <table class="table table-bordered table-striped mb-0">
-<<<<<<< HEAD
-                <td></td>
-                <td style="width: 170px;"></td>
-=======
-           
+<!--            
                 <td style="width: 170px;"><a>Se observa la fractura de cúbito</a></td>
-                <td><img id="radio" src="" style="height: 200px; max-width:100px" alt=""></td>
+                <td><img id="radio" src="" style="height: 200px; max-width:100px" alt=""></td> -->
                 
     
->>>>>>> 2f62161ab05b98404bf07640491ed73ad788d964
             <tr *ngFor="let informe of informes" style="text-align: center;">
               <td>{{ informe.observaciones }}</td>
-              <td> 
+              <td style="width: 170px;"> 
                 <div class="my-3 text-center">
                   <a class="btn btn-sm btn-ver ms-1" data-bs-toggle="tooltip" ><i class="bi bi-eye" [routerLink]="['/informe',informe.id_informe]" ></i></a>
                           &nbsp;&nbsp;&nbsp;&nbsp;
