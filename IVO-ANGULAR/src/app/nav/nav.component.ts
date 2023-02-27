@@ -42,7 +42,7 @@ export class NavComponent implements OnInit {
       const user = this.tokenStorageService.getUser();
       this.dni = user.success.dni;
       this.email = user.success.email;
-
+      this.dni = user.success.dni;
       this.nombre = user.nombre;
       console.log(user.success.role);
 

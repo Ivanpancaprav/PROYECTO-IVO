@@ -77,3 +77,9 @@ Route::get('/historias/{dni}',[ApiController::class,'getHistorias']);
 
 Route::post('/set_medicamento_en_historia',[ApiController::class,'set_medicamendo_en_historia']);
 Route::get('/get_medicamento_en_historia/{id}',[ApiController::class,'get_medicamentos_en_historia']);
+
+
+//RUTAS INFORMES
+Route::delete('/borrarinformes/{id_informe}', [ApiController::class,'borrarinformes']); 
+Route::post('/crearInformes',[ApiController::class,'crearInformes']);
+

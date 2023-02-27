@@ -80,12 +80,20 @@ const routes: Routes = [
     component: Informes
   },
   {
+    path:'Historias_clinicas',
+    component: historias_clinicas
+  },
+  {
+    path:'crearhistoria',
+    component: CrearHistoriaClinicaComponent
+  },
+  {
     path: 'pacientes',
     component: PacientesComponent, canActivate: [PacienteGuard],
   },
   {
     path: 'crearHistoria',
-    component:CrearHistoriaClinicaComponent,
+    component: CrearHistoriaClinicaComponent, canActivate: [PacienteGuard],
   },
 
 ];
