@@ -171,16 +171,16 @@ class ApiController extends Controller
 
     public function historia_create(Request $request){
 
-        $medico = Medico::where('dni_medico', '=', $request->dni_medico)->firstOrFail();
-        $paciente = Paciente::where('dni_paciente', '=', $request->dni_paciente)->firstOrFail();
-        $historia = new HistoriasClinica(['tratamiento' => $request->tratamiento, 'progreso' => $request->progreso, 'fecha_inicio' => $request->fecha_inicio]);
+        // $medico = Medico::where('dni_medico', '=', $request->dni_medico)->firstOrFail();
+        // $paciente = Paciente::where('dni_paciente', '=', $request->dni_paciente)->firstOrFail();
+        $historia = new HistoriasClinica(['tratamiento' => $request->tratamiento, 'fecha_inicio' => $request->fecha_inicio]);
 
         //INSERTAMOS EL PACIENTE EN LA RELACION 1 A M
-        $paciente->historiasClinicas()->save($historia);
+        // $paciente->historiasClinicas()->save($historia);
 
         //INSERTAMOS EL MEDICO EN LA TABLA INTERMEDIA RELACION M : M
         // $historia->medico()->attach($medico);
-        $medico->historiasClinicas()->attach($historia);
+        // $medico->historiasClinicas()->attach($historia);
     }
 
     public function update_historia(Request $request){

@@ -13,11 +13,12 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class CrearHistoriaClinicaComponent {
 
-      formularioCita = new FormGroup({
-      fecha_creacion: new FormControl(new Date()),
-      Tratamiento: new FormControl('',Validators.required),
-  
-    });    
+       
+     formularioCita  = new FormGroup({
+      tratamiento: new FormControl('', [Validators.required,]),
+      fecha_creacion: new FormControl('', [Validators.required]),
+   
+    });
 
 
   public fecha: any;
@@ -25,12 +26,10 @@ export class CrearHistoriaClinicaComponent {
   router: any;
   mensajeErr: string | undefined;
   public  dni_paciente: string | null;
-  public  tratamiento: string;
   public selectedTeam: string;
  
   constructor(private toast: ToastrService, private usuarios_service:UsuariosServiceService, private aRoute: ActivatedRoute,private route: Router,private token: TokenStorageService){
     this.selectedTeam ="";
-    this.tratamiento ="";
    
     this.dni_paciente = this.aRoute.snapshot.paramMap.get('dni_paciente');
     this.fecha = new Date();
@@ -43,42 +42,41 @@ export class CrearHistoriaClinicaComponent {
 
     onSelected(tratamiento: string):void{
       this.selectedTeam = tratamiento;
-      console.log(this.selectedTeam);
+     
     }
 
-    onSubmit() {
-  
+    onSubmit() { 
+    
+      
+      if (this.formularioCita.valid) {
+        console.log("tratamiento",this.formularioCita.value.tratamiento);
+        console.log("fecha_creacion",this.formularioCita.value.fecha_creacion);
+       
+        this.usuarios_service.historia_create(this.historia).subscribe(
+          result => {
+            this.toast.success('La historia ha sido guardada con éxito','Historias_clinicas');
+            this.route.navigate(['/Historias_clinicas']);
+      
+          },
+          error =>{
+            this.mensajeErr = '';
+            if (error instanceof ErrorEvent) {
+              this.mensajeErr = error.error.message;
+            }
+            else if (error.status == 409) {
+              this.mensajeErr = "La historia ya existe"
+            } else {
+              this.mensajeErr = "Error status:" + error.status;
+            }
+          }
+        )
+      }
       console.log(this.formularioCita);
     
    
-      this.historia.fecha_creacion = new Date();
-      this.historia.tratamiento = this.formularioCita.value.Tratamiento!;
-      this.historia.dni_paciente =this.dni_paciente!;
-  
-
-
-      this.usuarios_service.historia_create(this.historia).subscribe(
-        result => {
-          this.toast.success('La historia ha sido guardada con éxito','Historias_clinicas');
-          this.route.navigate(['/Historias_clinicas']);
-    
-        },
-        error =>{
-          this.mensajeErr = '';
-          if (error instanceof ErrorEvent) {
-            this.mensajeErr = error.error.message;
-          }
-          else if (error.status == 409) {
-            this.mensajeErr = "Cita ya existe"
-          } else {
-            this.mensajeErr = "Error status:" + error.status;
-          }
-        }
-      )
-  }
-
-
 
   }
+
+}
   
 

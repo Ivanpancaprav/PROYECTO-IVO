@@ -84,7 +84,7 @@
             <th scope="col">Tramiento</th>
             <!-- <th scope="col">Medico</th> -->
             <th scope="col">Fecha</th>
-            <th scope="col">Fecha Fin</th>
+            <!-- <th scope="col">Fecha Fin</th> -->
             <th scope="col"  style="width: 230px;">Administrar</th>
           </tr>
         </thead>
@@ -92,8 +92,8 @@
           <tr *ngFor="let historia_clinica of historias_clinicas">
           <td scope="row" style="text-align: center;">{{ historia_clinica.tratamiento }}</td>
           <!-- <td>{{ historia_clinica.medicos[0].user.nombre }}</td> -->
-          <td style="text-align: center;">{{ historia_clinica.fecha_inicio | date : "dd/MM/YY" }}</td>
-          <td class="" style="text-align: center;">{{ historia_clinica.fecha_fin | date : "dd/MM/YY" }}</td>
+           <td style="text-align: center;">{{ historia_clinica.fecha_inicio | date : "dd/MM/YY" }}</td> 
+          <!-- <td class="" style="text-align: center;">{{ historia_clinica.fecha_fin | date : "dd/MM/YY" }}</td>  -->
 
           <td>
             <button class="botonVerPaciente" [routerLink]="['/historial', historia_clinica.n_historia]" >Ver historial</button>
