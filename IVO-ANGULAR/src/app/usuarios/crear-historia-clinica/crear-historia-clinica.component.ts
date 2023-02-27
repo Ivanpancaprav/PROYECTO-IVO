@@ -62,36 +62,11 @@ export class CrearHistoriaClinicaComponent {
           this.toast.success('La historia ha sido guardada con éxito','Historias_clinicas');
           this.route.navigate(['/Historias_clinicas']);
     
-<<<<<<< HEAD
-        // this.cita.fecha_fin = new Date(this.fecha.getFullYear(),(this.fecha.getMonth()),(this.fecha.getDate()),(hora),(minutos),(0o0),(0o0));
-        // this.cita.descripcion = this.formularioCita.value.descripcion!;
-        // this.cita.especialidad = this.selectedTeam;
-        // this.cita.dni_medico = this.medicoSelec;
-        this.cita.dni_paciente =this.cita.dni_paciente
-        console.log(this.cita);
-        this.usuarios_service.citaUpdate(this.cita.id_cita,this.cita).subscribe(
-          result => {
-            this.toast.success('Cita modificada con éxito','Cita');
-            this.router.navigate(['/citas']);
-  
-          },
-          error =>{
-            this.mensajeErr = '';
-            if (error instanceof ErrorEvent) {
-              this.mensajeErr = error.error.message;
-            }
-            else if (error.status == 409) {
-              this.mensajeErr = "Empleado ya existe"
-            } else {
-              this.mensajeErr = "Error status:" + error.status;
-            }
-=======
         },
         error =>{
           this.mensajeErr = '';
           if (error instanceof ErrorEvent) {
             this.mensajeErr = error.error.message;
->>>>>>> d2020b498830d19247390a65692f5687d20421e9
           }
           else if (error.status == 409) {
             this.mensajeErr = "Cita ya existe"
